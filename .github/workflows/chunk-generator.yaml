@@ -1,0 +1,31 @@
+name: Chunk Generator
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+
+jobs:
+  build-and-test:
+    name: Chunk Generator Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        working-directory: ./packages/chunk-generator
+        run: npm run lint
+      - name: Type check
+        working-directory: ./packages/chunk-generator
+        run: npm run type-check
+      - name: Test
+        working-directory: ./packages/chunk-generator
+        run: npm run test
