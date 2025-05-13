@@ -12,7 +12,6 @@
   },
   "workspaces": [
     "packages/chunk-generator",
-    "packages/config",
-    "packages/cli"
+    "packages/config"
   ]
 }

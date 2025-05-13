@@ -8,5 +8,8 @@ const gitignorePath = resolve(getDirname(), "..", "..", ".gitignore");
 export default getNodeESLintConfig({
   gitignorePaths: gitignorePath,
   rootDir: getDirname(),
-  entryPoints: { "eslint.config.mjs": ["default"] },
+  entryPoints: {
+    "eslint.config.mjs": ["default"],
+    "src/index.ts": ["generateChunks"],
+  },
 });
