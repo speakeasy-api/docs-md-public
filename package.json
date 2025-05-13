@@ -1,0 +1,18 @@
+{
+  "description": "API docs monorepo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speakeasy-api/docs.git"
+  },
+  "devDependencies": {
+    "cross-dirname": "^0.1.0",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  },
+  "workspaces": [
+    "packages/chunk-ui-generator",
+    "packages/config",
+    "packages/cli"
+  ]
+}
