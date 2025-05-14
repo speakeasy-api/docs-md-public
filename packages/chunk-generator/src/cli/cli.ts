@@ -1,9 +1,11 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
 import arg from "arg";
 import { load } from "js-yaml";
 
 import { generateChunks } from "../generator/generateChunks.ts";
+import { getDirname } from "../util/currentDirName.ts";
 
 const args = arg({
   "--help": Boolean,
@@ -40,5 +42,11 @@ if (!existsSync(spec)) {
 const specData = readFileSync(spec, "utf-8");
 const schema = JSON.stringify(load(specData));
 
-const chunkContents = await generateChunks(schema);
-console.log(chunkContents);
+const chunkContents = await generateChunks(
+  schema,
+  join(getDirname(import.meta.url), "..", "..", "docs-dist")
+);
+
+for (const [filename, contents] of Object.entries(chunkContents)) {
+  writeFileSync(filename, contents);
+}
