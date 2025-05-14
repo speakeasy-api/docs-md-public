@@ -13,7 +13,7 @@ export function getDocsMDX(
     if (id.startsWith("$")) {
       continue;
     }
-    const fileUrl = `${basePath}/${id}.mdx`;
+    const fileUrl = `${basePath}/${id}/page.mdx`;
     switch (chunk.chunkType) {
       case "about": {
         chunkMap[fileUrl] = renderAbout(chunk);

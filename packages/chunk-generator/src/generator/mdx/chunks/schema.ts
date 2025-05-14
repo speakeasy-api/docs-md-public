@@ -17,7 +17,7 @@ export function renderSchema(
     objectValue: ObjectValue,
     { isOpenOnLoad = false }: { isOpenOnLoad?: boolean }
   ) {
-    renderer.beginExpandableSection("&gt; Expand", {
+    renderer.beginExpandableSection("Expand", {
       isOpenOnLoad,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
