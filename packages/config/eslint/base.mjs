@@ -5,13 +5,14 @@ import unusedImports from "eslint-plugin-unused-imports";
 import { includeIgnoreFile } from "@eslint/compat";
 import { all } from "eslint-plugin-fast-import";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { globalIgnores } from "eslint/config";
 
 export const getBaseESLintConfig = ({
   gitignorePaths,
   rootDir,
   entryPoints,
+  ignores,
 }) => {
-  console.log(rootDir);
   if (!Array.isArray(gitignorePaths)) {
     gitignorePaths = [gitignorePaths];
   }
@@ -19,6 +20,7 @@ export const getBaseESLintConfig = ({
     ...gitignorePaths.map(includeIgnoreFile),
     eslint.configs.recommended,
     eslintConfigPrettier,
+    ...(ignores ? [globalIgnores(ignores)] : []),
     all({ rootDir, entryPoints }),
     ...tseslint.configs.recommendedTypeChecked,
     {

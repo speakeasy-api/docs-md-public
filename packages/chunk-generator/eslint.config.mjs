@@ -12,4 +12,5 @@ export default getNodeESLintConfig({
     "eslint.config.mjs": ["default"],
     "src/index.ts": ["generateChunks"],
   },
+  ignores: ["src/generator/docsData/wasm_exec.js"],
 });
