@@ -5,7 +5,7 @@
   "bin": "./dist/cli/cli.js",
   "scripts": {
     "test": "",
-    "build": "tsc && cp -r ./src/generator/wasm/* ./dist/generator/wasm/",
+    "build": "tsc && cp ./src/generator/docsData/*.gz ./dist/generator/docsData/",
     "dev": "",
     "format": "prettier --config ../../prettier.config.mjs --ignore-path ../../.gitignore --write \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
     "lint": "eslint \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",

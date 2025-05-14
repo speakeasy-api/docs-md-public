@@ -40,5 +40,5 @@ if (!existsSync(spec)) {
 const specData = readFileSync(spec, "utf-8");
 const schema = JSON.stringify(load(specData));
 
-const chunkContents = generateChunks(schema);
+const chunkContents = await generateChunks(schema);
 console.log(chunkContents);
