@@ -86,13 +86,13 @@ type IntegerValue = BaseValue & {
   type: "integer";
 };
 
-type ObjectValue = BaseValue & {
+export type ObjectValue = BaseValue & {
   type: "object";
   properties: Record<string, SchemaValue>;
   required: string[];
 };
 
-type ArrayValue = BaseValue & {
+export type ArrayValue = BaseValue & {
   type: "array";
   items: SchemaValue;
 };
@@ -106,7 +106,7 @@ type SchemaValue =
   | ObjectValue
   | ArrayValue;
 
-type SchemaChunk = {
+export type SchemaChunk = {
   id: string;
   chunkData: SchemaValue;
   chunkType: "schema";

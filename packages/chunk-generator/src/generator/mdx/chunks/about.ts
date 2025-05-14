@@ -1,7 +1,7 @@
 import type { AboutChunk } from "../../../types/chunk.ts";
 import { Renderer } from "../renderer.ts";
 
-export function renderAboutChunk(chunk: AboutChunk) {
+export function renderAbout(chunk: AboutChunk) {
   const renderer = new Renderer();
   renderer.appendHeading(1, chunk.chunkData.title);
   if (chunk.chunkData.version) {
