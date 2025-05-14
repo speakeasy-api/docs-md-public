@@ -20,7 +20,9 @@ declare class Go {
 
 const wasmPath = join(dirname(fileURLToPath(import.meta.url)), "lib.wasm.gz");
 
-export async function getDocsData(specContents: string): Promise<Chunk[]> {
+export async function getDocsData(
+  specContents: string
+): Promise<Map<string, Chunk>> {
   const gzippedBuffer = await readFile(wasmPath);
   const wasmBuffer = unzipSync(gzippedBuffer);
   const go = new Go();
@@ -30,5 +32,5 @@ export async function getDocsData(specContents: string): Promise<Chunk[]> {
   const docsData = (JSON.parse(serializedDocsData) as string[]).map(
     (chunk) => JSON.parse(chunk) as Chunk
   );
-  return docsData;
+  return new Map(docsData.map((chunk) => [chunk.id, chunk]));
 }

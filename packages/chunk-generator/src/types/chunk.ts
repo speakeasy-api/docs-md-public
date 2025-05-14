@@ -53,7 +53,7 @@ type OperationData = {
   responses: Record<string, Response[]>;
 };
 
-type OperationChunk = {
+export type OperationChunk = {
   id: string;
   chunkData: OperationData;
   chunkType: "operation";

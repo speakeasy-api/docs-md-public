@@ -1,0 +1,77 @@
+import type { Chunk, OperationChunk } from "../../../types/chunk.ts";
+import { Renderer } from "../renderer.ts";
+import { getSchemaFromId } from "../util.ts";
+import { renderSchema } from "./schema.ts";
+
+export function renderOperation(
+  chunk: OperationChunk,
+  docsData: Map<string, Chunk>
+) {
+  const renderer = new Renderer();
+
+  renderer.appendHeading(1, chunk.chunkData.operationId);
+  renderer.appendParagraph(
+    `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
+  );
+
+  if (chunk.chunkData.summary) {
+    renderer.appendParagraph(`_${chunk.chunkData.summary}_`);
+  }
+
+  if (chunk.chunkData.description) {
+    renderer.appendParagraph(chunk.chunkData.description);
+  }
+
+  if (chunk.chunkData.parameters.length > 0) {
+    renderer.appendHeading(2, "Parameters");
+    for (const parameter of chunk.chunkData.parameters) {
+      renderer.appendHeading(
+        3,
+        `${parameter.name}${parameter.required ? " (required)" : ""}`
+      );
+      if (parameter.description) {
+        renderer.appendParagraph(parameter.description);
+      }
+    }
+  }
+
+  if (chunk.chunkData.requestBody) {
+    renderer.appendHeading(
+      2,
+      `Request Body${chunk.chunkData.requestBody.required ? " (required)" : ""}`
+    );
+    if (chunk.chunkData.requestBody.description) {
+      renderer.appendParagraph(chunk.chunkData.requestBody.description);
+    }
+    const requestBodySchema = getSchemaFromId(
+      chunk.chunkData.requestBody.contentChunkId,
+      docsData
+    );
+    renderSchema(renderer, requestBodySchema, docsData, {
+      baseHeadingLevel: 3,
+    });
+  }
+
+  if (chunk.chunkData.responses) {
+    renderer.appendHeading(2, "Responses");
+    for (const [statusCode, responses] of Object.entries(
+      chunk.chunkData.responses
+    )) {
+      for (const response of responses) {
+        renderer.appendHeading(3, `${statusCode} (${response.contentType})`);
+        if (response.description) {
+          renderer.appendParagraph(response.description);
+        }
+        const responseSchema = getSchemaFromId(
+          response.contentChunkId,
+          docsData
+        );
+        renderSchema(renderer, responseSchema, docsData, {
+          baseHeadingLevel: 4,
+        });
+      }
+    }
+  }
+
+  return renderer.render();
+}
