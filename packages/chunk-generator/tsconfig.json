@@ -11,7 +11,10 @@
     // so we have to disable checking/loosen checking on our usage of third party
     // dependencies
     "skipLibCheck": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "allowJs": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "bin/**/*"]
 }

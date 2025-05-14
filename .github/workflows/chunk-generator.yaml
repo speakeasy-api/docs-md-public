@@ -29,3 +29,6 @@ jobs:
       - name: Test
         working-directory: ./packages/chunk-generator
         run: npm run test
+      - name: Build
+        working-directory: ./packages/chunk-generator
+        run: npm run build
