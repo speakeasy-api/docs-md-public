@@ -21,14 +21,26 @@ export function renderSchema(
       isOpenOnLoad,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
-      renderer.appendHeading(baseHeadingLevel + 1, key);
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
+        renderer.appendHeading(
+          baseHeadingLevel + 1,
+          `${renderer.escapeText(key)}: \`${renderer.escapeText(schemaChunk.chunkData.type)}\``,
+          {
+            escape: false,
+          }
+        );
         renderSchema(renderer, schemaChunk, docsData, {
           baseHeadingLevel,
         });
       } else {
-        renderer.appendParagraph(`Type: ${value.type}`);
+        renderer.appendHeading(
+          baseHeadingLevel + 1,
+          `${renderer.escapeText(key)}: \`${renderer.escapeText(value.type)}\``,
+          {
+            escape: false,
+          }
+        );
       }
     }
     renderer.endExpandableSection();

@@ -9,6 +9,7 @@ paths:
   /pets:
     get:
       summary: Get all pets
+      description: Returns a list of all pets in the store
       operationId: getPets
       responses:
         "200":
@@ -68,10 +69,16 @@ components:
           example: 1
         name:
           type: string
+          description: The name of the pet
           example: Fluffy
-        species:
-          type: string
-          example: Dog
-        age:
-          type: integer
-          example: 3
+        details:
+          type: object
+          properties:
+            species:
+              type: string
+              description: The species of the pet
+              example: Dog
+            age:
+              type: integer
+              description: The age of the pet
+              example: 3

@@ -2,7 +2,7 @@ import type { AboutChunk } from "../../../types/chunk.ts";
 import type { Renderer } from "../renderer.ts";
 
 export function renderAbout(renderer: Renderer, chunk: AboutChunk) {
-  renderer.appendHeading(1, chunk.chunkData.title);
+  renderer.appendHeading(1, `About ${chunk.chunkData.title}`);
   if (chunk.chunkData.version) {
     renderer.appendParagraph(
       `_Version: ${renderer.escapeText(chunk.chunkData.version)}_`,

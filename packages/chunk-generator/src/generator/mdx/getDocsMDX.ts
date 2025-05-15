@@ -64,13 +64,19 @@ export function getDocsMDX(
           break;
         }
         case "schema": {
+          // The normal schema renderer doesn't render a heading, since it's
+          // normally embedded in a separate page. It's not in this case though,
+          // so we add one by hand
+          renderer.appendHeading(1, chunk.id);
           renderSchema(renderer, chunk, docsData, {
-            baseHeadingLevel: 2,
+            baseHeadingLevel: 1,
           });
           break;
         }
         case "operation": {
-          renderOperation(renderer, chunk, docsData);
+          renderOperation(renderer, chunk, docsData, {
+            baseHeadingLevel: 2,
+          });
           break;
         }
         default: {

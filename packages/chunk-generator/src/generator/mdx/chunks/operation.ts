@@ -6,31 +6,33 @@ import { renderSchema } from "./schema.ts";
 export function renderOperation(
   renderer: Renderer,
   chunk: OperationChunk,
-  docsData: Map<string, Chunk>
+  docsData: Map<string, Chunk>,
+  { baseHeadingLevel }: { baseHeadingLevel: number }
 ) {
-  renderer.appendHeading(1, chunk.chunkData.operationId);
+  renderer.appendHeading(baseHeadingLevel, chunk.chunkData.operationId);
   renderer.appendParagraph(
     `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
   );
 
-  if (chunk.chunkData.summary) {
+  if (chunk.chunkData.summary && chunk.chunkData.description) {
     renderer.appendParagraph(
       `_${renderer.escapeText(chunk.chunkData.summary)}_`,
       {
         escape: false,
       }
     );
-  }
-
-  if (chunk.chunkData.description) {
+    renderer.appendParagraph(chunk.chunkData.description);
+  } else if (chunk.chunkData.summary) {
+    renderer.appendParagraph(chunk.chunkData.summary);
+  } else if (chunk.chunkData.description) {
     renderer.appendParagraph(chunk.chunkData.description);
   }
 
   if (chunk.chunkData.parameters.length > 0) {
-    renderer.appendHeading(2, "Parameters");
+    renderer.appendHeading(baseHeadingLevel + 1, "Parameters");
     for (const parameter of chunk.chunkData.parameters) {
       renderer.appendHeading(
-        3,
+        baseHeadingLevel + 2,
         `${parameter.name}${parameter.required ? " (required)" : ""}`
       );
       if (parameter.description) {
@@ -41,7 +43,7 @@ export function renderOperation(
 
   if (chunk.chunkData.requestBody) {
     renderer.appendHeading(
-      2,
+      baseHeadingLevel + 1,
       `Request Body${chunk.chunkData.requestBody.required ? " (required)" : ""}`
     );
     if (chunk.chunkData.requestBody.description) {
@@ -52,17 +54,20 @@ export function renderOperation(
       docsData
     );
     renderSchema(renderer, requestBodySchema, docsData, {
-      baseHeadingLevel: 3,
+      baseHeadingLevel: baseHeadingLevel + 1,
     });
   }
 
   if (chunk.chunkData.responses) {
-    renderer.appendHeading(2, "Responses");
+    renderer.appendHeading(baseHeadingLevel + 1, "Responses");
     for (const [statusCode, responses] of Object.entries(
       chunk.chunkData.responses
     )) {
       for (const response of responses) {
-        renderer.appendHeading(3, `${statusCode} (${response.contentType})`);
+        renderer.appendHeading(
+          baseHeadingLevel + 2,
+          `${statusCode} (${response.contentType})`
+        );
         if (response.description) {
           renderer.appendParagraph(response.description);
         }
@@ -71,7 +76,7 @@ export function renderOperation(
           docsData
         );
         renderSchema(renderer, responseSchema, docsData, {
-          baseHeadingLevel: 4,
+          baseHeadingLevel: baseHeadingLevel + 2,
         });
       }
     }
