@@ -24,8 +24,8 @@ export function renderSchema(
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
         renderer.appendHeading(
-          baseHeadingLevel + 1,
-          `${renderer.escapeText(key)}: \`${renderer.escapeText(schemaChunk.chunkData.type)}\``,
+          5,
+          `${renderer.escapeText(key)}: \`${renderer.escapeText(schemaChunk.chunkData.value.type)}\``,
           {
             escape: false,
           }
@@ -35,7 +35,7 @@ export function renderSchema(
         });
       } else {
         renderer.appendHeading(
-          baseHeadingLevel + 1,
+          5,
           `${renderer.escapeText(key)}: \`${renderer.escapeText(value.type)}\``,
           {
             escape: false,
@@ -57,14 +57,14 @@ export function renderSchema(
     }
   }
 
-  switch (chunk.chunkData.type) {
+  switch (chunk.chunkData.value.type) {
     case "object":
-      renderObjectProperties(chunk.chunkData, {
+      renderObjectProperties(chunk.chunkData.value, {
         isOpenOnLoad: true,
       });
       break;
     case "array":
-      renderArrayItems(chunk.chunkData);
+      renderArrayItems(chunk.chunkData.value);
       break;
     default:
       break;

@@ -109,7 +109,7 @@ type SchemaValue =
 
 export type SchemaChunk = {
   id: string;
-  chunkData: SchemaValue;
+  chunkData: { name: string; value: SchemaValue };
   chunkType: "schema";
 };
 

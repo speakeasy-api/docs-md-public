@@ -67,7 +67,7 @@ export function getDocsMDX(
           // The normal schema renderer doesn't render a heading, since it's
           // normally embedded in a separate page. It's not in this case though,
           // so we add one by hand
-          renderer.appendHeading(1, chunk.id);
+          renderer.appendHeading(1, chunk.chunkData.name);
           renderSchema(renderer, chunk, docsData, {
             baseHeadingLevel: 1,
           });

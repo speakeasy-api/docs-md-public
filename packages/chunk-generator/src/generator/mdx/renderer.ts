@@ -30,6 +30,21 @@ export class Renderer {
       .replace("|", "\\|");
   }
 
+  public insertFrontMatter({
+    sidebarPosition,
+    sidebarLabel,
+  }: {
+    sidebarPosition: number;
+    sidebarLabel: string;
+  }) {
+    this.#lines.unshift(
+      `---
+sidebar_position: ${sidebarPosition}
+sidebar_label: ${this.escapeText(sidebarLabel)}
+---`
+    );
+  }
+
   public appendHeading(
     level: number,
     text: string,
