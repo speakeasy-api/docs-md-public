@@ -1,21 +1,25 @@
 import type { Chunk, OperationChunk } from "../../../types/chunk.ts";
-import { Renderer } from "../renderer.ts";
+import type { Renderer } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
 import { renderSchema } from "./schema.ts";
 
 export function renderOperation(
+  renderer: Renderer,
   chunk: OperationChunk,
   docsData: Map<string, Chunk>
 ) {
-  const renderer = new Renderer();
-
   renderer.appendHeading(1, chunk.chunkData.operationId);
   renderer.appendParagraph(
     `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
   );
 
   if (chunk.chunkData.summary) {
-    renderer.appendParagraph(`_${chunk.chunkData.summary}_`);
+    renderer.appendParagraph(
+      `_${renderer.escapeText(chunk.chunkData.summary)}_`,
+      {
+        escape: false,
+      }
+    );
   }
 
   if (chunk.chunkData.description) {
@@ -72,6 +76,4 @@ export function renderOperation(
       }
     }
   }
-
-  return renderer.render();
 }

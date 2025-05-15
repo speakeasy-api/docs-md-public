@@ -1,11 +1,15 @@
 import type { AboutChunk } from "../../../types/chunk.ts";
-import { Renderer } from "../renderer.ts";
+import type { Renderer } from "../renderer.ts";
 
-export function renderAbout(chunk: AboutChunk) {
-  const renderer = new Renderer();
+export function renderAbout(renderer: Renderer, chunk: AboutChunk) {
   renderer.appendHeading(1, chunk.chunkData.title);
   if (chunk.chunkData.version) {
-    renderer.appendParagraph(`_Version: ${chunk.chunkData.version}_`);
+    renderer.appendParagraph(
+      `_Version: ${renderer.escapeText(chunk.chunkData.version)}_`,
+      {
+        escape: false,
+      }
+    );
   }
   if (chunk.chunkData.description) {
     renderer.appendParagraph(chunk.chunkData.description);
@@ -14,5 +18,4 @@ export function renderAbout(chunk: AboutChunk) {
     renderer.appendParagraph("Servers");
     renderer.appendList(chunk.chunkData.servers.map((server) => server.url));
   }
-  return renderer.render();
 }

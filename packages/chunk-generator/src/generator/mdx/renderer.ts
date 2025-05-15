@@ -1,24 +1,68 @@
+type AppendOptions = {
+  // We almost always want to escape special Markdown characters, so we default
+  // to true. However, sometimes content coming in is actually in Markdown, so
+  // we want to preserve this Markdown formatting by setting this to false
+  escape?: boolean;
+};
+
 export class Renderer {
   #lines: string[] = [];
 
-  public appendHeading(level: number, text: string) {
-    this.#lines.push(`#`.repeat(level) + " " + text);
+  public escapeText(text: string) {
+    return text
+      .replace("\\", "\\\\")
+      .replace("`", "\\`")
+      .replace("*", "\\*")
+      .replace("_", "\\_")
+      .replace("{", "\\{")
+      .replace("}", "\\}")
+      .replace("[", "\\[")
+      .replace("]", "\\]")
+      .replace("<", "\\<")
+      .replace(">", "\\>")
+      .replace("(", "\\(")
+      .replace(")", "\\)")
+      .replace("#", "\\#")
+      .replace("+", "\\+")
+      .replace("-", "\\-")
+      .replace(".", "\\.")
+      .replace("!", "\\!")
+      .replace("|", "\\|");
   }
 
-  public appendParagraph(text: string) {
-    this.#lines.push(text);
+  public appendHeading(
+    level: number,
+    text: string,
+    { escape = true }: AppendOptions = {}
+  ) {
+    this.#lines.push(
+      `#`.repeat(level) + " " + (escape ? this.escapeText(text) : text)
+    );
   }
 
-  public appendList(items: string[]) {
-    this.#lines.push(items.map((item) => "- " + item).join("\n"));
+  public appendParagraph(text: string, { escape = true }: AppendOptions = {}) {
+    this.#lines.push(escape ? this.escapeText(text) : text);
+  }
+
+  public appendList(items: string[], { escape = true }: AppendOptions = {}) {
+    this.#lines.push(
+      items
+        .map((item) => "- " + (escape ? this.escapeText(item) : item))
+        .join("\n")
+    );
   }
 
   public beginExpandableSection(
     title: string,
-    { isOpenOnLoad = false }: { isOpenOnLoad?: boolean }
+    {
+      isOpenOnLoad = false,
+      escape = true,
+    }: { isOpenOnLoad?: boolean } & AppendOptions
   ) {
     this.#lines.push(`<details ${isOpenOnLoad ? "open" : ""}>`);
-    this.#lines.push(`<summary>${title}</summary>`);
+    this.#lines.push(
+      `<summary>${escape ? this.escapeText(title) : title}</summary>`
+    );
   }
 
   public endExpandableSection() {

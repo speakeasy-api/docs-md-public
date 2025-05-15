@@ -46,6 +46,7 @@ type OperationData = {
   operationId: string;
   path: string;
   method: string;
+  tag: string;
   summary: string | null;
   description: string | null;
   parameters: Parameter[];
@@ -112,6 +113,19 @@ export type SchemaChunk = {
   chunkType: "schema";
 };
 
+// Tag chunk
+
+type TagData = {
+  name: string;
+  operationChunkIds: string[];
+};
+
+export type TagChunk = {
+  id: string;
+  chunkData: TagData;
+  chunkType: "tag";
+};
+
 // All chunks
 
-export type Chunk = AboutChunk | OperationChunk | SchemaChunk;
+export type Chunk = AboutChunk | OperationChunk | SchemaChunk | TagChunk;
