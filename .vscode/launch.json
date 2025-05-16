@@ -16,9 +16,6 @@
       "args": [
         "--spec",
         "${workspaceFolder}/specs/petstore.yaml"
-      ],
-      "outFiles": [
-        "${workspaceFolder}/**/*.js"
       ]
     }
   ]

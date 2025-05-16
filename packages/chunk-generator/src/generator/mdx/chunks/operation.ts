@@ -1,0 +1,84 @@
+import type { Chunk, OperationChunk } from "../../../types/chunk.ts";
+import type { Renderer } from "../renderer.ts";
+import { getSchemaFromId } from "../util.ts";
+import { renderSchema } from "./schema.ts";
+
+export function renderOperation(
+  renderer: Renderer,
+  chunk: OperationChunk,
+  docsData: Map<string, Chunk>,
+  { baseHeadingLevel }: { baseHeadingLevel: number }
+) {
+  renderer.appendHeading(baseHeadingLevel, chunk.chunkData.operationId);
+  renderer.appendParagraph(
+    `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
+  );
+
+  if (chunk.chunkData.summary && chunk.chunkData.description) {
+    renderer.appendParagraph(
+      `_${renderer.escapeText(chunk.chunkData.summary)}_`,
+      {
+        escape: false,
+      }
+    );
+    renderer.appendParagraph(chunk.chunkData.description);
+  } else if (chunk.chunkData.summary) {
+    renderer.appendParagraph(chunk.chunkData.summary);
+  } else if (chunk.chunkData.description) {
+    renderer.appendParagraph(chunk.chunkData.description);
+  }
+
+  if (chunk.chunkData.parameters.length > 0) {
+    renderer.appendHeading(baseHeadingLevel + 1, "Parameters");
+    for (const parameter of chunk.chunkData.parameters) {
+      renderer.appendHeading(
+        baseHeadingLevel + 2,
+        `${parameter.name}${parameter.required ? " (required)" : ""}`
+      );
+      if (parameter.description) {
+        renderer.appendParagraph(parameter.description);
+      }
+    }
+  }
+
+  if (chunk.chunkData.requestBody) {
+    renderer.appendHeading(
+      baseHeadingLevel + 1,
+      `Request Body${chunk.chunkData.requestBody.required ? " (required)" : ""}`
+    );
+    if (chunk.chunkData.requestBody.description) {
+      renderer.appendParagraph(chunk.chunkData.requestBody.description);
+    }
+    const requestBodySchema = getSchemaFromId(
+      chunk.chunkData.requestBody.contentChunkId,
+      docsData
+    );
+    renderSchema(renderer, requestBodySchema, docsData, {
+      baseHeadingLevel: baseHeadingLevel + 1,
+    });
+  }
+
+  if (chunk.chunkData.responses) {
+    renderer.appendHeading(baseHeadingLevel + 1, "Responses");
+    for (const [statusCode, responses] of Object.entries(
+      chunk.chunkData.responses
+    )) {
+      for (const response of responses) {
+        renderer.appendHeading(
+          baseHeadingLevel + 2,
+          `${statusCode} (${response.contentType})`
+        );
+        if (response.description) {
+          renderer.appendParagraph(response.description);
+        }
+        const responseSchema = getSchemaFromId(
+          response.contentChunkId,
+          docsData
+        );
+        renderSchema(renderer, responseSchema, docsData, {
+          baseHeadingLevel: baseHeadingLevel + 2,
+        });
+      }
+    }
+  }
+}

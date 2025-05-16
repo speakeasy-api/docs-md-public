@@ -6,6 +6,8 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { unzipSync } from "node:zlib";
 
+import type { Chunk } from "../../types/chunk.ts";
+
 declare class Go {
   argv: string[];
   env: { [envKey: string]: string };
@@ -18,8 +20,9 @@ declare class Go {
 
 const wasmPath = join(dirname(fileURLToPath(import.meta.url)), "lib.wasm.gz");
 
-// TODO: generate types for docs data
-export async function getDocsData(specContents: string): Promise<unknown[]> {
+export async function getDocsData(
+  specContents: string
+): Promise<Map<string, Chunk>> {
   const gzippedBuffer = await readFile(wasmPath);
   const wasmBuffer = unzipSync(gzippedBuffer);
   const go = new Go();
@@ -27,7 +30,7 @@ export async function getDocsData(specContents: string): Promise<unknown[]> {
   void go.run(result.instance);
   const serializedDocsData = await SerializeDocsData(specContents);
   const docsData = (JSON.parse(serializedDocsData) as string[]).map(
-    (chunk) => JSON.parse(chunk) as unknown
+    (chunk) => JSON.parse(chunk) as Chunk
   );
-  return docsData;
+  return new Map(docsData.map((chunk) => [chunk.id, chunk]));
 }

@@ -58,6 +58,8 @@ export const getBaseESLintConfig = ({
         // TODO: Currently this crashes and so we have to turn it off. It was fixed previously at
         // https://github.com/typescript-eslint/typescript-eslint/issues/10338, but seems to have regressed
         "@typescript-eslint/no-unused-expressions": "off",
+
+        "@typescript-eslint/no-non-null-assertion": "error",
       },
     },
   ];

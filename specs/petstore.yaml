@@ -9,36 +9,41 @@ paths:
   /pets:
     get:
       summary: Get all pets
+      description: Returns a list of all pets in the store
       operationId: getPets
       responses:
-        '200':
+        "200":
           description: A list of pets
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: "#/components/schemas/Pet"
     post:
       summary: Add a new pet
       operationId: addPet
+      tags:
+        - Pet
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: "#/components/schemas/Pet"
       responses:
-        '201':
+        "201":
           description: Pet added successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
+                $ref: "#/components/schemas/Pet"
   /pets/{petId}:
     get:
       summary: Get a pet by ID
       operationId: getPetById
+      tags:
+        - Pet
       parameters:
         - name: petId
           in: path
@@ -46,13 +51,13 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: Pet details
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Pet'
-        '404':
+                $ref: "#/components/schemas/Pet"
+        "404":
           description: Pet not found
 components:
   schemas:
@@ -64,10 +69,16 @@ components:
           example: 1
         name:
           type: string
+          description: The name of the pet
           example: Fluffy
-        species:
-          type: string
-          example: Dog
-        age:
-          type: integer
-          example: 3
+        details:
+          type: object
+          properties:
+            species:
+              type: string
+              description: The species of the pet
+              example: Dog
+            age:
+              type: integer
+              description: The age of the pet
+              example: 3
