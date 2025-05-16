@@ -3,6 +3,7 @@ import type {
   Chunk,
   ObjectValue,
   SchemaChunk,
+  UnionValue,
 } from "../../../types/chunk.ts";
 import type { Renderer } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
@@ -57,15 +58,45 @@ export function renderSchema(
     }
   }
 
+  function renderUnionItems(unionValue: UnionValue) {
+    renderer.beginExpandableSection("Union", {
+      isOpenOnLoad: true,
+    });
+    for (const value of unionValue.values) {
+      if (value.type === "chunk") {
+        const schemaChunk = getSchemaFromId(value.chunkId, docsData);
+        renderer.appendHeading(
+          5,
+          `${renderer.escapeText(schemaChunk.chunkData.name)}: \`${renderer.escapeText(schemaChunk.chunkData.value.type)}\``,
+          {
+            escape: false,
+          }
+        );
+        renderSchema(renderer, schemaChunk, docsData, {
+          baseHeadingLevel,
+        });
+      } else {
+        renderer.appendParagraph(`Type: ${value.type}`);
+      }
+    }
+    renderer.endExpandableSection();
+  }
+
   switch (chunk.chunkData.value.type) {
-    case "object":
+    case "object": {
       renderObjectProperties(chunk.chunkData.value, {
         isOpenOnLoad: true,
       });
       break;
-    case "array":
+    }
+    case "array": {
       renderArrayItems(chunk.chunkData.value);
       break;
+    }
+    case "union": {
+      renderUnionItems(chunk.chunkData.value);
+      break;
+    }
     default:
       break;
   }

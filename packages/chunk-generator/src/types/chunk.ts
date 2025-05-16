@@ -98,6 +98,11 @@ export type ArrayValue = BaseValue & {
   items: SchemaValue;
 };
 
+export type UnionValue = BaseValue & {
+  type: "union";
+  values: SchemaValue[];
+};
+
 type SchemaValue =
   | ChunkValue
   | BooleanValue
@@ -105,7 +110,8 @@ type SchemaValue =
   | NumberValue
   | IntegerValue
   | ObjectValue
-  | ArrayValue;
+  | ArrayValue
+  | UnionValue;
 
 export type SchemaChunk = {
   id: string;

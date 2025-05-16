@@ -19,7 +19,9 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Pet"
+                  oneOf:
+                    - $ref: "#/components/schemas/Dog"
+                    - $ref: "#/components/schemas/Cat"
     post:
       summary: Add a new pet
       operationId: addPet
@@ -30,14 +32,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Pet"
+              oneOf:
+                - $ref: "#/components/schemas/Dog"
+                - $ref: "#/components/schemas/Cat"
       responses:
         "201":
           description: Pet added successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                oneOf:
+                  - $ref: "#/components/schemas/Dog"
+                  - $ref: "#/components/schemas/Cat"
   /pets/{petId}:
     get:
       summary: Get a pet by ID
@@ -56,12 +62,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                oneOf:
+                  - $ref: "#/components/schemas/Dog"
+                  - $ref: "#/components/schemas/Cat"
         "404":
           description: Pet not found
 components:
   schemas:
-    Pet:
+    Dog:
       type: object
       properties:
         id:
@@ -69,16 +77,37 @@ components:
           example: 1
         name:
           type: string
-          description: The name of the pet
-          example: Fluffy
+          description: The name of the dog
+          example: Rambo
         details:
           type: object
           properties:
             species:
               type: string
-              description: The species of the pet
-              example: Dog
+              description: The species of the dog
+              example: Terrier
             age:
               type: integer
-              description: The age of the pet
-              example: 3
+              description: The age of the dog
+              example: 13
+    Cat:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          description: The name of the cat
+          example: Whiskers
+        details:
+          type: object
+          properties:
+            species:
+              type: string
+              description: The species of the cat
+              example: Tabby
+            age:
+              type: integer
+              description: The age of the cat
+              example: 7
