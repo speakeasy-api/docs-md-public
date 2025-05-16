@@ -87,6 +87,11 @@ type IntegerValue = BaseValue & {
   type: "integer";
 };
 
+type EnumValue = BaseValue & {
+  type: "enum";
+  values: string[];
+};
+
 export type ObjectValue = BaseValue & {
   type: "object";
   properties: Record<string, SchemaValue>;
@@ -111,7 +116,8 @@ type SchemaValue =
   | IntegerValue
   | ObjectValue
   | ArrayValue
-  | UnionValue;
+  | UnionValue
+  | EnumValue;
 
 export type SchemaChunk = {
   id: string;

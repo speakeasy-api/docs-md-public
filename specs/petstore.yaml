@@ -82,9 +82,13 @@ components:
         details:
           type: object
           properties:
-            species:
+            breed:
               type: string
-              description: The species of the dog
+              enum:
+                - Terrier
+                - Labrador
+                - German Shepherd
+              description: The breed of the dog
               example: Terrier
             age:
               type: integer
@@ -98,14 +102,19 @@ components:
           example: 1
         name:
           type: string
+          format: uuid
           description: The name of the cat
           example: Whiskers
         details:
           type: object
           properties:
-            species:
+            breed:
               type: string
-              description: The species of the cat
+              enum:
+                - Tabby
+                - Siamese
+                - Persian
+              description: The breed of the cat
               example: Tabby
             age:
               type: integer

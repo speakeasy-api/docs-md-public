@@ -34,6 +34,14 @@ export function renderSchema(
         renderSchema(renderer, schemaChunk, docsData, {
           baseHeadingLevel,
         });
+      } else if (value.type === "enum") {
+        renderer.appendHeading(
+          5,
+          `${renderer.escapeText(key)}: \`${value.values.map((v) => `"${renderer.escapeText(v)}"`).join(" | ")}\``,
+          {
+            escape: false,
+          }
+        );
       } else {
         renderer.appendHeading(
           5,
