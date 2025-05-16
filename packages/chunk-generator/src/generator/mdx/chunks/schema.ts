@@ -26,7 +26,7 @@ export function renderSchema(
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
         renderer.appendHeading(
           5,
-          `${renderer.escapeText(key)}: \`${renderer.escapeText(schemaChunk.chunkData.value.type)}\``,
+          `${renderer.escapeText(key)}: \`${schemaChunk.chunkData.value.type}\``,
           {
             escape: false,
           }
@@ -37,7 +37,7 @@ export function renderSchema(
       } else if (value.type === "enum") {
         renderer.appendHeading(
           5,
-          `${renderer.escapeText(key)}: \`${value.values.map((v) => `"${renderer.escapeText(v)}"`).join(" | ")}\``,
+          `${renderer.escapeText(key)}: \`${value.values.map((v) => `"${v}"`).join(" | ")}\``,
           {
             escape: false,
           }
@@ -45,7 +45,7 @@ export function renderSchema(
       } else {
         renderer.appendHeading(
           5,
-          `${renderer.escapeText(key)}: \`${renderer.escapeText(value.type)}\``,
+          `${renderer.escapeText(key)}: \`${value.type}\``,
           {
             escape: false,
           }
@@ -75,7 +75,7 @@ export function renderSchema(
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
         renderer.appendHeading(
           5,
-          `${renderer.escapeText(schemaChunk.chunkData.name)}: \`${renderer.escapeText(schemaChunk.chunkData.value.type)}\``,
+          `${renderer.escapeText(schemaChunk.chunkData.name)}: \`${schemaChunk.chunkData.value.type}\``,
           {
             escape: false,
           }

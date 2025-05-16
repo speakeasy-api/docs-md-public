@@ -79,12 +79,28 @@ type StringValue = BaseValue & {
   type: "string";
 };
 
+type DateValue = BaseValue & {
+  type: "date";
+};
+
+type DateTimeValue = BaseValue & {
+  type: "datetime";
+};
+
 type NumberValue = BaseValue & {
   type: "number";
 };
 
 type IntegerValue = BaseValue & {
   type: "integer";
+};
+
+type Int32Value = BaseValue & {
+  type: "int32";
+};
+
+type BigIntValue = BaseValue & {
+  type: "bigint";
 };
 
 type EnumValue = BaseValue & {
@@ -112,8 +128,12 @@ type SchemaValue =
   | ChunkValue
   | BooleanValue
   | StringValue
+  | DateValue
+  | DateTimeValue
   | NumberValue
   | IntegerValue
+  | Int32Value
+  | BigIntValue
   | ObjectValue
   | ArrayValue
   | UnionValue
