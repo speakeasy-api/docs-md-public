@@ -17,6 +17,7 @@ type AboutData = {
 
 export type AboutChunk = {
   id: string;
+  slug: string;
   chunkData: AboutData;
   chunkType: "about";
 };
@@ -56,6 +57,7 @@ type OperationData = {
 
 export type OperationChunk = {
   id: string;
+  slug: string;
   chunkData: OperationData;
   chunkType: "operation";
 };
@@ -65,6 +67,10 @@ export type OperationChunk = {
 type ChunkValue = {
   type: "chunk";
   chunkId: string;
+};
+
+type AnyValue = {
+  type: "any";
 };
 
 type BaseValue = {
@@ -103,6 +109,14 @@ type BigIntValue = BaseValue & {
   type: "bigint";
 };
 
+type Float32Value = BaseValue & {
+  type: "float32";
+};
+
+type DecimalValue = BaseValue & {
+  type: "decimal";
+};
+
 type EnumValue = BaseValue & {
   type: "enum";
   values: string[];
@@ -119,28 +133,49 @@ export type ArrayValue = BaseValue & {
   items: SchemaValue;
 };
 
+export type SetValue = BaseValue & {
+  type: "set";
+  items: SchemaValue;
+};
+
+export type MapValue = BaseValue & {
+  type: "map";
+  items: SchemaValue;
+};
+
+type BinaryValue = BaseValue & {
+  type: "binary";
+};
+
 export type UnionValue = BaseValue & {
   type: "union";
   values: SchemaValue[];
 };
 
-type SchemaValue =
-  | ChunkValue
-  | BooleanValue
+export type SchemaValue =
   | StringValue
   | DateValue
   | DateTimeValue
+  | BooleanValue
   | NumberValue
   | IntegerValue
   | Int32Value
+  | Float32Value
+  | DecimalValue
   | BigIntValue
   | ObjectValue
   | ArrayValue
+  | SetValue
+  | MapValue
   | UnionValue
-  | EnumValue;
+  | EnumValue
+  | BinaryValue
+  | AnyValue
+  | ChunkValue;
 
 export type SchemaChunk = {
   id: string;
+  slug: string;
   chunkData: { name: string; value: SchemaValue };
   chunkType: "schema";
 };
@@ -154,6 +189,7 @@ type TagData = {
 
 export type TagChunk = {
   id: string;
+  slug: string;
   chunkData: TagData;
   chunkType: "tag";
 };

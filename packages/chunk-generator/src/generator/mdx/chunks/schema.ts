@@ -1,8 +1,11 @@
 import type {
   ArrayValue,
   Chunk,
+  MapValue,
   ObjectValue,
   SchemaChunk,
+  SchemaValue,
+  SetValue,
   UnionValue,
 } from "../../../types/chunk.ts";
 import type { Renderer } from "../renderer.ts";
@@ -55,14 +58,19 @@ export function renderSchema(
     renderer.endExpandableSection();
   }
 
-  function renderArrayItems(arrayValue: ArrayValue) {
-    if (arrayValue.items.type === "chunk") {
-      const schemaChunk = getSchemaFromId(arrayValue.items.chunkId, docsData);
+  function renderArrayLikeItems(
+    arrayLikeValue: ArrayValue | MapValue | SetValue
+  ) {
+    if (arrayLikeValue.items.type === "chunk") {
+      const schemaChunk = getSchemaFromId(
+        arrayLikeValue.items.chunkId,
+        docsData
+      );
       renderSchema(renderer, schemaChunk, docsData, {
         baseHeadingLevel,
       });
     } else {
-      renderer.appendParagraph(`Type: ${arrayValue.items.type}`);
+      renderer.appendParagraph(`Type: ${arrayLikeValue.items.type}`);
     }
   }
 
@@ -90,6 +98,15 @@ export function renderSchema(
     renderer.endExpandableSection();
   }
 
+  function renderBasicItems(primitiveValue: SchemaValue) {
+    renderer.appendParagraph(`Type: ${primitiveValue.type}`);
+    if (primitiveValue.type === "enum") {
+      renderer.appendParagraph(
+        `Values: ${primitiveValue.values.map((v) => `\`${v}\``).join(", ")}`
+      );
+    }
+  }
+
   switch (chunk.chunkData.value.type) {
     case "object": {
       renderObjectProperties(chunk.chunkData.value, {
@@ -97,15 +114,19 @@ export function renderSchema(
       });
       break;
     }
+    case "map":
+    case "set":
     case "array": {
-      renderArrayItems(chunk.chunkData.value);
+      renderArrayLikeItems(chunk.chunkData.value);
       break;
     }
     case "union": {
       renderUnionItems(chunk.chunkData.value);
       break;
     }
-    default:
+    default: {
+      renderBasicItems(chunk.chunkData.value);
       break;
+    }
   }
 }

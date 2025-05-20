@@ -13,7 +13,10 @@ function getPageMap(
   const pageMap: Map<string, Chunk[]> = new Map();
 
   for (const [, chunk] of docsData) {
-    const path = `${basePath}/${chunk.id}.mdx`;
+    if (!chunk.slug) {
+      continue;
+    }
+    const path = `${basePath}/${chunk.slug}.mdx`;
     switch (chunk.chunkType) {
       case "about": {
         // TODO: eventually we want to make this more configurable, since
@@ -22,9 +25,7 @@ function getPageMap(
         break;
       }
       case "schema": {
-        if (!chunk.id.startsWith("$")) {
-          pageMap.set(path, [chunk]);
-        }
+        pageMap.set(path, [chunk]);
         break;
       }
       case "tag": {

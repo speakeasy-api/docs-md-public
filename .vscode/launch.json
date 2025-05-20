@@ -15,7 +15,9 @@
       "runtimeArgs": ["--experimental-strip-types"],
       "args": [
         "--spec",
-        "${workspaceFolder}/specs/petstore.yaml"
+        "/Users/bryan/Projects/mistral-docs/openapi.yaml",
+        "--out-dir",
+        "/Users/bryan/Projects/mistral-docs/docs/api"
       ]
     }
   ]
