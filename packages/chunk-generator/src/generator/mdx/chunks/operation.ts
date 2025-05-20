@@ -11,7 +11,10 @@ export function renderOperation(
 ) {
   renderer.appendHeading(baseHeadingLevel, chunk.chunkData.operationId);
   renderer.appendParagraph(
-    `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
+    `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`,
+    {
+      escape: true,
+    }
   );
 
   if (chunk.chunkData.summary && chunk.chunkData.description) {

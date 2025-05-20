@@ -36,7 +36,7 @@ export class Renderer {
     sidebarPosition,
     sidebarLabel,
   }: {
-    sidebarPosition: number;
+    sidebarPosition: string;
     sidebarLabel: string;
   }) {
     this.#lines.unshift(
