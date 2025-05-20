@@ -2,7 +2,6 @@
   "name": "@speakeasy-api/chunk-generator",
   "version": "1.0.0",
   "type": "module",
-  "bin": "./dist/cli/cli.js",
   "scripts": {
     "test": "",
     "build": "tsc && cp ./src/generator/docsData/*.gz ./dist/generator/docsData/",

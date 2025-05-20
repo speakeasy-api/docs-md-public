@@ -15,12 +15,7 @@ export function renderOperation(
   );
 
   if (chunk.chunkData.summary && chunk.chunkData.description) {
-    renderer.appendParagraph(
-      `_${renderer.escapeText(chunk.chunkData.summary)}_`,
-      {
-        escape: false,
-      }
-    );
+    renderer.appendParagraph(`_${chunk.chunkData.summary}_`);
     renderer.appendParagraph(chunk.chunkData.description);
   } else if (chunk.chunkData.summary) {
     renderer.appendParagraph(chunk.chunkData.summary);

@@ -8,12 +8,7 @@ export function renderAbout(renderer: Renderer, chunk: AboutChunk) {
   });
   renderer.appendHeading(1, `About ${chunk.chunkData.title}`);
   if (chunk.chunkData.version) {
-    renderer.appendParagraph(
-      `_Version: ${renderer.escapeText(chunk.chunkData.version)}_`,
-      {
-        escape: false,
-      }
-    );
+    renderer.appendParagraph(`_Version: ${chunk.chunkData.version}_`);
   }
   if (chunk.chunkData.description) {
     renderer.appendParagraph(chunk.chunkData.description);
