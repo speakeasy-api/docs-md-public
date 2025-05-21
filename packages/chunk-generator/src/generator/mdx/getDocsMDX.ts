@@ -20,7 +20,7 @@ function getPageMap(
     { sidebarLabel: string; sidebarPosition: string; chunks: Chunk[] }
   > = new Map();
 
-  let schemaIndex = 0;
+  // let schemaIndex = 0;
   let tagIndex = 0;
   for (const [, chunk] of docsData) {
     if (!chunk.slug) {
@@ -51,16 +51,18 @@ function getPageMap(
         }
         break;
       }
-      case "schema": {
-        if (chunk.chunkData.name) {
-          pageMap.set(path, {
-            sidebarLabel: chunk.chunkData.name,
-            sidebarPosition: `3.${schemaIndex++}`,
-            chunks: [chunk],
-          });
-        }
-        break;
-      }
+      // TODO: Mistral doesn't want this in the sidebar (fair), but others might
+      // so eventually we should control this with a config file value
+      // case "schema": {
+      //   if (chunk.chunkData.name) {
+      //     pageMap.set(path, {
+      //       sidebarLabel: chunk.chunkData.name,
+      //       sidebarPosition: `3.${schemaIndex++}`,
+      //       chunks: [chunk],
+      //     });
+      //   }
+      //   break;
+      // }
       // We don't look for operations here, cause they're never on their own page
     }
   }
@@ -128,20 +130,7 @@ export function getDocsMDX(
         position: 2,
         label: "Operations",
         collapsible: true,
-        collapsed: true,
-      },
-      null,
-      "  "
-    )
-  );
-  renderedChunkMap.set(
-    join(basePath, "schemas", "_category_.json"),
-    JSON.stringify(
-      {
-        position: 3,
-        label: "Schemas",
-        collapsible: true,
-        collapsed: true,
+        collapsed: false,
       },
       null,
       "  "
