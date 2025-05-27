@@ -8,25 +8,124 @@ import type {
   SetValue,
   UnionValue,
 } from "../../../types/chunk.ts";
+import { assertNever } from "../../../util/assertNever.ts";
 import type { Renderer } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
 
-export function renderSchema(
-  renderer: Renderer,
-  chunk: SchemaChunk,
-  docsData: Map<string, Chunk>,
-  { baseHeadingLevel }: { baseHeadingLevel: number }
-) {
+type RenderSchemaOptions = {
+  renderer: Renderer;
+  chunk: SchemaChunk;
+  docsData: Map<string, Chunk>;
+  baseHeadingLevel: number;
+  topLevelName: string;
+};
+
+function getInlineRepresentation(
+  value: SchemaValue,
+  docsData: Map<string, Chunk>
+): string | undefined {
+  switch (value.type) {
+    case "object": {
+      return undefined;
+    }
+    case "array": {
+      const inlineRepresentation = getInlineRepresentation(
+        value.items,
+        docsData
+      );
+      if (inlineRepresentation) {
+        return `Array<${inlineRepresentation}>`;
+      }
+      return undefined;
+    }
+    case "map": {
+      const inlineRepresentation = getInlineRepresentation(
+        value.items,
+        docsData
+      );
+      if (inlineRepresentation) {
+        return `Map<${inlineRepresentation}>`;
+      }
+      return undefined;
+    }
+    case "set": {
+      const inlineRepresentation = getInlineRepresentation(
+        value.items,
+        docsData
+      );
+      if (inlineRepresentation) {
+        return `Set<${inlineRepresentation}>`;
+      }
+      return undefined;
+    }
+    case "union": {
+      const inlineRepresentations = value.values.map((v) =>
+        getInlineRepresentation(v, docsData)
+      );
+      if (!inlineRepresentations.some((r) => r === undefined)) {
+        return inlineRepresentations.join(" | ");
+      }
+      return undefined;
+    }
+    case "chunk": {
+      const schemaChunk = getSchemaFromId(value.chunkId, docsData);
+      return getInlineRepresentation(schemaChunk.chunkData.value, docsData);
+    }
+    case "enum": {
+      // TODO
+      return undefined;
+    }
+    case "string":
+    case "number":
+    case "boolean":
+    case "bigint":
+    case "date":
+    case "datetime":
+    case "integer":
+    case "int32":
+    case "float32":
+    case "decimal":
+    case "binary":
+    case "any": {
+      return value.type;
+    }
+    default: {
+      assertNever(value);
+    }
+  }
+}
+
+export function renderSchema({
+  renderer,
+  chunk,
+  docsData,
+  baseHeadingLevel,
+  topLevelName,
+}: RenderSchemaOptions) {
   function renderObjectProperties(
     objectValue: ObjectValue,
     { isOpenOnLoad = false }: { isOpenOnLoad?: boolean }
   ) {
-    renderer.beginExpandableSection("Properties", {
+    renderer.beginExpandableSection(`${topLevelName} Properties`, {
       isOpenOnLoad,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
+        const inlineRepresentation = getInlineRepresentation(
+          schemaChunk.chunkData.value,
+          docsData
+        );
+        if (inlineRepresentation) {
+          renderer.appendHeading(
+            5,
+            `${renderer.escapeText(key)}: \`${inlineRepresentation}\``,
+            {
+              escape: false,
+            }
+          );
+          continue;
+        }
         renderer.appendHeading(
           5,
           `${renderer.escapeText(key)}: \`${schemaChunk.chunkData.value.type}\``,
@@ -34,8 +133,12 @@ export function renderSchema(
             escape: false,
           }
         );
-        renderSchema(renderer, schemaChunk, docsData, {
+        renderSchema({
+          renderer,
+          chunk: schemaChunk,
+          docsData,
           baseHeadingLevel,
+          topLevelName: key,
         });
       } else if (value.type === "enum") {
         renderer.appendHeading(
@@ -61,13 +164,26 @@ export function renderSchema(
   function renderArrayLikeItems(
     arrayLikeValue: ArrayValue | MapValue | SetValue
   ) {
+    const inlineRepresentation = getInlineRepresentation(
+      arrayLikeValue,
+      docsData
+    );
+    if (inlineRepresentation) {
+      renderer.appendParagraph(`Type: ${inlineRepresentation}`);
+      return;
+    }
+
     if (arrayLikeValue.items.type === "chunk") {
       const schemaChunk = getSchemaFromId(
         arrayLikeValue.items.chunkId,
         docsData
       );
-      renderSchema(renderer, schemaChunk, docsData, {
+      renderSchema({
+        renderer,
+        chunk: schemaChunk,
+        docsData,
         baseHeadingLevel,
+        topLevelName,
       });
     } else {
       renderer.appendParagraph(`Type: ${arrayLikeValue.items.type}`);
@@ -75,7 +191,12 @@ export function renderSchema(
   }
 
   function renderUnionItems(unionValue: UnionValue) {
-    renderer.beginExpandableSection("Union", {
+    const inlineRepresentation = getInlineRepresentation(unionValue, docsData);
+    if (inlineRepresentation) {
+      renderer.appendHeading(5, `${topLevelName}: \`${inlineRepresentation}\``);
+      return;
+    }
+    renderer.beginExpandableSection(`${topLevelName} Union Values`, {
       isOpenOnLoad: true,
     });
     for (const value of unionValue.values) {
@@ -88,14 +209,19 @@ export function renderSchema(
             escape: false,
           }
         );
-        renderSchema(renderer, schemaChunk, docsData, {
+        renderSchema({
+          renderer,
+          chunk: schemaChunk,
+          docsData,
           baseHeadingLevel,
+          topLevelName: schemaChunk.chunkData.name,
         });
       } else {
-        renderer.appendParagraph(`Type: ${value.type}`);
+        renderer.appendParagraph(value.type);
       }
     }
     renderer.endExpandableSection();
+    return;
   }
 
   function renderBasicItems(primitiveValue: SchemaValue) {

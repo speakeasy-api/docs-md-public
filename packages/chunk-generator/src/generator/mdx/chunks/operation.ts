@@ -49,7 +49,11 @@ export function renderOperation(
       chunk.chunkData.requestBody.contentChunkId,
       docsData
     );
-    renderSchema(renderer, requestBodySchema, docsData, {
+    renderSchema({
+      topLevelName: "Request Body",
+      renderer,
+      chunk: requestBodySchema,
+      docsData,
       baseHeadingLevel: baseHeadingLevel + 1,
     });
   }
@@ -71,7 +75,11 @@ export function renderOperation(
           response.contentChunkId,
           docsData
         );
-        renderSchema(renderer, responseSchema, docsData, {
+        renderSchema({
+          topLevelName: "Response Body",
+          renderer,
+          chunk: responseSchema,
+          docsData,
           baseHeadingLevel: baseHeadingLevel + 2,
         });
       }

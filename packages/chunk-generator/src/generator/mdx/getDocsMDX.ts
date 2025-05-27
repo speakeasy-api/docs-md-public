@@ -99,8 +99,12 @@ export function getDocsMDX(
           // normally embedded in a separate page. It's not in this case though,
           // so we add one by hand
           renderer.appendHeading(1, chunk.chunkData.name);
-          renderSchema(renderer, chunk, docsData, {
+          renderSchema({
+            renderer,
+            chunk,
+            docsData,
             baseHeadingLevel: 1,
+            topLevelName: "Schema",
           });
           break;
         }
