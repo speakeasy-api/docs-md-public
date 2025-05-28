@@ -3,7 +3,6 @@ import type {
   Chunk,
   MapValue,
   ObjectValue,
-  SchemaChunk,
   SchemaValue,
   SetValue,
   UnionValue,
@@ -14,80 +13,83 @@ import { getSchemaFromId } from "../util.ts";
 
 type RenderSchemaOptions = {
   renderer: Renderer;
-  chunk: SchemaChunk;
+  schema: SchemaValue;
   docsData: Map<string, Chunk>;
   baseHeadingLevel: number;
   topLevelName: string;
 };
 
-function getInlineRepresentation(
+type DisplayType = {
+  label: string;
+  breakoutSubTypes: Array<{ label: string; schema: SchemaValue }>;
+  linkSubTypes: Array<{ label: string; link: string }>;
+};
+
+function getDisplayType(
   value: SchemaValue,
   docsData: Map<string, Chunk>
-): string | undefined {
+): DisplayType {
   switch (value.type) {
     case "object": {
-      return undefined;
+      return {
+        label: "object<{Object Properties}>",
+        breakoutSubTypes: [{ label: "Object Properties", schema: value }],
+        linkSubTypes: [],
+      };
     }
     case "array": {
-      const inlineRepresentation = getInlineRepresentation(
-        value.items,
-        docsData
-      );
-      if (inlineRepresentation) {
-        return `Array<${inlineRepresentation}>`;
-      }
-      return undefined;
+      const displayType = getDisplayType(value.items, docsData);
+      return { ...displayType, label: `array<${displayType.label}>` };
     }
     case "map": {
-      const inlineRepresentation = getInlineRepresentation(
-        value.items,
-        docsData
-      );
-      if (inlineRepresentation) {
-        return `Map<${inlineRepresentation}>`;
-      }
-      return undefined;
+      const displayType = getDisplayType(value.items, docsData);
+      return { ...displayType, label: `map<${displayType.label}>` };
     }
     case "set": {
-      const inlineRepresentation = getInlineRepresentation(
-        value.items,
-        docsData
-      );
-      if (inlineRepresentation) {
-        return `Set<${inlineRepresentation}>`;
-      }
-      return undefined;
+      const displayType = getDisplayType(value.items, docsData);
+      return { ...displayType, label: `set<${displayType.label}>` };
     }
     case "union": {
-      const inlineRepresentations = value.values.map((v) =>
-        getInlineRepresentation(v, docsData)
+      const displayTypes = value.values.map((v) => getDisplayType(v, docsData));
+      const hasBreakoutSubType = displayTypes.some(
+        (d) => d.breakoutSubTypes.length > 0 || d.linkSubTypes.length > 0
       );
-      if (!inlineRepresentations.some((r) => r === undefined)) {
-        return inlineRepresentations.join(" | ");
+      if (!hasBreakoutSubType) {
+        return {
+          label: `${displayTypes.map((d) => d.label).join(" | ")}`,
+          breakoutSubTypes: [],
+          linkSubTypes: [],
+        };
       }
-      return undefined;
+      const breakoutSubTypes = displayTypes.flatMap((d) => d.breakoutSubTypes);
+      const linkSubTypes = displayTypes.flatMap((d) => d.linkSubTypes);
+      return {
+        label: `union<${displayTypes.map((d) => d.label).join(" | ")}>`,
+        breakoutSubTypes,
+        linkSubTypes,
+      };
     }
     case "chunk": {
       const schemaChunk = getSchemaFromId(value.chunkId, docsData);
-      return getInlineRepresentation(schemaChunk.chunkData.value, docsData);
+      return getDisplayType(schemaChunk.chunkData.value, docsData);
     }
     case "enum": {
       // TODO
-      return undefined;
+      return { label: "Enum", breakoutSubTypes: [], linkSubTypes: [] };
     }
     case "string":
     case "number":
     case "boolean":
     case "bigint":
     case "date":
-    case "datetime":
+    case "date-time":
     case "integer":
     case "int32":
     case "float32":
     case "decimal":
     case "binary":
     case "any": {
-      return value.type;
+      return { label: value.type, breakoutSubTypes: [], linkSubTypes: [] };
     }
     default: {
       assertNever(value);
@@ -95,9 +97,46 @@ function getInlineRepresentation(
   }
 }
 
+function renderDisplayType({
+  renderer,
+  value,
+  baseHeadingLevel,
+  docsData,
+}: {
+  renderer: Renderer;
+  value: SchemaValue;
+  baseHeadingLevel: number;
+  docsData: Map<string, Chunk>;
+}) {
+  const displayType = getDisplayType(value, docsData);
+  renderer.appendParagraph(`Type: \`${displayType.label}\``);
+  if (displayType.linkSubTypes.length === 1) {
+    renderer.appendParagraph(
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      `See [${displayType.linkSubTypes[0]!.label}](${displayType.linkSubTypes[0]!.link})`
+    );
+  } else if (displayType.linkSubTypes.length > 1) {
+    renderer.appendParagraph("See:");
+    renderer.appendList(
+      displayType.linkSubTypes.map(
+        (linkSubType) => `[${linkSubType.label}](${linkSubType.link})`
+      )
+    );
+  }
+  for (const breakoutSubType of displayType.breakoutSubTypes) {
+    renderSchema({
+      renderer,
+      schema: breakoutSubType.schema,
+      docsData,
+      baseHeadingLevel,
+      topLevelName: breakoutSubType.label,
+    });
+  }
+}
+
 export function renderSchema({
   renderer,
-  chunk,
+  schema,
   docsData,
   baseHeadingLevel,
   topLevelName,
@@ -106,56 +145,29 @@ export function renderSchema({
     objectValue: ObjectValue,
     { isOpenOnLoad = false }: { isOpenOnLoad?: boolean }
   ) {
-    renderer.beginExpandableSection(`${topLevelName} Properties`, {
+    renderer.beginExpandableSection(topLevelName, {
       isOpenOnLoad,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
       if (value.type === "chunk") {
+        renderer.appendHeading(5, key);
         const schemaChunk = getSchemaFromId(value.chunkId, docsData);
-        const inlineRepresentation = getInlineRepresentation(
-          schemaChunk.chunkData.value,
-          docsData
-        );
-        if (inlineRepresentation) {
-          renderer.appendHeading(
-            5,
-            `${renderer.escapeText(key)}: \`${inlineRepresentation}\``,
-            {
-              escape: false,
-            }
-          );
-          continue;
-        }
-        renderer.appendHeading(
-          5,
-          `${renderer.escapeText(key)}: \`${schemaChunk.chunkData.value.type}\``,
-          {
-            escape: false,
-          }
-        );
-        renderSchema({
+        renderDisplayType({
           renderer,
-          chunk: schemaChunk,
-          docsData,
+          value: schemaChunk.chunkData.value,
           baseHeadingLevel,
-          topLevelName: key,
+          docsData,
         });
       } else if (value.type === "enum") {
-        renderer.appendHeading(
-          5,
-          `${renderer.escapeText(key)}: \`${value.values.map((v) => `"${v}"`).join(" | ")}\``,
-          {
-            escape: false,
-          }
+        renderer.appendHeading(5, key);
+        // TODO: this needs to be different
+        renderer.appendParagraph(
+          `Type: \`${value.values.map((v) => `"${v}"`).join(" | ")}\``
         );
       } else {
-        renderer.appendHeading(
-          5,
-          `${renderer.escapeText(key)}: \`${value.type}\``,
-          {
-            escape: false,
-          }
-        );
+        const displayType = getDisplayType(value, docsData);
+        renderer.appendHeading(5, key);
+        renderer.appendParagraph(`Type: \`${displayType.label}\``);
       }
     }
     renderer.endExpandableSection();
@@ -164,68 +176,32 @@ export function renderSchema({
   function renderArrayLikeItems(
     arrayLikeValue: ArrayValue | MapValue | SetValue
   ) {
-    const inlineRepresentation = getInlineRepresentation(
-      arrayLikeValue,
-      docsData
-    );
-    if (inlineRepresentation) {
-      renderer.appendParagraph(`Type: ${inlineRepresentation}`);
-      return;
-    }
-
-    if (arrayLikeValue.items.type === "chunk") {
-      const schemaChunk = getSchemaFromId(
-        arrayLikeValue.items.chunkId,
-        docsData
-      );
-      renderSchema({
-        renderer,
-        chunk: schemaChunk,
-        docsData,
-        baseHeadingLevel,
-        topLevelName,
-      });
-    } else {
-      renderer.appendParagraph(`Type: ${arrayLikeValue.items.type}`);
-    }
+    renderDisplayType({
+      renderer,
+      value: arrayLikeValue,
+      baseHeadingLevel,
+      docsData,
+    });
   }
 
   function renderUnionItems(unionValue: UnionValue) {
-    const inlineRepresentation = getInlineRepresentation(unionValue, docsData);
-    if (inlineRepresentation) {
-      renderer.appendHeading(5, `${topLevelName}: \`${inlineRepresentation}\``);
-      return;
-    }
-    renderer.beginExpandableSection(`${topLevelName} Union Values`, {
-      isOpenOnLoad: true,
+    renderDisplayType({
+      renderer,
+      value: unionValue,
+      baseHeadingLevel,
+      docsData,
     });
-    for (const value of unionValue.values) {
-      if (value.type === "chunk") {
-        const schemaChunk = getSchemaFromId(value.chunkId, docsData);
-        renderer.appendHeading(
-          5,
-          `${renderer.escapeText(schemaChunk.chunkData.name)}: \`${schemaChunk.chunkData.value.type}\``,
-          {
-            escape: false,
-          }
-        );
-        renderSchema({
-          renderer,
-          chunk: schemaChunk,
-          docsData,
-          baseHeadingLevel,
-          topLevelName: schemaChunk.chunkData.name,
-        });
-      } else {
-        renderer.appendParagraph(value.type);
-      }
-    }
-    renderer.endExpandableSection();
     return;
   }
 
   function renderBasicItems(primitiveValue: SchemaValue) {
-    renderer.appendParagraph(`Type: ${primitiveValue.type}`);
+    renderDisplayType({
+      renderer,
+      value: primitiveValue,
+      baseHeadingLevel,
+      docsData,
+    });
+    // TODO: this likely isn't right
     if (primitiveValue.type === "enum") {
       renderer.appendParagraph(
         `Values: ${primitiveValue.values.map((v) => `\`${v}\``).join(", ")}`
@@ -233,9 +209,9 @@ export function renderSchema({
     }
   }
 
-  switch (chunk.chunkData.value.type) {
+  switch (schema.type) {
     case "object": {
-      renderObjectProperties(chunk.chunkData.value, {
+      renderObjectProperties(schema, {
         isOpenOnLoad: true,
       });
       break;
@@ -243,15 +219,15 @@ export function renderSchema({
     case "map":
     case "set":
     case "array": {
-      renderArrayLikeItems(chunk.chunkData.value);
+      renderArrayLikeItems(schema);
       break;
     }
     case "union": {
-      renderUnionItems(chunk.chunkData.value);
+      renderUnionItems(schema);
       break;
     }
     default: {
-      renderBasicItems(chunk.chunkData.value);
+      renderBasicItems(schema);
       break;
     }
   }

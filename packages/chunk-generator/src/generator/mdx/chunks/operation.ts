@@ -52,7 +52,7 @@ export function renderOperation(
     renderSchema({
       topLevelName: "Request Body",
       renderer,
-      chunk: requestBodySchema,
+      schema: requestBodySchema.chunkData.value,
       docsData,
       baseHeadingLevel: baseHeadingLevel + 1,
     });
@@ -78,7 +78,7 @@ export function renderOperation(
         renderSchema({
           topLevelName: "Response Body",
           renderer,
-          chunk: responseSchema,
+          schema: responseSchema.chunkData.value,
           docsData,
           baseHeadingLevel: baseHeadingLevel + 2,
         });

@@ -101,7 +101,7 @@ export function getDocsMDX(
           renderer.appendHeading(1, chunk.chunkData.name);
           renderSchema({
             renderer,
-            chunk,
+            schema: chunk.chunkData.value,
             docsData,
             baseHeadingLevel: 1,
             topLevelName: "Schema",

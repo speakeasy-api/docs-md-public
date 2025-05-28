@@ -90,7 +90,7 @@ type DateValue = BaseValue & {
 };
 
 type DateTimeValue = BaseValue & {
-  type: "datetime";
+  type: "date-time";
 };
 
 type NumberValue = BaseValue & {
@@ -173,7 +173,7 @@ export type SchemaValue =
   | AnyValue
   | ChunkValue;
 
-export type SchemaChunk = {
+type SchemaChunk = {
   id: string;
   slug: string;
   chunkData: { name: string; value: SchemaValue };
