@@ -19,8 +19,13 @@ type RenderSchemaOptions = {
   topLevelName: string;
 };
 
-type DisplayType = {
+type TypeLabel = {
   label: string;
+  children: TypeLabel[];
+};
+
+type DisplayType = {
+  typeLabel: TypeLabel;
   breakoutSubTypes: Array<{ label: string; schema: SchemaValue }>;
   linkSubTypes: Array<{ label: string; link: string }>;
 };
@@ -32,7 +37,7 @@ function getDisplayType(
   switch (value.type) {
     case "object": {
       return {
-        label: value.name,
+        typeLabel: { label: value.name, children: [] },
         breakoutSubTypes: [
           { label: `${value.name} Properties`, schema: value },
         ],
@@ -41,15 +46,24 @@ function getDisplayType(
     }
     case "array": {
       const displayType = getDisplayType(value.items, docsData);
-      return { ...displayType, label: `array<${displayType.label}>` };
+      return {
+        ...displayType,
+        typeLabel: { label: "array", children: [displayType.typeLabel] },
+      };
     }
     case "map": {
       const displayType = getDisplayType(value.items, docsData);
-      return { ...displayType, label: `map<${displayType.label}>` };
+      return {
+        ...displayType,
+        typeLabel: { label: "map", children: [displayType.typeLabel] },
+      };
     }
     case "set": {
       const displayType = getDisplayType(value.items, docsData);
-      return { ...displayType, label: `set<${displayType.label}>` };
+      return {
+        ...displayType,
+        typeLabel: { label: "set", children: [displayType.typeLabel] },
+      };
     }
     case "union": {
       const displayTypes = value.values.map((v) => getDisplayType(v, docsData));
@@ -58,7 +72,10 @@ function getDisplayType(
       );
       if (!hasBreakoutSubType) {
         return {
-          label: `${displayTypes.map((d) => d.label).join(" | ")}`,
+          typeLabel: {
+            label: "union",
+            children: displayTypes.map((d) => d.typeLabel),
+          },
           breakoutSubTypes: [],
           linkSubTypes: [],
         };
@@ -66,7 +83,10 @@ function getDisplayType(
       const breakoutSubTypes = displayTypes.flatMap((d) => d.breakoutSubTypes);
       const linkSubTypes = displayTypes.flatMap((d) => d.linkSubTypes);
       return {
-        label: `union<${displayTypes.map((d) => d.label).join(" | ")}>`,
+        typeLabel: {
+          label: "union",
+          children: displayTypes.map((d) => d.typeLabel),
+        },
         breakoutSubTypes,
         linkSubTypes,
       };
@@ -76,8 +96,11 @@ function getDisplayType(
       return getDisplayType(schemaChunk.chunkData.value, docsData);
     }
     case "enum": {
-      // TODO
-      return { label: "Enum", breakoutSubTypes: [], linkSubTypes: [] };
+      return {
+        typeLabel: { label: "enum", children: [] },
+        breakoutSubTypes: [],
+        linkSubTypes: [],
+      };
     }
     case "string":
     case "number":
@@ -91,7 +114,11 @@ function getDisplayType(
     case "decimal":
     case "binary":
     case "any": {
-      return { label: value.type, breakoutSubTypes: [], linkSubTypes: [] };
+      return {
+        typeLabel: { label: value.type, children: [] },
+        breakoutSubTypes: [],
+        linkSubTypes: [],
+      };
     }
     default: {
       assertNever(value);
@@ -111,7 +138,15 @@ function renderDisplayType({
   docsData: Map<string, Chunk>;
 }) {
   const displayType = getDisplayType(value, docsData);
-  renderer.appendParagraph(`Type: \`${displayType.label}\``);
+  let computedTypeLabel = "Signature:\n\n```\n";
+  function computeTypeLabel(typeLabel: TypeLabel, indentation: number) {
+    computedTypeLabel += "  ".repeat(indentation) + typeLabel.label + "\n";
+    for (const child of typeLabel.children) {
+      computeTypeLabel(child, indentation + 1);
+    }
+  }
+  computeTypeLabel(displayType.typeLabel, 0);
+  renderer.appendParagraph(computedTypeLabel + "```");
   if (displayType.linkSubTypes.length === 1) {
     renderer.appendParagraph(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -162,14 +197,17 @@ export function renderSchema({
         });
       } else if (value.type === "enum") {
         renderer.appendHeading(5, key);
-        // TODO: this needs to be different
         renderer.appendParagraph(
-          `Type: \`${value.values.map((v) => `"${v}"`).join(" | ")}\``
+          `Signature:\n\`\`\`\nenum${value.values.map((v) => `\n  ${v}`).join("")}\n\`\`\``
         );
       } else {
-        const displayType = getDisplayType(value, docsData);
         renderer.appendHeading(5, key);
-        renderer.appendParagraph(`Type: \`${displayType.label}\``);
+        renderDisplayType({
+          renderer,
+          value,
+          baseHeadingLevel,
+          docsData,
+        });
       }
     }
     renderer.endExpandableSection();
@@ -203,7 +241,6 @@ export function renderSchema({
       baseHeadingLevel,
       docsData,
     });
-    // TODO: this likely isn't right
     if (primitiveValue.type === "enum") {
       renderer.appendParagraph(
         `Values: ${primitiveValue.values.map((v) => `\`${v}\``).join(", ")}`
