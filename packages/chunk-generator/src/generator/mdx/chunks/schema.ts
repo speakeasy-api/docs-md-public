@@ -160,7 +160,18 @@ function renderDisplayType({
       )
     );
   }
-  for (const breakoutSubType of displayType.breakoutSubTypes) {
+  // TODO: this is a quick-n-dirty deduping of breakout types, but if there are
+  // two different schemas with the same name they'll be deduped, which is wrong.
+  for (let i = 0; i < displayType.breakoutSubTypes.length; i++) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const breakoutSubType = displayType.breakoutSubTypes[i]!;
+    if (
+      displayType.breakoutSubTypes.findIndex(
+        (b) => b.label === breakoutSubType.label
+      ) !== i
+    ) {
+      continue;
+    }
     renderSchema({
       renderer,
       schema: breakoutSubType.schema,
