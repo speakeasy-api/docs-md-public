@@ -126,6 +126,7 @@ export type ObjectValue = BaseValue & {
   type: "object";
   properties: Record<string, SchemaValue>;
   required: string[];
+  name: string;
 };
 
 export type ArrayValue = BaseValue & {

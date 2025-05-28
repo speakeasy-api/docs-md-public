@@ -32,8 +32,10 @@ function getDisplayType(
   switch (value.type) {
     case "object": {
       return {
-        label: "object<{Object Properties}>",
-        breakoutSubTypes: [{ label: "Object Properties", schema: value }],
+        label: value.name,
+        breakoutSubTypes: [
+          { label: `${value.name} Properties`, schema: value },
+        ],
         linkSubTypes: [],
       };
     }
