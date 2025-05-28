@@ -15,9 +15,9 @@
       "runtimeArgs": ["--experimental-strip-types"],
       "args": [
         "--spec",
-        "/Users/bryan/Projects/mistral-docs/openapi.yaml",
+        "${workspaceFolder}/../mistral-docs/openapi.yaml",
         "--out-dir",
-        "/Users/bryan/Projects/mistral-docs/docs/api"
+        "${workspaceFolder}/../mistral-docs/docs/api"
       ]
     }
   ]
