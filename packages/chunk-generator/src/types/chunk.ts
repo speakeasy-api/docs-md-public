@@ -17,6 +17,7 @@ type AboutData = {
 
 export type AboutChunk = {
   id: string;
+  slug: string;
   chunkData: AboutData;
   chunkType: "about";
 };
@@ -56,6 +57,7 @@ type OperationData = {
 
 export type OperationChunk = {
   id: string;
+  slug: string;
   chunkData: OperationData;
   chunkType: "operation";
 };
@@ -65,6 +67,10 @@ export type OperationChunk = {
 type ChunkValue = {
   type: "chunk";
   chunkId: string;
+};
+
+type AnyValue = {
+  type: "any";
 };
 
 type BaseValue = {
@@ -79,6 +85,14 @@ type StringValue = BaseValue & {
   type: "string";
 };
 
+type DateValue = BaseValue & {
+  type: "date";
+};
+
+type DateTimeValue = BaseValue & {
+  type: "date-time";
+};
+
 type NumberValue = BaseValue & {
   type: "number";
 };
@@ -87,10 +101,32 @@ type IntegerValue = BaseValue & {
   type: "integer";
 };
 
+type Int32Value = BaseValue & {
+  type: "int32";
+};
+
+type BigIntValue = BaseValue & {
+  type: "bigint";
+};
+
+type Float32Value = BaseValue & {
+  type: "float32";
+};
+
+type DecimalValue = BaseValue & {
+  type: "decimal";
+};
+
+type EnumValue = BaseValue & {
+  type: "enum";
+  values: string[];
+};
+
 export type ObjectValue = BaseValue & {
   type: "object";
   properties: Record<string, SchemaValue>;
   required: string[];
+  name: string;
 };
 
 export type ArrayValue = BaseValue & {
@@ -98,17 +134,49 @@ export type ArrayValue = BaseValue & {
   items: SchemaValue;
 };
 
-type SchemaValue =
-  | ChunkValue
-  | BooleanValue
+export type SetValue = BaseValue & {
+  type: "set";
+  items: SchemaValue;
+};
+
+export type MapValue = BaseValue & {
+  type: "map";
+  items: SchemaValue;
+};
+
+type BinaryValue = BaseValue & {
+  type: "binary";
+};
+
+export type UnionValue = BaseValue & {
+  type: "union";
+  values: SchemaValue[];
+};
+
+export type SchemaValue =
   | StringValue
+  | DateValue
+  | DateTimeValue
+  | BooleanValue
   | NumberValue
   | IntegerValue
+  | Int32Value
+  | Float32Value
+  | DecimalValue
+  | BigIntValue
   | ObjectValue
-  | ArrayValue;
+  | ArrayValue
+  | SetValue
+  | MapValue
+  | UnionValue
+  | EnumValue
+  | BinaryValue
+  | AnyValue
+  | ChunkValue;
 
-export type SchemaChunk = {
+type SchemaChunk = {
   id: string;
+  slug: string;
   chunkData: { name: string; value: SchemaValue };
   chunkType: "schema";
 };
@@ -122,6 +190,7 @@ type TagData = {
 
 export type TagChunk = {
   id: string;
+  slug: string;
   chunkData: TagData;
   chunkType: "tag";
 };

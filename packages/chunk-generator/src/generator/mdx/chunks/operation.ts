@@ -9,18 +9,14 @@ export function renderOperation(
   docsData: Map<string, Chunk>,
   { baseHeadingLevel }: { baseHeadingLevel: number }
 ) {
-  renderer.appendHeading(baseHeadingLevel, chunk.chunkData.operationId);
-  renderer.appendParagraph(
+  renderer.appendHeading(
+    baseHeadingLevel,
     `${chunk.chunkData.method.toUpperCase()} ${chunk.chunkData.path}`
   );
+  renderer.appendParagraph(`Operation ID: ${chunk.chunkData.operationId}`);
 
   if (chunk.chunkData.summary && chunk.chunkData.description) {
-    renderer.appendParagraph(
-      `_${renderer.escapeText(chunk.chunkData.summary)}_`,
-      {
-        escape: false,
-      }
-    );
+    renderer.appendParagraph(`_${chunk.chunkData.summary}_`);
     renderer.appendParagraph(chunk.chunkData.description);
   } else if (chunk.chunkData.summary) {
     renderer.appendParagraph(chunk.chunkData.summary);
@@ -53,7 +49,11 @@ export function renderOperation(
       chunk.chunkData.requestBody.contentChunkId,
       docsData
     );
-    renderSchema(renderer, requestBodySchema, docsData, {
+    renderSchema({
+      topLevelName: "Request Body",
+      renderer,
+      schema: requestBodySchema.chunkData.value,
+      docsData,
       baseHeadingLevel: baseHeadingLevel + 1,
     });
   }
@@ -75,7 +75,11 @@ export function renderOperation(
           response.contentChunkId,
           docsData
         );
-        renderSchema(renderer, responseSchema, docsData, {
+        renderSchema({
+          topLevelName: "Response Body",
+          renderer,
+          schema: responseSchema.chunkData.value,
+          docsData,
           baseHeadingLevel: baseHeadingLevel + 2,
         });
       }

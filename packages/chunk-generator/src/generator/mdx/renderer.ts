@@ -9,32 +9,34 @@ export class Renderer {
   #lines: string[] = [];
 
   public escapeText(text: string) {
-    return text
-      .replace("\\", "\\\\")
-      .replace("`", "\\`")
-      .replace("*", "\\*")
-      .replace("_", "\\_")
-      .replace("{", "\\{")
-      .replace("}", "\\}")
-      .replace("[", "\\[")
-      .replace("]", "\\]")
-      .replace("<", "\\<")
-      .replace(">", "\\>")
-      .replace("(", "\\(")
-      .replace(")", "\\)")
-      .replace("#", "\\#")
-      .replace("+", "\\+")
-      .replace("-", "\\-")
-      .replace(".", "\\.")
-      .replace("!", "\\!")
-      .replace("|", "\\|");
+    return (
+      text
+        .replace("\\", "\\\\")
+        .replace("`", "\\`")
+        .replace("*", "\\*")
+        .replace("_", "\\_")
+        .replace("{", "\\{")
+        .replace("}", "\\}")
+        .replace("[", "\\[")
+        .replace("]", "\\]")
+        .replace("<", "\\<")
+        .replace(">", "\\>")
+        .replace("(", "\\(")
+        .replace(")", "\\)")
+        .replace("#", "\\#")
+        .replace("+", "\\+")
+        // .replace("-", "\\-")
+        // .replace(".", "\\.")
+        .replace("!", "\\!")
+        .replace("|", "\\|")
+    );
   }
 
   public insertFrontMatter({
     sidebarPosition,
     sidebarLabel,
   }: {
-    sidebarPosition: number;
+    sidebarPosition: string;
     sidebarLabel: string;
   }) {
     this.#lines.unshift(
@@ -55,7 +57,7 @@ sidebar_label: ${this.escapeText(sidebarLabel)}
     );
   }
 
-  public appendParagraph(text: string, { escape = true }: AppendOptions = {}) {
+  public appendParagraph(text: string, { escape = false }: AppendOptions = {}) {
     this.#lines.push(escape ? this.escapeText(text) : text);
   }
 
