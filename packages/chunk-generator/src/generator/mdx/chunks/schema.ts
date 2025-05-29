@@ -11,12 +11,16 @@ import { assertNever } from "../../../util/assertNever.ts";
 import type { Renderer } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
 
+// TODO: make this configurable
+const MAX_DEPTH = 3;
+
 type RenderSchemaOptions = {
   renderer: Renderer;
   schema: SchemaValue;
-  docsData: Map<string, Chunk>;
+  data: Map<string, Chunk>;
   baseHeadingLevel: number;
   topLevelName: string;
+  depth: number;
 };
 
 type TypeLabel = {
@@ -32,7 +36,7 @@ type DisplayType = {
 
 function getDisplayType(
   value: SchemaValue,
-  docsData: Map<string, Chunk>
+  data: Map<string, Chunk>
 ): DisplayType {
   switch (value.type) {
     case "object": {
@@ -45,28 +49,28 @@ function getDisplayType(
       };
     }
     case "array": {
-      const displayType = getDisplayType(value.items, docsData);
+      const displayType = getDisplayType(value.items, data);
       return {
         ...displayType,
         typeLabel: { label: "array", children: [displayType.typeLabel] },
       };
     }
     case "map": {
-      const displayType = getDisplayType(value.items, docsData);
+      const displayType = getDisplayType(value.items, data);
       return {
         ...displayType,
         typeLabel: { label: "map", children: [displayType.typeLabel] },
       };
     }
     case "set": {
-      const displayType = getDisplayType(value.items, docsData);
+      const displayType = getDisplayType(value.items, data);
       return {
         ...displayType,
         typeLabel: { label: "set", children: [displayType.typeLabel] },
       };
     }
     case "union": {
-      const displayTypes = value.values.map((v) => getDisplayType(v, docsData));
+      const displayTypes = value.values.map((v) => getDisplayType(v, data));
       const hasBreakoutSubType = displayTypes.some(
         (d) => d.breakoutSubTypes.length > 0 || d.linkSubTypes.length > 0
       );
@@ -92,8 +96,8 @@ function getDisplayType(
       };
     }
     case "chunk": {
-      const schemaChunk = getSchemaFromId(value.chunkId, docsData);
-      return getDisplayType(schemaChunk.chunkData.value, docsData);
+      const schemaChunk = getSchemaFromId(value.chunkId, data);
+      return getDisplayType(schemaChunk.chunkData.value, data);
     }
     case "enum": {
       return {
@@ -130,14 +134,16 @@ function renderDisplayType({
   renderer,
   value,
   baseHeadingLevel,
-  docsData,
+  data,
+  depth,
 }: {
   renderer: Renderer;
   value: SchemaValue;
   baseHeadingLevel: number;
-  docsData: Map<string, Chunk>;
+  data: Map<string, Chunk>;
+  depth: number;
 }) {
-  const displayType = getDisplayType(value, docsData);
+  const displayType = getDisplayType(value, data);
   let computedTypeLabel = "Signature:\n\n```\n";
   function computeTypeLabel(typeLabel: TypeLabel, indentation: number) {
     computedTypeLabel += "  ".repeat(indentation) + typeLabel.label + "\n";
@@ -175,9 +181,10 @@ function renderDisplayType({
     renderSchema({
       renderer,
       schema: breakoutSubType.schema,
-      docsData,
+      data: data,
       baseHeadingLevel,
       topLevelName: breakoutSubType.label,
+      depth: depth + 1,
     });
   }
 }
@@ -185,9 +192,10 @@ function renderDisplayType({
 export function renderSchema({
   renderer,
   schema,
-  docsData,
+  data,
   baseHeadingLevel,
   topLevelName,
+  depth,
 }: RenderSchemaOptions) {
   function renderObjectProperties(
     objectValue: ObjectValue,
@@ -199,12 +207,13 @@ export function renderSchema({
     for (const [key, value] of Object.entries(objectValue.properties)) {
       if (value.type === "chunk") {
         renderer.appendHeading(5, key);
-        const schemaChunk = getSchemaFromId(value.chunkId, docsData);
+        const schemaChunk = getSchemaFromId(value.chunkId, data);
         renderDisplayType({
           renderer,
           value: schemaChunk.chunkData.value,
           baseHeadingLevel,
-          docsData,
+          data: data,
+          depth,
         });
       } else if (value.type === "enum") {
         renderer.appendHeading(5, key);
@@ -217,7 +226,8 @@ export function renderSchema({
           renderer,
           value,
           baseHeadingLevel,
-          docsData,
+          data: data,
+          depth,
         });
       }
     }
@@ -231,7 +241,8 @@ export function renderSchema({
       renderer,
       value: arrayLikeValue,
       baseHeadingLevel,
-      docsData,
+      data: data,
+      depth,
     });
   }
 
@@ -240,7 +251,8 @@ export function renderSchema({
       renderer,
       value: unionValue,
       baseHeadingLevel,
-      docsData,
+      data: data,
+      depth,
     });
     return;
   }
@@ -250,13 +262,24 @@ export function renderSchema({
       renderer,
       value: primitiveValue,
       baseHeadingLevel,
-      docsData,
+      data: data,
+      depth,
     });
     if (primitiveValue.type === "enum") {
       renderer.appendParagraph(
         `Values: ${primitiveValue.values.map((v) => `\`${v}\``).join(", ")}`
       );
     }
+  }
+
+  if (depth >= MAX_DEPTH) {
+    renderer.appendSidebarLink({
+      title: "Nested Schema Placeholder",
+      content: `# Nested Schema Placeholder
+
+This is a placeholder for a nested schema. It will be implemented soon.`,
+    });
+    return;
   }
 
   switch (schema.type) {

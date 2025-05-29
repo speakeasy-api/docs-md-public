@@ -1,3 +1,5 @@
+import { dirname, join, relative } from "node:path";
+
 type AppendOptions = {
   // We almost always want to escape special Markdown characters, so we default
   // to true. However, sometimes content coming in is actually in Markdown, so
@@ -6,7 +8,22 @@ type AppendOptions = {
 };
 
 export class Renderer {
+  #baseComponentPath: string;
+  #currentPagePath: string;
+  #frontMatter: string | undefined;
+  #imports = new Map<string, Set<string>>();
   #lines: string[] = [];
+
+  constructor({
+    baseComponentPath,
+    currentPagePath,
+  }: {
+    baseComponentPath: string;
+    currentPagePath: string;
+  }) {
+    this.#baseComponentPath = baseComponentPath;
+    this.#currentPagePath = currentPagePath;
+  }
 
   public escapeText(text: string) {
     return (
@@ -39,12 +56,10 @@ export class Renderer {
     sidebarPosition: string;
     sidebarLabel: string;
   }) {
-    this.#lines.unshift(
-      `---
+    this.#frontMatter = `---
 sidebar_position: ${sidebarPosition}
 sidebar_label: ${this.escapeText(sidebarLabel)}
----`
-    );
+---`;
   }
 
   public appendHeading(
@@ -86,9 +101,42 @@ sidebar_label: ${this.escapeText(sidebarLabel)}
     this.#lines.push("</details>");
   }
 
+  public appendSidebarLink({
+    content,
+    title,
+  }: {
+    content: string;
+    title: string;
+  }) {
+    this.#insertComponentImport("SideBar", "SideBar/index.tsx");
+    this.#lines.push(
+      `<p>
+  <SideBar cta="${`View ${title}`}" title="${title}">
+    ${content}
+  </SideBar>
+</p>`
+    );
+  }
+
   public render() {
-    const data = this.#lines.join("\n\n");
+    let imports = "";
+    for (const [importPath, symbols] of this.#imports) {
+      imports += `import { ${Array.from(symbols).join(", ")} } from "${importPath}";\n`;
+    }
+    const data =
+      this.#frontMatter + "\n\n" + imports + "\n\n" + this.#lines.join("\n\n");
     this.#lines = [];
     return data;
+  }
+
+  #insertComponentImport(symbol: string, componentPath: string) {
+    const importPath = relative(
+      dirname(this.#currentPagePath),
+      join(this.#baseComponentPath, componentPath)
+    );
+    if (!this.#imports.has(importPath)) {
+      this.#imports.set(importPath, new Set());
+    }
+    this.#imports.get(importPath)?.add(symbol);
   }
 }
