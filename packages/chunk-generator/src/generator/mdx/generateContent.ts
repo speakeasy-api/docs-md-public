@@ -14,7 +14,6 @@ const LOCAL_COMPONENT_PATH = join(
   dirname(fileURLToPath(import.meta.url)),
   "..",
   "..",
-  "..",
   "assets"
 );
 
