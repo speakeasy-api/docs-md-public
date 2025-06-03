@@ -24,13 +24,15 @@ function getPageMap({
   > = new Map();
 
   // Get the about page
-  const aboutChunk = data.get("about");
-  if (aboutChunk) {
-    pageMap.set(buildPagePath("about"), {
-      sidebarLabel: "About",
-      sidebarPosition: "1",
-      chunks: [aboutChunk],
-    });
+
+  for (const [, chunk] of data) {
+    if (chunk.chunkType === "about") {
+      pageMap.set(buildPagePath("about"), {
+        sidebarLabel: "About",
+        sidebarPosition: "1",
+        chunks: [chunk],
+      });
+    }
   }
 
   // Find the tag pages
