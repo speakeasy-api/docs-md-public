@@ -11,8 +11,19 @@ import { assertNever } from "../../../util/assertNever.ts";
 import type { Renderer, Site } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
 
-// TODO: make this configurable
+const TYPE_SIGNATURE_PREFIX = "_Type Signature:_ ";
+
+// TODO: make these configurable
 const MAX_DEPTH = 3;
+const MAX_TYPE_LABEL_LENGTH = 80;
+
+// Derived info. TODO: this should take indentation level into account
+const MAX_INLINE_TYPE_LABEL_LENGTH =
+  MAX_TYPE_LABEL_LENGTH - TYPE_SIGNATURE_PREFIX.length;
+
+// We dont' want to create headings less than this level, because they typically
+// have a font size _smaller_ than paragraph font size, which looks weird.
+const MIN_HEADING_LEVEL = 5;
 
 type RenderSchemaOptions = {
   site: Site;
@@ -124,6 +135,124 @@ function getDisplayType(
   }
 }
 
+function computeDisplayType(typeLabel: TypeLabel) {
+  const singleLineTypeLabel = computeSingleLineDisplayType(typeLabel);
+  if (singleLineTypeLabel.length < MAX_INLINE_TYPE_LABEL_LENGTH) {
+    return {
+      content: singleLineTypeLabel,
+      multiline: false,
+    };
+  }
+  const content = computeMultilineTypeLabel(typeLabel, 0);
+
+  // TODO: sometimes we end up with some blank lines. Ideally the core algorithm
+  // should handle this, but for now we just patch it up after the fact
+  content.contents = content.contents
+    .split("\n")
+    .filter((c) => c.length > 0)
+    .join("\n");
+  return {
+    content: content.contents,
+    multiline: true,
+  };
+}
+
+function computeSingleLineDisplayType(typeLabel: TypeLabel): string {
+  switch (typeLabel.label) {
+    case "array":
+    case "map":
+    case "set": {
+      return `${typeLabel.label}<${typeLabel.children.map(computeSingleLineDisplayType).join(",")}>`;
+    }
+    case "union":
+    case "enum": {
+      return typeLabel.children.map(computeSingleLineDisplayType).join(" | ");
+    }
+    default: {
+      return typeLabel.label;
+    }
+  }
+}
+
+type MultilineTypeLabelEntry = {
+  contents: string;
+  multiline: boolean;
+};
+
+function computeMultilineTypeLabel(
+  typeLabel: TypeLabel,
+  indentation: number
+): MultilineTypeLabelEntry {
+  switch (typeLabel.label) {
+    case "array":
+    case "map":
+    case "set": {
+      // First, check if we can show this on a single line
+      const singleLineContents = computeSingleLineDisplayType(typeLabel);
+      if (singleLineContents.length < MAX_TYPE_LABEL_LENGTH - indentation) {
+        return {
+          contents: singleLineContents,
+          multiline: false,
+        };
+      }
+
+      // If we got here, we know this will be multiline, so compute each child
+      // separately. We'll stitch them together later.
+      const children: MultilineTypeLabelEntry[] = [];
+      for (const child of typeLabel.children) {
+        children.push(computeMultilineTypeLabel(child, indentation + 1));
+      }
+
+      let contents = `${typeLabel.label}<\n`;
+      for (let i = 0; i < children.length; i++) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const child = children[i]!;
+        contents += `${" ".repeat(indentation + 1)}${child.contents}\n`;
+      }
+      contents += `${" ".repeat(indentation)}>\n`;
+      return {
+        contents,
+        multiline: true,
+      };
+    }
+    case "union":
+    case "enum": {
+      // First, check if we can show this on a single line
+      const singleLineContents = computeSingleLineDisplayType(typeLabel);
+      if (singleLineContents.length < MAX_TYPE_LABEL_LENGTH - indentation) {
+        return {
+          contents: singleLineContents,
+          multiline: false,
+        };
+      }
+
+      // If we got here, we know this will be multiline, so compute each child
+      // separately. We'll stitch them together later.
+      const children: MultilineTypeLabelEntry[] = [];
+      for (const child of typeLabel.children) {
+        children.push(computeMultilineTypeLabel(child, 0));
+      }
+
+      let contents = "\n";
+      for (let i = 0; i < children.length; i++) {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const child = children[i]!;
+        contents += `${" ".repeat(indentation)}| ${child.contents}\n`;
+      }
+      return {
+        contents,
+        multiline: true,
+      };
+    }
+    default: {
+      return {
+        contents: typeLabel.label,
+        multiline: false,
+      };
+    }
+  }
+}
+
 function renderDisplayType({
   renderer,
   site,
@@ -140,15 +269,21 @@ function renderDisplayType({
   depth: number;
 }) {
   const displayType = getDisplayType(value, data);
-  let computedTypeLabel = "Signature:\n\n```\n";
-  function computeTypeLabel(typeLabel: TypeLabel, indentation: number) {
-    computedTypeLabel += "  ".repeat(indentation) + typeLabel.label + "\n";
-    for (const child of typeLabel.children) {
-      computeTypeLabel(child, indentation + 1);
-    }
+  if ("description" in value && value.description) {
+    renderer.appendParagraph(value.description);
   }
-  computeTypeLabel(displayType.typeLabel, 0);
-  renderer.appendParagraph(computedTypeLabel + "```");
+
+  const computedDisplayType = computeDisplayType(displayType.typeLabel);
+  if (computedDisplayType.multiline) {
+    renderer.appendParagraph(
+      `${TYPE_SIGNATURE_PREFIX}\n\`\`\`\n${computedDisplayType.content}\n\`\`\``
+    );
+  } else {
+    renderer.appendParagraph(
+      `${TYPE_SIGNATURE_PREFIX}\`${computedDisplayType.content}\``
+    );
+  }
+
   // TODO: this is a quick-n-dirty deduping of breakout types, but if there are
   // two different schemas with the same name they'll be deduped, which is wrong.
   for (let i = 0; i < displayType.breakoutSubTypes.length; i++) {
@@ -166,7 +301,7 @@ function renderDisplayType({
       site,
       schema: breakoutSubType.schema,
       data: data,
-      baseHeadingLevel,
+      baseHeadingLevel: Math.min(baseHeadingLevel + 1, MIN_HEADING_LEVEL),
       topLevelName: breakoutSubType.label,
       depth: depth + 1,
     });
@@ -191,7 +326,7 @@ export function renderSchema({
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
       if (value.type === "chunk") {
-        renderer.appendHeading(5, key);
+        renderer.appendHeading(baseHeadingLevel, key);
         const schemaChunk = getSchemaFromId(value.chunkId, data);
         renderDisplayType({
           renderer,
@@ -202,12 +337,14 @@ export function renderSchema({
           depth,
         });
       } else if (value.type === "enum") {
-        renderer.appendHeading(5, key);
-        renderer.appendParagraph(
-          `Signature:\n\`\`\`\nenum${value.values.map((v) => `\n  ${v}`).join("")}\n\`\`\``
-        );
+        renderer.appendHeading(baseHeadingLevel, key);
+        let computedTypeLabel = `_Type Signature:_ \`${value.values.map((v) => (typeof v === "string" ? `'${v}'` : v)).join(" | ")}\``;
+        if (computedTypeLabel.length > MAX_TYPE_LABEL_LENGTH) {
+          computedTypeLabel = `_Type Signature:_\n\`\`\`\nenum${value.values.map((v) => `\n  ${typeof v === "string" ? `'${v}'` : v}`).join("")}\n\`\`\``;
+        }
+        renderer.appendParagraph(computedTypeLabel);
       } else {
-        renderer.appendHeading(5, key);
+        renderer.appendHeading(baseHeadingLevel, key);
         renderDisplayType({
           renderer,
           site,
@@ -273,6 +410,9 @@ export function renderSchema({
     // If no renderer was returned, that means we've already rendered this embed
     if (sidebarLinkRenderer) {
       sidebarLinkRenderer.appendHeading(baseHeadingLevel, embedName);
+      if (schema.description) {
+        sidebarLinkRenderer.appendParagraph(schema.description);
+      }
       renderSchema({
         renderer: sidebarLinkRenderer,
         site,
@@ -285,7 +425,7 @@ export function renderSchema({
       sidebarLinkRenderer.finalize();
     }
     renderer.appendSidebarLink({
-      title: embedName,
+      title: `${embedName} Details`,
       embedName,
     });
     return;
