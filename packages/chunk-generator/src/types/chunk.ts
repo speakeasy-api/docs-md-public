@@ -76,6 +76,12 @@ type AnyValue = {
 type BaseValue = {
   description: string | null;
   examples: string[];
+  isNullable: boolean;
+  defaultValue: string | null;
+};
+
+type NullValue = BaseValue & {
+  type: "null";
 };
 
 type BooleanValue = BaseValue & {
@@ -155,6 +161,7 @@ export type UnionValue = BaseValue & {
 };
 
 export type SchemaValue =
+  | NullValue
   | StringValue
   | DateValue
   | DateTimeValue

@@ -123,6 +123,7 @@ function getDisplayType(
     case "float32":
     case "decimal":
     case "binary":
+    case "null":
     case "any": {
       return {
         typeLabel: { label: value.type, children: [] },
@@ -145,8 +146,9 @@ function computeDisplayType(typeLabel: TypeLabel) {
   }
   const content = computeMultilineTypeLabel(typeLabel, 0);
 
-  // TODO: sometimes we end up with some blank lines. Ideally the core algorithm
-  // should handle this, but for now we just patch it up after the fact
+  // TODO: sometimes we end up with some blank lines. Ideally the
+  // computeMultilineTypeLabel function should handle this, but for now we just
+  // patch it up after the fact
   content.contents = content.contents
     .split("\n")
     .filter((c) => c.length > 0)
@@ -271,6 +273,18 @@ function renderDisplayType({
   const displayType = getDisplayType(value, data);
   if ("description" in value && value.description) {
     renderer.appendParagraph(value.description);
+  }
+  if ("examples" in value && value.examples.length > 0) {
+    renderer.appendParagraph(
+      `_${value.examples.length > 1 ? "Examples" : "Example"}:_`
+    );
+    for (const example of value.examples) {
+      renderer.appendCode(example);
+    }
+  }
+
+  if ("defaultValue" in value && value.defaultValue) {
+    renderer.appendParagraph(`_Default Value:_ \`${value.defaultValue}\``);
   }
 
   const computedDisplayType = computeDisplayType(displayType.typeLabel);
