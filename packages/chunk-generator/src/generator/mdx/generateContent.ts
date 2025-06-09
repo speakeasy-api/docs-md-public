@@ -1,4 +1,8 @@
-import type { Chunk } from "../../types/chunk.ts";
+import { join, resolve } from "node:path";
+
+import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
+import { assertNever } from "../../util/assertNever.ts";
+import { getSettings } from "../settings.ts";
 import { renderAbout } from "./chunks/about.ts";
 import { renderOperation } from "./chunks/operation.ts";
 import { renderSchema } from "./chunks/schema.ts";
@@ -6,25 +10,37 @@ import { renderTag } from "./chunks/tag.ts";
 import { Site } from "./renderer.ts";
 import { getOperationFromId } from "./util.ts";
 
-type BaseOptions = {
-  data: Map<string, Chunk>;
-  buildPagePath: (slug: string) => string;
-};
+type Data = Map<string, Chunk>;
 
-function getPageMap({
-  data,
-  buildPagePath,
-}: BaseOptions): Map<
+type PageMap = Map<
   string,
   { sidebarLabel: string; sidebarPosition: string; chunks: Chunk[] }
-> {
-  const pageMap: Map<
-    string,
-    { sidebarLabel: string; sidebarPosition: string; chunks: Chunk[] }
-  > = new Map();
+>;
+
+function getPageMap(data: Data) {
+  const settings = getSettings();
+
+  const pageMap: PageMap = new Map();
+
+  let buildPagePath: (slug: string) => string;
+  switch (settings.output.framework) {
+    case "docusaurus": {
+      buildPagePath = (slug: string) =>
+        resolve(join(settings.output.pageOutDir, `${slug}.mdx`));
+      break;
+    }
+    case "nextra": {
+      buildPagePath = (slug: string) =>
+        resolve(join(settings.output.pageOutDir, `${slug}/page.mdx`));
+      break;
+    }
+    default: {
+      // We should never get here cause we validate the settings in the CLI
+      assertNever(settings.output.framework);
+    }
+  }
 
   // Get the about page
-
   for (const [, chunk] of data) {
     if (chunk.chunkType === "about") {
       pageMap.set(buildPagePath("about"), {
@@ -36,8 +52,7 @@ function getPageMap({
   }
 
   // Find the tag pages
-  let tagIndex = 0;
-  const tagChunks: Chunk[] = [];
+  const tagChunks: TagChunk[] = [];
   for (const [, chunk] of data) {
     if (chunk.chunkType === "tag") {
       tagChunks.push(chunk);
@@ -46,11 +61,10 @@ function getPageMap({
 
   // Sort by slug so that the sidebar position is stable
   tagChunks.sort((a, b) => a.slug.localeCompare(b.slug));
+
+  // Render the tag pagse
+  let tagIndex = 0;
   for (const chunk of tagChunks) {
-    // This is impossible due to the sort above, but TypeScript doesn't know that
-    if (chunk.chunkType !== "tag") {
-      throw new Error(`Expected tag chunk, got ${chunk.chunkType}`);
-    }
     const pagePath = buildPagePath(chunk.slug);
     const pageMapEntry = {
       sidebarLabel: chunk.chunkData.name,
@@ -64,27 +78,48 @@ function getPageMap({
     }
   }
 
-  // TODO: Mistral doesn't want schemas/refs in the sidebar (fair), but others
-  // might so eventually we should control this with a config file value and
-  // search for schemas to add to the pagemap here
+  // Create the schema pages, if they're enabled in settings
+  if (settings.display.showSchemasInNav) {
+    // Find the schema chunks
+    const schemaChunks: SchemaChunk[] = [];
+    for (const [, chunk] of data) {
+      if (
+        chunk.chunkType === "schema" &&
+        chunk.chunkData.value.type === "object" &&
+        // We make sure there's a slug so that we're not showing an unnamed or
+        // internal schema
+        chunk.slug
+      ) {
+        schemaChunks.push(chunk);
+      }
+    }
+
+    // Sort by slug so that the sidebar position is stable
+    schemaChunks.sort((a, b) => a.slug.localeCompare(b.slug));
+
+    // Render the schema pages
+    let schemaIndex = 0;
+    for (const chunk of schemaChunks) {
+      // This can't happen cause we filter above, but TypeScript doesn't know that
+      if (chunk.chunkData.value.type !== "object") {
+        throw new Error(
+          `Schema chunk ${chunk.chunkData.value.type} is not an object, but it should be`
+        );
+      }
+      const pagePath = buildPagePath(chunk.slug);
+      const pageMapEntry = {
+        sidebarLabel: chunk.chunkData.value.name,
+        sidebarPosition: `3.${schemaIndex++}`,
+        chunks: [chunk] as Chunk[],
+      };
+      pageMap.set(pagePath, pageMapEntry);
+    }
+  }
 
   return pageMap;
 }
 
-type GenerateContentOptions = BaseOptions & {
-  baseComponentPath: string;
-};
-
-export function generateContent({
-  data,
-  buildPagePath,
-  baseComponentPath,
-}: GenerateContentOptions): Record<string, string> {
-  // First, get a mapping of pages to chunks
-  const pageMap = getPageMap({ data, buildPagePath });
-
-  const site = new Site({ baseComponentPath });
-
+function renderPages(site: Site, pageMap: PageMap, data: Map<string, Chunk>) {
   for (const [
     currentPagePath,
     { chunks, sidebarLabel, sidebarPosition },
@@ -131,9 +166,11 @@ export function generateContent({
           break;
         }
         default: {
-          // Just a little extra checking. We do all this any typing cause TypeScript
-          // is narrowing the type to `never`, but we're really checking in case
-          // the types are wrong (cause they're out of date or something)
+          // Just a little extra checking. We do all this any typing cause
+          // TypeScript is narrowing the type of `chunk` to `never`, but we're
+          // really checking in case the types are wrong (cause they're out of
+          // date or something) and we know it's an object with a property
+          // called `chunkType`. This is why we don't use `assertNever` here
           // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
           throw new Error(`Unknown chunk type: ${(chunk as any).chunkType}`);
         }
@@ -141,6 +178,86 @@ export function generateContent({
     }
     renderer.finalize();
   }
+}
 
+function renderScaffoldSupport(site: Site) {
+  const settings = getSettings();
+  switch (settings.output.framework) {
+    case "docusaurus": {
+      site.createRawPage(
+        join(settings.output.pageOutDir, "_category_.json"),
+        JSON.stringify(
+          {
+            position: 2,
+            label: "API Reference",
+            collapsible: true,
+            collapsed: false,
+          },
+          null,
+          "  "
+        )
+      );
+      site.createRawPage(
+        join(settings.output.pageOutDir, "tag", "_category_.json"),
+        JSON.stringify(
+          {
+            position: 3,
+            label: "Operations",
+            collapsible: true,
+            collapsed: false,
+          },
+          null,
+          "  "
+        )
+      );
+      if (settings.display.showSchemasInNav) {
+        site.createRawPage(
+          join(settings.output.pageOutDir, "schema", "_category_.json"),
+          JSON.stringify(
+            {
+              position: 4,
+              label: "Schemas",
+              collapsible: true,
+              collapsed: true,
+            },
+            null,
+            "  "
+          )
+        );
+      }
+      break;
+    }
+    case "nextra": {
+      const schemasEntry = settings.display.showSchemasInNav
+        ? `\n  schemas: { title: "Schemas", theme: { collapsed: false } },`
+        : "";
+      const config = `export default {
+  about: { title: "About", theme: { collapsed: false } },
+  tag: { title: "Operations", theme: { collapsed: false } },${schemasEntry}
+}`;
+      site.createRawPage(join(settings.output.pageOutDir, "_meta.ts"), config);
+
+      // Nextra doesn't need anything (yet)
+      break;
+    }
+    default: {
+      // We should never get here cause we validate the settings in the CLI
+      assertNever(settings.output.framework);
+    }
+  }
+}
+
+export function generateContent(data: Data): Record<string, string> {
+  // First, get a mapping of pages to chunks
+  const pageMap = getPageMap(data);
+
+  // Then, render each page
+  const site = new Site();
+  renderPages(site, pageMap, data);
+
+  // Now do any post-processing needed by the scaffold
+  renderScaffoldSupport(site);
+
+  // Finally, return the pages
   return Object.fromEntries(site.getPages());
 }
