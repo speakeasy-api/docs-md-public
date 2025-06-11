@@ -1,5 +1,6 @@
 {
   "name": "@speakeasy-api/docs-md",
+  "private": false,
   "version": "0.1.0-beta1",
   "type": "module",
   "bin": {
@@ -15,7 +16,7 @@
     "type-check": "tsc --noEmit"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "description": "",
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
