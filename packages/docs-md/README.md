@@ -1,3 +1,3 @@
-# Chunk Generator
+# Docs MD
 
-This package provides a library that is used to generator documentation chunks (e.g. MDX).
+See Speakeasy documentation for details.
