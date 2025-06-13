@@ -2,6 +2,7 @@ import { join, resolve } from "node:path";
 
 import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
 import { assertNever } from "../../util/assertNever.ts";
+import type { DocsCodeSnippets } from "../codeSnippets.ts";
 import { getSettings } from "../settings.ts";
 import { renderAbout } from "./chunks/about.ts";
 import { renderOperation } from "./chunks/operation.ts";
@@ -144,7 +145,12 @@ function getPageMap(data: Data) {
   return pageMap;
 }
 
-function renderPages(site: Site, pageMap: PageMap, data: Map<string, Chunk>) {
+function renderPages(
+  site: Site,
+  pageMap: PageMap,
+  data: Map<string, Chunk>,
+  docsCodeSnippets: DocsCodeSnippets
+) {
   for (const [currentPagePath, pageMapEntry] of pageMap) {
     if (pageMapEntry.type === "renderer") {
       const renderer = site.createPage(currentPagePath);
@@ -195,6 +201,7 @@ function renderPages(site: Site, pageMap: PageMap, data: Map<string, Chunk>) {
             chunk,
             docsData: data,
             baseHeadingLevel: 2,
+            docsCodeSnippets,
           });
           break;
         }
@@ -280,13 +287,15 @@ function renderScaffoldSupport(site: Site) {
   }
 }
 
-export function generateContent(data: Data): Record<string, string> {
+export function generateContent(
+  data: Data,
+  docsCodeSnippets: DocsCodeSnippets
+): Record<string, string> {
   // First, get a mapping of pages to chunks
   const pageMap = getPageMap(data);
-
   // Then, render each page
   const site = new Site();
-  renderPages(site, pageMap, data);
+  renderPages(site, pageMap, data, docsCodeSnippets);
 
   // Now do any post-processing needed by the scaffold
   renderScaffoldSupport(site);

@@ -231,7 +231,12 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
 
   // TODO: need to type this properly, but we can't import types from assets
   // since they can't be built as part of this TS project
-  public appendTryItNow(props: Record<string, unknown> = {}) {
+  public appendTryItNow(
+    props: {
+      externalDependencies?: Record<string, string>;
+      defaultValue?: string;
+    } & Record<string, unknown>
+  ) {
     this.insertComponentImport("TryItNow", "TryItNow/index.tsx");
     const escapedProps = Object.fromEntries(
       Object.entries(props).map(([key, value]) => [
@@ -241,7 +246,9 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
           : JSON.stringify(value),
       ])
     );
-    this.#lines.push(`<TryItNow {...${JSON.stringify(escapedProps)}} />`);
+    this.#lines.push(
+      `<TryItNow {...${JSON.stringify(escapedProps)}} externalDependencies={${JSON.stringify(props.externalDependencies)}} defaultValue={\`${props.defaultValue}\`} />`
+    );
   }
 
   public finalize() {

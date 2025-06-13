@@ -26,6 +26,7 @@ const CONFIG_FILE_NAMES = [
 ];
 
 const args = arg({
+  "--npm-package-name": String,
   "--help": Boolean,
   "--config": String,
   "--spec": String,
@@ -37,6 +38,7 @@ const args = arg({
   "-p": "--page-out-dir",
   "-o": "--component-out-dir",
   "-f": "--framework",
+  "-n": "--npm-package-name",
 });
 
 function printHelp() {
@@ -48,7 +50,8 @@ Options:
   --spec, -s     Path to OpenAPI spec
   --page-out-dir, -p  Output directory for page contents
   --component-out-dir, -o  Output directory for component contents
-  --framework, -f  Framework to use (docusaurus, nextra)`);
+  --framework, -f  Framework to use (docusaurus, nextra)
+  --npm-package-name, -n  npm package to use for the SDK code snippets`);
 }
 
 if (args["--help"]) {

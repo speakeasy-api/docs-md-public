@@ -26,6 +26,12 @@ export const settingsSchema = z.strictObject({
       suggestions: z.array(z.string()).optional(),
     })
     .optional(),
+  tryItNow: z
+    .strictObject({
+      npmPackageName: z.string(),
+      sdkClassName: z.string(),
+    })
+    .optional(),
 });
 
 export type Settings = z.infer<typeof settingsSchema>;

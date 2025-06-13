@@ -7,7 +7,6 @@ import { fileURLToPath } from "node:url";
 import { unzipSync } from "node:zlib";
 
 import type { Chunk } from "../../types/chunk.ts";
-
 declare class Go {
   argv: string[];
   env: { [envKey: string]: string };
@@ -32,8 +31,10 @@ export async function getDocsData(
   const result = await WebAssembly.instantiate(wasmBuffer, go.importObject);
   void go.run(result.instance);
   const serializedDocsData = await SerializeDocsData(specContents);
+
   const docsData = (JSON.parse(serializedDocsData) as string[]).map(
     (chunk) => JSON.parse(chunk) as Chunk
   );
+  
   return new Map(docsData.map((chunk) => [chunk.id, chunk]));
 }

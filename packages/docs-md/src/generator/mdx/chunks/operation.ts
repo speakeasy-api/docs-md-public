@@ -1,4 +1,6 @@
 import type { Chunk, OperationChunk } from "../../../types/chunk.ts";
+import type { DocsCodeSnippets } from "../../codeSnippets.ts";
+import { getSettings } from "../../settings.ts";
 import type { Renderer, Site } from "../renderer.ts";
 import { getSchemaFromId } from "../util.ts";
 import { renderSchema } from "./schema.ts";
@@ -9,6 +11,7 @@ type RenderOperationOptions = {
   chunk: OperationChunk;
   docsData: Map<string, Chunk>;
   baseHeadingLevel: number;
+  docsCodeSnippets: DocsCodeSnippets;
 };
 
 export function renderOperation({
@@ -17,6 +20,7 @@ export function renderOperation({
   chunk,
   docsData,
   baseHeadingLevel,
+  docsCodeSnippets,
 }: RenderOperationOptions) {
   renderer.appendHeading(
     baseHeadingLevel,
@@ -88,6 +92,22 @@ export function renderOperation({
         depth: 0,
       });
     }
+  }
+
+  const { tryItNow } = getSettings();
+
+  const usageSnippet = docsCodeSnippets[chunk.id];
+  if (usageSnippet && tryItNow) {
+    renderer.appendHeading(baseHeadingLevel + 1, "Try it Now");
+    // TODO: Zod is actually hard coded for now since its always a dependency
+    // in our SDKs. Ideally this will come from the SDK package.
+    renderer.appendTryItNow({
+      externalDependencies: {
+        zod: "^3.25.64",
+        [tryItNow.npmPackageName]: "latest",
+      },
+      defaultValue: usageSnippet.code,
+    });
   }
 
   if (chunk.chunkData.requestBody) {
