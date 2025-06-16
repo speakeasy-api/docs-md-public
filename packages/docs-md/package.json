@@ -4,9 +4,9 @@
   "version": "0.1.0-beta5",
   "type": "module",
   "bin": {
-    "docs-md": "dist/cli/cli.js"
+    "docs-md": "./dist/cli/cli.js"
   },
-  "main": "dist/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
     "test": "",
     "build": "tsc && cp ./src/generator/docsData/*.gz ./dist/generator/docsData/ && chmod a+x dist/cli/cli.js",
