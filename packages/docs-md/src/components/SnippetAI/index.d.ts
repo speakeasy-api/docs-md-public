@@ -1,4 +1,4 @@
-import * as codeThemes from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import * as codeThemes from 'react-syntax-highlighter/dist/esm/styles/hljs/index.js';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { PropsWithChildren } from 'react';
 import { ReactNode } from 'react';
