@@ -43,7 +43,7 @@ export class Site {
       recursive: true,
       withFileTypes: true,
     })
-      .filter((f) => f.isFile())
+      .filter((f) => f.isFile() && f.name !== "tsconfig.json")
       .map((f) => join(f.parentPath, f.name).replace(ASSET_PATH + "/", ""));
     for (const assetFile of assetFileList) {
       this.#pages.set(
@@ -213,13 +213,14 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
     title: string;
     embedName: string;
   }) {
+    // If this is a circular import, skip processing sidebar
+    if (!this.#insertEmbedImport(embedName)) {
+      // TODO: add debug logging
+      return;
+    }
     this.#includeSidebar = true;
     this.insertComponentImport("SideBarCta", "SideBar/index.tsx");
     this.insertComponentImport("SideBar", "SideBar/index.tsx");
-    if (!this.#insertEmbedImport(embedName)) {
-      console.error(`Direct circular import detected, skipping sidebar link`);
-      return;
-    }
     this.#lines.push(
       `<p>
   <SideBarCta cta="${`View ${this.escapeText(title, { mdxOnly: true })}`}" title="${this.escapeText(title)}">

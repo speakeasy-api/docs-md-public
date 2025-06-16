@@ -1,16 +1,12 @@
-import type {
-  SandpackOptions,
-  SandpackSetup,
-} from "@codesandbox/sandpack-react";
 import {
   SandpackCodeEditor,
   SandpackConsole,
   SandpackLayout,
   SandpackPreview,
   SandpackProvider,
+  useErrorMessage,
 } from "@codesandbox/sandpack-react";
 import { useAtomValue } from "jotai";
-import { Fragment } from "react";
 
 import { CodeEditor } from "./CodeEditor/index.tsx";
 import { dependenciesAtom, lastEditorValueAtom } from "./state/index.ts";
@@ -31,17 +27,6 @@ type TryItNowProps = {
    */
   defaultValue?: string;
   /**
-   * Props for the container that wraps the editor and console output.
-   */
-  containerProps?: React.HTMLAttributes<HTMLDivElement>;
-  /**
-   * Render only the Sandpack provider and components to use in a
-   * custom container.
-   */
-  disableContainer?: boolean;
-  sandpackOptions?: Partial<SandpackOptions>;
-  sandpackSetupOptions?: Partial<SandpackSetup>;
-  /**
    * Experimental: When enabled, the editor will automatically
    * scan for external dependencies from npm as the user adds them
    * as imports.
@@ -49,34 +34,48 @@ type TryItNowProps = {
   _enableUnsafeAutoImport?: boolean;
 };
 
+const TryItNowContents = ({
+  _enableUnsafeAutoImport,
+}: {
+  _enableUnsafeAutoImport?: boolean;
+}) => {
+  const error = useErrorMessage();
+  return (
+    <SandpackLayout>
+      {_enableUnsafeAutoImport ? <CodeEditor /> : <SandpackCodeEditor />}
+      {!error && (
+        <SandpackConsole
+          resetOnPreviewRestart
+          showSetupProgress
+          showRestartButton
+        />
+      )}
+      <SandpackPreview style={error ? undefined : styles.preview}>
+        {error ? <pre>{error}</pre> : null}
+      </SandpackPreview>
+    </SandpackLayout>
+  );
+};
+
 export const TryItNow = ({
   externalDependencies,
   defaultValue = "",
   _enableUnsafeAutoImport,
-  containerProps,
-  disableContainer,
-  sandpackOptions = {},
-  sandpackSetupOptions = {},
 }: TryItNowProps) => {
   const autoImportDependencies = useAtomValue(dependenciesAtom);
   const previousCodeAtomValue = useAtomValue(lastEditorValueAtom);
-  const OuterContainer = disableContainer ? Fragment : "div";
 
   return (
-    <OuterContainer
-      style={{ ...styles.container, ...containerProps?.style }}
-      {...containerProps}
-    >
+    <div style={{ ...styles.container }}>
       <SandpackProvider
         options={{
           autoReload: false,
           autorun: false,
-          activeFile: "index.tsx",
-          ...sandpackOptions,
+          activeFile: "index.ts",
         }}
         template="vanilla-ts"
         files={{
-          "index.tsx": {
+          "index.ts": {
             code:
               _enableUnsafeAutoImport && previousCodeAtomValue
                 ? previousCodeAtomValue
@@ -89,21 +88,12 @@ export const TryItNow = ({
             autoImportDependencies && _enableUnsafeAutoImport
               ? { ...autoImportDependencies, ...externalDependencies }
               : externalDependencies,
-          entry: "index.tsx",
-          ...sandpackSetupOptions,
+          entry: "index.ts",
         }}
         theme="dark"
       >
-        <SandpackLayout>
-          <SandpackPreview style={styles.preview} />
-          {_enableUnsafeAutoImport ? <CodeEditor /> : <SandpackCodeEditor />}
-          <SandpackConsole
-            resetOnPreviewRestart
-            showSetupProgress
-            showRestartButton
-          />
-        </SandpackLayout>
+        <TryItNowContents />
       </SandpackProvider>
-    </OuterContainer>
+    </div>
   );
 };
