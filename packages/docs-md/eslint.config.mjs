@@ -17,5 +17,5 @@ export default [
     },
     ignores: ["src/generator/docsData/wasm_exec.js"],
   }),
-  globalIgnores(["assets/SnippetAI/**/*"]),
+  globalIgnores(["src/components/SnippetAI/**/*"]),
 ];
