@@ -9,7 +9,7 @@ export function renderSnippetAI(renderer: Renderer) {
     );
   }
   const { suggestions, apiKey } = snippetAI;
-  renderer.insertComponentImport("SnippetAI", "SnippetAI/index.js");
+  renderer.insertThirdPartyImport("SnippetAI", "@speakeasy-api/docs-md");
   renderer.appendHeading(1, "Snippet AI");
   renderer.appendHeading(2, "Hit cmd/ctrl + k to open SnippetAI");
   renderer.appendRaw(`
