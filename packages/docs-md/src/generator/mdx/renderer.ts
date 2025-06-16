@@ -219,8 +219,8 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
       return;
     }
     this.#includeSidebar = true;
-    this.insertComponentImport("SideBarCta", "SideBar/index.tsx");
-    this.insertComponentImport("SideBar", "SideBar/index.tsx");
+    this.#insertComponentImport("SideBarCta", "SideBar/index.tsx");
+    this.#insertComponentImport("SideBar", "SideBar/index.tsx");
     this.#lines.push(
       `<p>
   <SideBarCta cta="${`View ${this.escapeText(title, { mdxOnly: true })}`}" title="${this.escapeText(title)}">
@@ -238,7 +238,7 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
       defaultValue?: string;
     } & Record<string, unknown>
   ) {
-    this.insertComponentImport("TryItNow", "TryItNow/index.tsx");
+    this.insertThirdPartyImport("TryItNow", "@speakeasy-api/docs-md");
     const escapedProps = Object.fromEntries(
       Object.entries(props).map(([key, value]) => [
         key,
@@ -317,11 +317,15 @@ sidebarTitle: ${this.escapeText(sidebarLabel)}
     return true;
   }
 
-  public insertComponentImport(symbol: string, componentPath: string) {
+  #insertComponentImport(symbol: string, componentPath: string) {
     const importPath = relative(
       dirname(this.#currentPagePath),
       join(getSettings().output.componentOutDir, componentPath)
     );
+    this.#insertNamedImport(importPath, symbol);
+  }
+
+  public insertThirdPartyImport(symbol: string, importPath: string) {
     this.#insertNamedImport(importPath, symbol);
   }
 }

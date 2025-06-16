@@ -1,7 +1,7 @@
 {
   "name": "@speakeasy-api/docs-md",
   "private": false,
-  "version": "0.1.0-beta4",
+  "version": "0.1.0-beta5",
   "type": "module",
   "bin": {
     "docs-md": "dist/cli/cli.js"
@@ -29,6 +29,7 @@
   "dependencies": {
     "@codesandbox/sandpack-client": "^2.19.8",
     "@codesandbox/sandpack-react": "^2.20.0",
+    "@speakeasy-api/snippet-ai-react": "^1.6.0",
     "@tanstack/react-query": "^5.66.9",
     "arg": "^5.0.2",
     "clsx": "^2.1.1",

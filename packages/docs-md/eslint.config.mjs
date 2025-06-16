@@ -12,9 +12,8 @@ export default [
     rootDir: getDirname(),
     entryPoints: {
       "eslint.config.mjs": ["default"],
-      "src/index.ts": ["Settings"],
+      "src/index.ts": ["Settings", "TryItNow", "SnippetAI"],
       "assets/SideBar/index.tsx": ["SideBar", "SideBarCta"],
-      "assets/TryItNow/index.tsx": ["TryItNow"],
     },
     ignores: ["src/generator/docsData/wasm_exec.js"],
   }),
