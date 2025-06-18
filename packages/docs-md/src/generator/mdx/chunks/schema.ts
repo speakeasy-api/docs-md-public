@@ -24,15 +24,6 @@ function getMaxInlineLength(propertyName: string, indentationLevel: number) {
 // have a font size _smaller_ than paragraph font size, which looks weird.
 const MIN_HEADING_LEVEL = 5;
 
-type RenderSchemaOptions = {
-  site: Site;
-  renderer: Renderer;
-  schema: SchemaValue;
-  data: Map<string, Chunk>;
-  baseHeadingLevel: number;
-  depth: number;
-};
-
 type TypeLabel = {
   label: string;
   children: TypeLabel[];
@@ -282,13 +273,13 @@ function renderSchemaFrontmatter({
   displayType: DisplayType;
   isOptional: boolean;
 }) {
-  const computedDisplayType = computeDisplayType(
-    displayType.typeLabel,
-    propertyName
-  );
   const propertyNameWithOptional = isOptional
     ? `${propertyName} (optional)`
     : propertyName;
+  const computedDisplayType = computeDisplayType(
+    displayType.typeLabel,
+    propertyNameWithOptional
+  );
   if (computedDisplayType.multiline) {
     renderer.appendHeading(baseHeadingLevel, propertyNameWithOptional);
     renderer.appendParagraph(`\`\`\`\n${computedDisplayType.content}\n\`\`\``);
@@ -364,7 +355,13 @@ export function renderSchema({
   baseHeadingLevel,
   topLevelName,
   depth,
-}: RenderSchemaOptions & {
+}: {
+  site: Site;
+  renderer: Renderer;
+  schema: SchemaValue;
+  data: Map<string, Chunk>;
+  baseHeadingLevel: number;
+  depth: number;
   topLevelName: string;
 }) {
   const { maxSchemaNesting } = getSettings().display;

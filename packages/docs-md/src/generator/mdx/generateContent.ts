@@ -56,7 +56,7 @@ function getPageMap(data: Data) {
   // Get the about page
   for (const [, chunk] of data) {
     if (chunk.chunkType === "about") {
-      pageMap.set(buildPagePath("about"), {
+      pageMap.set(buildPagePath("index"), {
         type: "chunk",
         sidebarLabel: "About",
         sidebarPosition: "1",
