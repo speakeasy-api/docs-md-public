@@ -262,20 +262,20 @@ function renderNameAndType({
   renderer,
   propertyName,
   displayType,
-  isOptional,
+  isRequired,
   baseHeadingLevel,
   isRecursive,
 }: {
   renderer: Renderer;
   propertyName: string;
   displayType: DisplayType;
-  isOptional: boolean;
+  isRequired: boolean;
   baseHeadingLevel: number;
   isRecursive: boolean;
 }) {
   let annotatedPropertyName = propertyName;
-  if (isOptional) {
-    annotatedPropertyName = `${propertyName} (optional)`;
+  if (isRequired) {
+    annotatedPropertyName = `${propertyName} (required)`;
   }
   if (isRecursive) {
     annotatedPropertyName = `${propertyName} (recursive)`;
@@ -302,20 +302,20 @@ function renderSchemaFrontmatter({
   baseHeadingLevel,
   propertyName,
   displayType,
-  isOptional,
+  isRequired,
 }: {
   renderer: Renderer;
   schema: SchemaValue;
   baseHeadingLevel: number;
   propertyName: string;
   displayType: DisplayType;
-  isOptional: boolean;
+  isRequired: boolean;
 }) {
   renderNameAndType({
     renderer,
     propertyName,
     displayType,
-    isOptional,
+    isRequired,
     isRecursive: false,
     baseHeadingLevel,
   });
@@ -450,7 +450,7 @@ export function renderSchema({
       isOpenOnLoad: labelStack.length === 0,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
-      const isOptional = objectValue.required?.includes(key) === false;
+      const isRequired = objectValue.required?.includes(key) ?? false;
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, data);
         const schema = schemaChunk.chunkData.value;
@@ -461,7 +461,7 @@ export function renderSchema({
           baseHeadingLevel,
           propertyName: key,
           displayType,
-          isOptional,
+          isRequired,
         });
         renderSchemaBreakouts({
           renderer,
@@ -479,7 +479,7 @@ export function renderSchema({
           baseHeadingLevel,
           propertyName: key,
           displayType,
-          isOptional,
+          isRequired,
         });
       } else {
         const displayType = getDisplayType(value, data);
@@ -489,7 +489,7 @@ export function renderSchema({
           baseHeadingLevel,
           propertyName: key,
           displayType,
-          isOptional,
+          isRequired,
         });
       }
     }
@@ -506,7 +506,7 @@ export function renderSchema({
       baseHeadingLevel,
       propertyName: topLevelName,
       displayType,
-      isOptional: false,
+      isRequired: true,
     });
   }
 
@@ -518,7 +518,7 @@ export function renderSchema({
       baseHeadingLevel,
       propertyName: topLevelName,
       displayType,
-      isOptional: false,
+      isRequired: true,
     });
     return;
   }
@@ -531,7 +531,7 @@ export function renderSchema({
       baseHeadingLevel,
       propertyName: topLevelName,
       displayType,
-      isOptional: false,
+      isRequired: true,
     });
   }
 
