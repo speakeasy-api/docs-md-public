@@ -1,7 +1,7 @@
 {
   "name": "@speakeasy-api/docs-md",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "bin": {
     "docs-md": "./dist/cli/cli.js"
@@ -9,12 +9,12 @@
   "exports": "./dist/index.js",
   "scripts": {
     "test": "",
-    "build": "tsc && cp ./src/generator/docsData/*.gz ./dist/generator/docsData/ && chmod a+x dist/cli/cli.js",
+    "build": "tsc && cp ./src/pages/data/*.gz ./dist/pages/data/ && chmod a+x dist/cli/cli.js",
     "dev": "",
     "format": "prettier --config ../../prettier.config.mjs --ignore-path ../../.gitignore --write \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
     "lint": "eslint \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
     "start": "",
-    "type-check": "tsc --noEmit --project assets/tsconfig.json && tsc --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "author": "",
   "license": "UNLICENSED",

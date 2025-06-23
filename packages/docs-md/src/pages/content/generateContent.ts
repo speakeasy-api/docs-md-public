@@ -1,15 +1,12 @@
-import { join, resolve } from "node:path";
-
 import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
-import { assertNever } from "../../util/assertNever.ts";
-import type { DocsCodeSnippets } from "../codeSnippets.ts";
-import { getSettings } from "../settings.ts";
+import type { Renderer } from "../../types/renderer.ts";
+import type { Site } from "../../types/site.ts";
+import { getSettings } from "../../util/settings.ts";
+import type { DocsCodeSnippets } from "../codeSnippets/generateCodeSnippets.ts";
 import { renderAbout } from "./chunks/about.ts";
 import { renderOperation } from "./chunks/operation.ts";
 import { renderSchema } from "./chunks/schema.ts";
 import { renderTag } from "./chunks/tag.ts";
-import type { Renderer } from "./renderer.ts";
-import { Site } from "./renderer.ts";
 import { getOperationFromId } from "./util.ts";
 
 type Data = Map<string, Chunk>;
@@ -30,33 +27,15 @@ type PageMapEntry =
 
 type PageMap = Map<string, PageMapEntry>;
 
-function getPageMap(data: Data) {
+function getPageMap(site: Site, data: Data) {
   const settings = getSettings();
 
   const pageMap: PageMap = new Map();
 
-  let buildPagePath: (slug: string) => string;
-  switch (settings.output.framework) {
-    case "docusaurus": {
-      buildPagePath = (slug: string) =>
-        resolve(join(settings.output.pageOutDir, `${slug}.mdx`));
-      break;
-    }
-    case "nextra": {
-      buildPagePath = (slug: string) =>
-        resolve(join(settings.output.pageOutDir, `${slug}/page.mdx`));
-      break;
-    }
-    default: {
-      // We should never get here cause we validate the settings in the CLI
-      assertNever(settings.output.framework);
-    }
-  }
-
   // Get the about page
   for (const [, chunk] of data) {
     if (chunk.chunkType === "about") {
-      pageMap.set(buildPagePath("index"), {
+      pageMap.set(site.buildPagePath("index"), {
         type: "chunk",
         sidebarLabel: "About",
         sidebarPosition: "1",
@@ -79,7 +58,7 @@ function getPageMap(data: Data) {
   // Render the tag pages
   let tagIndex = 0;
   for (const chunk of tagChunks) {
-    const pagePath = buildPagePath(chunk.slug);
+    const pagePath = site.buildPagePath(chunk.slug);
     const pageMapEntry: PageMapEntry = {
       type: "chunk",
       sidebarLabel: chunk.chunkData.name,
@@ -121,7 +100,7 @@ function getPageMap(data: Data) {
           `Schema chunk ${chunk.chunkData.value.type} is not an object, but it should be`
         );
       }
-      const pagePath = buildPagePath(chunk.slug);
+      const pagePath = site.buildPagePath(chunk.slug);
       const pageMapEntry: PageMapEntry = {
         type: "chunk",
         sidebarLabel: chunk.chunkData.value.name,
@@ -210,86 +189,12 @@ function renderPages(
   }
 }
 
-function renderScaffoldSupport(site: Site) {
-  const settings = getSettings();
-  switch (settings.output.framework) {
-    case "docusaurus": {
-      site.createRawPage(
-        join(settings.output.pageOutDir, "_category_.json"),
-        JSON.stringify(
-          {
-            position: 2,
-            label: "API Reference",
-            collapsible: true,
-            collapsed: false,
-          },
-          null,
-          "  "
-        )
-      );
-      site.createRawPage(
-        join(settings.output.pageOutDir, "tag", "_category_.json"),
-        JSON.stringify(
-          {
-            position: 3,
-            label: "Operations",
-            collapsible: true,
-            collapsed: false,
-          },
-          null,
-          "  "
-        )
-      );
-      if (settings.display.showSchemasInNav) {
-        site.createRawPage(
-          join(settings.output.pageOutDir, "schema", "_category_.json"),
-          JSON.stringify(
-            {
-              position: 4,
-              label: "Schemas",
-              collapsible: true,
-              collapsed: true,
-            },
-            null,
-            "  "
-          )
-        );
-      }
-      break;
-    }
-    case "nextra": {
-      const schemasEntry = settings.display.showSchemasInNav
-        ? `\n  schemas: { title: "Schemas", theme: { collapsed: false } },`
-        : "";
-      const config = `export default {
-  about: { title: "About", theme: { collapsed: false } },
-  tag: { title: "Operations", theme: { collapsed: false } },${schemasEntry}
-}`;
-      site.createRawPage(join(settings.output.pageOutDir, "_meta.ts"), config);
-
-      // Nextra doesn't need anything (yet)
-      break;
-    }
-    default: {
-      // We should never get here cause we validate the settings in the CLI
-      assertNever(settings.output.framework);
-    }
-  }
-}
-
 export function generateContent(
+  site: Site,
   data: Data,
   docsCodeSnippets: DocsCodeSnippets
 ): Record<string, string> {
-  // First, get a mapping of pages to chunks
-  const pageMap = getPageMap(data);
-  // Then, render each page
-  const site = new Site();
+  const pageMap = getPageMap(site, data);
   renderPages(site, pageMap, data, docsCodeSnippets);
-
-  // Now do any post-processing needed by the scaffold
-  renderScaffoldSupport(site);
-
-  // Finally, return the pages
-  return Object.fromEntries(site.getPages());
+  return site.finalize();
 }

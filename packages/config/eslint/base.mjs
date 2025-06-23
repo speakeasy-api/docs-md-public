@@ -12,6 +12,7 @@ export const getBaseESLintConfig = ({
   rootDir,
   entryPoints,
   ignores,
+  restrictedImports,
 }) => {
   if (!Array.isArray(gitignorePaths)) {
     gitignorePaths = [gitignorePaths];
@@ -22,6 +23,21 @@ export const getBaseESLintConfig = ({
     eslintConfigPrettier,
     ...(ignores ? [globalIgnores(ignores)] : []),
     all({ rootDir, entryPoints }),
+    ...(restrictedImports
+      ? [
+          {
+            files: ["**/*.{ts,tsx,mts}"],
+            rules: {
+              "fast-import/no-restricted-imports": [
+                "error",
+                {
+                  rules: restrictedImports,
+                },
+              ],
+            },
+          },
+        ]
+      : undefined),
     ...tseslint.configs.recommendedTypeChecked,
     {
       files: ["**/*.{ts,tsx,mts}"],
@@ -51,15 +67,21 @@ export const getBaseESLintConfig = ({
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
-        "unused-imports/no-unused-vars": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          {
+            vars: "all",
+            args: "after-used",
+            argsIgnorePattern: "^_",
+          },
+        ],
         "no-return-assign": "error",
         "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-non-null-assertion": "error",
 
         // TODO: Currently this crashes and so we have to turn it off. It was fixed previously at
         // https://github.com/typescript-eslint/typescript-eslint/issues/10338, but seems to have regressed
         "@typescript-eslint/no-unused-expressions": "off",
-
-        "@typescript-eslint/no-non-null-assertion": "error",
       },
     },
   ];

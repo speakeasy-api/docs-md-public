@@ -7,9 +7,10 @@ import type {
   SetValue,
   UnionValue,
 } from "../../../types/chunk.ts";
+import type { Renderer } from "../../../types/renderer.ts";
+import type { Site } from "../../../types/site.ts";
 import { assertNever } from "../../../util/assertNever.ts";
-import { getSettings } from "../../settings.ts";
-import type { Renderer, Site } from "../renderer.ts";
+import { getSettings } from "../../../util/settings.ts";
 import { getSchemaFromId } from "../util.ts";
 
 function getMaxInlineLength(propertyName: string, indentationLevel: number) {
@@ -290,8 +291,8 @@ function renderNameAndType({
   } else {
     renderer.appendHeading(
       baseHeadingLevel,
-      `${renderer.escapeText(annotatedPropertyName)}: \`${computedDisplayType.content}\``,
-      { escape: false }
+      `${renderer.escapeText(annotatedPropertyName, { escape: "all" })}: \`${renderer.escapeText(computedDisplayType.content, { escape: "mdx" })}\``,
+      { escape: "none" }
     );
   }
 }
