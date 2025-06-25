@@ -15,11 +15,8 @@ import { load } from "js-yaml";
 import z from "zod/v4";
 
 import { generatePages } from "../pages/generatePages.ts";
-import {
-  DocusaurusRenderer,
-  DocusaurusSite,
-} from "../renderers/docusaurus/renderer.ts";
-import { NextraRenderer, NextraSite } from "../renderers/nextra/renderer.ts";
+import { DocusaurusSite } from "../renderers/docusaurus.ts";
+import { NextraSite } from "../renderers/nextra.ts";
 import { type Settings, settingsSchema } from "../types/settings.ts";
 import type { Site } from "../types/site.ts";
 import { assertNever } from "../util/assertNever.ts";
@@ -159,11 +156,11 @@ const specContents = JSON.stringify(load(specData));
 let site: Site;
 switch (settings.output.framework) {
   case "docusaurus": {
-    site = new DocusaurusSite(DocusaurusRenderer);
+    site = new DocusaurusSite();
     break;
   }
   case "nextra": {
-    site = new NextraSite(NextraRenderer);
+    site = new NextraSite();
     break;
   }
   default: {
@@ -181,9 +178,11 @@ const pageContents = await generatePages({
 if (args["--clean"]) {
   rmSync(settings.output.pageOutDir, {
     recursive: true,
+    force: true,
   });
   rmSync(settings.output.componentOutDir, {
     recursive: true,
+    force: true,
   });
 }
 

@@ -10,6 +10,7 @@ import type {
 import type { Renderer } from "../../../types/renderer.ts";
 import type { Site } from "../../../types/site.ts";
 import { assertNever } from "../../../util/assertNever.ts";
+import { InternalError } from "../../../util/internalError.ts";
 import { getSettings } from "../../../util/settings.ts";
 import { getSchemaFromId } from "../util.ts";
 
@@ -287,11 +288,11 @@ function renderNameAndType({
   );
   if (computedDisplayType.multiline) {
     renderer.appendHeading(baseHeadingLevel, annotatedPropertyName);
-    renderer.appendParagraph(`\`\`\`\n${computedDisplayType.content}\n\`\`\``);
+    renderer.appendCodeBlock(computedDisplayType.content, { variant: "raw" });
   } else {
     renderer.appendHeading(
       baseHeadingLevel,
-      `${renderer.escapeText(annotatedPropertyName, { escape: "all" })}: \`${renderer.escapeText(computedDisplayType.content, { escape: "mdx" })}\``,
+      `${renderer.escapeText(annotatedPropertyName, { escape: "markdown" })}: \`${renderer.escapeText(computedDisplayType.content, { escape: "mdx" })}\``,
       { escape: "none" }
     );
   }
@@ -322,19 +323,19 @@ function renderSchemaFrontmatter({
   });
 
   if ("description" in schema && schema.description) {
-    renderer.appendParagraph(schema.description);
+    renderer.appendText(schema.description);
   }
   if ("examples" in schema && schema.examples.length > 0) {
-    renderer.appendParagraph(
+    renderer.appendText(
       `_${schema.examples.length > 1 ? "Examples" : "Example"}:_`
     );
     for (const example of schema.examples) {
-      renderer.appendCode(example);
+      renderer.appendCodeBlock(example);
     }
   }
 
   if ("defaultValue" in schema && schema.defaultValue) {
-    renderer.appendParagraph(`_Default Value:_ \`${schema.defaultValue}\``);
+    renderer.appendText(`_Default Value:_ \`${schema.defaultValue}\``);
   }
 }
 
@@ -371,10 +372,10 @@ function renderSchemaBreakouts({
     // Check if this is a circular reference, add a brief note
     if (labelStack.includes(breakoutSubType.label)) {
       if (breakoutSubType.schema.type !== "object") {
-        throw new Error("Schema must be an object to be embedded");
+        throw new InternalError("Schema must be an object to be embedded");
       }
       // TODO: add fragment link if we're not in a sidebar
-      renderer.appendParagraph(
+      renderer.appendText(
         `\`${breakoutSubType.schema.name}\` is circular. See previous description for details.`
       );
       continue;
@@ -385,18 +386,19 @@ function renderSchemaBreakouts({
     if (labelStack.length >= maxSchemaNesting) {
       // This shouldn't be possible, since we only recurse on objects
       if (breakoutSubType.schema.type !== "object") {
-        throw new Error("Schema must be an object to be embedded");
+        throw new InternalError("Schema must be an object to be embedded");
       }
       const embedName = breakoutSubType.schema.name;
-      const sidebarLinkRenderer = site.createEmbedPage(embedName);
+      const sidebarLinkRenderer = renderer.appendSidebarLink({
+        title: `${embedName} Details`,
+        embedName,
+      });
 
       // If no renderer was returned, that means we've already rendered this embed
       if (sidebarLinkRenderer) {
         sidebarLinkRenderer.appendHeading(baseHeadingLevel, embedName);
         if (breakoutSubType.schema.description) {
-          sidebarLinkRenderer.appendParagraph(
-            breakoutSubType.schema.description
-          );
+          sidebarLinkRenderer.appendText(breakoutSubType.schema.description);
         }
         renderSchema({
           renderer: sidebarLinkRenderer,
@@ -407,12 +409,7 @@ function renderSchemaBreakouts({
           topLevelName: breakoutSubType.label,
           labelStack: [],
         });
-        sidebarLinkRenderer.finalize();
       }
-      renderer.appendSidebarLink({
-        title: `${embedName} Details`,
-        embedName,
-      });
       continue;
     }
 
