@@ -2,7 +2,6 @@
 
 import {
   SandpackCodeEditor,
-  SandpackConsole,
   SandpackLayout,
   SandpackPreview,
   SandpackProvider,
@@ -11,6 +10,7 @@ import {
 import { useAtomValue } from "jotai";
 
 import { CodeEditor } from "../CodeEditor/index.tsx";
+import { ConsoleOutput } from "../ConsoleOutput/index.tsx";
 import { dependenciesAtom, lastEditorValueAtom } from "../state/index.ts";
 import { styles } from "../styles.ts";
 
@@ -42,16 +42,11 @@ const TryItNowContents = ({
   _enableUnsafeAutoImport?: boolean;
 }) => {
   const error = useErrorMessage();
+
   return (
     <SandpackLayout>
       {_enableUnsafeAutoImport ? <CodeEditor /> : <SandpackCodeEditor />}
-      {!error && (
-        <SandpackConsole
-          resetOnPreviewRestart
-          showSetupProgress
-          showRestartButton
-        />
-      )}
+      {!error && <ConsoleOutput />}
       <SandpackPreview style={error ? undefined : styles.preview}>
         {error ? <pre>{error}</pre> : null}
       </SandpackPreview>
@@ -92,7 +87,7 @@ export const Content = ({
               : externalDependencies,
           entry: "index.ts",
         }}
-        theme="dark"
+        theme="auto"
       >
         <TryItNowContents />
       </SandpackProvider>
