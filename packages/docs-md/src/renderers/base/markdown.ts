@@ -1,16 +1,28 @@
 import { join, resolve } from "node:path";
 
-import type { AppendOptions, Escape, Renderer } from "../../types/renderer.ts";
-import type { Site } from "../../types/site.ts";
 import { InternalError } from "../../util/internalError.ts";
 import { getSettings } from "../../util/settings.ts";
+import type {
+  RendererAppendCodeArgs,
+  RendererAppendHeadingArgs,
+  RendererAppendListArgs,
+  RendererAppendTextArgs,
+  RendererBeginExpandableSectionArgs,
+  RendererEscapeTextArgs,
+} from "./renderer.ts";
+import { Renderer } from "./renderer.ts";
+import {
+  Site,
+  type SiteBuildPagePathArgs,
+  type SiteCreatePageArgs,
+  type SiteHasPageArgs,
+} from "./site.ts";
 
-export class MarkdownSite implements Site {
+export abstract class MarkdownSite extends Site {
   #pages = new Map<string, Renderer>();
 
   public buildPagePath(
-    slug: string,
-    { appendIndex = false }: { appendIndex?: boolean } = {}
+    ...[slug, { appendIndex = false } = {}]: SiteBuildPagePathArgs
   ): string {
     const settings = getSettings();
     if (appendIndex) {
@@ -19,11 +31,11 @@ export class MarkdownSite implements Site {
     return resolve(join(settings.output.pageOutDir, `${slug}.md`));
   }
 
-  public hasPage(path: string): boolean {
+  public hasPage(...[path]: SiteHasPageArgs) {
     return this.#pages.has(path);
   }
 
-  public createPage(path: string): Renderer {
+  public createPage(...[path]: SiteCreatePageArgs) {
     const renderer = this.getRenderer({
       currentPagePath: path,
     });
@@ -38,20 +50,15 @@ export class MarkdownSite implements Site {
     }
     return pages;
   }
-
-  protected getRenderer(_options: { currentPagePath: string }): Renderer {
-    throw new InternalError("getRenderer was not overridden");
-  }
 }
 
 export const rendererLines = Symbol();
 
-export class MarkdownRenderer implements Renderer {
+export abstract class MarkdownRenderer extends Renderer {
   #isFinalized = false;
   [rendererLines]: string[] = [];
 
-  // TODO: don't escape if they're already escaped
-  public escapeText(text: string, { escape }: { escape: Escape }) {
+  public escapeText(...[text, { escape }]: RendererEscapeTextArgs) {
     switch (escape) {
       case "markdown":
         return (
@@ -84,94 +91,87 @@ export class MarkdownRenderer implements Renderer {
     }
   }
 
-  public insertFrontMatter(_: {
-    sidebarPosition: string;
-    sidebarLabel: string;
-  }) {
-    throw new Error("This renderer does not support front matter");
-  }
-
-  public appendHeading(
-    level: number,
-    text: string,
-    { escape = "markdown" }: AppendOptions = {}
+  public createHeading(
+    ...[
+      level,
+      text,
+      { escape = "markdown", id } = {},
+    ]: RendererAppendHeadingArgs
   ) {
-    this[rendererLines].push(
-      `#`.repeat(level) + " " + this.escapeText(text, { escape })
-    );
+    let line = `${`#`.repeat(level)} ${this.escapeText(text, { escape })}`;
+    if (id) {
+      line += ` \\{#${id}\\}`;
+    }
+    return line;
   }
 
-  public appendText(text: string, { escape = "mdx" }: AppendOptions = {}) {
-    this[rendererLines].push(this.escapeText(text, { escape }));
+  public appendHeading(...args: RendererAppendHeadingArgs) {
+    this[rendererLines].push(this.createHeading(...args));
   }
 
-  public appendCodeBlock(
-    text: string,
-    options?:
-      | {
-          variant: "default";
-          language?: string;
-        }
-      | {
-          variant: "raw";
-          language?: never;
-        }
+  public createText(
+    ...[text, { escape = "mdx" } = {}]: RendererAppendTextArgs
   ) {
+    return this.escapeText(text, { escape });
+  }
+
+  public appendText(...args: RendererAppendTextArgs) {
+    this[rendererLines].push(this.createText(...args));
+  }
+
+  public createCode(...[text, options]: RendererAppendCodeArgs) {
     if (options?.variant === "raw") {
-      this[rendererLines].push(`<pre>
+      if (options.style === "inline") {
+        return `<code>${text}</code>`;
+      }
+      return `<pre>
 <code>
-${text}
-</code>
-</pre>`);
+${text}\n</code>\n</pre>`;
     } else {
-      this[rendererLines].push(
-        `\`\`\`${options?.language ?? ""}\n${text}\n\`\`\``
-      );
+      if (options?.style === "inline") {
+        return `\`${text}\``;
+      }
+      return `\`\`\`${options?.language ?? ""}\n${text}\n\`\`\``;
     }
   }
 
-  public appendList(
-    items: string[],
-    { escape = "markdown" }: AppendOptions = {}
+  public appendCode(...args: RendererAppendCodeArgs) {
+    this[rendererLines].push(this.createCode(...args));
+  }
+
+  public createList(
+    ...[items, { escape = "markdown" } = {}]: RendererAppendListArgs
   ) {
-    this[rendererLines].push(
-      items.map((item) => "- " + this.escapeText(item, { escape })).join("\n")
-    );
+    return items
+      .map((item) => "- " + this.escapeText(item, { escape }))
+      .join("\n");
   }
 
-  public appendRaw(text: string) {
-    this[rendererLines].push(text);
+  public appendList(...args: RendererAppendListArgs) {
+    this[rendererLines].push(this.createList(...args));
   }
 
-  public beginExpandableSection(
-    title: string,
-    {
-      isOpenOnLoad = false,
-      escape = "markdown",
-    }: { isOpenOnLoad?: boolean } & AppendOptions
+  public createExpandableSectionStart(
+    ...[
+      title,
+      { isOpenOnLoad = false, escape = "markdown" } = {},
+    ]: RendererBeginExpandableSectionArgs
   ) {
-    this[rendererLines].push(`<details ${isOpenOnLoad ? "open" : ""}>`);
-    this[rendererLines].push(
-      `<summary>${this.escapeText(title, { escape })}</summary>`
-    );
+    return `<details ${isOpenOnLoad ? "open" : ""}>\n\n<summary>${this.escapeText(title, { escape })}</summary>`;
   }
 
-  public endExpandableSection() {
-    this[rendererLines].push("</details>");
+  public appendExpandableSectionStart(
+    ...args: RendererBeginExpandableSectionArgs
+  ) {
+    this[rendererLines].push(this.createExpandableSectionStart(...args));
   }
 
-  public appendSidebarLink(_: {
-    title: string;
-    embedName: string;
-  }): Renderer | undefined {
-    throw new Error("This renderer does not support sidebar links");
+  public createExpandableSectionEnd() {
+    return "</details>";
   }
 
-  public appendTryItNow(_: {
-    externalDependencies: Record<string, string>;
-    defaultValue: string;
-  }) {
-    throw new Error("This renderer does not support try it now");
+  public appendExpandableSectionEnd() {
+    this[rendererLines].push(this.createExpandableSectionEnd());
   }
 
   public render() {

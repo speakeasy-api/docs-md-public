@@ -1,3 +1,5 @@
+import type { Renderer } from "../../../renderers/base/renderer.ts";
+import type { Site } from "../../../renderers/base/site.ts";
 import type {
   ArrayValue,
   Chunk,
@@ -7,12 +9,19 @@ import type {
   SetValue,
   UnionValue,
 } from "../../../types/chunk.ts";
-import type { Renderer } from "../../../types/renderer.ts";
-import type { Site } from "../../../types/site.ts";
 import { assertNever } from "../../../util/assertNever.ts";
 import { InternalError } from "../../../util/internalError.ts";
 import { getSettings } from "../../../util/settings.ts";
 import { getSchemaFromId } from "../util.ts";
+
+type SchemaRenderContext = {
+  site: Site;
+  renderer: Renderer;
+  baseHeadingLevel: number;
+  schemaStack: string[];
+  schema: SchemaValue;
+  idPrefix: string;
+};
 
 function getMaxInlineLength(propertyName: string, indentationLevel: number) {
   return (
@@ -26,86 +35,97 @@ function getMaxInlineLength(propertyName: string, indentationLevel: number) {
 // have a font size _smaller_ than paragraph font size, which looks weird.
 const MIN_HEADING_LEVEL = 5;
 
-type TypeLabel = {
+type TypeInfo = {
   label: string;
-  children: TypeLabel[];
-};
-
-type DisplayType = {
-  typeLabel: TypeLabel;
+  linkedLabel: string;
+  children: TypeInfo[];
   breakoutSubTypes: { label: string; schema: SchemaValue }[];
 };
 
-function getDisplayType(
+function getTypeInfo(
   value: SchemaValue,
-  data: Map<string, Chunk>
-): DisplayType {
+  data: Map<string, Chunk>,
+  context: SchemaRenderContext
+): TypeInfo {
   switch (value.type) {
     case "object": {
       return {
-        typeLabel: { label: value.name, children: [] },
-        breakoutSubTypes: [
-          { label: `${value.name} Properties`, schema: value },
-        ],
+        label: value.name,
+        // TODO: add the link back in. Turns out there are focus issues when
+        // the details tab is collapsed. We're going to need a custom React
+        // component to auto-expand the details tab when the link is clicked.
+        // Fortunately, we're about to introduce a custom component as part of
+        // a larger styling refactor, so I'm punting on this for now.
+        linkedLabel: value.name,
+        // linkedLabel: `<a href="#${context.idPrefix}+${value.name}">${value.name}</a>`,
+        children: [],
+        breakoutSubTypes: [{ label: value.name, schema: value }],
       };
     }
     case "array": {
-      const displayType = getDisplayType(value.items, data);
+      const typeInfo = getTypeInfo(value.items, data, context);
       return {
-        ...displayType,
-        typeLabel: { label: "array", children: [displayType.typeLabel] },
+        ...typeInfo,
+        label: "array",
+        children: [typeInfo],
       };
     }
     case "map": {
-      const displayType = getDisplayType(value.items, data);
+      const typeInfo = getTypeInfo(value.items, data, context);
       return {
-        ...displayType,
-        typeLabel: { label: "map", children: [displayType.typeLabel] },
+        ...typeInfo,
+        label: "map",
+        children: [typeInfo],
       };
     }
     case "set": {
-      const displayType = getDisplayType(value.items, data);
+      const typeInfo = getTypeInfo(value.items, data, context);
       return {
-        ...displayType,
-        typeLabel: { label: "set", children: [displayType.typeLabel] },
+        ...typeInfo,
+        label: "set",
+        children: [typeInfo],
       };
     }
     case "union": {
-      const displayTypes = value.values.map((v) => getDisplayType(v, data));
+      const displayTypes = value.values.map((v) =>
+        getTypeInfo(v, data, context)
+      );
       const hasBreakoutSubType = displayTypes.some(
         (d) => d.breakoutSubTypes.length > 0
       );
       if (!hasBreakoutSubType) {
         return {
-          typeLabel: {
-            label: "union",
-            children: displayTypes.map((d) => d.typeLabel),
-          },
+          label: "union",
+          linkedLabel: "union",
+          children: displayTypes,
           breakoutSubTypes: [],
         };
       }
       const breakoutSubTypes = displayTypes.flatMap((d) => d.breakoutSubTypes);
       return {
-        typeLabel: {
-          label: "union",
-          children: displayTypes.map((d) => d.typeLabel),
-        },
+        label: "union",
+        linkedLabel: "union",
+        children: displayTypes,
         breakoutSubTypes,
       };
     }
     case "chunk": {
       const schemaChunk = getSchemaFromId(value.chunkId, data);
-      return getDisplayType(schemaChunk.chunkData.value, data);
+      return getTypeInfo(schemaChunk.chunkData.value, data, context);
     }
     case "enum": {
       return {
-        typeLabel: {
-          label: "enum",
-          children: value.values.map((v) => ({
-            label: `${typeof v === "string" ? `"${v}"` : v}`,
+        label: "enum",
+        linkedLabel: "enum",
+        children: value.values.map((v) => {
+          const label = `${typeof v === "string" ? `"${v}"` : v}`;
+          return {
+            label,
+            linkedLabel: label,
             children: [],
-          })),
-        },
+            breakoutSubTypes: [],
+          };
+        }),
         breakoutSubTypes: [],
       };
     }
@@ -123,7 +143,9 @@ function getDisplayType(
     case "null":
     case "any": {
       return {
-        typeLabel: { label: value.type, children: [] },
+        label: value.type,
+        linkedLabel: value.type,
+        children: [],
         breakoutSubTypes: [],
       };
     }
@@ -133,43 +155,60 @@ function getDisplayType(
   }
 }
 
-function computeDisplayType(typeLabel: TypeLabel, propertyName: string) {
-  const singleLineTypeLabel = computeSingleLineDisplayType(typeLabel);
+function computeDisplayType(typeInfo: TypeInfo, propertyName: string) {
+  const singleLineTypeLabel = computeSingleLineDisplayType(typeInfo);
   // TODO: wire up indentation level here
-  if (singleLineTypeLabel.length < getMaxInlineLength(propertyName, 0)) {
+  if (
+    singleLineTypeLabel.unlinked.length < getMaxInlineLength(propertyName, 0)
+  ) {
     return {
-      content: singleLineTypeLabel,
+      content: singleLineTypeLabel.linked,
       multiline: false,
     };
   }
-  const content = computeMultilineTypeLabel(typeLabel, 0);
+  const content = computeMultilineTypeLabel(typeInfo, 0);
 
   // TODO: sometimes we end up with some blank lines. Ideally the
   // computeMultilineTypeLabel function should handle this, but for now we just
   // patch it up after the fact
   content.contents = content.contents
     .split("\n")
-    .filter((c) => c.length > 0)
+    .filter((c) => c.trim().length > 0)
     .join("\n");
   return {
     content: content.contents,
     multiline: true,
+    length: 0,
   };
 }
 
-function computeSingleLineDisplayType(typeLabel: TypeLabel): string {
-  switch (typeLabel.label) {
+function computeSingleLineDisplayType(typeInfo: TypeInfo): {
+  unlinked: string;
+  linked: string;
+} {
+  switch (typeInfo.label) {
     case "array":
     case "map":
     case "set": {
-      return `${typeLabel.label}<${typeLabel.children.map(computeSingleLineDisplayType).join(",")}>`;
+      const children = typeInfo.children.map(computeSingleLineDisplayType);
+      return {
+        unlinked: `${typeInfo.label}&lt;${children.map((c) => c.unlinked).join(",")}&gt;`,
+        linked: `${typeInfo.label}&lt;${children.map((c) => c.linked).join(",")}&gt;`,
+      };
     }
     case "union":
     case "enum": {
-      return typeLabel.children.map(computeSingleLineDisplayType).join(" | ");
+      const children = typeInfo.children.map(computeSingleLineDisplayType);
+      return {
+        unlinked: children.map((c) => c.unlinked).join(" | "),
+        linked: children.map((c) => c.linked).join(" | "),
+      };
     }
     default: {
-      return typeLabel.label;
+      return {
+        unlinked: typeInfo.label,
+        linked: typeInfo.linkedLabel,
+      };
     }
   }
 }
@@ -180,22 +219,22 @@ type MultilineTypeLabelEntry = {
 };
 
 function computeMultilineTypeLabel(
-  typeLabel: TypeLabel,
+  typeInfo: TypeInfo,
   indentation: number
 ): MultilineTypeLabelEntry {
   const { maxTypeSignatureLineLength } = getSettings().display;
-  switch (typeLabel.label) {
+  switch (typeInfo.label) {
     case "array":
     case "map":
     case "set": {
       // First, check if we can show this on a single line
-      const singleLineContents = computeSingleLineDisplayType(typeLabel);
+      const singleLineContents = computeSingleLineDisplayType(typeInfo);
       if (
-        singleLineContents.length <
+        singleLineContents.unlinked.length <
         maxTypeSignatureLineLength - indentation
       ) {
         return {
-          contents: singleLineContents,
+          contents: singleLineContents.linked,
           multiline: false,
         };
       }
@@ -203,15 +242,15 @@ function computeMultilineTypeLabel(
       // If we got here, we know this will be multiline, so compute each child
       // separately. We'll stitch them together later.
       const children: MultilineTypeLabelEntry[] = [];
-      for (const child of typeLabel.children) {
+      for (const child of typeInfo.children) {
         children.push(computeMultilineTypeLabel(child, indentation + 1));
       }
 
-      let contents = `${typeLabel.label}<\n`;
+      let contents = `${typeInfo.label}&lt;\n`;
       for (const child of children) {
         contents += `${" ".repeat(indentation + 1)}${child.contents}\n`;
       }
-      contents += `${" ".repeat(indentation)}>\n`;
+      contents += `${" ".repeat(indentation)}&gt;\n`;
       return {
         contents,
         multiline: true,
@@ -220,13 +259,13 @@ function computeMultilineTypeLabel(
     case "union":
     case "enum": {
       // First, check if we can show this on a single line
-      const singleLineContents = computeSingleLineDisplayType(typeLabel);
+      const singleLineContents = computeSingleLineDisplayType(typeInfo);
       if (
-        singleLineContents.length <
+        singleLineContents.unlinked.length <
         maxTypeSignatureLineLength - indentation
       ) {
         return {
-          contents: singleLineContents,
+          contents: singleLineContents.linked,
           multiline: false,
         };
       }
@@ -234,7 +273,7 @@ function computeMultilineTypeLabel(
       // If we got here, we know this will be multiline, so compute each child
       // separately. We'll stitch them together later.
       const children: MultilineTypeLabelEntry[] = [];
-      for (const child of typeLabel.children) {
+      for (const child of typeInfo.children) {
         children.push(computeMultilineTypeLabel(child, 0));
       }
 
@@ -249,7 +288,7 @@ function computeMultilineTypeLabel(
     }
     default: {
       return {
-        contents: typeLabel.label,
+        contents: typeInfo.label,
         multiline: false,
       };
     }
@@ -257,18 +296,16 @@ function computeMultilineTypeLabel(
 }
 
 function renderNameAndType({
-  renderer,
+  context,
   propertyName,
-  displayType,
+  typeInfo,
   isRequired,
-  baseHeadingLevel,
   isRecursive,
 }: {
-  renderer: Renderer;
+  context: SchemaRenderContext;
   propertyName: string;
-  displayType: DisplayType;
+  typeInfo: TypeInfo;
   isRequired: boolean;
-  baseHeadingLevel: number;
   isRecursive: boolean;
 }) {
   let annotatedPropertyName = propertyName;
@@ -279,86 +316,95 @@ function renderNameAndType({
     annotatedPropertyName = `${propertyName} (recursive)`;
   }
   const computedDisplayType = computeDisplayType(
-    displayType.typeLabel,
+    typeInfo,
     annotatedPropertyName
   );
   if (computedDisplayType.multiline) {
-    renderer.appendHeading(baseHeadingLevel, annotatedPropertyName);
-    renderer.appendCodeBlock(computedDisplayType.content, { variant: "raw" });
+    context.renderer.appendHeading(
+      context.baseHeadingLevel,
+      annotatedPropertyName,
+      {
+        id: context.idPrefix + `+${propertyName}`,
+      }
+    );
+    context.renderer.appendCode(computedDisplayType.content, {
+      variant: "raw",
+      escape: "mdx",
+    });
   } else {
-    renderer.appendHeading(
-      baseHeadingLevel,
-      `${renderer.escapeText(annotatedPropertyName, { escape: "markdown" })}: \`${renderer.escapeText(computedDisplayType.content, { escape: "mdx" })}\``,
-      { escape: "none" }
+    const name = context.renderer.escapeText(annotatedPropertyName, {
+      escape: "markdown",
+    });
+    const type = context.renderer.createCode(
+      context.renderer.escapeText(computedDisplayType.content, {
+        escape: "mdx",
+      }),
+      { variant: "raw", style: "inline", escape: "mdx" }
+    );
+    context.renderer.appendHeading(
+      context.baseHeadingLevel,
+      `${name}: ${type}`,
+      { escape: "none", id: context.idPrefix + `+${propertyName}` }
     );
   }
 }
 
 function renderSchemaFrontmatter({
-  renderer,
-  schema,
-  baseHeadingLevel,
+  context,
   propertyName,
-  displayType,
+  typeInfo,
   isRequired,
 }: {
-  renderer: Renderer;
-  schema: SchemaValue;
-  baseHeadingLevel: number;
+  context: SchemaRenderContext;
   propertyName: string;
-  displayType: DisplayType;
+  typeInfo: TypeInfo;
   isRequired: boolean;
 }) {
   renderNameAndType({
-    renderer,
+    context,
     propertyName,
-    displayType,
+    typeInfo: typeInfo,
     isRequired,
     isRecursive: false,
-    baseHeadingLevel,
   });
 
-  if ("description" in schema && schema.description) {
-    renderer.appendText(schema.description);
+  if ("description" in context.schema && context.schema.description) {
+    context.renderer.appendText(context.schema.description);
   }
-  if ("examples" in schema && schema.examples.length > 0) {
-    renderer.appendText(
-      `_${schema.examples.length > 1 ? "Examples" : "Example"}:_`
+  if ("examples" in context.schema && context.schema.examples.length > 0) {
+    context.renderer.appendText(
+      `_${context.schema.examples.length > 1 ? "Examples" : "Example"}:_`
     );
-    for (const example of schema.examples) {
-      renderer.appendCodeBlock(example);
+    for (const example of context.schema.examples) {
+      context.renderer.appendCode(example);
     }
   }
 
-  if ("defaultValue" in schema && schema.defaultValue) {
-    renderer.appendText(`_Default Value:_ \`${schema.defaultValue}\``);
+  if ("defaultValue" in context.schema && context.schema.defaultValue) {
+    context.renderer.appendText(
+      `_Default Value:_ \`${context.schema.defaultValue}\``
+    );
   }
 }
 
 function renderSchemaBreakouts({
-  renderer,
-  site,
-  baseHeadingLevel,
+  context,
   data,
-  displayType,
-  labelStack,
+  typeInfo,
 }: {
-  renderer: Renderer;
-  site: Site;
-  baseHeadingLevel: number;
+  context: SchemaRenderContext;
   data: Map<string, Chunk>;
-  displayType: DisplayType;
-  labelStack: string[];
+  typeInfo: TypeInfo;
 }) {
   const { maxSchemaNesting } = getSettings().display;
-  for (let i = 0; i < displayType.breakoutSubTypes.length; i++) {
+  for (let i = 0; i < typeInfo.breakoutSubTypes.length; i++) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const breakoutSubType = displayType.breakoutSubTypes[i]!;
+    const breakoutSubType = typeInfo.breakoutSubTypes[i]!;
 
     // TODO: this is a quick-n-dirty deduping of breakout types, but if there are
     // two different schemas with the same name they'll be deduped, which is wrong.
     if (
-      displayType.breakoutSubTypes.findIndex(
+      typeInfo.breakoutSubTypes.findIndex(
         (b) => b.label === breakoutSubType.label
       ) !== i
     ) {
@@ -366,12 +412,12 @@ function renderSchemaBreakouts({
     }
 
     // Check if this is a circular reference, add a brief note
-    if (labelStack.includes(breakoutSubType.label)) {
+    if (context.schemaStack.includes(breakoutSubType.label)) {
       if (breakoutSubType.schema.type !== "object") {
         throw new InternalError("Schema must be an object to be embedded");
       }
       // TODO: add fragment link if we're not in a sidebar
-      renderer.appendText(
+      context.renderer.appendText(
         `\`${breakoutSubType.schema.name}\` is circular. See previous description for details.`
       );
       continue;
@@ -379,31 +425,33 @@ function renderSchemaBreakouts({
 
     // Check if we've reached our maximum level of nesting, or if there's
     // indirect type recursion, and if so break it out into an embed
-    if (labelStack.length >= maxSchemaNesting) {
+    if (context.schemaStack.length >= maxSchemaNesting) {
       // This shouldn't be possible, since we only recurse on objects
       if (breakoutSubType.schema.type !== "object") {
         throw new InternalError("Schema must be an object to be embedded");
       }
       const embedName = breakoutSubType.schema.name;
-      const sidebarLinkRenderer = renderer.appendSidebarLink({
+      const sidebarLinkRenderer = context.renderer.appendSidebarLink({
         title: `${embedName} Details`,
         embedName,
       });
 
       // If no renderer was returned, that means we've already rendered this embed
       if (sidebarLinkRenderer) {
-        sidebarLinkRenderer.appendHeading(baseHeadingLevel, embedName);
+        sidebarLinkRenderer.appendHeading(context.baseHeadingLevel, embedName);
         if (breakoutSubType.schema.description) {
           sidebarLinkRenderer.appendText(breakoutSubType.schema.description);
         }
         renderSchema({
-          renderer: sidebarLinkRenderer,
-          site,
-          schema: breakoutSubType.schema,
+          context: {
+            ...context,
+            schema: breakoutSubType.schema,
+            renderer: sidebarLinkRenderer,
+            schemaStack: [],
+            idPrefix: `${context.idPrefix}+${embedName}`,
+          },
           data,
-          baseHeadingLevel,
           topLevelName: breakoutSubType.label,
-          labelStack: [],
         });
       }
       continue;
@@ -411,141 +459,123 @@ function renderSchemaBreakouts({
 
     // Otherwise, render the schema inline
     renderSchema({
-      renderer,
-      site,
-      schema: breakoutSubType.schema,
-      data: data,
-      baseHeadingLevel: Math.min(baseHeadingLevel + 1, MIN_HEADING_LEVEL),
+      context: {
+        ...context,
+        schema: breakoutSubType.schema,
+        baseHeadingLevel: Math.min(
+          context.baseHeadingLevel + 1,
+          MIN_HEADING_LEVEL
+        ),
+        schemaStack: [...context.schemaStack, breakoutSubType.label],
+        idPrefix: `${context.idPrefix}+${breakoutSubType.label}`,
+      },
+      data,
       topLevelName: breakoutSubType.label,
-      labelStack: [...labelStack, breakoutSubType.label],
     });
   }
 }
 
 export function renderSchema({
-  renderer,
-  site,
-  schema,
+  context,
   data,
-  baseHeadingLevel,
   topLevelName,
-  labelStack,
 }: {
-  site: Site;
-  renderer: Renderer;
-  schema: SchemaValue;
+  context: SchemaRenderContext;
   data: Map<string, Chunk>;
-  baseHeadingLevel: number;
   topLevelName: string;
-  labelStack: string[];
 }) {
   function renderObjectProperties(objectValue: ObjectValue) {
-    renderer.beginExpandableSection(topLevelName, {
-      isOpenOnLoad: labelStack.length === 0,
+    context.renderer.appendExpandableSectionStart(topLevelName, {
+      isOpenOnLoad: context.schemaStack.length === 0,
     });
     for (const [key, value] of Object.entries(objectValue.properties)) {
       const isRequired = objectValue.required?.includes(key) ?? false;
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, data);
         const schema = schemaChunk.chunkData.value;
-        const displayType = getDisplayType(schema, data);
+        const typeInfo = getTypeInfo(schema, data, context);
         renderSchemaFrontmatter({
-          renderer,
-          schema,
-          baseHeadingLevel,
+          context: { ...context, schema },
           propertyName: key,
-          displayType,
+          typeInfo: typeInfo,
           isRequired,
         });
         renderSchemaBreakouts({
-          renderer,
-          site,
-          baseHeadingLevel,
+          context,
           data,
-          displayType,
-          labelStack,
+          typeInfo,
         });
       } else if (value.type === "enum") {
-        const displayType = getDisplayType(value, data);
+        const typeInfo = getTypeInfo(value, data, context);
         renderSchemaFrontmatter({
-          renderer,
-          schema: value,
-          baseHeadingLevel,
+          context: { ...context, schema: value },
           propertyName: key,
-          displayType,
+          typeInfo: typeInfo,
           isRequired,
         });
       } else {
-        const displayType = getDisplayType(value, data);
+        const typeInfo = getTypeInfo(value, data, context);
         renderSchemaFrontmatter({
-          renderer,
-          schema: value,
-          baseHeadingLevel,
+          context: { ...context, schema: value },
           propertyName: key,
-          displayType,
+          typeInfo: typeInfo,
           isRequired,
         });
       }
     }
-    renderer.endExpandableSection();
+    context.renderer.appendExpandableSectionEnd();
   }
 
   function renderArrayLikeItems(
     arrayLikeValue: ArrayValue | MapValue | SetValue
   ) {
-    const displayType = getDisplayType(arrayLikeValue, data);
+    const typeInfo = getTypeInfo(arrayLikeValue, data, context);
     renderSchemaFrontmatter({
-      renderer,
-      schema: arrayLikeValue,
-      baseHeadingLevel,
+      context: { ...context, schema: arrayLikeValue },
       propertyName: topLevelName,
-      displayType,
+      typeInfo: typeInfo,
       isRequired: true,
     });
   }
 
   function renderUnionItems(unionValue: UnionValue) {
-    const displayType = getDisplayType(unionValue, data);
+    const typeInfo = getTypeInfo(unionValue, data, context);
     renderSchemaFrontmatter({
-      renderer,
-      schema: unionValue,
-      baseHeadingLevel,
+      context: { ...context, schema: unionValue },
       propertyName: topLevelName,
-      displayType,
+      typeInfo: typeInfo,
       isRequired: true,
     });
     return;
   }
 
   function renderBasicItems(primitiveValue: SchemaValue) {
-    const displayType = getDisplayType(primitiveValue, data);
+    const typeInfo = getTypeInfo(primitiveValue, data, context);
     renderSchemaFrontmatter({
-      renderer,
-      schema: primitiveValue,
-      baseHeadingLevel,
+      context: { ...context, schema: primitiveValue },
       propertyName: topLevelName,
-      displayType,
+      typeInfo: typeInfo,
       isRequired: true,
     });
   }
 
-  switch (schema.type) {
+  switch (context.schema.type) {
     case "object": {
-      renderObjectProperties(schema);
+      renderObjectProperties(context.schema);
       break;
     }
     case "map":
     case "set":
     case "array": {
-      renderArrayLikeItems(schema);
+      renderArrayLikeItems(context.schema);
       break;
     }
     case "union": {
-      renderUnionItems(schema);
+      renderUnionItems(context.schema);
       break;
     }
     default: {
-      renderBasicItems(schema);
+      renderBasicItems(context.schema);
       break;
     }
   }

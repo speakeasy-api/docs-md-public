@@ -1,16 +1,21 @@
 import { join, resolve } from "node:path";
 
-import type { Renderer } from "../types/renderer.ts";
-import type { Site } from "../types/site.ts";
 import { getSettings } from "../util/settings.ts";
 import { rendererLines } from "./base/markdown.ts";
 import { MdxRenderer, MdxSite } from "./base/mdx.ts";
+import type {
+  RendererAppendCodeArgs,
+  RendererAppendHeadingArgs,
+  RendererAppendSidebarLinkArgs,
+  RendererInsertFrontMatterArgs,
+} from "./base/renderer.ts";
+import type { SiteGetRendererArgs } from "./base/site.ts";
+import { type SiteBuildPagePathArgs } from "./base/site.ts";
 import { getEmbedPath, getEmbedSymbol } from "./base/util.ts";
 
-export class NextraSite extends MdxSite implements Site {
+export class NextraSite extends MdxSite {
   public override buildPagePath(
-    slug: string,
-    { appendIndex = false }: { appendIndex?: boolean } = {}
+    ...[slug, { appendIndex = false } = {}]: SiteBuildPagePathArgs
   ): string {
     const settings = getSettings();
     if (appendIndex) {
@@ -35,14 +40,12 @@ export class NextraSite extends MdxSite implements Site {
     return super.render();
   }
 
-  protected override getRenderer(options: {
-    currentPagePath: string;
-  }): Renderer {
+  protected override getRenderer(...[options]: SiteGetRendererArgs) {
     return new NextraRenderer(options, this);
   }
 }
 
-class NextraRenderer extends MdxRenderer implements Renderer {
+class NextraRenderer extends MdxRenderer {
   #frontMatter: string | undefined;
   #includeSidebar = false;
   #currentPagePath: string;
@@ -57,54 +60,56 @@ class NextraRenderer extends MdxRenderer implements Renderer {
     this.#site = site;
   }
 
-  public override insertFrontMatter({
-    sidebarLabel,
-  }: {
-    sidebarLabel: string;
-  }) {
+  public override insertFrontMatter(
+    ...[{ sidebarLabel }]: RendererInsertFrontMatterArgs
+  ) {
     this.#frontMatter = `---
 sidebarTitle: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
 ---`;
   }
 
-  public override appendCodeBlock(
-    text: string,
-    options?:
-      | {
-          variant: "default";
-          language?: string;
-        }
-      | {
-          variant: "raw";
-          language?: never;
-        }
+  public override createHeading(
+    ...[
+      level,
+      text,
+      { escape = "markdown", id } = {},
+    ]: RendererAppendHeadingArgs
   ) {
+    let line = `${`#`.repeat(level)} ${this.escapeText(text, { escape })}`;
+    if (id) {
+      // Oddly enough, Nextra uses a different syntax for heading IDs
+      line += ` [#${id}]`;
+    }
+    return line;
+  }
+
+  public override createCode(...[text, options]: RendererAppendCodeArgs) {
     if (options?.variant === "raw") {
-      this.appendText(
-        `<pre className="x:group x:focus-visible:nextra-focus x:overflow-x-auto x:subpixel-antialiased x:text-[.9em] x:bg-white x:dark:bg-black x:py-4 x:ring-1 x:ring-inset x:ring-gray-300 x:dark:ring-neutral-700 x:contrast-more:ring-gray-900 x:contrast-more:dark:ring-gray-50 x:contrast-more:contrast-150 x:rounded-md not-prose">
+      if (options.style === "inline") {
+        return `<code className="nextra-code">${this.escapeText(text, { escape: options?.escape ?? "html" })}</code>`;
+      }
+      return `<pre className="x:group x:focus-visible:nextra-focus x:overflow-x-auto x:subpixel-antialiased x:text-[.9em] x:bg-white x:dark:bg-black x:py-4 x:ring-1 x:ring-inset x:ring-gray-300 x:dark:ring-neutral-700 x:contrast-more:ring-gray-900 x:contrast-more:dark:ring-gray-50 x:contrast-more:contrast-150 x:rounded-md not-prose">
 <code className="nextra-code">
-${this.escapeText(text, { escape: "html" })
+${this.escapeText(text, { escape: options?.escape ?? "html" })
   .split("\n")
   // Nextra does this weird thing where it wraps each line in _two_ spans with
   // it's code blocks, so we mimic that behavior here
   .map((line) => `<span><span>${line}</span></span>`)
   .join("\n")}
 </code>
-</pre>`,
-        { escape: "none" }
-      );
+</pre>`;
     } else {
-      super.appendCodeBlock(text, options);
+      return super.createCode(text, options);
     }
   }
 
-  public override appendSidebarLink({
-    title,
-    embedName,
-  }: {
-    title: string;
-    embedName: string;
-  }) {
+  public override appendCode(...args: RendererAppendCodeArgs) {
+    this.appendText(this.createCode(...args), { escape: "none" });
+  }
+
+  public override appendSidebarLink(
+    ...[{ title, embedName }]: RendererAppendSidebarLinkArgs
+  ) {
     const embedPath = getEmbedPath(embedName);
 
     // TODO: handle this more gracefully. This happens when we have a direct

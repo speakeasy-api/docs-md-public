@@ -1,6 +1,8 @@
+import { snakeCase } from "change-case";
+
+import type { Renderer } from "../../renderers/base/renderer.ts";
+import type { Site } from "../../renderers/base/site.ts";
 import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
-import type { Renderer } from "../../types/renderer.ts";
-import type { Site } from "../../types/site.ts";
 import { InternalError } from "../../util/internalError.ts";
 import { getSettings } from "../../util/settings.ts";
 import type { DocsCodeSnippets } from "../codeSnippets/generateCodeSnippets.ts";
@@ -151,15 +153,21 @@ function renderPages(
           // The normal schema renderer doesn't render a heading, since it's
           // normally embedded in a separate page. It's not in this case though,
           // so we add one by hand
-          renderer.appendHeading(1, chunk.chunkData.name);
+          const id = `schema-${snakeCase(chunk.chunkData.name)}`;
+          renderer.appendHeading(1, chunk.chunkData.name, {
+            id,
+          });
           renderSchema({
-            renderer,
-            site,
-            schema: chunk.chunkData.value,
+            context: {
+              site,
+              renderer,
+              baseHeadingLevel: 1,
+              schemaStack: [],
+              schema: chunk.chunkData.value,
+              idPrefix: id,
+            },
             data,
-            baseHeadingLevel: 1,
             topLevelName: "Schema",
-            labelStack: [],
           });
           break;
         }
