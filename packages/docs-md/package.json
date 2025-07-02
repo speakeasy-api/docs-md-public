@@ -4,7 +4,7 @@
   "version": "0.1.7",
   "type": "module",
   "bin": {
-    "docs-md": "./dist/cli/cli.js"
+    "docs-md": "dist/cli/cli.js"
   },
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
