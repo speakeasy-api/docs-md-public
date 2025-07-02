@@ -1,7 +1,6 @@
 import { snakeCase } from "change-case";
 
-import type { Renderer } from "../../../renderers/base/renderer.ts";
-import type { Site } from "../../../renderers/base/site.ts";
+import type { Renderer, Site } from "../../../renderers/base/base.ts";
 import type { Chunk, OperationChunk } from "../../../types/chunk.ts";
 import { getSettings } from "../../../util/settings.ts";
 import type { DocsCodeSnippets } from "../../codeSnippets/generateCodeSnippets.ts";
@@ -120,7 +119,6 @@ export function renderOperation({
   }
 
   const { tryItNow } = getSettings();
-
   const usageSnippet = docsCodeSnippets[chunk.id];
   if (usageSnippet && tryItNow) {
     renderer.appendHeading(baseHeadingLevel + 1, "Try it Now", {

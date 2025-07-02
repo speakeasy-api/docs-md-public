@@ -1,18 +1,17 @@
 import { join, resolve } from "node:path";
 
 import { getSettings } from "../util/settings.ts";
-import { rendererLines } from "./base/markdown.ts";
-import { MdxRenderer, MdxSite } from "./base/mdx.ts";
 import type {
   RendererAppendCodeArgs,
   RendererAppendSidebarLinkArgs,
   RendererAppendTryItNowArgs,
+  RendererBeginExpandableSectionArgs,
   RendererInsertFrontMatterArgs,
-} from "./base/renderer.ts";
-import type {
   SiteBuildPagePathArgs,
   SiteGetRendererArgs,
-} from "./base/site.ts";
+} from "./base/base.ts";
+import { rendererLines } from "./base/markdown.ts";
+import { MdxRenderer, MdxSite } from "./base/mdx.ts";
 import { getEmbedPath, getEmbedSymbol } from "./base/util.ts";
 
 export class DocusaurusSite extends MdxSite {
@@ -121,7 +120,7 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
   verticalAlign: "middle",
 }}>
 <code>
-${this.escapeText(text, { escape: options?.escape ?? "html" })}
+<p style={{ margin: "0" }}>${this.escapeText(text, { escape: options?.escape ?? "html" })}</p>
 </code>
 </pre>`;
     } else {
@@ -131,6 +130,21 @@ ${this.escapeText(text, { escape: options?.escape ?? "html" })}
 
   public override appendCode(...args: RendererAppendCodeArgs) {
     this.appendText(this.createCode(...args), { escape: "none" });
+  }
+
+  public override createExpandableSectionStart(
+    ...[
+      title,
+      id,
+      { escape = "markdown" } = {},
+    ]: RendererBeginExpandableSectionArgs
+  ) {
+    this.insertThirdPartyImport("ExpandableSection", "@speakeasy-api/docs-md");
+    return `<ExpandableSection.Docusaurus title="${this.escapeText(title, { escape })}" id="${id}">`;
+  }
+
+  public override createExpandableSectionEnd() {
+    return "</ExpandableSection.Docusaurus>";
   }
 
   public override appendSidebarLink(

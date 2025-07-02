@@ -1,5 +1,4 @@
-import type { Renderer } from "../../../renderers/base/renderer.ts";
-import type { Site } from "../../../renderers/base/site.ts";
+import type { Renderer, Site } from "../../../renderers/base/base.ts";
 import type {
   ArrayValue,
   Chunk,
@@ -51,13 +50,7 @@ function getTypeInfo(
     case "object": {
       return {
         label: value.name,
-        // TODO: add the link back in. Turns out there are focus issues when
-        // the details tab is collapsed. We're going to need a custom React
-        // component to auto-expand the details tab when the link is clicked.
-        // Fortunately, we're about to introduce a custom component as part of
-        // a larger styling refactor, so I'm punting on this for now.
-        linkedLabel: value.name,
-        // linkedLabel: `<a href="#${context.idPrefix}+${value.name}">${value.name}</a>`,
+        linkedLabel: `<a href="#${context.idPrefix}+${value.name}">${value.name}</a>`,
         children: [],
         breakoutSubTypes: [{ label: value.name, schema: value }],
       };
@@ -458,6 +451,10 @@ function renderSchemaBreakouts({
     }
 
     // Otherwise, render the schema inline
+    context.renderer.appendExpandableSectionStart(
+      breakoutSubType.label,
+      `${context.idPrefix}+${breakoutSubType.label}`
+    );
     renderSchema({
       context: {
         ...context,
@@ -472,6 +469,7 @@ function renderSchemaBreakouts({
       data,
       topLevelName: breakoutSubType.label,
     });
+    context.renderer.appendExpandableSectionEnd();
   }
 }
 
@@ -485,9 +483,6 @@ export function renderSchema({
   topLevelName: string;
 }) {
   function renderObjectProperties(objectValue: ObjectValue) {
-    context.renderer.appendExpandableSectionStart(topLevelName, {
-      isOpenOnLoad: context.schemaStack.length === 0,
-    });
     for (const [key, value] of Object.entries(objectValue.properties)) {
       const isRequired = objectValue.required?.includes(key) ?? false;
       if (value.type === "chunk") {
@@ -523,7 +518,6 @@ export function renderSchema({
         });
       }
     }
-    context.renderer.appendExpandableSectionEnd();
   }
 
   function renderArrayLikeItems(
