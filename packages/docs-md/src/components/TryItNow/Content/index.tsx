@@ -1,5 +1,6 @@
 "use client";
 
+import type { SandpackTheme } from "@codesandbox/sandpack-react";
 import {
   SandpackCodeEditor,
   SandpackLayout,
@@ -8,6 +9,7 @@ import {
   useErrorMessage,
 } from "@codesandbox/sandpack-react";
 import { useAtomValue } from "jotai";
+import type { PartialDeep } from "type-fest";
 
 import { CodeEditor } from "../CodeEditor/index.tsx";
 import { ConsoleOutput } from "../ConsoleOutput/index.tsx";
@@ -34,17 +36,21 @@ export type TryItNowProps = {
    * as imports.
    */
   _enableUnsafeAutoImport?: boolean;
+  theme?: PartialDeep<SandpackTheme> | "auto" | "dark" | "light";
+  layoutStyle?: React.CSSProperties;
 };
 
 const TryItNowContents = ({
   _enableUnsafeAutoImport,
+  layoutStyle,
 }: {
   _enableUnsafeAutoImport?: boolean;
+  layoutStyle?: React.CSSProperties;
 }) => {
   const error = useErrorMessage();
 
   return (
-    <SandpackLayout>
+    <SandpackLayout style={layoutStyle}>
       {_enableUnsafeAutoImport ? <CodeEditor /> : <SandpackCodeEditor />}
       {!error && <ConsoleOutput />}
       <SandpackPreview style={error ? undefined : styles.preview}>
@@ -57,40 +63,40 @@ const TryItNowContents = ({
 export const Content = ({
   externalDependencies,
   defaultValue = "",
+  theme = "dark",
   _enableUnsafeAutoImport,
+  layoutStyle,
 }: TryItNowProps) => {
   const autoImportDependencies = useAtomValue(dependenciesAtom);
   const previousCodeAtomValue = useAtomValue(lastEditorValueAtom);
 
   return (
-    <div style={{ ...styles.container }}>
-      <SandpackProvider
-        options={{
-          autoReload: false,
-          autorun: false,
-          activeFile: "index.ts",
-        }}
-        template="vanilla-ts"
-        files={{
-          "index.ts": {
-            code:
-              _enableUnsafeAutoImport && previousCodeAtomValue
-                ? previousCodeAtomValue
-                : defaultValue,
-            active: true,
-          },
-        }}
-        customSetup={{
-          dependencies:
-            autoImportDependencies && _enableUnsafeAutoImport
-              ? { ...autoImportDependencies, ...externalDependencies }
-              : externalDependencies,
-          entry: "index.ts",
-        }}
-        theme="auto"
-      >
-        <TryItNowContents />
-      </SandpackProvider>
-    </div>
+    <SandpackProvider
+      options={{
+        autoReload: false,
+        autorun: false,
+        activeFile: "index.ts",
+      }}
+      theme={theme}
+      template="vanilla-ts"
+      files={{
+        "index.ts": {
+          code:
+            _enableUnsafeAutoImport && previousCodeAtomValue
+              ? previousCodeAtomValue
+              : defaultValue,
+          active: true,
+        },
+      }}
+      customSetup={{
+        dependencies:
+          autoImportDependencies && _enableUnsafeAutoImport
+            ? { ...autoImportDependencies, ...externalDependencies }
+            : externalDependencies,
+        entry: "index.ts",
+      }}
+    >
+      <TryItNowContents layoutStyle={layoutStyle} />
+    </SandpackProvider>
   );
 };
