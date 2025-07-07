@@ -128,23 +128,18 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
     }
   }
 
-  public override appendCode(...args: RendererAppendCodeArgs) {
-    this.appendText(this.createCode(...args), { escape: "none" });
-  }
-
   public override createExpandableSectionStart(
-    ...[
-      title,
-      id,
-      { escape = "markdown" } = {},
-    ]: RendererBeginExpandableSectionArgs
+    ...[title, id, { escape = "mdx" } = {}]: RendererBeginExpandableSectionArgs
   ) {
-    this.insertThirdPartyImport("ExpandableSection", "@speakeasy-api/docs-md");
-    return `<ExpandableSection.Docusaurus title="${this.escapeText(title, { escape })}" id="${id}">`;
+    this.insertThirdPartyImport(
+      "ExpandableSection",
+      "@speakeasy-api/docs-md/docusaurus"
+    );
+    return `<ExpandableSection title="${this.escapeText(title, { escape })}" id="${id}">`;
   }
 
   public override createExpandableSectionEnd() {
-    return "</ExpandableSection.Docusaurus>";
+    return "</ExpandableSection>";
   }
 
   public override appendSidebarLink(
@@ -166,13 +161,16 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
     this.insertDefaultImport(importPath, getEmbedSymbol(embedName));
 
     this.#includeSidebar = true;
-    this.insertThirdPartyImport("SideBarTrigger", "@speakeasy-api/docs-md");
-    this.insertThirdPartyImport("SideBar", "@speakeasy-api/docs-md");
+    this.insertThirdPartyImport(
+      "SideBarTrigger",
+      "@speakeasy-api/docs-md/docusaurus"
+    );
+    this.insertThirdPartyImport("SideBar", "@speakeasy-api/docs-md/docusaurus");
     this[rendererLines].push(
       `<p>
-    <SideBarTrigger.Docusaurus cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
+    <SideBarTrigger cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
       <${getEmbedSymbol(embedName)} />
-    </SideBarTrigger.Docusaurus>
+    </SideBarTrigger>
   </p>`
     );
 
@@ -185,9 +183,12 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
   public override appendTryItNow(
     ...[{ externalDependencies, defaultValue }]: RendererAppendTryItNowArgs
   ) {
-    this.insertThirdPartyImport("TryItNow", "@speakeasy-api/docs-md");
+    this.insertThirdPartyImport(
+      "TryItNow",
+      "@speakeasy-api/docs-md/docusaurus"
+    );
     this[rendererLines].push(
-      `<TryItNow.Docusaurus
+      `<TryItNow
  externalDependencies={${JSON.stringify(externalDependencies)}}
  defaultValue={\`${defaultValue}\`}
 />`
@@ -199,7 +200,7 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
     const data =
       (this.#frontMatter ? this.#frontMatter + "\n\n" : "") +
       parentData +
-      (this.#includeSidebar ? "\n\n<SideBar.Docusaurus />\n" : "");
+      (this.#includeSidebar ? "\n\n<SideBar />\n" : "");
     return data;
   }
 }

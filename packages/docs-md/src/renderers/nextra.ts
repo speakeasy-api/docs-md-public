@@ -5,6 +5,7 @@ import type {
   RendererAppendCodeArgs,
   RendererAppendHeadingArgs,
   RendererAppendSidebarLinkArgs,
+  RendererBeginExpandableSectionArgs,
   RendererInsertFrontMatterArgs,
   SiteBuildPagePathArgs,
   SiteGetRendererArgs,
@@ -103,8 +104,18 @@ ${this.escapeText(text, { escape: options?.escape ?? "html" })
     }
   }
 
-  public override appendCode(...args: RendererAppendCodeArgs) {
-    this.appendText(this.createCode(...args), { escape: "none" });
+  public override createExpandableSectionStart(
+    ...[title, id, { escape = "mdx" } = {}]: RendererBeginExpandableSectionArgs
+  ) {
+    this.insertThirdPartyImport(
+      "ExpandableSection",
+      "@speakeasy-api/docs-md/nextra"
+    );
+    return `<ExpandableSection title="${this.escapeText(title, { escape })}" id="${id}">`;
+  }
+
+  public override createExpandableSectionEnd() {
+    return "</ExpandableSection>";
   }
 
   public override appendSidebarLink(
@@ -126,13 +137,16 @@ ${this.escapeText(text, { escape: options?.escape ?? "html" })
     this.insertDefaultImport(importPath, getEmbedSymbol(embedName));
 
     this.#includeSidebar = true;
-    this.insertThirdPartyImport("SideBarTrigger", "@speakeasy-api/docs-md");
-    this.insertThirdPartyImport("SideBar", "@speakeasy-api/docs-md");
+    this.insertThirdPartyImport(
+      "SideBarTrigger",
+      "@speakeasy-api/docs-md/nextra"
+    );
+    this.insertThirdPartyImport("SideBar", "@speakeasy-api/docs-md/nextra");
     this[rendererLines].push(
       `<p>
-    <SideBarTrigger.Nextra cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
+    <SideBarTrigger cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
       <${getEmbedSymbol(embedName)} />
-    </SideBarTrigger.Nextra>
+    </SideBarTrigger>
   </p>`
     );
 
@@ -149,9 +163,9 @@ ${this.escapeText(text, { escape: options?.escape ?? "html" })
     externalDependencies: Record<string, string>;
     defaultValue: string;
   }) {
-    this.insertThirdPartyImport("TryItNow", "@speakeasy-api/docs-md");
+    this.insertThirdPartyImport("TryItNow", "@speakeasy-api/docs-md/nextra");
     this[rendererLines].push(
-      `<TryItNow.Nextra
+      `<TryItNow
    externalDependencies={${JSON.stringify(externalDependencies)}}
    defaultValue={\`${defaultValue}\`}
   />`
@@ -163,7 +177,7 @@ ${this.escapeText(text, { escape: options?.escape ?? "html" })
     const data =
       (this.#frontMatter ? this.#frontMatter + "\n\n" : "") +
       parentData +
-      (this.#includeSidebar ? "\n\n<SideBar.Nextra />\n" : "");
+      (this.#includeSidebar ? "\n\n<SideBar />\n" : "");
     return data;
   }
 }
