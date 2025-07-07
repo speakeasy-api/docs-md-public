@@ -27,7 +27,7 @@ export function SideBarContents({
     if (!open) {
       setContent(null);
     }
-  }, [open]);
+  }, [open, setContent]);
   useEffect(() => {
     if (content) {
       setOpen(true);
@@ -76,7 +76,7 @@ export function SideBarTriggerContents({
   const [, setContent] = useAtom(sidebarContentAtom);
   const onClick = useCallback(
     () => setContent({ title, content: children }),
-    [title, children]
+    [title, children, setContent]
   );
   return <Button onClick={onClick}>{cta}</Button>;
 }
