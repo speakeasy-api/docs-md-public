@@ -3,9 +3,12 @@ import { join, resolve } from "node:path";
 import { getSettings } from "../util/settings.ts";
 import type {
   RendererAppendCodeArgs,
+  RendererAppendSectionStartArgs,
   RendererAppendSidebarLinkArgs,
   RendererAppendTryItNowArgs,
   RendererBeginExpandableSectionArgs,
+  RendererBeginTabbedSectionArgs,
+  RendererBeginTabContentsArgs,
   RendererInsertFrontMatterArgs,
   SiteBuildPagePathArgs,
   SiteGetRendererArgs,
@@ -97,6 +100,19 @@ class DocusaurusRenderer extends MdxRenderer {
     this.#site = site;
   }
 
+  public override render() {
+    const parentData = super.render();
+    const data =
+      (this.#frontMatter ? this.#frontMatter + "\n\n" : "") +
+      parentData +
+      (this.#includeSidebar ? "\n\n<SideBar />\n" : "");
+    return data;
+  }
+
+  private insertComponentImport(symbol: string) {
+    this.insertNamedImport("@speakeasy-api/docs-md/docusaurus", symbol);
+  }
+
   public override insertFrontMatter(
     ...[{ sidebarPosition, sidebarLabel }]: RendererInsertFrontMatterArgs
   ) {
@@ -128,18 +144,50 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
     }
   }
 
-  public override createExpandableSectionStart(
-    ...[title, id, { escape = "mdx" } = {}]: RendererBeginExpandableSectionArgs
+  public override createSectionStart(
+    ...[title, { id, escape = "mdx" }]: RendererAppendSectionStartArgs
   ) {
-    this.insertThirdPartyImport(
-      "ExpandableSection",
-      "@speakeasy-api/docs-md/docusaurus"
-    );
+    this.insertComponentImport("Section");
+    return `<Section title="${this.escapeText(title, { escape })}" id="${id}">`;
+  }
+
+  public override createSectionEnd() {
+    return "</Section>";
+  }
+
+  public override createExpandableSectionStart(
+    ...[title, { id, escape = "mdx" }]: RendererBeginExpandableSectionArgs
+  ) {
+    this.insertComponentImport("ExpandableSection");
     return `<ExpandableSection title="${this.escapeText(title, { escape })}" id="${id}">`;
   }
 
   public override createExpandableSectionEnd() {
     return "</ExpandableSection>";
+  }
+
+  public override createTabbedSectionStart(
+    ...[
+      title,
+      { escape = "mdx", id, baseHeadingLevel = 3 },
+    ]: RendererBeginTabbedSectionArgs
+  ) {
+    this.insertComponentImport("TabbedSection");
+    return `<TabbedSection title="${this.escapeText(title, { escape })}" id="${id}" baseHeadingLevel="${baseHeadingLevel}">`;
+  }
+
+  public override createTabbedSectionEnd() {
+    return "</TabbedSection>";
+  }
+
+  public override createTabContentsStart(
+    ...[title, tooltip]: RendererBeginTabContentsArgs
+  ) {
+    return `<div title="${title}" tooltip="${tooltip}">`;
+  }
+
+  public override createTabContentsEnd() {
+    return "</div>";
   }
 
   public override appendSidebarLink(
@@ -161,11 +209,8 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
     this.insertDefaultImport(importPath, getEmbedSymbol(embedName));
 
     this.#includeSidebar = true;
-    this.insertThirdPartyImport(
-      "SideBarTrigger",
-      "@speakeasy-api/docs-md/docusaurus"
-    );
-    this.insertThirdPartyImport("SideBar", "@speakeasy-api/docs-md/docusaurus");
+    this.insertComponentImport("SideBarTrigger");
+    this.insertComponentImport("SideBar");
     this[rendererLines].push(
       `<p>
     <SideBarTrigger cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
@@ -183,24 +228,12 @@ sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
   public override appendTryItNow(
     ...[{ externalDependencies, defaultValue }]: RendererAppendTryItNowArgs
   ) {
-    this.insertThirdPartyImport(
-      "TryItNow",
-      "@speakeasy-api/docs-md/docusaurus"
-    );
+    this.insertComponentImport("TryItNow");
     this[rendererLines].push(
       `<TryItNow
  externalDependencies={${JSON.stringify(externalDependencies)}}
  defaultValue={\`${defaultValue}\`}
 />`
     );
-  }
-
-  public override render() {
-    const parentData = super.render();
-    const data =
-      (this.#frontMatter ? this.#frontMatter + "\n\n" : "") +
-      parentData +
-      (this.#includeSidebar ? "\n\n<SideBar />\n" : "");
-    return data;
   }
 }

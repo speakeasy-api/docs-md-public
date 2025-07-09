@@ -18,6 +18,8 @@ export default [
         "SideBar",
         "SideBarTrigger",
         "ExpandableSection",
+        "TabbedSection",
+        "Section",
       ],
       "src/docusaurus.ts": [
         "Settings",
@@ -25,6 +27,8 @@ export default [
         "SideBar",
         "SideBarTrigger",
         "ExpandableSection",
+        "TabbedSection",
+        "Section",
       ],
     },
     ignores: ["src/pages/data/wasm_exec.js", ".storybook/**/*"],
@@ -42,6 +46,26 @@ export default [
         denied: [/src\/components\//],
         message:
           "Components run in an environment that doesn't have access to Node.js modules",
+      },
+      {
+        type: "first-party",
+        filepath: /src\/components\/primitives\/docusaurus/,
+        allowed: [
+          /src\/components\/.*?\/docusaurus.tsx$/,
+          /src\/components\/.*?\/docusaurus\//,
+        ],
+        message:
+          "Only Docusaurus components are allowed to import Docusaurus primitives",
+      },
+      {
+        type: "first-party",
+        filepath: /src\/components\/primitives\/nextra/,
+        allowed: [
+          /src\/components\/.*?\/nextra.tsx$/,
+          /src\/components\/.*?\/nextra\//,
+        ],
+        message:
+          "Only Nextra components are allowed to import Nextra primitives",
       },
     ],
   }),
