@@ -7,6 +7,7 @@
 
 .title {
   flex: 1;
+  margin: var(--ifm-list-item-margin);
   font-weight: bold;
   /*
    * Note: the docs at https://docusaurus.community/knowledge/design/css/variables/ say this variable
