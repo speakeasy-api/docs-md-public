@@ -38,12 +38,17 @@ const TryItNowContents = ({
 export const Content = ({
   externalDependencies,
   defaultValue = "",
-  theme = "dark",
+  currentTheme = "dark",
   _enableUnsafeAutoImport,
   layoutStyle,
+  themes,
 }: TryItNowProps) => {
   const autoImportDependencies = useAtomValue(dependenciesAtom);
   const previousCodeAtomValue = useAtomValue(lastEditorValueAtom);
+  const activeTheme =
+    themes && typeof themes === "object"
+      ? themes?.[currentTheme]
+      : currentTheme;
 
   return (
     <SandpackProvider
@@ -52,7 +57,7 @@ export const Content = ({
         autorun: false,
         activeFile: "index.ts",
       }}
-      theme={theme}
+      theme={activeTheme}
       template="vanilla-ts"
       files={{
         "index.ts": {

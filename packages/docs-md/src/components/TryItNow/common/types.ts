@@ -17,6 +17,8 @@ export type TryItNowProps = {
    * as imports.
    */
   _enableUnsafeAutoImport?: boolean;
-  theme?: PartialDeep<SandpackTheme> | "auto" | "dark" | "light";
   layoutStyle?: React.CSSProperties;
+  currentTheme?: "dark" | "light";
+  themes?: Record<"dark" | "light", PartialDeep<SandpackTheme>>;
+
 };
