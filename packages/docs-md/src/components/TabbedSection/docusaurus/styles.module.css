@@ -1,12 +1,29 @@
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.3rem;
+}
+
 .button {
-  color: var(--ifm-tabs-color);
-  border: var(--ifm-global-border-width) solid var(--ifm-blockquote-border-color);
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-tabs-color-active-border);
+  border: none;
   border-radius: var(--ifm-breadcrumb-border-radius);
   font-weight: bold;
   min-width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: calc( var(--ifm-breadcrumb-padding-vertical) * var(--ifm-breadcrumb-size-multiplier) ) calc( var(--ifm-breadcrumb-padding-horizontal) * var(--ifm-breadcrumb-size-multiplier) );
 }
 
 .button div[slot="tab"] {
@@ -15,7 +32,7 @@
   justify-content: center;
 }
 
-.button div[slot="tab"] > p {
+.button p {
   margin: 0;
 }
 
@@ -25,31 +42,11 @@
 
 .buttonInactive:hover {
   background-color: var(--ifm-menu-color-background-hover);
+  background: var(--ifm-breadcrumb-item-background-active);
 }
 
 .buttonActive {
-  color: var(--ifm-tabs-color-active);
-  background-color: var(--ifm-menu-color-background-active);
-  border-color: var(--ifm-tabs-color-active-border);
-}
-
-.contents {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.header {
-  padding-bottom: 0.5rem;
-}
-
-.header div[slot="title"] {
-  flex-grow: 1;
-}
-
-.header h2,
-.header h3,
-.header h4,
-.header h5,
-.header h6 {
-  margin: 0;
+  background: var(--ifm-breadcrumb-item-background-active);
+  color: var(--ifm-breadcrumb-color-active);
+  border-radius: var(--ifm-breadcrumb-border-radius);
 }

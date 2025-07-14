@@ -1,35 +1,13 @@
-.container {
-  padding-left: 0.75rem;
-}
-
-.header h2,
-.header h3,
-.header h4,
-.header h5,
-.header h6 {
-  margin: 0;
-  border: none;
-}
-
-.linedContainer {
-  border-inline: 1px solid var(--x-color-gray-200);
+.section {
   margin-bottom: 1rem;
 }
 
-.linedContainer:where(:global(.dark) *) {
-  border-inline: 1px solid var(--x-color-neutral-800);
-}
-
-.header {
-  display: flex;
-}
-
-.linedHeader {
-  border-bottom: 1px solid var(--x-color-gray-200);
-  padding-bottom: 0.5rem;
-  margin-block: 1rem;
-}
-
-.linedHeader:where(:global(.dark) *) {
-  border-bottom: 1px solid var(--x-color-neutral-800);
+.section h2:first-child,
+.section h3:first-child,
+.section h4:first-child,
+.section h5:first-child,
+.section h6:first-child {
+  /* Nextra puts a heading margin on top for some reason, which doesn't
+     work well with our styles */
+  margin: 0;
 }

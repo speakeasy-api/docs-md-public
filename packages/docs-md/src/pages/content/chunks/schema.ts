@@ -11,6 +11,7 @@ import type {
 import { assertNever } from "../../../util/assertNever.ts";
 import { InternalError } from "../../../util/internalError.ts";
 import { getSettings } from "../../../util/settings.ts";
+import { HEADINGS } from "../constants.ts";
 import { getSchemaFromId } from "../util.ts";
 
 type SchemaRenderContext = {
@@ -326,10 +327,14 @@ function renderNameAndType({
   }
 
   if (computedDisplayType.multiline) {
-    context.renderer.appendHeading(4, formattedPropertyName, {
-      id: context.idPrefix + `+${propertyName}`,
-      escape: "mdx",
-    });
+    context.renderer.appendHeading(
+      HEADINGS.PROPERTY_HEADING_LEVEL,
+      formattedPropertyName,
+      {
+        id: context.idPrefix + `+${propertyName}`,
+        escape: "mdx",
+      }
+    );
     context.renderer.appendCode(computedDisplayType.content, {
       variant: "raw",
       escape: "mdx",
@@ -341,7 +346,7 @@ function renderNameAndType({
     const start = context.renderer.createPillStart("info");
     const end = context.renderer.createPillEnd();
     context.renderer.appendHeading(
-      4,
+      HEADINGS.PROPERTY_HEADING_LEVEL,
       `${formattedPropertyName} ${start}${type}${end}`,
       {
         escape: "none",
@@ -353,23 +358,9 @@ function renderNameAndType({
 
 function renderSchemaFrontmatter({
   context,
-  propertyName,
-  typeInfo,
-  isRequired,
 }: {
   context: SchemaRenderContext;
-  propertyName: string;
-  typeInfo: TypeInfo;
-  isRequired: boolean;
 }) {
-  renderNameAndType({
-    context,
-    propertyName,
-    typeInfo: typeInfo,
-    isRequired,
-    isRecursive: false,
-  });
-
   if ("description" in context.schema && context.schema.description) {
     context.renderer.appendText(context.schema.description);
   }
@@ -440,7 +431,10 @@ function renderSchemaBreakouts({
 
       // If no renderer was returned, that means we've already rendered this embed
       if (sidebarLinkRenderer) {
-        sidebarLinkRenderer.appendHeading(3, embedName);
+        sidebarLinkRenderer.appendHeading(
+          HEADINGS.SECTION_HEADING_LEVEL,
+          embedName
+        );
         if (breakoutSubType.schema.description) {
           sidebarLinkRenderer.appendText(breakoutSubType.schema.description);
         }
@@ -454,6 +448,7 @@ function renderSchemaBreakouts({
           },
           data,
           topLevelName: breakoutSubType.label,
+          renderFrontmatter: true,
         });
       }
       continue;
@@ -470,6 +465,7 @@ function renderSchemaBreakouts({
       data,
       topLevelName: breakoutSubType.label,
       isExpandable: true,
+      renderFrontmatter: true,
     });
   }
 }
@@ -479,11 +475,13 @@ export function renderSchema({
   data,
   topLevelName,
   isExpandable,
+  renderFrontmatter,
 }: {
   context: SchemaRenderContext;
   data: Map<string, Chunk>;
   topLevelName: string;
   isExpandable?: boolean;
+  renderFrontmatter?: boolean;
 }) {
   function renderObjectProperties(objectValue: ObjectValue) {
     const properties = Object.entries(objectValue.properties);
@@ -491,38 +489,48 @@ export function renderSchema({
       return;
     }
     for (const [key, value] of properties) {
-      context.renderer.appendSectionContentStart({ variant: "fields" });
+      context.renderer.appendSectionContentStart({ borderVariant: "all" });
       const isRequired = objectValue.required?.includes(key) ?? false;
+
       if (value.type === "chunk") {
         const schemaChunk = getSchemaFromId(value.chunkId, data);
         const schema = schemaChunk.chunkData.value;
         const typeInfo = getTypeInfo(schema, data, context);
-        renderSchemaFrontmatter({
-          context: { ...context, schema },
+        const nestedContext = {
+          ...context,
+          schema,
+        };
+
+        renderNameAndType({
+          context: nestedContext,
           propertyName: key,
           typeInfo: typeInfo,
           isRequired,
+          isRecursive: false,
+        });
+        renderSchemaFrontmatter({
+          context: nestedContext,
         });
         renderSchemaBreakouts({
           context,
           data,
           typeInfo,
         });
-      } else if (value.type === "enum") {
-        const typeInfo = getTypeInfo(value, data, context);
-        renderSchemaFrontmatter({
-          context: { ...context, schema: value },
-          propertyName: key,
-          typeInfo: typeInfo,
-          isRequired,
-        });
       } else {
         const typeInfo = getTypeInfo(value, data, context);
-        renderSchemaFrontmatter({
-          context: { ...context, schema: value },
+        const nestedContext = {
+          ...context,
+          schema: value,
+        };
+        renderNameAndType({
+          context: nestedContext,
           propertyName: key,
           typeInfo: typeInfo,
           isRequired,
+          isRecursive: false,
+        });
+        renderSchemaFrontmatter({
+          context: nestedContext,
         });
       }
       context.renderer.appendSectionContentEnd();
@@ -533,47 +541,103 @@ export function renderSchema({
     arrayLikeValue: ArrayValue | MapValue | SetValue
   ) {
     const typeInfo = getTypeInfo(arrayLikeValue, data, context);
-    renderSchemaFrontmatter({
-      context: { ...context, schema: arrayLikeValue },
+    const nestedContext = {
+      ...context,
+      schema: arrayLikeValue,
+    };
+    renderNameAndType({
+      context: nestedContext,
       propertyName: topLevelName,
-      typeInfo: typeInfo,
+      typeInfo,
       isRequired: true,
+      isRecursive: false,
+    });
+    renderSchemaFrontmatter({
+      context: nestedContext,
     });
   }
 
   function renderUnionItems(unionValue: UnionValue) {
     const typeInfo = getTypeInfo(unionValue, data, context);
-    renderSchemaFrontmatter({
-      context: { ...context, schema: unionValue },
+    const nestedContext = {
+      ...context,
+      schema: unionValue,
+    };
+    renderNameAndType({
+      context: nestedContext,
       propertyName: topLevelName,
-      typeInfo: typeInfo,
+      typeInfo,
       isRequired: true,
+      isRecursive: false,
+    });
+    renderSchemaFrontmatter({
+      context: nestedContext,
     });
     return;
   }
 
   function renderBasicItems(primitiveValue: SchemaValue) {
     const typeInfo = getTypeInfo(primitiveValue, data, context);
-    renderSchemaFrontmatter({
-      context: { ...context, schema: primitiveValue },
+    const nestedContext = {
+      ...context,
+      schema: primitiveValue,
+    };
+    renderNameAndType({
+      context: nestedContext,
       propertyName: topLevelName,
-      typeInfo: typeInfo,
+      typeInfo,
       isRequired: true,
+      isRecursive: false,
+    });
+    renderSchemaFrontmatter({
+      context: nestedContext,
     });
   }
 
+  // If we have an object, we need to check if there are any properties to
+  // render, otherwise we end up with a blank Properties section.
+  if (
+    context.schema.type === "object" &&
+    Object.keys(context.schema.properties).length === 0
+  ) {
+    return;
+  }
+
+  // TODO: refactor starting sections here to not be brittle and awkward
   if (isExpandable) {
     context.renderer.appendExpandableSectionStart(topLevelName, {
       id: context.idPrefix,
     });
+    if (renderFrontmatter) {
+      renderSchemaFrontmatter({
+        context,
+      });
+    }
+    context.renderer.appendHeading(
+      HEADINGS.SUB_SECTION_HEADING_LEVEL,
+      "Properties",
+      {
+        id: context.idPrefix + "+properties",
+      }
+    );
   } else {
-    context.renderer.appendSectionStart({ variant: "fields" });
-    context.renderer.appendSectionTitleStart({ variant: "fields" });
-    context.renderer.appendHeading(4, "Fields", {
-      id: context.idPrefix + "+fields",
-    });
+    if (renderFrontmatter) {
+      renderSchemaFrontmatter({
+        context,
+      });
+    }
+    context.renderer.appendSectionStart();
+    context.renderer.appendSectionTitleStart({ borderVariant: "none" });
+    context.renderer.appendHeading(
+      HEADINGS.SUB_SECTION_HEADING_LEVEL,
+      "Properties",
+      {
+        id: context.idPrefix + "+properties",
+      }
+    );
     context.renderer.appendSectionTitleEnd();
   }
+
   switch (context.schema.type) {
     case "object": {
       renderObjectProperties(context.schema);
@@ -582,19 +646,19 @@ export function renderSchema({
     case "map":
     case "set":
     case "array": {
-      context.renderer.appendSectionContentStart({ variant: "fields" });
+      context.renderer.appendSectionContentStart({ borderVariant: "all" });
       renderArrayLikeItems(context.schema);
       context.renderer.appendSectionContentEnd();
       break;
     }
     case "union": {
-      context.renderer.appendSectionContentStart({ variant: "fields" });
+      context.renderer.appendSectionContentStart({ borderVariant: "all" });
       renderUnionItems(context.schema);
       context.renderer.appendSectionContentEnd();
       break;
     }
     default: {
-      context.renderer.appendSectionContentStart({ variant: "fields" });
+      context.renderer.appendSectionContentStart({ borderVariant: "all" });
       renderBasicItems(context.schema);
       context.renderer.appendSectionContentEnd();
       break;

@@ -7,8 +7,8 @@ import type {
   RendererCreateAppendCodeArgs,
   RendererCreateExpandableSectionArgs,
   RendererCreatePillArgs,
-  RendererCreateSectionArgs,
-  RendererCreateTabArgs,
+  RendererCreateSectionContentArgs,
+  RendererCreateSectionTitleArgs,
   RendererCreateTabbedSectionTabArgs,
 } from "./base.ts";
 import { MarkdownRenderer, MarkdownSite, rendererLines } from "./markdown.ts";
@@ -30,9 +30,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   #codeThemes: TryItNowProps["themes"];
 
   constructor(
-    {
-      currentPagePath,
-    }: { currentPagePath: string; },
+    { currentPagePath }: { currentPagePath: string },
     site: MdxSite,
     codeThemes?: TryItNowProps["themes"]
   ) {
@@ -126,35 +124,39 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     return "</Pill>";
   }
 
-  public override createSectionStart(
-    ...[{ variant = "section" } = {}]: RendererCreateSectionArgs
-  ): string {
+  public override createSectionStart(): string {
     this.insertComponentImport("Section");
-    return `<Section variant="${variant}">`;
+    return `<Section>`;
   }
 
   public override createSectionEnd(): string {
     return "</Section>";
   }
 
-  public override createSectionTitleStart() {
-    this.insertComponentImport("Section");
-    return `<div>`;
+  public override createSectionTitleStart(
+    ...[
+      { borderVariant = "default", paddingVariant = "default" } = {},
+    ]: RendererCreateSectionTitleArgs
+  ) {
+    this.insertComponentImport("SectionTitle");
+    return `<SectionTitle slot="title" borderVariant="${borderVariant}" paddingVariant="${paddingVariant}">`;
   }
 
   public override createSectionTitleEnd() {
-    return `</div>`;
+    return `</SectionTitle>`;
   }
 
   public override createSectionContentStart(
-    ...[{ variant = "section" } = {}]: RendererCreateSectionArgs
+    ...[
+      { borderVariant = "default", paddingVariant = "default", id } = {},
+    ]: RendererCreateSectionContentArgs
   ): string {
-    this.insertComponentImport("SectionEntry");
-    return `<SectionEntry variant="${variant}">`;
+    this.insertComponentImport("SectionContent");
+    return `<SectionContent slot="content" borderVariant="${borderVariant}" paddingVariant="${paddingVariant}"${id ? ` id="${id}"` : ""}>`;
   }
 
   public override createSectionContentEnd(): string {
-    return `</SectionEntry>`;
+    return `</SectionContent>`;
   }
 
   public override createExpandableSectionStart(
@@ -177,32 +179,15 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     return "</TabbedSection>";
   }
 
-  public override createTabbedSectionTitleStart() {
-    return `<div slot="title">`;
-  }
-
-  public override createTabbedSectionTitleEnd() {
-    return `</div>`;
-  }
-
   public override createTabbedSectionTabStart(
-    ...[id, title]: RendererCreateTabbedSectionTabArgs
+    ...[id]: RendererCreateTabbedSectionTabArgs
   ) {
-    return `<div slot="tab" title="${title}" data-tab-id="${id}">`;
+    this.insertComponentImport("SectionTab");
+    return `<SectionTab slot="tab" id="${id}">`;
   }
 
   public override createTabbedSectionTabEnd() {
-    return "</div>";
-  }
-
-  public override createTabbedSectionContentsStart(
-    ...[id]: RendererCreateTabArgs
-  ) {
-    return `<div slot="content" data-tab-content-id="${id}">`;
-  }
-
-  public override createTabbedSectionContentsEnd() {
-    return "</div>";
+    return "</SectionTab>";
   }
 
   public override appendSidebarLink(

@@ -1,19 +1,38 @@
 "use client";
 
-import { Container } from "../common/Container.tsx";
+import { Section } from "../../Section/nextra.tsx";
+import { SectionContent } from "../../SectionContent/nextra.tsx";
+import { SectionTitle } from "../../SectionTitle/nextra.tsx";
+import { useTabbedChildren } from "../common/hooks.tsx";
 import type { TabbedSectionProps } from "../common/types.ts";
-import { ChildrenContainer } from "./ChildrenContainer.tsx";
-import { HeaderContainer } from "./HeaderContainer.tsx";
+import styles from "./styles.module.css";
 import { TabButton } from "./TabButton.tsx";
 
 export function NextraTabbedSection({ children }: TabbedSectionProps) {
+  const { titleChild, tabChildren, activeChild } = useTabbedChildren({
+    children,
+    TabButton,
+  });
+
   return (
-    <Container
-      HeaderContainer={HeaderContainer}
-      ChildrenContainer={ChildrenContainer}
-      TabButton={TabButton}
-    >
-      {children}
-    </Container>
+    <Section>
+      <SectionTitle
+        slot="title"
+        borderVariant="default"
+        paddingVariant="default"
+      >
+        <div className={styles.titleContainer}>
+          <div className={styles.title}>{titleChild}</div>
+          <div className={styles.tabs}>{tabChildren}</div>
+        </div>
+      </SectionTitle>
+      <SectionContent
+        slot="content"
+        borderVariant="default"
+        paddingVariant="default"
+      >
+        {activeChild}
+      </SectionContent>
+    </Section>
   );
 }
