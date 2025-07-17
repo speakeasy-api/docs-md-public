@@ -1,12 +1,14 @@
 import { dirname, relative } from "node:path";
 
 import type { TryItNowProps } from "../../components/TryItNow/common/types.ts";
+import { HEADINGS } from "../../pages/content/constants.ts";
 import type {
   RendererAppendSidebarLinkArgs,
   RendererAppendTryItNowArgs,
   RendererCreateAppendCodeArgs,
   RendererCreateExpandableSectionArgs,
   RendererCreatePillArgs,
+  RendererCreatePropertyArgs,
   RendererCreateSectionContentArgs,
   RendererCreateSectionTitleArgs,
   RendererCreateTabbedSectionTabArgs,
@@ -49,8 +51,10 @@ export abstract class MdxRenderer extends MarkdownRenderer {
         ).join(", ")} } from "${importPath}";\n`;
       } else if (symbols.defaultAlias) {
         imports += `import ${symbols.defaultAlias} from "${importPath}";\n`;
-      } else {
+      } else if (symbols.namedImports.size > 0) {
         imports += `import { ${Array.from(symbols.namedImports).join(", ")} } from "${importPath}";\n`;
+      } else {
+        imports += `import "${importPath}";\n`;
       }
     }
     const parentData = super.render();
@@ -77,6 +81,15 @@ export abstract class MdxRenderer extends MarkdownRenderer {
       return `<Code text={\`${escapedText}\`} />`;
     } else {
       return super.createCode(text, options);
+    }
+  }
+
+  protected insertPackageImport(importPath: string) {
+    if (!this.#imports.has(importPath)) {
+      this.#imports.set(importPath, {
+        defaultAlias: undefined,
+        namedImports: new Set(),
+      });
     }
   }
 
@@ -188,6 +201,19 @@ export abstract class MdxRenderer extends MarkdownRenderer {
 
   public override createTabbedSectionTabEnd() {
     return "</SectionTab>";
+  }
+
+  public override createProperty(
+    ...[{ typeInfo, id, annotations, title }]: RendererCreatePropertyArgs
+  ) {
+    this.insertComponentImport("Property");
+    return `<Property typeInfo={${JSON.stringify(typeInfo)}} typeAnnotations={${JSON.stringify(
+      annotations
+    )}}>
+
+${this.createHeading(HEADINGS.PROPERTY_HEADING_LEVEL, title, { escape: "mdx", id })}
+
+</Property>`;
   }
 
   public override appendSidebarLink(

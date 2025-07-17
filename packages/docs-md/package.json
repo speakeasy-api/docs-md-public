@@ -1,7 +1,7 @@
 {
   "name": "@speakeasy-api/docs-md",
   "private": false,
-  "version": "0.1.11",
+  "version": "0.1.12",
   "type": "module",
   "bin": {
     "docs-md": "dist/cli/cli.js"
@@ -14,12 +14,18 @@
     "./nextra": {
       "types": "./dist/nextra.d.ts",
       "default": "./dist/nextra.js"
+    },
+    "./docusaurus.css": {
+      "default": "./dist/docusaurus.css"
+    },
+    "./nextra.css": {
+      "default": "./dist/nextra.css"
     }
   },
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "",
-    "build": "tsc && cp ./src/pages/data/*.gz ./dist/pages/data/ && chmod a+x dist/cli/cli.js && cpx \"src/**/*.module.css\" dist/",
+    "build": "tsc && cp ./src/pages/data/*.gz ./dist/pages/data/ && chmod a+x dist/cli/cli.js && cpx \"src/**/*.css\" dist/",
     "dev": "",
     "format": "prettier --config ../../prettier.config.mjs --ignore-path ../../.gitignore --write \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
     "lint": "eslint \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
@@ -40,6 +46,7 @@
     "cpx": "^1.5.0",
     "jotai": "^2.12.5",
     "js-yaml": "^4.1.0",
+    "react-use-measure": "^2.1.7",
     "zod": "^3.25.56"
   },
   "peerDependencies": {

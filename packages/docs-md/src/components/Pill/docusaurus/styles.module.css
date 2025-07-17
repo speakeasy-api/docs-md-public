@@ -1,10 +1,8 @@
 .pill {
   border-radius: var(--ifm-badge-border-radius);
-  padding: 2px 4px;
-
-  /* Reset font size for cases where we're in a header */
-  font-weight: var(--ifm-font-weight-base);
-  font-size: var(--ifm-code-font-size);
+  padding: var(--speakeasy-pill-padding);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--speakeasy-pill-font-size);
 }
 
 .warning {
