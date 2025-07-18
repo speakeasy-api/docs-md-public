@@ -19,7 +19,7 @@ List all models available to the user.
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="none">
 
-### Responses \{#operation-list_models_v1_models_get+responses\}
+### Response \{#operation-list_models_v1_models_get+responses\}
 
 </SectionTitle>
 
@@ -33,7 +33,7 @@ List all models available to the user.
 
 Successful Response
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -49,7 +49,15 @@ Successful Response
 
 </Property>
 
-<ExpandableSection title="BaseModelCard" id="operation-list_models_v1_models_get+200+application-json+BaseModelCard">
+<ExpandableSection>
+
+<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+
+#### BaseModelCard \{#operation-list_models_v1_models_get+200+application-json+BaseModelCard\}
+
+</SectionTitle>
+
+<SectionContent slot="content" borderVariant="default" paddingVariant="default">
 
 #### Properties \{#operation-list_models_v1_models_get+200+application-json+BaseModelCard+properties\}
 
@@ -71,7 +79,15 @@ Successful Response
 
 </Property>
 
-<ExpandableSection title="ModelCapabilities" id="operation-list_models_v1_models_get+200+application-json+BaseModelCard+ModelCapabilities">
+<ExpandableSection>
+
+<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+
+#### ModelCapabilities \{#operation-list_models_v1_models_get+200+application-json+BaseModelCard+ModelCapabilities\}
+
+</SectionTitle>
+
+<SectionContent slot="content" borderVariant="default" paddingVariant="default">
 
 #### Properties \{#operation-list_models_v1_models_get+200+application-json+BaseModelCard+ModelCapabilities+properties\}
 
@@ -132,6 +148,8 @@ _Default Value:_ `true`
 </Property>
 
 _Default Value:_ `false`
+
+</SectionContent>
 
 </SectionContent>
 
@@ -247,9 +265,19 @@ _Default Value:_ `"base"`
 
 </SectionContent>
 
+</SectionContent>
+
 </ExpandableSection>
 
-<ExpandableSection title="FTModelCard" id="operation-list_models_v1_models_get+200+application-json+FTModelCard">
+<ExpandableSection>
+
+<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+
+#### FTModelCard \{#operation-list_models_v1_models_get+200+application-json+FTModelCard\}
+
+</SectionTitle>
+
+<SectionContent slot="content" borderVariant="default" paddingVariant="default">
 
 Extra fields for fine-tuned models.
 
@@ -285,7 +313,15 @@ _Default Value:_ `false`
 
 </Property>
 
-<ExpandableSection title="ModelCapabilities" id="operation-list_models_v1_models_get+200+application-json+FTModelCard+ModelCapabilities">
+<ExpandableSection>
+
+<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+
+#### ModelCapabilities \{#operation-list_models_v1_models_get+200+application-json+FTModelCard+ModelCapabilities\}
+
+</SectionTitle>
+
+<SectionContent slot="content" borderVariant="default" paddingVariant="default">
 
 #### Properties \{#operation-list_models_v1_models_get+200+application-json+FTModelCard+ModelCapabilities+properties\}
 
@@ -346,6 +382,8 @@ _Default Value:_ `true`
 </Property>
 
 _Default Value:_ `false`
+
+</SectionContent>
 
 </SectionContent>
 
@@ -481,6 +519,8 @@ _Default Value:_ `"fine-tuned"`
 
 </SectionContent>
 
+</SectionContent>
+
 </ExpandableSection>
 
 </SectionContent>
@@ -501,100 +541,6 @@ _Default Value:_ `"list"`
 
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-list_models_v1_models_get+422+application-json">
-
-422
-
-</SectionTab>
-
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-list_models_v1_models_get+422+application-json">
-
-Validation Error
-
-<Section>
-
-<SectionTitle slot="title" borderVariant="none" paddingVariant="default">
-
-#### Properties \{#operation-list_models_v1_models_get+422+application-json+properties\}
-
-</SectionTitle>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":[{"label":"Security","schema":{"type":"object","description":null,"examples":[],"properties":{"ApiKey":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["ApiKey"],"name":"Security","defaultValue":null}}]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta \{#operation-list_models_v1_models_get+422+application-json+HttpMeta\}
-
-</Property>
-
-<ExpandableSection title="Security" id="operation-list_models_v1_models_get+422+application-json+Security">
-
-#### Properties \{#operation-list_models_v1_models_get+422+application-json+Security+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### ApiKey \{#operation-list_models_v1_models_get+422+application-json+Security+ApiKey\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}} typeAnnotations={[]}>
-
-##### detail \{#operation-list_models_v1_models_get+422+application-json+detail\}
-
-</Property>
-
-<ExpandableSection title="ValidationError" id="operation-list_models_v1_models_get+422+application-json+ValidationError">
-
-#### Properties \{#operation-list_models_v1_models_get+422+application-json+ValidationError+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### loc \{#operation-list_models_v1_models_get+422+application-json+ValidationError+loc\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### msg \{#operation-list_models_v1_models_get+422+application-json+ValidationError+msg\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### type \{#operation-list_models_v1_models_get+422+application-json+ValidationError+type\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-</Section>
-
-</SectionContent>
-
 </TabbedSection>
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/models/\{model\_id\} \{#operation-retrieve_model_v1_models_model_id_get\}
@@ -603,7 +549,7 @@ _Retrieve Model_
 
 Retrieve a model information.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -617,7 +563,7 @@ Retrieve a model information.
 
 The ID of the model to retrieve.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -653,7 +599,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="none">
 
-### Responses \{#operation-retrieve_model_v1_models_model_id_get+responses\}
+### Response \{#operation-retrieve_model_v1_models_model_id_get+responses\}
 
 </SectionTitle>
 
@@ -667,7 +613,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 Successful Response
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -691,100 +637,6 @@ Successful Response
 
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-retrieve_model_v1_models_model_id_get+422+application-json">
-
-422
-
-</SectionTab>
-
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-retrieve_model_v1_models_model_id_get+422+application-json">
-
-Validation Error
-
-<Section>
-
-<SectionTitle slot="title" borderVariant="none" paddingVariant="default">
-
-#### Properties \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+properties\}
-
-</SectionTitle>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":[{"label":"Security","schema":{"type":"object","description":null,"examples":[],"properties":{"ApiKey":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["ApiKey"],"name":"Security","defaultValue":null}}]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+HttpMeta\}
-
-</Property>
-
-<ExpandableSection title="Security" id="operation-retrieve_model_v1_models_model_id_get+422+application-json+Security">
-
-#### Properties \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+Security+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### ApiKey \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+Security+ApiKey\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}} typeAnnotations={[]}>
-
-##### detail \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail\}
-
-</Property>
-
-<ExpandableSection title="ValidationError" id="operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError">
-
-#### Properties \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### loc \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError+loc\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### msg \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError+msg\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### type \{#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError+type\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-</Section>
-
-</SectionContent>
-
 </TabbedSection>
 
 ## <Pill variant="primary"><b>DELETE</b></Pill> /v1/models/\{model\_id\} \{#operation-delete_model_v1_models_model_id_delete\}
@@ -793,7 +645,7 @@ _Delete Model_
 
 Delete a fine-tuned model.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -807,7 +659,7 @@ Delete a fine-tuned model.
 
 The ID of the model to delete.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -843,7 +695,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="none">
 
-### Responses \{#operation-delete_model_v1_models_model_id_delete+responses\}
+### Response \{#operation-delete_model_v1_models_model_id_delete+responses\}
 
 </SectionTitle>
 
@@ -857,7 +709,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 Successful Response
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -921,100 +773,6 @@ _Default Value:_ `"model"`
 
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-delete_model_v1_models_model_id_delete+422+application-json">
-
-422
-
-</SectionTab>
-
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-delete_model_v1_models_model_id_delete+422+application-json">
-
-Validation Error
-
-<Section>
-
-<SectionTitle slot="title" borderVariant="none" paddingVariant="default">
-
-#### Properties \{#operation-delete_model_v1_models_model_id_delete+422+application-json+properties\}
-
-</SectionTitle>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":[{"label":"Security","schema":{"type":"object","description":null,"examples":[],"properties":{"ApiKey":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["ApiKey"],"name":"Security","defaultValue":null}}]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta \{#operation-delete_model_v1_models_model_id_delete+422+application-json+HttpMeta\}
-
-</Property>
-
-<ExpandableSection title="Security" id="operation-delete_model_v1_models_model_id_delete+422+application-json+Security">
-
-#### Properties \{#operation-delete_model_v1_models_model_id_delete+422+application-json+Security+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### ApiKey \{#operation-delete_model_v1_models_model_id_delete+422+application-json+Security+ApiKey\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}],"breakoutSubTypes":[{"label":"ValidationError","schema":{"type":"object","description":null,"examples":[],"properties":{"loc":{"type":"chunk","chunkId":"$15"},"msg":{"type":"string","description":null,"examples":[],"defaultValue":null},"type":{"type":"string","description":null,"examples":[],"defaultValue":null}},"required":["loc","msg","type"],"name":"ValidationError","defaultValue":null}}]}} typeAnnotations={[]}>
-
-##### detail \{#operation-delete_model_v1_models_model_id_delete+422+application-json+detail\}
-
-</Property>
-
-<ExpandableSection title="ValidationError" id="operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError">
-
-#### Properties \{#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError+properties\}
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### loc \{#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError+loc\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### msg \{#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError+msg\}
-
-</Property>
-
-</SectionContent>
-
-<SectionContent slot="content" borderVariant="all" paddingVariant="default">
-
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":[]}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### type \{#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError+type\}
-
-</Property>
-
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-</Section>
-
-</SectionContent>
-
 </TabbedSection>
 
 ## <Pill variant="primary"><b>PATCH</b></Pill> /v1/fine\_tuning/models/\{model\_id\} \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model\}
@@ -1023,7 +781,7 @@ _Update Fine Tuned Model_
 
 Update a model name or description.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -1037,7 +795,7 @@ Update a model name or description.
 
 The ID of the model to update.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1069,7 +827,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 </Section>
 
-<Section>
+<Section contentBorderVariant="default">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -1079,7 +837,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <SectionContent slot="content" borderVariant="default" paddingVariant="default">
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1131,7 +889,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 OK
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1163,7 +921,7 @@ _Archive Fine Tuned Model_
 
 Archive a fine-tuned model.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -1177,7 +935,7 @@ Archive a fine-tuned model.
 
 The ID of the model to archive.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1227,7 +985,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 OK
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1281,7 +1039,7 @@ _Unarchive Fine Tuned Model_
 
 Un-archive a fine-tuned model.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="default" paddingVariant="default">
 
@@ -1295,7 +1053,7 @@ Un-archive a fine-tuned model.
 
 The ID of the model to unarchive.
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 
@@ -1345,7 +1103,7 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 OK
 
-<Section>
+<Section contentBorderVariant="all">
 
 <SectionTitle slot="title" borderVariant="none" paddingVariant="default">
 

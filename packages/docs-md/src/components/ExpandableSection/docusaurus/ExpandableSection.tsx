@@ -3,13 +3,15 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Button } from "../../primitives/docusaurus/Button.tsx";
 import { Section } from "../../Section/docusaurus.tsx";
+import { useChildren, useUniqueChild } from "../../Section/hooks.ts";
+import type { SectionContentProps } from "../../SectionContent/common/types.tsx";
 import { SectionContent } from "../../SectionContent/docusaurus.tsx";
+import type { SectionTitleProps } from "../../SectionTitle/common/types.tsx";
 import { SectionTitle } from "../../SectionTitle/docusaurus.tsx";
 import type { ExpandableSectionProps } from "../common/types.ts";
 import styles from "./styles.module.css";
 
 export function DocusaurusExpandableSection({
-  title,
   id,
   children,
 }: ExpandableSectionProps) {
@@ -37,24 +39,28 @@ export function DocusaurusExpandableSection({
     };
   }, [id]);
 
+  const titleChild = useUniqueChild<SectionTitleProps>(children, "title");
+  const contentChildren = useChildren<SectionContentProps>(children, "content");
+
   const titleElement = useMemo(
     () => (
       <Button
         onClick={onClick}
-        className={clsx(styles.heading, isOpen && styles.headingOpen)}
+        className={clsx(styles.button, isOpen && styles.buttonOpen)}
       >
+        <div className={styles.title}>{titleChild}</div>
         <div
           style={{
-            transform: isOpen ? "rotate(180deg)" : "rotate(90deg)",
+            transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
             transition: "transform 0.2s ease-in-out",
+            transformOrigin: "center",
           }}
         >
-          ▲
+          △
         </div>
-        {title}
       </Button>
     ),
-    [onClick, isOpen, title]
+    [onClick, isOpen, titleChild]
   );
 
   // TODO: animate height when expanding closing. Requires knowing the height up
@@ -62,7 +68,7 @@ export function DocusaurusExpandableSection({
 
   if (!isOpen) {
     return (
-      <Section>
+      <Section contentBorderVariant="default">
         <SectionTitle
           id={id}
           slot="title"
@@ -81,7 +87,7 @@ export function DocusaurusExpandableSection({
   }
 
   return (
-    <Section>
+    <Section contentBorderVariant="all" noTopBorderRadius>
       <SectionTitle
         id={id}
         slot="title"
@@ -94,9 +100,8 @@ export function DocusaurusExpandableSection({
         slot="content"
         borderVariant="all"
         paddingVariant="default"
-        noBorderRadiusOnFirstElement
       >
-        {children}
+        {contentChildren}
       </SectionContent>
     </Section>
   );

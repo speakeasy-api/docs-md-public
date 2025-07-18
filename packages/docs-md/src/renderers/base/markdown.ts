@@ -7,10 +7,10 @@ import type {
   RendererAppendHeadingArgs,
   RendererCreateAppendCodeArgs,
   RendererCreateAppendTextArgs,
-  RendererCreateExpandableSectionArgs,
   RendererCreateListArgs,
   RendererCreatePillArgs,
   RendererCreatePropertyArgs,
+  RendererCreateSectionArgs,
   RendererCreateSectionContentArgs,
   RendererCreateSectionTitleArgs,
   RendererCreateTabbedSectionTabArgs,
@@ -172,12 +172,14 @@ ${text}\n</code>\n</pre>`;
     this[rendererLines].push(this.createPillEnd());
   }
 
-  public override createSectionStart(): string {
+  public override createSectionStart(
+    ..._args: RendererCreateSectionArgs
+  ): string {
     return "";
   }
 
-  public override appendSectionStart(): void {
-    this[rendererLines].push(this.createSectionStart());
+  public override appendSectionStart(...args: RendererCreateSectionArgs): void {
+    this[rendererLines].push(this.createSectionStart(...args));
   }
 
   public override createSectionEnd(): string {
@@ -228,20 +230,16 @@ ${text}\n</code>\n</pre>`;
     this[rendererLines].push(this.createSectionContentEnd());
   }
 
-  public override createExpandableSectionStart(
-    ...[title, { id, escape = "mdx" }]: RendererCreateExpandableSectionArgs
-  ) {
-    return `<details id="${id}">\n\n<summary>${this.escapeText(title, { escape })}</summary>`;
+  public override createExpandableSectionStart() {
+    return "";
   }
 
-  public override appendExpandableSectionStart(
-    ...args: RendererCreateExpandableSectionArgs
-  ) {
-    this[rendererLines].push(this.createExpandableSectionStart(...args));
+  public override appendExpandableSectionStart() {
+    this[rendererLines].push(this.createExpandableSectionStart());
   }
 
   public override createExpandableSectionEnd(): string {
-    return "</details>";
+    return "";
   }
 
   public override appendExpandableSectionEnd(): void {

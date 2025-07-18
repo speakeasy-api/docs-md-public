@@ -141,6 +141,11 @@ export type RendererCreateAppendCodeArgs = [
 ];
 export type RendererCreatePillArgs = [variant: PillVariant];
 export type RendererCreateListArgs = [items: string[], options?: AppendOptions];
+export type RendererCreateSectionArgs = [
+  options?: {
+    contentBorderVariant?: SectionContentBorderVariant;
+  },
+];
 export type RendererCreateSectionTitleArgs = [
   options?: {
     borderVariant?: SectionTitleBorderVariant;
@@ -153,10 +158,6 @@ export type RendererCreateSectionContentArgs = [
     borderVariant?: SectionContentBorderVariant;
     paddingVariant?: SectionContentPaddingVariant;
   },
-];
-export type RendererCreateExpandableSectionArgs = [
-  title: string,
-  options: AppendOptions & { id: string },
 ];
 export type RendererCreateTabbedSectionTabArgs = [id: string];
 export type RendererAppendSidebarLinkArgs = [
@@ -202,8 +203,8 @@ export abstract class Renderer {
   abstract appendPillEnd(): void;
 
   // Sections show a title followed by content
-  abstract createSectionStart(): string;
-  abstract appendSectionStart(): void;
+  abstract createSectionStart(...args: RendererCreateSectionArgs): string;
+  abstract appendSectionStart(...args: RendererCreateSectionArgs): void;
   abstract createSectionEnd(): string;
   abstract appendSectionEnd(): void;
   abstract createSectionTitleStart(
@@ -225,12 +226,8 @@ export abstract class Renderer {
 
   // Expandable sections are used to show schema value breakouts, which are
   // collapsed by default
-  abstract createExpandableSectionStart(
-    ...args: RendererCreateExpandableSectionArgs
-  ): string;
-  abstract appendExpandableSectionStart(
-    ...args: RendererCreateExpandableSectionArgs
-  ): void;
+  abstract createExpandableSectionStart(): string;
+  abstract appendExpandableSectionStart(): void;
   abstract createExpandableSectionEnd(): string;
   abstract appendExpandableSectionEnd(): void;
 
