@@ -1,0 +1,23 @@
+.section {
+  margin-bottom: 1rem;
+}
+
+/* Reset margins, which vary between scaffolds */
+.section h1:first-child,
+.section h2:first-child,
+.section h3:first-child,
+.section h4:first-child,
+.section h5:first-child,
+.section h6:first-child {
+  margin: 0;
+}
+
+.contentBorderAll {
+  border: var(--speakeasy-border-width) solid var(--speakeasy-border-color);
+  border-radius: var(--speakeasy-border-radius-sm);
+}
+
+.noTopBorderRadius {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
