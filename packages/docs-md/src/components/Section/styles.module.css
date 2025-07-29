@@ -12,12 +12,11 @@
   margin: 0;
 }
 
-.contentBorderAll {
-  border: var(--speakeasy-border-width) solid var(--speakeasy-border-color);
-  border-radius: var(--speakeasy-border-radius-sm);
+.breakout {
+  border-left: var(--speakeasy-border-width) solid var(--speakeasy-expandable-line-color);
+  margin-left: 0.5rem;
 }
 
-.noTopBorderRadius {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.topLevel {
+  padding-bottom: 2rem;
 }

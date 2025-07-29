@@ -1,13 +1,14 @@
 "use client";
 
 import clsx from "clsx";
+import { ChevronRightIcon } from "lucide-react";
 import type { FC, PropsWithChildren } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useChildren, useUniqueChild } from "../Section/hooks.ts";
 import type { SectionProps } from "../Section/Section.tsx";
+import type { SectionContentProps } from "../SectionContent/SectionContent.tsx";
 import { SectionContent } from "../SectionContent/SectionContent.tsx";
-import type { SectionContentProps } from "../SectionContent/types.tsx";
 import type { SectionTitleProps } from "../SectionTitle/SectionTitle.tsx";
 import { SectionTitle } from "../SectionTitle/SectionTitle.tsx";
 import styles from "./styles.module.css";
@@ -58,16 +59,22 @@ export function ExpandableSectionContents({
         onClick={onClick}
         className={clsx(styles.button, isOpen && styles.buttonOpen)}
       >
-        <div className={styles.title}>{titleChild}</div>
         <div
-          style={{
-            transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
-            transition: "transform 0.2s ease-in-out",
-            transformOrigin: "center",
-          }}
+          className={clsx(
+            styles.chevronContainer,
+            isOpen && styles.chevronContainerOpen
+          )}
         >
-          △
+          <div
+            className={styles.chevron}
+            style={{
+              transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+            }}
+          >
+            <ChevronRightIcon />
+          </div>
         </div>
+        <div className={styles.title}>{titleChild}</div>
       </button>
     ),
     [onClick, isOpen, titleChild]
@@ -76,42 +83,13 @@ export function ExpandableSectionContents({
   // TODO: animate height when expanding closing. Requires knowing the height up
   // front though it seems.
 
-  if (!isOpen) {
-    return (
-      <Section contentBorderVariant="default">
-        <SectionTitle
-          id={id}
-          slot="title"
-          borderVariant="none"
-          paddingVariant="none"
-        >
-          {titleElement}
-        </SectionTitle>
-        <SectionContent
-          slot="content"
-          borderVariant="default"
-          paddingVariant="none"
-        />
-      </Section>
-    );
-  }
-
   return (
-    <Section contentBorderVariant="all" noTopBorderRadius>
-      <SectionTitle
-        id={id}
-        slot="title"
-        borderVariant="none"
-        paddingVariant="none"
-      >
+    <Section variant="breakout">
+      <SectionTitle id={id} slot="title" variant="breakout">
         {titleElement}
       </SectionTitle>
-      <SectionContent
-        slot="content"
-        borderVariant="all"
-        paddingVariant="default"
-      >
-        {contentChildren}
+      <SectionContent slot="content" variant={isOpen ? "breakout" : "default"}>
+        {isOpen ? contentChildren : null}
       </SectionContent>
     </Section>
   );

@@ -15,7 +15,7 @@
 // defined as a tuple. We can then use the spread operator to assign that type
 // to all arguments. It's a bit verbose and convoluted, but solves both 1 and 2
 
-import type { SchemaValue } from "../../types/chunk.ts";
+import type { Chunk, SchemaValue } from "../../types/chunk.ts";
 
 // Types shared with components
 
@@ -27,10 +27,7 @@ export type PillVariant =
   | "primary"
   | "secondary";
 
-export type SectionTitleBorderVariant = "default" | "none";
-export type SectionTitlePaddingVariant = "default" | "none";
-export type SectionContentBorderVariant = "default" | "all";
-export type SectionContentPaddingVariant = "default" | "none";
+export type SectionVariant = "default" | "top-level" | "breakout";
 
 export type DisplayTypeInfo = {
   label: string;
@@ -143,20 +140,18 @@ export type RendererCreatePillArgs = [variant: PillVariant];
 export type RendererCreateListArgs = [items: string[], options?: AppendOptions];
 export type RendererCreateSectionArgs = [
   options?: {
-    contentBorderVariant?: SectionContentBorderVariant;
+    variant?: SectionVariant;
   },
 ];
 export type RendererCreateSectionTitleArgs = [
   options?: {
-    borderVariant?: SectionTitleBorderVariant;
-    paddingVariant?: SectionTitlePaddingVariant;
+    variant?: SectionVariant;
   },
 ];
 export type RendererCreateSectionContentArgs = [
   options?: {
     id?: string;
-    borderVariant?: SectionContentBorderVariant;
-    paddingVariant?: SectionContentPaddingVariant;
+    variant?: SectionVariant;
   },
 ];
 export type RendererCreateTabbedSectionTabArgs = [id: string];
@@ -181,7 +176,80 @@ export type RendererAppendTryItNowArgs = [
   },
 ];
 
+export type SchemaRenderContext = {
+  site: Site;
+  renderer: Renderer;
+  schemaStack: string[];
+  idPrefix: string;
+  data: Map<string, Chunk>;
+};
+
+// Section args
+export type RendererAddOperationArgs = [
+  options: {
+    method: string;
+    path: string;
+    operationId: string;
+    summary: string | null;
+    description: string | null;
+  },
+  cb: (operationRenderer: Renderer) => void,
+];
+export type RendererAddTopLevelSectionArgs = [
+  options: {
+    title: string;
+    annotations?: PropertyAnnotations[];
+  },
+  cb: (contentRenderer: Renderer) => void,
+];
+export type RendererAddSecuritySectionArgs = [
+  cb: (contentRenderer: Renderer) => void,
+];
+export type RendererAddParametersSectionArgs = [
+  cb: (
+    createParameter: (
+      options: {
+        name: string;
+        isRequired: boolean;
+      },
+      callback: (options: { parameterRenderer: Renderer }) => void
+    ) => void
+  ) => void,
+];
+export type RendererAddRequestSectionArgs = [
+  options: {
+    isOptional: boolean;
+    site: Site;
+    data: Map<string, Chunk>;
+  },
+  cb: (context: SchemaRenderContext) => void,
+];
+export type RendererAddResponsesArgs = [
+  cb: (
+    createTab: (
+      options: {
+        statusCode: string;
+        contentType: string;
+        site: Site;
+        data: Map<string, Chunk>;
+      },
+      callback: (context: SchemaRenderContext) => void
+    ) => void
+  ) => void,
+];
+
 export abstract class Renderer {
+  // High level operations
+  abstract addOperationSection(...args: RendererAddOperationArgs): void;
+  abstract addSecuritySection(...args: RendererAddSecuritySectionArgs): void;
+  abstract addParametersSection(
+    ...args: RendererAddParametersSectionArgs
+  ): void;
+  abstract addRequestSection(...args: RendererAddRequestSectionArgs): void;
+  abstract addResponsesSection(...args: RendererAddResponsesArgs): void;
+
+  // Low level operations
+
   // The following methods are used to create basic content on the page. They
   // have "create" variants that create the content and "append"/"insert"
   // variants that append/insert the content into the current page.

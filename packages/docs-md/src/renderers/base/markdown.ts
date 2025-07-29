@@ -1,10 +1,19 @@
 import { join, resolve } from "node:path";
 
+import { snakeCase } from "change-case";
+
 import { HEADINGS } from "../../pages/content/constants.ts";
 import { InternalError } from "../../util/internalError.ts";
 import { getSettings } from "../../util/settings.ts";
 import type {
   DisplayTypeInfo,
+  PropertyAnnotations,
+  RendererAddOperationArgs,
+  RendererAddParametersSectionArgs,
+  RendererAddRequestSectionArgs,
+  RendererAddResponsesArgs,
+  RendererAddSecuritySectionArgs,
+  RendererAddTopLevelSectionArgs,
   RendererAppendHeadingArgs,
   RendererCreateAppendCodeArgs,
   RendererCreateAppendTextArgs,
@@ -61,6 +70,8 @@ export const rendererLines = Symbol();
 
 export abstract class MarkdownRenderer extends Renderer {
   #isFinalized = false;
+  #idStack: string[] = [];
+
   [rendererLines]: string[] = [];
 
   public override escapeText(...[text, { escape }]: RendererEscapeTextArgs) {
@@ -94,6 +105,171 @@ export abstract class MarkdownRenderer extends Renderer {
       case "none":
         return text;
     }
+  }
+
+  public override addOperationSection(
+    ...[
+      { method, path, operationId, summary, description },
+      cb,
+    ]: RendererAddOperationArgs
+  ): void {
+    const { showDebugPlaceholders } = getSettings().display;
+    const id = `operation-${snakeCase(operationId)}`;
+    this.#idStack.push(id);
+    const methodStart = this.createPillStart("primary");
+    const methodEnd = this.createPillEnd();
+    path = this.escapeText(path, {
+      escape: "markdown",
+    });
+    this.appendHeading(
+      HEADINGS.SECTION_TITLE_HEADING_LEVEL,
+      `${methodStart}<b>${method.toUpperCase()}</b>${methodEnd} ${path}`,
+      { id, escape: "none" }
+    );
+    if (summary && description) {
+      this.appendText(`_${summary}_`);
+      this.appendText(description);
+    } else if (summary) {
+      this.appendText(summary);
+      if (showDebugPlaceholders) {
+        this.appendDebugPlaceholderStart();
+        this.appendText("No description provided");
+        this.appendDebugPlaceholderEnd();
+      }
+    } else if (description) {
+      this.appendText(description);
+      if (showDebugPlaceholders) {
+        this.appendDebugPlaceholderStart();
+        this.appendText("No summary provided");
+        this.appendDebugPlaceholderEnd();
+      }
+    } else if (showDebugPlaceholders) {
+      this.appendDebugPlaceholderStart();
+      this.appendText("No summary provided");
+      this.appendDebugPlaceholderEnd();
+      this.appendDebugPlaceholderStart();
+      this.appendText("No description provided");
+      this.appendDebugPlaceholderEnd();
+    }
+    cb(this);
+    this.#idStack.pop();
+  }
+
+  #addTopLevelSection(
+    ...[{ title, annotations = [] }, cb]: RendererAddTopLevelSectionArgs
+  ): void {
+    for (const annotation of annotations) {
+      title += ` ${this.createPillStart(annotation.variant)}${annotation.title}${this.createPillEnd()}`;
+    }
+    this.appendSectionStart({ variant: "top-level" });
+    this.appendSectionTitleStart({ variant: "top-level" });
+    this.appendHeading(HEADINGS.SECTION_HEADING_LEVEL, title, {
+      id: this.getIdPrefix(),
+    });
+    this.appendSectionTitleEnd();
+    this.appendSectionContentStart({ variant: "top-level" });
+    cb(this);
+    this.appendSectionContentEnd();
+    this.appendSectionEnd();
+  }
+
+  public override addSecuritySection(
+    ...[cb]: RendererAddSecuritySectionArgs
+  ): void {
+    this.#idStack.push("security");
+    this.#addTopLevelSection({ title: "Security" }, cb);
+    this.#idStack.pop();
+  }
+
+  public override addParametersSection(
+    ...[cb]: RendererAddParametersSectionArgs
+  ): void {
+    this.#idStack.push("parameters");
+    this.#addTopLevelSection({ title: "Parameters" }, (parameterRenderer) => {
+      cb(({ name, isRequired }, cb) => {
+        const start = parameterRenderer.createPillStart("warning");
+        const end = parameterRenderer.createPillEnd();
+        parameterRenderer.appendHeading(
+          HEADINGS.PROPERTY_HEADING_LEVEL,
+          `${parameterRenderer.escapeText(name, { escape: "markdown" })}${isRequired ? ` ${start}required${end}` : ""}`,
+          {
+            id: this.getIdPrefix(),
+            escape: "none",
+          }
+        );
+
+        // TODO: return a parmeter specific callback, not a generic renderer,
+        // so that we get proper heading IDs
+        cb({ parameterRenderer });
+      });
+    });
+    this.#idStack.pop();
+  }
+
+  public override addRequestSection(
+    ...[{ isOptional, site, data }, cb]: RendererAddRequestSectionArgs
+  ): void {
+    this.#idStack.push("request");
+    const annotations: PropertyAnnotations[] = [];
+    if (isOptional) {
+      annotations.push({
+        title: "Optional",
+        variant: "info",
+      });
+    }
+    this.#addTopLevelSection(
+      {
+        title: "Request Body",
+        annotations,
+      },
+      (schemaRenderer) => {
+        cb({
+          site,
+          renderer: schemaRenderer,
+          schemaStack: [],
+          idPrefix: this.getIdPrefix(),
+          data,
+        });
+      }
+    );
+    this.#idStack.pop();
+  }
+
+  public override addResponsesSection(...[cb]: RendererAddResponsesArgs): void {
+    this.#idStack.push("responses");
+    this.appendTabbedSectionStart();
+    this.appendSectionTitleStart({ variant: "default" });
+    this.appendHeading(HEADINGS.SECTION_HEADING_LEVEL, "Responses", {
+      id: this.getIdPrefix(),
+    });
+    this.appendSectionTitleEnd();
+    cb(({ statusCode, contentType, site, data }, cb) => {
+      this.#idStack.push(statusCode, contentType.replace("/", "-"));
+      this.appendTabbedSectionTabStart(this.getIdPrefix());
+      this.appendText(statusCode);
+      this.appendTabbedSectionTabEnd();
+      this.appendSectionContentStart({
+        id: this.getIdPrefix(),
+        variant: "top-level",
+      });
+      const context = {
+        site,
+        renderer: this,
+        schemaStack: [],
+        idPrefix: this.getIdPrefix(),
+        data,
+      };
+      cb(context);
+      this.appendSectionContentEnd();
+      this.#idStack.pop();
+    });
+    this.appendTabbedSectionEnd();
+    this.#idStack.pop();
+  }
+
+  protected getIdPrefix(): string {
+    // TODO: make this per-renderer configurable
+    return this.#idStack.join("+");
   }
 
   public override createHeading(
