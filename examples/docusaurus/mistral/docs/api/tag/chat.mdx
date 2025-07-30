@@ -4,7 +4,7 @@ sidebar_label: Chat
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Pill, Section, SectionTitle, SectionContent, Property, ExpandableSection, TabbedSection, SectionTab } from "@speakeasy-api/docs-md/docusaurus";
+import { Pill, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, ExpandableBreakout, TabbedSection, SectionTab } from "@speakeasy-api/docs-md/docusaurus";
 
 
 # Chat Operations \{#chat\}
@@ -23,705 +23,943 @@ Chat Completion
 
 <SectionContent slot="content" variant="top-level">
 
-<Property typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableSection>
+
+<ExpandableProperty slot="entry" id="frequency_penalty" typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### frequency_penalty \{#operation-chat_completion_v1_chat_completions_post+request+frequency_penalty\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 frequency_penalty penalizes the repetition of words based on their frequency in the generated text. A higher frequency penalty discourages the model from repeating words that have already appeared frequently in the output, promoting diversity and reducing repetition.
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="max_tokens" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### max_tokens \{#operation-chat_completion_v1_chat_completions_post+request+max_tokens\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"SystemMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+SystemMessage\">SystemMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"UserMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+UserMessage\">UserMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"AssistantMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+AssistantMessage\">AssistantMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"ToolMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+ToolMessage\">ToolMessage</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"SystemMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage\">SystemMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"UserMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage\">UserMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"AssistantMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage\">AssistantMessage</a>","children":[],"breakoutSubTypes":{}},{"label":"ToolMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage\">ToolMessage</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### messages \{#operation-chat_completion_v1_chat_completions_post+request+messages\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_SystemMessage" parentId="messages">
 
-#### SystemMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages\}
+<div slot="title">
 
-</SectionTitle>
+#### SystemMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+TextChunk\">TextChunk</a>","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_SystemMessage_content" parentId="messages_SystemMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content+TextChunk\">TextChunk</a>","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_SystemMessage_content_TextChunk" parentId="messages_SystemMessage_content">
 
-#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content\}
+<div slot="title">
 
-</SectionTitle>
+#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content+TextChunk\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_SystemMessage_content_TextChunk_text" parentId="messages_SystemMessage_content_TextChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### text \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content+TextChunk+text\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_SystemMessage_content_TextChunk_type" parentId="messages_SystemMessage_content_TextChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+content+TextChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"text"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"system\"","linkedLabel":"\"system\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_SystemMessage_role" parentId="messages_SystemMessage" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"system\"","linkedLabel":"\"system\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### role \{#operation-chat_completion_v1_chat_completions_post+request+messages+SystemMessage+role\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"system"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_UserMessage" parentId="messages">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### UserMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages\}
+#### UserMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="messages_UserMessage_content" parentId="messages_UserMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_UserMessage_content_TextChunk" parentId="messages_UserMessage_content">
 
-#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content\}
+<div slot="title">
 
-</SectionTitle>
+#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+TextChunk\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_TextChunk_text" parentId="messages_UserMessage_content_TextChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### text \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+TextChunk+text\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_TextChunk_type" parentId="messages_UserMessage_content_TextChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+TextChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"text"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_UserMessage_content_ImageURLChunk" parentId="messages_UserMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content\}
+#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+<div slot="content">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ImageURLChunk_image_url" parentId="messages_UserMessage_content_ImageURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### image_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_UserMessage_content_ImageURLChunk_image_url_ImageURL" parentId="messages_UserMessage_content_ImageURLChunk_image_url">
 
-#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url\}
+<div slot="title">
 
-</SectionTitle>
+#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url+ImageURL\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ImageURLChunk_image_url_ImageURL_detail" parentId="messages_UserMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### detail \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url+ImageURL+detail\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ImageURLChunk_image_url_ImageURL_url" parentId="messages_UserMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### url \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+image_url+ImageURL+url\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ImageURLChunk_type" parentId="messages_UserMessage_content_ImageURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ImageURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"image_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_UserMessage_content_DocumentURLChunk" parentId="messages_UserMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content\}
+#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+DocumentURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_DocumentURLChunk_document_name" parentId="messages_UserMessage_content_DocumentURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### document_name \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+DocumentURLChunk+document_name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_DocumentURLChunk_document_url" parentId="messages_UserMessage_content_DocumentURLChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### document_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+DocumentURLChunk+document_url\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_DocumentURLChunk_type" parentId="messages_UserMessage_content_DocumentURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+DocumentURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"document_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_UserMessage_content_ReferenceChunk" parentId="messages_UserMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content\}
+#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ReferenceChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ReferenceChunk_reference_ids" parentId="messages_UserMessage_content_ReferenceChunk" typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### reference_ids \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ReferenceChunk+reference_ids\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_UserMessage_content_ReferenceChunk_type" parentId="messages_UserMessage_content_ReferenceChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+content+ReferenceChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"reference"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"user\"","linkedLabel":"\"user\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_UserMessage_role" parentId="messages_UserMessage" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"user\"","linkedLabel":"\"user\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### role \{#operation-chat_completion_v1_chat_completions_post+request+messages+UserMessage+role\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"user"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage" parentId="messages">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### AssistantMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages\}
+#### AssistantMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content" parentId="messages_AssistantMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_content_TextChunk" parentId="messages_AssistantMessage_content">
 
-#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content\}
+<div slot="title">
 
-</SectionTitle>
+#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+TextChunk\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_TextChunk_text" parentId="messages_AssistantMessage_content_TextChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### text \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+TextChunk+text\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_TextChunk_type" parentId="messages_AssistantMessage_content_TextChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+TextChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"text"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_content_ImageURLChunk" parentId="messages_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content\}
+#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+<div slot="content">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ImageURLChunk_image_url" parentId="messages_AssistantMessage_content_ImageURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### image_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" parentId="messages_AssistantMessage_content_ImageURLChunk_image_url">
 
-#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url\}
+<div slot="title">
 
-</SectionTitle>
+#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url+ImageURL\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ImageURLChunk_image_url_ImageURL_detail" parentId="messages_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### detail \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url+ImageURL+detail\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ImageURLChunk_image_url_ImageURL_url" parentId="messages_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### url \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+image_url+ImageURL+url\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ImageURLChunk_type" parentId="messages_AssistantMessage_content_ImageURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ImageURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"image_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_content_DocumentURLChunk" parentId="messages_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content\}
+#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+DocumentURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_DocumentURLChunk_document_name" parentId="messages_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### document_name \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+DocumentURLChunk+document_name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_DocumentURLChunk_document_url" parentId="messages_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### document_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+DocumentURLChunk+document_url\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_DocumentURLChunk_type" parentId="messages_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+DocumentURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"document_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_content_ReferenceChunk" parentId="messages_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content\}
+#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ReferenceChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ReferenceChunk_reference_ids" parentId="messages_AssistantMessage_content_ReferenceChunk" typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### reference_ids \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ReferenceChunk+reference_ids\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_content_ReferenceChunk_type" parentId="messages_AssistantMessage_content_ReferenceChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+content+ReferenceChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"reference"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_prefix" parentId="messages_AssistantMessage" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### prefix \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+prefix\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"assistant\"","linkedLabel":"\"assistant\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_role" parentId="messages_AssistantMessage" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"assistant\"","linkedLabel":"\"assistant\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### role \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+role\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"assistant"`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+ToolCall\">ToolCall</a>","children":[{"label":"ToolCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+ToolCall\">ToolCall</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls" parentId="messages_AssistantMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall\">ToolCall</a>","children":[{"label":"ToolCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall\">ToolCall</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### tool_calls \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall" parentId="messages_AssistantMessage_tool_calls">
 
-#### ToolCall \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls\}
+<div slot="title">
 
-</SectionTitle>
+#### ToolCall \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"FunctionCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+FunctionCall\">FunctionCall</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_function" parentId="messages_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"FunctionCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function+FunctionCall\">FunctionCall</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### function \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" parentId="messages_AssistantMessage_tool_calls_ToolCall_function">
 
-#### FunctionCall \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function\}
+<div slot="title">
 
-</SectionTitle>
+#### FunctionCall \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function+FunctionCall\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_function_FunctionCall_arguments" parentId="messages_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### arguments \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function+FunctionCall+arguments\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_function_FunctionCall_name" parentId="messages_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+function+FunctionCall+name\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_id" parentId="messages_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### id \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+id\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"null"`
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_index" parentId="messages_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### index \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+index\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `0`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_AssistantMessage_tool_calls_ToolCall_type" parentId="messages_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+AssistantMessage+tool_calls+ToolCall+type\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_ToolMessage" parentId="messages">
 
-</SectionContent>
+<div slot="title">
 
-</ExpandableSection>
+#### ToolMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage\}
 
-<ExpandableSection>
+</div>
 
-<SectionTitle slot="title" variant="default">
+</ExpandableBreakout>
 
-#### ToolMessage \{#operation-chat_completion_v1_chat_completions_post+request+messages\}
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content" parentId="messages_ToolMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionTitle>
-
-<SectionContent slot="content" variant="default">
-
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_ToolMessage_content_TextChunk" parentId="messages_ToolMessage_content">
 
-#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content\}
+<div slot="title">
 
-</SectionTitle>
+#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+TextChunk\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_TextChunk_text" parentId="messages_ToolMessage_content_TextChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### text \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+TextChunk+text\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_TextChunk_type" parentId="messages_ToolMessage_content_TextChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+TextChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"text"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_ToolMessage_content_ImageURLChunk" parentId="messages_ToolMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content\}
+#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+<div slot="content">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ImageURLChunk_image_url" parentId="messages_ToolMessage_content_ImageURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### image_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="messages_ToolMessage_content_ImageURLChunk_image_url_ImageURL" parentId="messages_ToolMessage_content_ImageURLChunk_image_url">
 
-#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url\}
+<div slot="title">
 
-</SectionTitle>
+#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url+ImageURL\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ImageURLChunk_image_url_ImageURL_detail" parentId="messages_ToolMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### detail \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url+ImageURL+detail\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ImageURLChunk_image_url_ImageURL_url" parentId="messages_ToolMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### url \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+image_url+ImageURL+url\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ImageURLChunk_type" parentId="messages_ToolMessage_content_ImageURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ImageURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"image_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_ToolMessage_content_DocumentURLChunk" parentId="messages_ToolMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content\}
+#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+DocumentURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_DocumentURLChunk_document_name" parentId="messages_ToolMessage_content_DocumentURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### document_name \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+DocumentURLChunk+document_name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_DocumentURLChunk_document_url" parentId="messages_ToolMessage_content_DocumentURLChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### document_url \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+DocumentURLChunk+document_url\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_DocumentURLChunk_type" parentId="messages_ToolMessage_content_DocumentURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+DocumentURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"document_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="messages_ToolMessage_content_ReferenceChunk" parentId="messages_ToolMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content\}
+#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ReferenceChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ReferenceChunk_reference_ids" parentId="messages_ToolMessage_content_ReferenceChunk" typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### reference_ids \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ReferenceChunk+reference_ids\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_content_ReferenceChunk_type" parentId="messages_ToolMessage_content_ReferenceChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+content+ReferenceChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"reference"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="messages_ToolMessage_name" parentId="messages_ToolMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"tool\"","linkedLabel":"\"tool\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_role" parentId="messages_ToolMessage" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"tool\"","linkedLabel":"\"tool\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### role \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+role\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"tool"`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="messages_ToolMessage_tool_call_id" parentId="messages_ToolMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### tool_call_id \{#operation-chat_completion_v1_chat_completions_post+request+messages+ToolMessage+tool_call_id\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="model" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
 ##### model \{#operation-chat_completion_v1_chat_completions_post+request+model\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 ID of the model to use. You can use the List Available Models API to see all of your available models, or see our Model overview for model descriptions.
 
@@ -731,309 +969,447 @@ _Example:_
 mistral-small-latest
 ```
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="n" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### n \{#operation-chat_completion_v1_chat_completions_post+request+n\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="parallel_tool_calls" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### parallel_tool_calls \{#operation-chat_completion_v1_chat_completions_post+request+parallel_tool_calls\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"Prediction","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+Prediction\">Prediction</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="prediction" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"Prediction","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+prediction+Prediction\">Prediction</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### prediction \{#operation-chat_completion_v1_chat_completions_post+request+prediction\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="prediction_Prediction" parentId="prediction">
 
-#### Prediction \{#operation-chat_completion_v1_chat_completions_post+request+prediction\}
+<div slot="title">
 
-</SectionTitle>
+#### Prediction \{#operation-chat_completion_v1_chat_completions_post+request+prediction+Prediction\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="prediction_Prediction_content" parentId="prediction_Prediction" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+request+prediction+Prediction+content\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `""`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="prediction_Prediction_type" parentId="prediction_Prediction" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+prediction+Prediction+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"content"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="presence_penalty" typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### presence_penalty \{#operation-chat_completion_v1_chat_completions_post+request+presence_penalty\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 presence_penalty determines how much the model penalizes the repetition of words or phrases. A higher presence penalty encourages the model to use a wider variety of words and phrases, making the output more diverse and creative.
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reasoning\"","linkedLabel":"\"reasoning\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="prompt_mode" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reasoning\"","linkedLabel":"\"reasoning\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### prompt_mode \{#operation-chat_completion_v1_chat_completions_post+request+prompt_mode\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="random_seed" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### random_seed \{#operation-chat_completion_v1_chat_completions_post+request+random_seed\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ResponseFormat","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+ResponseFormat\">ResponseFormat</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="response_format" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ResponseFormat","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat\">ResponseFormat</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### response_format \{#operation-chat_completion_v1_chat_completions_post+request+response_format\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="response_format_ResponseFormat" parentId="response_format">
 
-#### ResponseFormat \{#operation-chat_completion_v1_chat_completions_post+request+response_format\}
+<div slot="title">
 
-</SectionTitle>
+#### ResponseFormat \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"JsonSchema","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+JsonSchema\">JsonSchema</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_json_schema" parentId="response_format_ResponseFormat" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"JsonSchema","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema\">JsonSchema</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### json_schema \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="response_format_ResponseFormat_json_schema_JsonSchema" parentId="response_format_ResponseFormat_json_schema">
 
-#### JsonSchema \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema\}
+<div slot="title">
 
-</SectionTitle>
+#### JsonSchema \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_json_schema_JsonSchema_description" parentId="response_format_ResponseFormat_json_schema_JsonSchema" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### description \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema+description\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_json_schema_JsonSchema_name" parentId="response_format_ResponseFormat_json_schema_JsonSchema" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema+name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_json_schema_JsonSchema_schema_definition" parentId="response_format_ResponseFormat_json_schema_JsonSchema" typeInfo={{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### schema_definition \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema+schema_definition\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_json_schema_JsonSchema_strict" parentId="response_format_ResponseFormat_json_schema_JsonSchema" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### strict \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+json_schema+JsonSchema+strict\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="response_format_ResponseFormat_type" parentId="response_format_ResponseFormat" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}},{"label":"\"json_object\"","linkedLabel":"\"json_object\"","children":[],"breakoutSubTypes":{}},{"label":"\"json_schema\"","linkedLabel":"\"json_schema\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}},{"label":"\"json_object\"","linkedLabel":"\"json_object\"","children":[],"breakoutSubTypes":{}},{"label":"\"json_schema\"","linkedLabel":"\"json_schema\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+response_format+ResponseFormat+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="safe_prompt" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### safe_prompt \{#operation-chat_completion_v1_chat_completions_post+request+safe_prompt\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 Whether to inject a safety prompt before all conversations.
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="stop" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### stop \{#operation-chat_completion_v1_chat_completions_post+request+stop\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="stream" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### stream \{#operation-chat_completion_v1_chat_completions_post+request+stream\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 Whether to stream back partial progress. If set, tokens will be sent as data-only server-side events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="temperature" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### temperature \{#operation-chat_completion_v1_chat_completions_post+request+temperature\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ToolChoice","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+ToolChoice\">ToolChoice</a>","children":[],"breakoutSubTypes":{}},{"label":"enum","linkedLabel":"enum","children":[{"label":"\"auto\"","linkedLabel":"\"auto\"","children":[],"breakoutSubTypes":{}},{"label":"\"none\"","linkedLabel":"\"none\"","children":[],"breakoutSubTypes":{}},{"label":"\"any\"","linkedLabel":"\"any\"","children":[],"breakoutSubTypes":{}},{"label":"\"required\"","linkedLabel":"\"required\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="tool_choice" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ToolChoice","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice\">ToolChoice</a>","children":[],"breakoutSubTypes":{}},{"label":"enum","linkedLabel":"enum","children":[{"label":"\"auto\"","linkedLabel":"\"auto\"","children":[],"breakoutSubTypes":{}},{"label":"\"none\"","linkedLabel":"\"none\"","children":[],"breakoutSubTypes":{}},{"label":"\"any\"","linkedLabel":"\"any\"","children":[],"breakoutSubTypes":{}},{"label":"\"required\"","linkedLabel":"\"required\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### tool_choice \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="tool_choice_ToolChoice" parentId="tool_choice">
 
-#### ToolChoice \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice\}
+<div slot="title">
 
-</SectionTitle>
+#### ToolChoice \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice\}
 
-<SectionContent slot="content" variant="default">
+</div>
+
+<div slot="content">
 
 ToolChoice is either a ToolChoiceEnum or a ToolChoice
 
-<Property typeInfo={{"label":"FunctionName","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+FunctionName\">FunctionName</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="tool_choice_ToolChoice_function" parentId="tool_choice_ToolChoice" typeInfo={{"label":"FunctionName","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+function+FunctionName\">FunctionName</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### function \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+function\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="tool_choice_ToolChoice_function_FunctionName" parentId="tool_choice_ToolChoice_function">
 
-#### FunctionName \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+function\}
+<div slot="title">
 
-</SectionTitle>
+#### FunctionName \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+function+FunctionName\}
 
-<SectionContent slot="content" variant="default">
+</div>
+
+<div slot="content">
 
 this restriction of `Function` is used to select a specific function to call
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="tool_choice_ToolChoice_function_FunctionName_name" parentId="tool_choice_ToolChoice_function_FunctionName" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+function+FunctionName+name\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="tool_choice_ToolChoice_type" parentId="tool_choice_ToolChoice" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+tool_choice+ToolChoice+type\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="tools" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tools+Tool\">Tool</a>","children":[{"label":"Tool","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tools+Tool\">Tool</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+Tool\">Tool</a>","children":[{"label":"Tool","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+Tool\">Tool</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### tools \{#operation-chat_completion_v1_chat_completions_post+request+tools\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="tools_Tool" parentId="tools">
 
-#### Tool \{#operation-chat_completion_v1_chat_completions_post+request+tools\}
+<div slot="title">
 
-</SectionTitle>
+#### Tool \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"Function","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+Function\">Function</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="tools_Tool_function" parentId="tools_Tool" typeInfo={{"label":"Function","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function\">Function</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### function \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="tools_Tool_function_Function" parentId="tools_Tool_function">
 
-#### Function \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function\}
+<div slot="title">
 
-</SectionTitle>
+#### Function \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="tools_Tool_function_Function_description" parentId="tools_Tool_function_Function" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### description \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function+description\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="tools_Tool_function_Function_name" parentId="tools_Tool_function_Function" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function+name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="tools_Tool_function_Function_parameters" parentId="tools_Tool_function_Function" typeInfo={{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### parameters \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function+parameters\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="tools_Tool_function_Function_strict" parentId="tools_Tool_function_Function" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### strict \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+function+Function+strict\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="tools_Tool_type" parentId="tools_Tool" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+request+tools+Tool+type\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="top_p" typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### top_p \{#operation-chat_completion_v1_chat_completions_post+request+top_p\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 Nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or `temperature` but not both.
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
 
 </SectionContent>
 
@@ -1055,27 +1431,39 @@ Nucleus sampling, where the model considers the results of the tokens with `top_
 
 <SectionContent slot="content" variant="top-level" id="operation-chat_completion_v1_chat_completions_post+responses+200+application-json">
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+ChatCompletionChoice\">ChatCompletionChoice</a>","children":[{"label":"ChatCompletionChoice","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+ChatCompletionChoice\">ChatCompletionChoice</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### choices \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices\}
-
-</Property>
+Successful Response
 
 <ExpandableSection>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableProperty slot="entry" id="choices" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice\">ChatCompletionChoice</a>","children":[{"label":"ChatCompletionChoice","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice\">ChatCompletionChoice</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### ChatCompletionChoice \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices\}
+<div slot="title">
 
-</SectionTitle>
+##### choices \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"stop\"","linkedLabel":"\"stop\"","children":[],"breakoutSubTypes":{}},{"label":"\"length\"","linkedLabel":"\"length\"","children":[],"breakoutSubTypes":{}},{"label":"\"model_length\"","linkedLabel":"\"model_length\"","children":[],"breakoutSubTypes":{}},{"label":"\"error\"","linkedLabel":"\"error\"","children":[],"breakoutSubTypes":{}},{"label":"\"tool_calls\"","linkedLabel":"\"tool_calls\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice" parentId="choices">
+
+<div slot="title">
+
+#### ChatCompletionChoice \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice\}
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_finish_reason" parentId="choices_ChatCompletionChoice" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"stop\"","linkedLabel":"\"stop\"","children":[],"breakoutSubTypes":{}},{"label":"\"length\"","linkedLabel":"\"length\"","children":[],"breakoutSubTypes":{}},{"label":"\"model_length\"","linkedLabel":"\"model_length\"","children":[],"breakoutSubTypes":{}},{"label":"\"error\"","linkedLabel":"\"error\"","children":[],"breakoutSubTypes":{}},{"label":"\"tool_calls\"","linkedLabel":"\"tool_calls\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### finish_reason \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+finish_reason\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1083,11 +1471,19 @@ _Example:_
 stop
 ```
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_index" parentId="choices_ChatCompletionChoice" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### index \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+index\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1095,279 +1491,375 @@ _Example:_
 0
 ```
 
-<Property typeInfo={{"label":"AssistantMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+AssistantMessage\">AssistantMessage</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message" parentId="choices_ChatCompletionChoice" typeInfo={{"label":"AssistantMessage","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage\">AssistantMessage</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### message \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage" parentId="choices_ChatCompletionChoice_message">
 
-#### AssistantMessage \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message\}
+<div slot="title">
 
-</SectionTitle>
+#### AssistantMessage \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content" parentId="choices_ChatCompletionChoice_message_AssistantMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"TextChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+TextChunk\">TextChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ImageURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk\">ImageURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"DocumentURLChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+DocumentURLChunk\">DocumentURLChunk</a>","children":[],"breakoutSubTypes":{}},{"label":"ReferenceChunk","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ReferenceChunk\">ReferenceChunk</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### content \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_TextChunk" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content">
 
-#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content\}
+<div slot="title">
 
-</SectionTitle>
+#### TextChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+TextChunk\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_TextChunk_text" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_TextChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### text \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+TextChunk+text\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_TextChunk_type" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_TextChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"text\"","linkedLabel":"\"text\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+TextChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"text"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content\}
+#### ImageURLChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+<div slot="content">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"ImageURL","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url+ImageURL\">ImageURL</a>","children":[],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### image_url \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url">
 
-#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url\}
+<div slot="title">
 
-</SectionTitle>
+#### ImageURL \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url+ImageURL\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url_ImageURL_detail" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### detail \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url+ImageURL+detail\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url_ImageURL_url" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_image_url_ImageURL" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### url \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+image_url+ImageURL+url\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk_type" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ImageURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"image_url\"","linkedLabel":"\"image_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ImageURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"image_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content\}
+#### DocumentURLChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+DocumentURLChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk_document_name" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### document_name \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+DocumentURLChunk+document_name\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk_document_url" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### document_url \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+DocumentURLChunk+document_url\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk_type" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_DocumentURLChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"document_url\"","linkedLabel":"\"document_url\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+DocumentURLChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"document_url"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ReferenceChunk" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content">
 
-<SectionTitle slot="title" variant="default">
+<div slot="title">
 
-#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content\}
+#### ReferenceChunk \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ReferenceChunk\}
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" variant="default">
+</ExpandableBreakout>
 
-<Property typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ReferenceChunk_reference_ids" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ReferenceChunk" typeInfo={{"label":"array","linkedLabel":"integer","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### reference_ids \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ReferenceChunk+reference_ids\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_content_ReferenceChunk_type" parentId="choices_ChatCompletionChoice_message_AssistantMessage_content_ReferenceChunk" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"reference\"","linkedLabel":"\"reference\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+content+ReferenceChunk+type\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"reference"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_prefix" parentId="choices_ChatCompletionChoice_message_AssistantMessage" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### prefix \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+prefix\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"assistant\"","linkedLabel":"\"assistant\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_role" parentId="choices_ChatCompletionChoice_message_AssistantMessage" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"assistant\"","linkedLabel":"\"assistant\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### role \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+role\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"assistant"`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+ToolCall\">ToolCall</a>","children":[{"label":"ToolCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+ToolCall\">ToolCall</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls" parentId="choices_ChatCompletionChoice_message_AssistantMessage" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall\">ToolCall</a>","children":[{"label":"ToolCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall\">ToolCall</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### tool_calls \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls">
 
-#### ToolCall \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls\}
+<div slot="title">
 
-</SectionTitle>
+#### ToolCall \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"FunctionCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+FunctionCall\">FunctionCall</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"FunctionCall","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function+FunctionCall\">FunctionCall</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### function \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function">
 
-#### FunctionCall \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function\}
+<div slot="title">
 
-</SectionTitle>
+#### FunctionCall \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function+FunctionCall\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function_FunctionCall_arguments" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### arguments \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function+FunctionCall+arguments\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function_FunctionCall_name" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_function_FunctionCall" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### name \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+function+FunctionCall+name\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_id" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### id \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+id\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"null"`
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_index" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### index \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+index\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Default Value:_ `0`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall_type" parentId="choices_ChatCompletionChoice_message_AssistantMessage_tool_calls_ToolCall" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"function\"","linkedLabel":"\"function\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+choices+ChatCompletionChoice+message+AssistantMessage+tool_calls+ToolCall+type\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="created" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionContent>
-
-</ExpandableSection>
-
-</SectionContent>
-
-</ExpandableSection>
-
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
 ##### created \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+created\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1375,11 +1867,19 @@ _Example:_
 1702256327
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="id" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### id \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+id\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1387,11 +1887,19 @@ _Example:_
 cmpl-e5cc70bb28c444948073e77776eb30ef
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="model" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### model \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+model\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1399,11 +1907,19 @@ _Example:_
 mistral-small-latest
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### object \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+object\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1411,27 +1927,39 @@ _Example:_
 chat.completion
 ```
 
-<Property typeInfo={{"label":"UsageInfo","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+UsageInfo\">UsageInfo</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="usage" typeInfo={{"label":"UsageInfo","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage+UsageInfo\">UsageInfo</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### usage \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="usage_UsageInfo" parentId="usage">
 
-#### UsageInfo \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage\}
+<div slot="title">
 
-</SectionTitle>
+#### UsageInfo \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage+UsageInfo\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="usage_UsageInfo_completion_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### completion_tokens \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage+UsageInfo+completion_tokens\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1439,11 +1967,19 @@ _Example:_
 34
 ```
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="usage_UsageInfo_prompt_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### prompt_tokens \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage+UsageInfo+prompt_tokens\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1451,11 +1987,19 @@ _Example:_
 16
 ```
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="usage_UsageInfo_total_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### total_tokens \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+usage+UsageInfo+total_tokens\}
 
-</Property>
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -1463,7 +2007,9 @@ _Example:_
 50
 ```
 
-</SectionContent>
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
@@ -1477,67 +2023,89 @@ _Example:_
 
 <SectionContent slot="content" variant="top-level" id="operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json">
 
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+Validation Error
+
+<ExpandableSection>
+
+<ExpandableProperty slot="entry" id="HttpMeta" typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+HttpMeta+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### HttpMeta \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+HttpMeta\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="HttpMeta_Security" parentId="HttpMeta">
 
-#### Security \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+HttpMeta\}
+<div slot="title">
 
-</SectionTitle>
+#### Security \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+HttpMeta+Security\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="HttpMeta_Security_ApiKey" parentId="HttpMeta_Security" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### ApiKey \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+HttpMeta+Security+ApiKey\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="detail" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
 ##### detail \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail\}
 
-</Property>
+</div>
 
-<ExpandableSection>
+</ExpandableProperty>
 
-<SectionTitle slot="title" variant="default">
+<ExpandableBreakout slot="entry" id="detail_ValidationError" parentId="detail">
 
-#### ValidationError \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail\}
+<div slot="title">
 
-</SectionTitle>
+#### ValidationError \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError\}
 
-<SectionContent slot="content" variant="default">
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_loc" parentId="detail_ValidationError" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### loc \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError+loc\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_msg" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### msg \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError+msg\}
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_type" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### type \{#operation-chat_completion_v1_chat_completions_post+responses+200+422+application-json+detail+ValidationError+type\}
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
 </ExpandableSection>
 

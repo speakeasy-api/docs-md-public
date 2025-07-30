@@ -3,7 +3,7 @@ sidebarTitle: Embeddings
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Pill, Section, SectionTitle, SectionContent, Property, TabbedSection, SectionTab, ExpandableSection } from "@speakeasy-api/docs-md/nextra";
+import { Pill, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/nextra";
 
 
 # Embeddings Operations [#embeddings]
@@ -14,27 +14,37 @@ _Embeddings_
 
 Embeddings
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
 ### Request Body [#operation-embeddings_v1_embeddings_post+request]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableSection>
+
+<ExpandableProperty slot="entry" id="inputs" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### inputs [#operation-embeddings_v1_embeddings_post+request+inputs]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="model" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
 
 ##### model [#operation-embeddings_v1_embeddings_post+request+model]
 
-</Property>
+</div>
+
+<div slot="content">
 
 ID of the model to use.
 
@@ -44,17 +54,31 @@ _Example:_
 mistral-embed
 ```
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="output_dimension" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### output_dimension [#operation-embeddings_v1_embeddings_post+request+output_dimension]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"float\"","linkedLabel":"\"float\"","children":[],"breakoutSubTypes":{}},{"label":"\"int8\"","linkedLabel":"\"int8\"","children":[],"breakoutSubTypes":{}},{"label":"\"uint8\"","linkedLabel":"\"uint8\"","children":[],"breakoutSubTypes":{}},{"label":"\"binary\"","linkedLabel":"\"binary\"","children":[],"breakoutSubTypes":{}},{"label":"\"ubinary\"","linkedLabel":"\"ubinary\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="output_dtype" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"float\"","linkedLabel":"\"float\"","children":[],"breakoutSubTypes":{}},{"label":"\"int8\"","linkedLabel":"\"int8\"","children":[],"breakoutSubTypes":{}},{"label":"\"uint8\"","linkedLabel":"\"uint8\"","children":[],"breakoutSubTypes":{}},{"label":"\"binary\"","linkedLabel":"\"binary\"","children":[],"breakoutSubTypes":{}},{"label":"\"ubinary\"","linkedLabel":"\"ubinary\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
 
 ##### output_dtype [#operation-embeddings_v1_embeddings_post+request+output_dtype]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
 
 </SectionContent>
 
@@ -62,47 +86,63 @@ mistral-embed
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
 ### Responses [#operation-embeddings_v1_embeddings_post+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-embeddings_v1_embeddings_post+200+application-json">
+<SectionTab slot="tab" id="operation-embeddings_v1_embeddings_post+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-embeddings_v1_embeddings_post+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-embeddings_v1_embeddings_post+responses+200+application-json">
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+200+application-json+EmbeddingResponseData\">EmbeddingResponseData</a>","children":[{"label":"EmbeddingResponseData","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+200+application-json+EmbeddingResponseData\">EmbeddingResponseData</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### data [#operation-embeddings_v1_embeddings_post+200+application-json+data]
-
-</Property>
+Successful Response
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="data" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData\">EmbeddingResponseData</a>","children":[{"label":"EmbeddingResponseData","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData\">EmbeddingResponseData</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### EmbeddingResponseData [#operation-embeddings_v1_embeddings_post+200+application-json+data]
+<div slot="title">
 
-</SectionTitle>
+##### data [#operation-embeddings_v1_embeddings_post+responses+200+application-json+data]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"number","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### embedding [#operation-embeddings_v1_embeddings_post+200+application-json+data+EmbeddingResponseData+embedding]
+<ExpandableBreakout slot="entry" id="data_EmbeddingResponseData" parentId="data">
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+#### EmbeddingResponseData [#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData]
 
-##### index [#operation-embeddings_v1_embeddings_post+200+application-json+data+EmbeddingResponseData+index]
+</div>
 
-</Property>
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="data_EmbeddingResponseData_embedding" parentId="data_EmbeddingResponseData" typeInfo={{"label":"array","linkedLabel":"number","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### embedding [#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData+embedding]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_EmbeddingResponseData_index" parentId="data_EmbeddingResponseData" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### index [#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData+index]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -110,11 +150,19 @@ _Example:_
 0
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### object [#operation-embeddings_v1_embeddings_post+200+application-json+data+EmbeddingResponseData+object]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_EmbeddingResponseData_object" parentId="data_EmbeddingResponseData" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-embeddings_v1_embeddings_post+responses+200+application-json+data+EmbeddingResponseData+object]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -122,15 +170,19 @@ _Example:_
 embedding
 ```
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="id" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-##### id [#operation-embeddings_v1_embeddings_post+200+application-json+id]
+<div slot="title">
 
-</Property>
+##### id [#operation-embeddings_v1_embeddings_post+responses+200+application-json+id]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -138,11 +190,19 @@ _Example:_
 cmpl-e5cc70bb28c444948073e77776eb30ef
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### model [#operation-embeddings_v1_embeddings_post+200+application-json+model]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="model" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### model [#operation-embeddings_v1_embeddings_post+responses+200+application-json+model]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -150,11 +210,19 @@ _Example:_
 mistral-small-latest
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### object [#operation-embeddings_v1_embeddings_post+200+application-json+object]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### object [#operation-embeddings_v1_embeddings_post+responses+200+application-json+object]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -162,27 +230,39 @@ _Example:_
 chat.completion
 ```
 
-<Property typeInfo={{"label":"UsageInfo","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+200+application-json+UsageInfo\">UsageInfo</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### usage [#operation-embeddings_v1_embeddings_post+200+application-json+usage]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="usage" typeInfo={{"label":"UsageInfo","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage+UsageInfo\">UsageInfo</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<ExpandableSection>
+<div slot="title">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+##### usage [#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage]
 
-#### UsageInfo [#operation-embeddings_v1_embeddings_post+200+application-json+usage]
+</div>
 
-</SectionTitle>
+</ExpandableProperty>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<ExpandableBreakout slot="entry" id="usage_UsageInfo" parentId="usage">
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### completion_tokens [#operation-embeddings_v1_embeddings_post+200+application-json+usage+UsageInfo+completion_tokens]
+#### UsageInfo [#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage+UsageInfo]
 
-</Property>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="usage_UsageInfo_completion_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### completion_tokens [#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage+UsageInfo+completion_tokens]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -190,11 +270,19 @@ _Example:_
 34
 ```
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### prompt_tokens [#operation-embeddings_v1_embeddings_post+200+application-json+usage+UsageInfo+prompt_tokens]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="usage_UsageInfo_prompt_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### prompt_tokens [#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage+UsageInfo+prompt_tokens]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -202,11 +290,19 @@ _Example:_
 16
 ```
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### total_tokens [#operation-embeddings_v1_embeddings_post+200+application-json+usage+UsageInfo+total_tokens]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="usage_UsageInfo_total_tokens" parentId="usage_UsageInfo" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### total_tokens [#operation-embeddings_v1_embeddings_post+responses+200+application-json+usage+UsageInfo+total_tokens]
+
+</div>
+
+<div slot="content">
 
 _Example:_
 
@@ -214,81 +310,105 @@ _Example:_
 50
 ```
 
-</SectionContent>
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-embeddings_v1_embeddings_post+422+application-json">
+<SectionTab slot="tab" id="operation-embeddings_v1_embeddings_post+responses+200+422+application-json">
 
 422
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-embeddings_v1_embeddings_post+422+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-embeddings_v1_embeddings_post+responses+200+422+application-json">
 
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta [#operation-embeddings_v1_embeddings_post+422+application-json+HttpMeta]
-
-</Property>
+Validation Error
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="HttpMeta" typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+HttpMeta+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### Security [#operation-embeddings_v1_embeddings_post+422+application-json+HttpMeta]
+<div slot="title">
 
-</SectionTitle>
+##### HttpMeta [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+HttpMeta]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
 
-##### ApiKey [#operation-embeddings_v1_embeddings_post+422+application-json+HttpMeta+Security+ApiKey]
+<ExpandableBreakout slot="entry" id="HttpMeta_Security" parentId="HttpMeta">
 
-</Property>
+<div slot="title">
 
-</SectionContent>
+#### Security [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+HttpMeta+Security]
 
-</ExpandableSection>
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### detail [#operation-embeddings_v1_embeddings_post+422+application-json+detail]
+<ExpandableProperty slot="entry" id="HttpMeta_Security_ApiKey" parentId="HttpMeta_Security" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</Property>
+<div slot="title">
 
-<ExpandableSection>
+##### ApiKey [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+HttpMeta+Security+ApiKey]
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+</div>
 
-#### ValidationError [#operation-embeddings_v1_embeddings_post+422+application-json+detail]
+</ExpandableProperty>
 
-</SectionTitle>
+<ExpandableProperty slot="entry" id="detail" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="title">
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### detail [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail]
 
-##### loc [#operation-embeddings_v1_embeddings_post+422+application-json+detail+ValidationError+loc]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableBreakout slot="entry" id="detail_ValidationError" parentId="detail">
 
-##### msg [#operation-embeddings_v1_embeddings_post+422+application-json+detail+ValidationError+msg]
+<div slot="title">
 
-</Property>
+#### ValidationError [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError]
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### type [#operation-embeddings_v1_embeddings_post+422+application-json+detail+ValidationError+type]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="detail_ValidationError_loc" parentId="detail_ValidationError" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionContent>
+<div slot="title">
+
+##### loc [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError+loc]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_msg" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### msg [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError+msg]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_type" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### type [#operation-embeddings_v1_embeddings_post+responses+200+422+application-json+detail+ValidationError+type]
+
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 

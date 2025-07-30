@@ -3,7 +3,7 @@ sidebarTitle: Models
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Pill, TabbedSection, SectionTitle, SectionTab, SectionContent, Property, ExpandableSection, Section } from "@speakeasy-api/docs-md/nextra";
+import { Pill, TabbedSection, SectionTitle, SectionTab, SectionContent, ExpandableSection, ExpandableProperty, ExpandableBreakout, Section } from "@speakeasy-api/docs-md/nextra";
 
 
 # Models Operations [#models]
@@ -16,423 +16,675 @@ List all models available to the user.
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
 ### Responses [#operation-list_models_v1_models_get+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-list_models_v1_models_get+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-list_models_v1_models_get+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+200+application-json">
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"BaseModelCard","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+200+application-json+BaseModelCard\">BaseModelCard</a>","children":[],"breakoutSubTypes":{}},{"label":"FTModelCard","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+200+application-json+FTModelCard\">FTModelCard</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
-
-##### data [#operation-list_models_v1_models_get+200+application-json+data]
-
-</Property>
+Successful Response
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="data" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"BaseModelCard","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard\">BaseModelCard</a>","children":[],"breakoutSubTypes":{}},{"label":"FTModelCard","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard\">FTModelCard</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-#### BaseModelCard [#operation-list_models_v1_models_get+200+application-json+data]
+<div slot="title">
 
-</SectionTitle>
+##### data [#operation-list_models_v1_models_get+responses+200+application-json+data]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### aliases [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+aliases]
+<ExpandableBreakout slot="entry" id="data_BaseModelCard" parentId="data">
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+#### BaseModelCard [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard]
 
-##### capabilities [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities]
+</div>
 
-</Property>
+</ExpandableBreakout>
 
-<ExpandableSection>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_aliases" parentId="data_BaseModelCard" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="title">
 
-#### ModelCapabilities [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities]
+##### aliases [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+aliases]
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities" parentId="data_BaseModelCard" typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-##### completion_chat [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+completion_chat]
+<div slot="title">
 
-</Property>
+##### capabilities [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities" parentId="data_BaseModelCard_capabilities">
+
+<div slot="title">
+
+#### ModelCapabilities [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities_completion_chat" parentId="data_BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_chat [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+completion_chat]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_fim [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+completion_fim]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities_completion_fim" parentId="data_BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_fim [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+completion_fim]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### fine_tuning [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+fine_tuning]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities_fine_tuning" parentId="data_BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### fine_tuning [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+fine_tuning]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### function_calling [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+function_calling]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities_function_calling" parentId="data_BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### function_calling [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+function_calling]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### vision [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+vision]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_capabilities_ModelCapabilities_vision" parentId="data_BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### vision [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+capabilities+ModelCapabilities+vision]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_created" parentId="data_BaseModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### created [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+created]
+<div slot="title">
 
-</Property>
+##### created [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+created]
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### default_model_temperature [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+default_model_temperature]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_default_model_temperature" parentId="data_BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### deprecation [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+deprecation]
+##### default_model_temperature [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+default_model_temperature]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### description [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+description]
+<ExpandableProperty slot="entry" id="data_BaseModelCard_deprecation" parentId="data_BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### deprecation [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+deprecation]
 
-##### id [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+id]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_description" parentId="data_BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### max_context_length [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+max_context_length]
+<div slot="title">
 
-</Property>
+##### description [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+description]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_BaseModelCard_id" parentId="data_BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_BaseModelCard_max_context_length" parentId="data_BaseModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_name" parentId="data_BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+object]
+##### name [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_BaseModelCard_object" parentId="data_BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### owned_by [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_owned_by" parentId="data_BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### owned_by [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+owned_by]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"mistralai"`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"base\"","linkedLabel":"\"base\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### type [#operation-list_models_v1_models_get+200+application-json+data+BaseModelCard+type]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_BaseModelCard_type" parentId="data_BaseModelCard" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"base\"","linkedLabel":"\"base\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+200+application-json+data+BaseModelCard+type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"base"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="data_FTModelCard" parentId="data">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="title">
 
-#### FTModelCard [#operation-list_models_v1_models_get+200+application-json+data]
+#### FTModelCard [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard]
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="content">
 
 Extra fields for fine-tuned models.
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### aliases [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+aliases]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_aliases" parentId="data_FTModelCard" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### archived [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+archived]
+##### aliases [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+aliases]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_archived" parentId="data_FTModelCard" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### archived [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+archived]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### capabilities [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities" parentId="data_FTModelCard" typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<ExpandableSection>
+<div slot="title">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+##### capabilities [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities]
 
-#### ModelCapabilities [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities]
+</div>
 
-</SectionTitle>
+</ExpandableProperty>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<ExpandableBreakout slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities" parentId="data_FTModelCard_capabilities">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### completion_chat [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+completion_chat]
+#### ModelCapabilities [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities]
 
-</Property>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities_completion_chat" parentId="data_FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_chat [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+completion_chat]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_fim [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+completion_fim]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities_completion_fim" parentId="data_FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_fim [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+completion_fim]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### fine_tuning [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+fine_tuning]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities_fine_tuning" parentId="data_FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### fine_tuning [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+fine_tuning]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### function_calling [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+function_calling]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities_function_calling" parentId="data_FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### function_calling [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+function_calling]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### vision [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+vision]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_capabilities_ModelCapabilities_vision" parentId="data_FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### vision [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+capabilities+ModelCapabilities+vision]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="data_FTModelCard_created" parentId="data_FTModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### created [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+created]
+<div slot="title">
 
-</Property>
+##### created [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+created]
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### default_model_temperature [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+default_model_temperature]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_default_model_temperature" parentId="data_FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### deprecation [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+deprecation]
+##### default_model_temperature [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+default_model_temperature]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### description [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+description]
+<ExpandableProperty slot="entry" id="data_FTModelCard_deprecation" parentId="data_FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### deprecation [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+deprecation]
 
-##### id [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+id]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="data_FTModelCard_description" parentId="data_FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### job [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+job]
+<div slot="title">
 
-</Property>
+##### description [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+description]
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### max_context_length [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+max_context_length]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_id" parentId="data_FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_job" parentId="data_FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### job [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+job]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_max_context_length" parentId="data_FTModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_name" parentId="data_FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+object]
+##### name [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_object" parentId="data_FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### owned_by [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_owned_by" parentId="data_FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### owned_by [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+owned_by]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"mistralai"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### root [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+root]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="data_FTModelCard_root" parentId="data_FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"fine-tuned\"","linkedLabel":"\"fine-tuned\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### type [#operation-list_models_v1_models_get+200+application-json+data+FTModelCard+type]
+##### root [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+root]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="data_FTModelCard_type" parentId="data_FTModelCard" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"fine-tuned\"","linkedLabel":"\"fine-tuned\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+200+application-json+data+FTModelCard+type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"fine-tuned"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### object [#operation-list_models_v1_models_get+200+application-json+object]
+<div slot="title">
 
-</Property>
+##### object [#operation-list_models_v1_models_get+responses+200+application-json+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"list"`
 
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-list_models_v1_models_get+422+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+200+422+application-json">
 
 422
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-list_models_v1_models_get+422+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+200+422+application-json">
 
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta [#operation-list_models_v1_models_get+422+application-json+HttpMeta]
-
-</Property>
+Validation Error
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="HttpMeta" typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+422+application-json+HttpMeta+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### Security [#operation-list_models_v1_models_get+422+application-json+HttpMeta]
+<div slot="title">
 
-</SectionTitle>
+##### HttpMeta [#operation-list_models_v1_models_get+responses+200+422+application-json+HttpMeta]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
 
-##### ApiKey [#operation-list_models_v1_models_get+422+application-json+HttpMeta+Security+ApiKey]
+<ExpandableBreakout slot="entry" id="HttpMeta_Security" parentId="HttpMeta">
 
-</Property>
+<div slot="title">
 
-</SectionContent>
+#### Security [#operation-list_models_v1_models_get+responses+200+422+application-json+HttpMeta+Security]
 
-</ExpandableSection>
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### detail [#operation-list_models_v1_models_get+422+application-json+detail]
+<ExpandableProperty slot="entry" id="HttpMeta_Security_ApiKey" parentId="HttpMeta_Security" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</Property>
+<div slot="title">
 
-<ExpandableSection>
+##### ApiKey [#operation-list_models_v1_models_get+responses+200+422+application-json+HttpMeta+Security+ApiKey]
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+</div>
 
-#### ValidationError [#operation-list_models_v1_models_get+422+application-json+detail]
+</ExpandableProperty>
 
-</SectionTitle>
+<ExpandableProperty slot="entry" id="detail" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="title">
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### detail [#operation-list_models_v1_models_get+responses+200+422+application-json+detail]
 
-##### loc [#operation-list_models_v1_models_get+422+application-json+detail+ValidationError+loc]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableBreakout slot="entry" id="detail_ValidationError" parentId="detail">
 
-##### msg [#operation-list_models_v1_models_get+422+application-json+detail+ValidationError+msg]
+<div slot="title">
 
-</Property>
+#### ValidationError [#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError]
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### type [#operation-list_models_v1_models_get+422+application-json+detail+ValidationError+type]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="detail_ValidationError_loc" parentId="detail_ValidationError" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionContent>
+<div slot="title">
+
+##### loc [#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError+loc]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_msg" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### msg [#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError+msg]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_type" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+200+422+application-json+detail+ValidationError+type]
+
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
@@ -446,17 +698,17 @@ _Retrieve Model_
 
 Retrieve a model information.
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Parameters [#operation-retrieve_model_v1_models_model_id_get+parameters]
+### Parameters [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+parameters]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-##### model\_id <Pill variant="warning">required</Pill> [#operation-retrieve_model_v1_models_model_id_get+parameters+model_id]
+##### model\_id <Pill variant="warning">required</Pill> [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+parameters+model_id]
 
 The ID of the model to retrieve.
 
@@ -472,411 +724,651 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
-### Responses [#operation-retrieve_model_v1_models_model_id_get+responses]
+### Responses [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-retrieve_model_v1_models_model_id_get+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-retrieve_model_v1_models_model_id_get+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json">
+
+Successful Response
 
 Successful Response
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableBreakout slot="entry" id="BaseModelCard">
 
-#### BaseModelCard [#operation-retrieve_model_v1_models_model_id_get+200+application-json]
+<div slot="title">
 
-</SectionTitle>
+#### BaseModelCard [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### aliases [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+aliases]
+<ExpandableProperty slot="entry" id="BaseModelCard_aliases" parentId="BaseModelCard" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### aliases [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+aliases]
 
-##### capabilities [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities" parentId="BaseModelCard" typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="title">
 
-#### ModelCapabilities [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities]
+##### capabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities]
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableBreakout slot="entry" id="BaseModelCard_capabilities_ModelCapabilities" parentId="BaseModelCard_capabilities">
 
-##### completion_chat [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities+ModelCapabilities+completion_chat]
+<div slot="title">
 
-</Property>
+#### ModelCapabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities]
 
-_Default Value:_ `true`
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### completion_fim [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities+ModelCapabilities+completion_fim]
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities_ModelCapabilities_completion_chat" parentId="BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-_Default Value:_ `false`
+##### completion_chat [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities+completion_chat]
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### fine_tuning [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities+ModelCapabilities+fine_tuning]
-
-</Property>
-
-_Default Value:_ `false`
-
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
-
-##### function_calling [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities+ModelCapabilities+function_calling]
-
-</Property>
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### vision [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+capabilities+ModelCapabilities+vision]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities_ModelCapabilities_completion_fim" parentId="BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_fim [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities+completion_fim]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities_ModelCapabilities_fine_tuning" parentId="BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### created [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+created]
+<div slot="title">
 
-</Property>
+##### fine_tuning [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities+fine_tuning]
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### default_model_temperature [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+default_model_temperature]
+<div slot="content">
 
-</Property>
+_Default Value:_ `false`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### deprecation [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+deprecation]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities_ModelCapabilities_function_calling" parentId="BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### description [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+description]
+##### function_calling [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities+function_calling]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="content">
 
-##### id [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+id]
+_Default Value:_ `true`
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### max_context_length [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+max_context_length]
+<ExpandableProperty slot="entry" id="BaseModelCard_capabilities_ModelCapabilities_vision" parentId="BaseModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
+
+##### vision [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+capabilities+ModelCapabilities+vision]
+
+</div>
+
+<div slot="content">
+
+_Default Value:_ `false`
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_created" parentId="BaseModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### created [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+created]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_default_model_temperature" parentId="BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### default_model_temperature [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+default_model_temperature]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_deprecation" parentId="BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### deprecation [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+deprecation]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_description" parentId="BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### description [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+description]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_id" parentId="BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_max_context_length" parentId="BaseModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="BaseModelCard_name" parentId="BaseModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+object]
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="BaseModelCard_object" parentId="BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### owned_by [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="BaseModelCard_owned_by" parentId="BaseModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### owned_by [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+owned_by]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"mistralai"`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"base\"","linkedLabel":"\"base\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### type [#operation-retrieve_model_v1_models_model_id_get+200+application-json+BaseModelCard+type]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="BaseModelCard_type" parentId="BaseModelCard" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"base\"","linkedLabel":"\"base\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+BaseModelCard+type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"base"`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableBreakout slot="entry" id="FTModelCard">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="title">
 
-#### FTModelCard [#operation-retrieve_model_v1_models_model_id_get+200+application-json]
+#### FTModelCard [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard]
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="content">
 
 Extra fields for fine-tuned models.
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### aliases [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+aliases]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_aliases" parentId="FTModelCard" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### archived [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+archived]
+##### aliases [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+aliases]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="FTModelCard_archived" parentId="FTModelCard" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### archived [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+archived]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### capabilities [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities" parentId="FTModelCard" typeInfo={{"label":"ModelCapabilities","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities\">ModelCapabilities</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<ExpandableSection>
+<div slot="title">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+##### capabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities]
 
-#### ModelCapabilities [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities]
+</div>
 
-</SectionTitle>
+</ExpandableProperty>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<ExpandableBreakout slot="entry" id="FTModelCard_capabilities_ModelCapabilities" parentId="FTModelCard_capabilities">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### completion_chat [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities+ModelCapabilities+completion_chat]
+#### ModelCapabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities]
 
-</Property>
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities_ModelCapabilities_completion_chat" parentId="FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_chat [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities+completion_chat]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_fim [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities+ModelCapabilities+completion_fim]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities_ModelCapabilities_completion_fim" parentId="FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_fim [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities+completion_fim]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### fine_tuning [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities+ModelCapabilities+fine_tuning]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities_ModelCapabilities_fine_tuning" parentId="FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### fine_tuning [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities+fine_tuning]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### function_calling [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities+ModelCapabilities+function_calling]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities_ModelCapabilities_function_calling" parentId="FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### function_calling [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities+function_calling]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### vision [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+capabilities+ModelCapabilities+vision]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_capabilities_ModelCapabilities_vision" parentId="FTModelCard_capabilities_ModelCapabilities" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### vision [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+capabilities+ModelCapabilities+vision]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="FTModelCard_created" parentId="FTModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### created [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+created]
+<div slot="title">
 
-</Property>
+##### created [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+created]
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### default_model_temperature [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+default_model_temperature]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_default_model_temperature" parentId="FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### deprecation [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+deprecation]
+##### default_model_temperature [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+default_model_temperature]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableProperty>
 
-##### description [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+description]
+<ExpandableProperty slot="entry" id="FTModelCard_deprecation" parentId="FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"date-time","linkedLabel":"date-time","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### deprecation [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+deprecation]
 
-##### id [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+id]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="FTModelCard_description" parentId="FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### job [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+job]
+<div slot="title">
 
-</Property>
+##### description [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+description]
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### max_context_length [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+max_context_length]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_id" parentId="FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="FTModelCard_job" parentId="FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### job [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+job]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="FTModelCard_max_context_length" parentId="FTModelCard" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_name" parentId="FTModelCard" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+object]
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="FTModelCard_object" parentId="FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### owned_by [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_owned_by" parentId="FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### owned_by [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+owned_by]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"mistralai"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### root [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+root]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="FTModelCard_root" parentId="FTModelCard" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"fine-tuned\"","linkedLabel":"\"fine-tuned\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### type [#operation-retrieve_model_v1_models_model_id_get+200+application-json+FTModelCard+type]
+##### root [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+root]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="FTModelCard_type" parentId="FTModelCard" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"fine-tuned\"","linkedLabel":"\"fine-tuned\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+FTModelCard+type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"fine-tuned"`
 
-</SectionContent>
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-retrieve_model_v1_models_model_id_get+422+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json">
 
 422
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-retrieve_model_v1_models_model_id_get+422+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json">
 
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta [#operation-retrieve_model_v1_models_model_id_get+422+application-json+HttpMeta]
-
-</Property>
+Validation Error
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="HttpMeta" typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+HttpMeta+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### Security [#operation-retrieve_model_v1_models_model_id_get+422+application-json+HttpMeta]
+<div slot="title">
 
-</SectionTitle>
+##### HttpMeta [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+HttpMeta]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
 
-##### ApiKey [#operation-retrieve_model_v1_models_model_id_get+422+application-json+HttpMeta+Security+ApiKey]
+<ExpandableBreakout slot="entry" id="HttpMeta_Security" parentId="HttpMeta">
 
-</Property>
+<div slot="title">
 
-</SectionContent>
+#### Security [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+HttpMeta+Security]
 
-</ExpandableSection>
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### detail [#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail]
+<ExpandableProperty slot="entry" id="HttpMeta_Security_ApiKey" parentId="HttpMeta_Security" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</Property>
+<div slot="title">
 
-<ExpandableSection>
+##### ApiKey [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+HttpMeta+Security+ApiKey]
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+</div>
 
-#### ValidationError [#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail]
+</ExpandableProperty>
 
-</SectionTitle>
+<ExpandableProperty slot="entry" id="detail" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="title">
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### detail [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail]
 
-##### loc [#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail+ValidationError+loc]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableBreakout slot="entry" id="detail_ValidationError" parentId="detail">
 
-##### msg [#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail+ValidationError+msg]
+<div slot="title">
 
-</Property>
+#### ValidationError [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError]
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### type [#operation-retrieve_model_v1_models_model_id_get+422+application-json+detail+ValidationError+type]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="detail_ValidationError_loc" parentId="detail_ValidationError" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionContent>
+<div slot="title">
+
+##### loc [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError+loc]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_msg" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### msg [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError+msg]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_type" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+200+422+application-json+detail+ValidationError+type]
+
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
@@ -890,17 +1382,17 @@ _Delete Model_
 
 Delete a fine-tuned model.
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Parameters [#operation-delete_model_v1_models_model_id_delete+parameters]
+### Parameters [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+parameters]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-##### model\_id <Pill variant="warning">required</Pill> [#operation-delete_model_v1_models_model_id_delete+parameters+model_id]
+##### model\_id <Pill variant="warning">required</Pill> [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+parameters+model_id]
 
 The ID of the model to delete.
 
@@ -916,25 +1408,33 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
-### Responses [#operation-delete_model_v1_models_model_id_delete+responses]
+### Responses [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-delete_model_v1_models_model_id_delete+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-delete_model_v1_models_model_id_delete+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+application-json">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+Successful Response
 
-##### deleted [#operation-delete_model_v1_models_model_id_delete+200+application-json+deleted]
+<ExpandableSection>
 
-</Property>
+<ExpandableProperty slot="entry" id="deleted" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### deleted [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+application-json+deleted]
+
+</div>
+
+<div slot="content">
 
 The deletion status
 
@@ -946,11 +1446,19 @@ true
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### id [#operation-delete_model_v1_models_model_id_delete+200+application-json+id]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="id" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+application-json+id]
+
+</div>
+
+<div slot="content">
 
 The ID of the deleted model.
 
@@ -960,87 +1468,123 @@ _Example:_
 ft:open-mistral-7b:587a6b29:20240514:7e773925
 ```
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### object [#operation-delete_model_v1_models_model_id_delete+200+application-json+object]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+application-json+object]
+
+</div>
+
+<div slot="content">
 
 The object type that was deleted
 
 _Default Value:_ `"model"`
 
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
 </SectionContent>
 
-<SectionTab slot="tab" id="operation-delete_model_v1_models_model_id_delete+422+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json">
 
 422
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-delete_model_v1_models_model_id_delete+422+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json">
 
-<Property typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
-
-##### HttpMeta [#operation-delete_model_v1_models_model_id_delete+422+application-json+HttpMeta]
-
-</Property>
+Validation Error
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableProperty slot="entry" id="HttpMeta" typeInfo={{"label":"Security","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+HttpMeta+Security\">Security</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-#### Security [#operation-delete_model_v1_models_model_id_delete+422+application-json+HttpMeta]
+<div slot="title">
 
-</SectionTitle>
+##### HttpMeta [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+HttpMeta]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableProperty>
 
-##### ApiKey [#operation-delete_model_v1_models_model_id_delete+422+application-json+HttpMeta+Security+ApiKey]
+<ExpandableBreakout slot="entry" id="HttpMeta_Security" parentId="HttpMeta">
 
-</Property>
+<div slot="title">
 
-</SectionContent>
+#### Security [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+HttpMeta+Security]
 
-</ExpandableSection>
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-delete_model_v1_models_model_id_delete+422+application-json+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### detail [#operation-delete_model_v1_models_model_id_delete+422+application-json+detail]
+<ExpandableProperty slot="entry" id="HttpMeta_Security_ApiKey" parentId="HttpMeta_Security" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</Property>
+<div slot="title">
 
-<ExpandableSection>
+##### ApiKey [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+HttpMeta+Security+ApiKey]
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+</div>
 
-#### ValidationError [#operation-delete_model_v1_models_model_id_delete+422+application-json+detail]
+</ExpandableProperty>
 
-</SectionTitle>
+<ExpandableProperty slot="entry" id="detail" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[{"label":"ValidationError","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError\">ValidationError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<div slot="title">
 
-<Property typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### detail [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail]
 
-##### loc [#operation-delete_model_v1_models_model_id_delete+422+application-json+detail+ValidationError+loc]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableBreakout slot="entry" id="detail_ValidationError" parentId="detail">
 
-##### msg [#operation-delete_model_v1_models_model_id_delete+422+application-json+detail+ValidationError+msg]
+<div slot="title">
 
-</Property>
+#### ValidationError [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError]
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### type [#operation-delete_model_v1_models_model_id_delete+422+application-json+detail+ValidationError+type]
+</ExpandableBreakout>
 
-</Property>
+<ExpandableProperty slot="entry" id="detail_ValidationError_loc" parentId="detail_ValidationError" typeInfo={{"label":"array","linkedLabel":"union","children":[{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionContent>
+<div slot="title">
+
+##### loc [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError+loc]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_msg" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### msg [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError+msg]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="detail_ValidationError_type" parentId="detail_ValidationError" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+200+422+application-json+detail+ValidationError+type]
+
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
@@ -1054,17 +1598,17 @@ _Update Fine Tuned Model_
 
 Update a model name or description.
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Parameters [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+parameters]
+### Parameters [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+parameters]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-##### model\_id <Pill variant="warning">required</Pill> [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+parameters+model_id]
+##### model\_id <Pill variant="warning">required</Pill> [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+parameters+model_id]
 
 The ID of the model to update.
 
@@ -1078,27 +1622,39 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 </Section>
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Request Body [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request]
+### Request Body [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableSection>
 
-##### description [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+description]
+<ExpandableProperty slot="entry" id="description" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+##### description [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+description]
 
-##### name [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+name]
+</div>
 
-</Property>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="name" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+name]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
 
 </SectionContent>
 
@@ -1106,367 +1662,581 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
-### Response [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses]
+### Responses [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json">
+
+OK
 
 OK
 
 <ExpandableSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<ExpandableBreakout slot="entry" id="CompletionFTModelOut">
 
-#### CompletionFTModelOut [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json]
+<div slot="title">
 
-</SectionTitle>
+#### CompletionFTModelOut [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut]
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</div>
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### aliases [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+aliases]
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_aliases" parentId="CompletionFTModelOut" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### aliases [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+aliases]
 
-##### archived [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+archived]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"FTModelCapabilitiesOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+FTModelCapabilitiesOut\">FTModelCapabilitiesOut</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_archived" parentId="CompletionFTModelOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-##### capabilities [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities]
+<div slot="title">
 
-</Property>
+##### archived [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+archived]
 
-<ExpandableSection>
+</div>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+</ExpandableProperty>
 
-#### FTModelCapabilitiesOut [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities]
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities" parentId="CompletionFTModelOut" typeInfo={{"label":"FTModelCapabilitiesOut","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut\">FTModelCapabilitiesOut</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</SectionTitle>
+<div slot="title">
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+##### capabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities]
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### classification [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+classification]
+</ExpandableProperty>
 
-</Property>
+<ExpandableBreakout slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" parentId="CompletionFTModelOut_capabilities">
+
+<div slot="title">
+
+#### FTModelCapabilitiesOut [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut_classification" parentId="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### classification [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+classification]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_chat [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+completion_chat]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut_completion_chat" parentId="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_chat [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+completion_chat]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_fim [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+completion_fim]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut_completion_fim" parentId="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-_Default Value:_ `false`
+<div slot="title">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+##### completion_fim [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+completion_fim]
 
-##### fine_tuning [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+fine_tuning]
+</div>
 
-</Property>
-
-_Default Value:_ `false`
-
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
-
-##### function_calling [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+function_calling]
-
-</Property>
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut_fine_tuning" parentId="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### created [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+created]
+<div slot="title">
 
-</Property>
+##### fine_tuning [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+fine_tuning]
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### description [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+description]
+<div slot="content">
 
-</Property>
+_Default Value:_ `false`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### id [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+id]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut_function_calling" parentId="CompletionFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### job [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+job]
+##### function_calling [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+capabilities+FTModelCapabilitiesOut+function_calling]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="content">
 
-##### max_context_length [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+max_context_length]
+_Default Value:_ `false`
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_created" parentId="CompletionFTModelOut" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### created [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+created]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_description" parentId="CompletionFTModelOut" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### description [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+description]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_id" parentId="CompletionFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_job" parentId="CompletionFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### job [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+job]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_max_context_length" parentId="CompletionFTModelOut" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"completion\"","linkedLabel":"\"completion\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### model_type [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+model_type]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_model_type" parentId="CompletionFTModelOut" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"completion\"","linkedLabel":"\"completion\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### model_type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+model_type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"completion"`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_name" parentId="CompletionFTModelOut" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+object]
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_object" parentId="CompletionFTModelOut" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### owned_by [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_owned_by" parentId="CompletionFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### root [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+CompletionFTModelOut+root]
+##### owned_by [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+owned_by]
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableProperty slot="entry" id="CompletionFTModelOut_root" parentId="CompletionFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<ExpandableSection>
+<div slot="title">
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+##### root [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+CompletionFTModelOut+root]
 
-#### ClassifierFTModelOut [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json]
+</div>
 
-</SectionTitle>
+</ExpandableProperty>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<ExpandableBreakout slot="entry" id="ClassifierFTModelOut">
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### aliases [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+aliases]
+#### ClassifierFTModelOut [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</ExpandableBreakout>
 
-##### archived [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+archived]
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_aliases" parentId="ClassifierFTModelOut" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"FTModelCapabilitiesOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+FTModelCapabilitiesOut\">FTModelCapabilitiesOut</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### aliases [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+aliases]
 
-##### capabilities [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<ExpandableSection>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_archived" parentId="ClassifierFTModelOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="title">
 
-#### FTModelCapabilitiesOut [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities]
+##### archived [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+archived]
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities" parentId="ClassifierFTModelOut" typeInfo={{"label":"FTModelCapabilitiesOut","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut\">FTModelCapabilitiesOut</a>","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-##### classification [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+classification]
+<div slot="title">
 
-</Property>
+##### capabilities [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" parentId="ClassifierFTModelOut_capabilities">
+
+<div slot="title">
+
+#### FTModelCapabilitiesOut [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut_classification" parentId="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### classification [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+classification]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_chat [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+completion_chat]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut_completion_chat" parentId="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### completion_chat [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+completion_chat]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### completion_fim [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+completion_fim]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut_completion_fim" parentId="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-_Default Value:_ `false`
+<div slot="title">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+##### completion_fim [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+completion_fim]
 
-##### fine_tuning [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+fine_tuning]
+</div>
 
-</Property>
-
-_Default Value:_ `false`
-
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
-
-##### function_calling [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+function_calling]
-
-</Property>
+<div slot="content">
 
 _Default Value:_ `false`
 
-</SectionContent>
+</div>
 
-</ExpandableSection>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+ClassifierTargetOut\">ClassifierTargetOut</a>","children":[{"label":"ClassifierTargetOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+ClassifierTargetOut\">ClassifierTargetOut</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut_fine_tuning" parentId="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### classifier_targets [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets]
+<div slot="title">
 
-</Property>
+##### fine_tuning [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+fine_tuning]
 
-<ExpandableSection>
+</div>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<div slot="content">
 
-#### ClassifierTargetOut [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets]
+_Default Value:_ `false`
 
-</SectionTitle>
+</div>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut_function_calling" parentId="ClassifierFTModelOut_capabilities_FTModelCapabilitiesOut" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-##### labels [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+labels]
+<div slot="title">
 
-</Property>
+##### function_calling [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+capabilities+FTModelCapabilitiesOut+function_calling]
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"single_class\"","linkedLabel":"\"single_class\"","children":[],"breakoutSubTypes":{}},{"label":"\"multi_class\"","linkedLabel":"\"multi_class\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### loss_function [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+loss_function]
+<div slot="content">
 
-</Property>
+_Default Value:_ `false`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### name [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_classifier_targets" parentId="ClassifierFTModelOut" typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut\">ClassifierTargetOut</a>","children":[{"label":"ClassifierTargetOut","linkedLabel":"<a href=\"#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut\">ClassifierTargetOut</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### weight [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+weight]
+##### classifier_targets [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets]
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
 
-</ExpandableSection>
+<ExpandableBreakout slot="entry" id="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut" parentId="ClassifierFTModelOut_classifier_targets">
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### created [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+created]
+#### ClassifierTargetOut [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut]
 
-</Property>
+</div>
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</ExpandableBreakout>
 
-##### description [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+description]
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut_labels" parentId="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut" typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-</Property>
+<div slot="title">
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+##### labels [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+labels]
 
-##### id [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+id]
+</div>
 
-</Property>
+</ExpandableProperty>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut_loss_function" parentId="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"single_class\"","linkedLabel":"\"single_class\"","children":[],"breakoutSubTypes":{}},{"label":"\"multi_class\"","linkedLabel":"\"multi_class\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-##### job [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+job]
+<div slot="title">
 
-</Property>
+##### loss_function [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+loss_function]
 
-<Property typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### max_context_length [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+max_context_length]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut_name" parentId="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut_weight" parentId="ClassifierFTModelOut_classifier_targets_ClassifierTargetOut" typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### weight [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+classifier_targets+ClassifierTargetOut+weight]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_created" parentId="ClassifierFTModelOut" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### created [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+created]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_description" parentId="ClassifierFTModelOut" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### description [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+description]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_id" parentId="ClassifierFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_job" parentId="ClassifierFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### job [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+job]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_max_context_length" parentId="ClassifierFTModelOut" typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### max_context_length [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+max_context_length]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `32768`
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"classifier\"","linkedLabel":"\"classifier\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### model_type [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+model_type]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_model_type" parentId="ClassifierFTModelOut" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"classifier\"","linkedLabel":"\"classifier\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### model_type [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+model_type]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"classifier"`
 
-<Property typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+</div>
 
-##### name [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+name]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_name" parentId="ClassifierFTModelOut" typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+object]
+##### name [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+name]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_object" parentId="ClassifierFTModelOut" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### owned_by [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+owned_by]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_owned_by" parentId="ClassifierFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+<div slot="title">
 
-##### root [#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+200+application-json+ClassifierFTModelOut+root]
+##### owned_by [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+owned_by]
 
-</Property>
+</div>
 
-</SectionContent>
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="ClassifierFTModelOut_root" parentId="ClassifierFTModelOut" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### root [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+ClassifierFTModelOut+root]
+
+</div>
+
+</ExpandableProperty>
 
 </ExpandableSection>
 
@@ -1480,17 +2250,17 @@ _Archive Fine Tuned Model_
 
 Archive a fine-tuned model.
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Parameters [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+parameters]
+### Parameters [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+parameters]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-##### model\_id <Pill variant="warning">required</Pill> [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+parameters+model_id]
+##### model\_id <Pill variant="warning">required</Pill> [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+parameters+model_id]
 
 The ID of the model to archive.
 
@@ -1506,41 +2276,67 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
-### Response [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses]
+### Responses [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+OK
 
-##### archived [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+200+application-json+archived]
+<ExpandableSection>
 
-</Property>
+<ExpandableProperty slot="entry" id="archived" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### archived [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+archived]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `true`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### id [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+200+application-json+id]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="id" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+200+application-json+object]
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+id]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
 
 </SectionContent>
 
@@ -1552,17 +2348,17 @@ _Unarchive Fine Tuned Model_
 
 Un-archive a fine-tuned model.
 
-<Section contentBorderVariant="default">
+<Section variant="top-level">
 
-<SectionTitle slot="title" borderVariant="default" paddingVariant="default">
+<SectionTitle slot="title" variant="top-level">
 
-### Parameters [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+parameters]
+### Parameters [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+parameters]
 
 </SectionTitle>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default">
+<SectionContent slot="content" variant="top-level">
 
-##### model\_id <Pill variant="warning">required</Pill> [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+parameters+model_id]
+##### model\_id <Pill variant="warning">required</Pill> [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+parameters+model_id]
 
 The ID of the model to unarchive.
 
@@ -1578,41 +2374,67 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
 
 <TabbedSection>
 
-<SectionTitle slot="title" borderVariant="none" paddingVariant="none">
+<SectionTitle slot="title" variant="default">
 
-### Response [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses]
+### Responses [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses]
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+200+application-json">
+<SectionTab slot="tab" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" borderVariant="default" paddingVariant="default" id="operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json">
 
-<Property typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+OK
 
-##### archived [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+200+application-json+archived]
+<ExpandableSection>
 
-</Property>
+<ExpandableProperty slot="entry" id="archived" typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### archived [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+archived]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `false`
 
-<Property typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
+</div>
 
-##### id [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+200+application-json+id]
+</ExpandableProperty>
 
-</Property>
+<ExpandableProperty slot="entry" id="id" typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}} typeAnnotations={[{"title":"required","variant":"warning"}]}>
 
-<Property typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+<div slot="title">
 
-##### object [#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+200+application-json+object]
+##### id [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+id]
 
-</Property>
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty slot="entry" id="object" typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"model\"","linkedLabel":"\"model\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} typeAnnotations={[]}>
+
+<div slot="title">
+
+##### object [#operation-list_models_v1_models_get+responses+operation-retrieve_model_v1_models_model_id_get+responses+operation-delete_model_v1_models_model_id_delete+responses+operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+object]
+
+</div>
+
+<div slot="content">
 
 _Default Value:_ `"model"`
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
 
 </SectionContent>
 

@@ -17,6 +17,10 @@
 
 import type { Chunk, SchemaValue } from "../../types/chunk.ts";
 
+export type Context = {
+  id: string;
+};
+
 // Types shared with components
 
 export type PillVariant =
@@ -48,13 +52,10 @@ export type SiteBuildPagePathArgs = [
   options?: { appendIndex?: boolean },
 ];
 export type SiteHasPageArgs = [path: string];
-export type SiteGetRendererArgs = [
-  {
-    currentPagePath: string;
-  },
-];
+export type SiteGetRendererArgs = [args: RendererConstructorArgs];
 
 export abstract class Site {
+  abstract setDocsData(docsData: Map<string, Chunk>): void;
   abstract createPage(...args: SiteCreatePageArgs): Renderer;
   abstract render(): Record<string, string>;
   abstract buildPagePath(...args: SiteBuildPagePathArgs): string;
@@ -161,28 +162,12 @@ export type RendererAppendSidebarLinkArgs = [
     embedName: string;
   },
 ];
-export type RendererCreatePropertyArgs = [
-  options: {
-    typeInfo: DisplayTypeInfo;
-    id: string;
-    annotations: PropertyAnnotations[];
-    title: string;
-  },
-];
 export type RendererAppendTryItNowArgs = [
   options: {
     externalDependencies: Record<string, string>;
     defaultValue: string;
   },
 ];
-
-export type SchemaRenderContext = {
-  site: Site;
-  renderer: Renderer;
-  schemaStack: string[];
-  idPrefix: string;
-  data: Map<string, Chunk>;
-};
 
 // Section args
 export type RendererAddOperationArgs = [
@@ -193,18 +178,9 @@ export type RendererAddOperationArgs = [
     summary: string | null;
     description: string | null;
   },
-  cb: (operationRenderer: Renderer) => void,
+  cb: () => void,
 ];
-export type RendererAddTopLevelSectionArgs = [
-  options: {
-    title: string;
-    annotations?: PropertyAnnotations[];
-  },
-  cb: (contentRenderer: Renderer) => void,
-];
-export type RendererAddSecuritySectionArgs = [
-  cb: (contentRenderer: Renderer) => void,
-];
+export type RendererAddSecuritySectionArgs = [cb: () => void];
 export type RendererAddParametersSectionArgs = [
   cb: (
     createParameter: (
@@ -212,31 +188,51 @@ export type RendererAddParametersSectionArgs = [
         name: string;
         isRequired: boolean;
       },
-      callback: (options: { parameterRenderer: Renderer }) => void
+      callback: () => void
     ) => void
   ) => void,
 ];
 export type RendererAddRequestSectionArgs = [
   options: {
     isOptional: boolean;
-    site: Site;
-    data: Map<string, Chunk>;
+    createFrontMatter: () => void;
+    createBreakouts: () => void;
   },
-  cb: (context: SchemaRenderContext) => void,
 ];
 export type RendererAddResponsesArgs = [
   cb: (
-    createTab: (
-      options: {
-        statusCode: string;
-        contentType: string;
-        site: Site;
-        data: Map<string, Chunk>;
-      },
-      callback: (context: SchemaRenderContext) => void
-    ) => void
+    createTab: (options: {
+      statusCode: string;
+      contentType: string;
+      createFrontMatter: () => void;
+      createBreakouts: () => void;
+    }) => void
   ) => void,
 ];
+export type RendererCreateContextArgs = [id: string];
+
+export type RendererAddExpandableBreakoutArgs = [
+  options: {
+    createTitle: () => void;
+    createContent?: () => void;
+  },
+];
+export type RendererAddExpandablePropertyArgs = [
+  options: {
+    typeInfo: DisplayTypeInfo;
+    annotations: PropertyAnnotations[];
+    title: string;
+    createContent?: () => void;
+  },
+];
+
+export type RendererAlreadyInContextArgs = [id: string];
+
+export type RendererConstructorArgs = {
+  site: Site;
+  docsData: Map<string, Chunk>;
+  currentPagePath: string;
+};
 
 export abstract class Renderer {
   // High level operations
@@ -247,6 +243,14 @@ export abstract class Renderer {
   ): void;
   abstract addRequestSection(...args: RendererAddRequestSectionArgs): void;
   abstract addResponsesSection(...args: RendererAddResponsesArgs): void;
+  abstract addExpandableBreakout(
+    ...args: RendererAddExpandableBreakoutArgs
+  ): void;
+
+  // Property's show a property in an object schema, including it's type info
+  abstract addExpandableProperty(
+    ...args: RendererAddExpandablePropertyArgs
+  ): void;
 
   // Low level operations
 
@@ -292,34 +296,6 @@ export abstract class Renderer {
   abstract createSectionContentEnd(): string;
   abstract appendSectionContentEnd(): void;
 
-  // Expandable sections are used to show schema value breakouts, which are
-  // collapsed by default
-  abstract createExpandableSectionStart(): string;
-  abstract appendExpandableSectionStart(): void;
-  abstract createExpandableSectionEnd(): string;
-  abstract appendExpandableSectionEnd(): void;
-
-  // Tabbed sections show a title in the left, and a series of tabs on the right
-  // with a separator for content. Tab contents are markdown content linked
-  // to a tab. The tab contents insert a wrapper div with specific attributes
-  // used to populate the contents of the tab section.
-  abstract createTabbedSectionStart(): void;
-  abstract appendTabbedSectionStart(): void;
-  abstract createTabbedSectionEnd(): void;
-  abstract appendTabbedSectionEnd(): void;
-  abstract createTabbedSectionTabStart(
-    ...args: RendererCreateTabbedSectionTabArgs
-  ): void;
-  abstract appendTabbedSectionTabStart(
-    ...args: RendererCreateTabbedSectionTabArgs
-  ): void;
-  abstract createTabbedSectionTabEnd(): void;
-  abstract appendTabbedSectionTabEnd(): void;
-
-  // Property's show a property in an object schema, including it's type info
-  abstract createProperty(...args: RendererCreatePropertyArgs): string;
-  abstract appendProperty(...args: RendererCreatePropertyArgs): void;
-
   abstract createDebugPlaceholderStart(): string;
   abstract appendDebugPlaceholderStart(): void;
   abstract createDebugPlaceholderEnd(): string;
@@ -337,5 +313,11 @@ export abstract class Renderer {
 
   // Helper methods
   abstract escapeText(...args: RendererEscapeTextArgs): string;
+  abstract enterContext(...args: RendererCreateContextArgs): void;
+  abstract exitContext(): void;
+  abstract getContextStack(): Context[];
+  abstract alreadyInContext(...args: RendererAlreadyInContextArgs): boolean;
+  abstract getCurrentId(): string;
+  abstract getDocsData(): Map<string, Chunk>;
   abstract render(): string;
 }
