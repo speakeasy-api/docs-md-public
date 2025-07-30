@@ -12,16 +12,16 @@ export default [
     rootDir: getDirname(),
     entryPoints: {
       "eslint.config.mjs": ["default"],
-      "src/nextra.ts": /.*/,
-      "src/docusaurus.ts": /.*/,
-      "src/react.ts": /.*/,
+      "src/runtime/nextra.ts": /.*/,
+      "src/runtime/docusaurus.ts": /.*/,
+      "src/runtime/react.ts": /.*/,
     },
-    ignores: ["src/pages/data/wasm_exec.js", ".storybook/**/*"],
+    ignores: ["src/compiler/data/wasm_exec.js", ".storybook/**/*"],
     restrictedImports: [
       {
         type: "third-party",
         moduleSpecifier: "node:fs",
-        allowed: [/src\/cli\//],
+        allowed: [/src\/compiler\/cli\//],
         message:
           "File system access is only allowed in the CLI wrapper because other code is used in web environments",
       },
@@ -34,23 +34,15 @@ export default [
       },
       {
         type: "first-party",
-        filepath: /src\/components\/primitives\/docusaurus/,
-        allowed: [
-          /src\/components\/.*?\/docusaurus.tsx$/,
-          /src\/components\/.*?\/docusaurus\//,
-        ],
-        message:
-          "Only Docusaurus components are allowed to import Docusaurus primitives",
+        filepath: /src\/runtime/,
+        allowed: [/src\/runtime\//],
+        message: "Only runtime code is allowed to import runtime code",
       },
       {
         type: "first-party",
-        filepath: /src\/components\/primitives\/nextra/,
-        allowed: [
-          /src\/components\/.*?\/nextra.tsx$/,
-          /src\/components\/.*?\/nextra\//,
-        ],
-        message:
-          "Only Nextra components are allowed to import Nextra primitives",
+        filepath: /src\/compiler\//,
+        allowed: [/src\/compiler\//],
+        message: "Only compiler code is allowed to import compiler code",
       },
     ],
   }),
