@@ -163,17 +163,7 @@ export type RendererAddOperationArgs = [
   cb: () => void,
 ];
 export type RendererAddSecuritySectionArgs = [cb: () => void];
-export type RendererAddParametersSectionArgs = [
-  cb: (
-    createParameter: (
-      options: {
-        name: string;
-        isRequired: boolean;
-      },
-      callback: () => void
-    ) => void
-  ) => void,
-];
+export type RendererAddParametersSectionArgs = [cb: () => void];
 export type RendererAddRequestSectionArgs = [
   options: {
     isOptional: boolean;
@@ -201,7 +191,7 @@ export type RendererAddExpandableBreakoutArgs = [
 ];
 export type RendererAddExpandablePropertyArgs = [
   options: {
-    typeInfo: DisplayTypeInfo;
+    typeInfo?: DisplayTypeInfo;
     annotations: PropertyAnnotations[];
     title: string;
     createContent?: () => void;

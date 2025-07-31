@@ -214,37 +214,28 @@ export abstract class MarkdownRenderer extends Renderer {
     ...[cb]: RendererAddSecuritySectionArgs
   ): void {
     this.#operationIdContext.push("security");
-    this.#addTopLevelSection({ title: "Security" }, () => cb());
+    this.#addTopLevelSection({ title: "Security" }, () =>
+      this.handleCreateSecurity(cb)
+    );
     this.#operationIdContext.pop();
+  }
+
+  protected handleCreateSecurity(cb: () => void) {
+    cb();
   }
 
   public override addParametersSection(
     ...[cb]: RendererAddParametersSectionArgs
   ): void {
     this.#operationIdContext.push("parameters");
-    this.#addTopLevelSection({ title: "Parameters" }, () => {
-      cb(({ name, isRequired }, cb) => {
-        this.enterContext(name);
-
-        // Create the heading
-        const start = this.createPillStart("warning");
-        const end = this.createPillEnd();
-        this.appendHeading(
-          HEADINGS.PROPERTY_HEADING_LEVEL,
-          `${this.escapeText(name, { escape: "markdown" })}${isRequired ? ` ${start}required${end}` : ""}`,
-          {
-            id: this.getCurrentId(),
-            escape: "none",
-          }
-        );
-
-        // Create the content
-        cb();
-
-        this.exitContext();
-      });
-    });
+    this.#addTopLevelSection({ title: "Parameters" }, () =>
+      this.handleCreateParameters(cb)
+    );
     this.#operationIdContext.pop();
+  }
+
+  protected handleCreateParameters(cb: () => void) {
+    cb();
   }
 
   public override addRequestSection(
@@ -321,11 +312,16 @@ export abstract class MarkdownRenderer extends Renderer {
       { typeInfo, annotations, title, createContent },
     ]: RendererAddExpandablePropertyArgs
   ) {
-    const type = this.createCode(this.#computeSingleLineDisplayType(typeInfo), {
-      variant: "raw",
-      style: "inline",
-      escape: "mdx",
-    });
+    let type;
+    if (typeInfo) {
+      type =
+        " " +
+        this.createCode(this.#computeSingleLineDisplayType(typeInfo), {
+          variant: "raw",
+          style: "inline",
+          escape: "mdx",
+        });
+    }
     const renderedAnnotations = annotations.map((annotation) => {
       const start = this.createPillStart(annotation.variant);
       const end = this.createPillEnd();
@@ -333,7 +329,7 @@ export abstract class MarkdownRenderer extends Renderer {
     });
     this.createHeading(
       HEADINGS.PROPERTY_HEADING_LEVEL,
-      `${title} ${renderedAnnotations.join(" ")} ${type}`,
+      `${title} ${renderedAnnotations.join(" ")}${type}`,
       { id: this.getCurrentId(), escape: "mdx" }
     );
     createContent?.();

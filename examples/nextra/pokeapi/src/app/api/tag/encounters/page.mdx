@@ -1,0 +1,2043 @@
+---
+sidebarTitle: Encounters
+---
+
+import "@speakeasy-api/docs-md/nextra.css";
+import { Pill, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/nextra";
+
+
+# Encounters Operations [#encounters]
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-method/ [#operation-api_v2_encounter_method_list]
+
+_List encounter methods_
+
+Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="limit"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### limit [#operation-api_v2_encounter_method_list+parameters+limit]
+
+</div>
+
+<div slot="content">
+
+Number of results to return per page.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="offset"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### offset [#operation-api_v2_encounter_method_list+parameters+offset]
+
+</div>
+
+<div slot="content">
+
+The initial index from which to return the results.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="q"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### q [#operation-api_v2_encounter_method_list+parameters+q]
+
+</div>
+
+<div slot="content">
+
+> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the `name` property. 
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="count"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### count [#operation-api_v2_encounter_method_list+responses+200+application-json+count]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+123
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="next"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### next [#operation-api_v2_encounter_method_list+responses+200+application-json+next]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=400&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="previous"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### previous [#operation-api_v2_encounter_method_list+responses+200+application-json+previous]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=200&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+responses+200+application-json+results+EncounterMethodSummary\">EncounterMethodSummary</a>","children":[{"label":"EncounterMethodSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+responses+200+application-json+results+EncounterMethodSummary\">EncounterMethodSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### results [#operation-api_v2_encounter_method_list+responses+200+application-json+results]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="results_EncounterMethodSummary" parentId="results">
+
+<div slot="title">
+
+#### EncounterMethodSummary [#operation-api_v2_encounter_method_list+responses+200+application-json+results+EncounterMethodSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterMethodSummary_name"
+  parentId="results_EncounterMethodSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+responses+200+application-json+results+EncounterMethodSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterMethodSummary_url"
+  parentId="results_EncounterMethodSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+responses+200+application-json+results+EncounterMethodSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-method/\{id\}/ [#operation-api_v2_encounter_method_retrieve]
+
+_Get encounter method_
+
+Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+parameters+id]
+
+</div>
+
+<div slot="content">
+
+This parameter can be a string or an integer.
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="name"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName\">EncounterMethodName</a>","children":[{"label":"EncounterMethodName","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName\">EncounterMethodName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### names [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterMethodName" parentId="names">
+
+<div slot="title">
+
+#### EncounterMethodName [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterMethodName_language"
+  parentId="names_EncounterMethodName"
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+language+LanguageSummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### language [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+language]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterMethodName_language_LanguageSummary" parentId="names_EncounterMethodName_language">
+
+<div slot="title">
+
+#### LanguageSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+language+LanguageSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterMethodName_language_LanguageSummary_name"
+  parentId="names_EncounterMethodName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+language+LanguageSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterMethodName_language_LanguageSummary_url"
+  parentId="names_EncounterMethodName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+language+LanguageSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterMethodName_name"
+  parentId="names_EncounterMethodName"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+names+EncounterMethodName+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="order"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### order [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+responses+200+application-json+order]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-condition/ [#operation-api_v2_encounter_condition_list]
+
+_List encounter conditions_
+
+Conditions which affect what pokemon might appear in the wild, e.g., day or night.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="limit"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### limit [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+parameters+limit]
+
+</div>
+
+<div slot="content">
+
+Number of results to return per page.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="offset"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### offset [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+parameters+offset]
+
+</div>
+
+<div slot="content">
+
+The initial index from which to return the results.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="q"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### q [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+parameters+q]
+
+</div>
+
+<div slot="content">
+
+> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the `name` property. 
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="count"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### count [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+count]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+123
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="next"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### next [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+next]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=400&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="previous"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### previous [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+previous]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=200&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results+EncounterConditionSummary\">EncounterConditionSummary</a>","children":[{"label":"EncounterConditionSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results+EncounterConditionSummary\">EncounterConditionSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### results [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="results_EncounterConditionSummary" parentId="results">
+
+<div slot="title">
+
+#### EncounterConditionSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results+EncounterConditionSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterConditionSummary_name"
+  parentId="results_EncounterConditionSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results+EncounterConditionSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterConditionSummary_url"
+  parentId="results_EncounterConditionSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+responses+200+application-json+results+EncounterConditionSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-condition/\{id\}/ [#operation-api_v2_encounter_condition_retrieve]
+
+_Get encounter condition_
+
+Conditions which affect what pokemon might appear in the wild, e.g., day or night.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+parameters+id]
+
+</div>
+
+<div slot="content">
+
+This parameter can be a string or an integer.
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="name"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName\">EncounterConditionName</a>","children":[{"label":"EncounterConditionName","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName\">EncounterConditionName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### names [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterConditionName" parentId="names">
+
+<div slot="title">
+
+#### EncounterConditionName [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionName_language"
+  parentId="names_EncounterConditionName"
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+language+LanguageSummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### language [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+language]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterConditionName_language_LanguageSummary" parentId="names_EncounterConditionName_language">
+
+<div slot="title">
+
+#### LanguageSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+language+LanguageSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionName_language_LanguageSummary_name"
+  parentId="names_EncounterConditionName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+language+LanguageSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionName_language_LanguageSummary_url"
+  parentId="names_EncounterConditionName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+language+LanguageSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionName_name"
+  parentId="names_EncounterConditionName"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+names+EncounterConditionName+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="values"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values+EncounterConditionValueSummary\">EncounterConditionValueSummary</a>","children":[{"label":"EncounterConditionValueSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values+EncounterConditionValueSummary\">EncounterConditionValueSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### values [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="values_EncounterConditionValueSummary" parentId="values">
+
+<div slot="title">
+
+#### EncounterConditionValueSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values+EncounterConditionValueSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="values_EncounterConditionValueSummary_name"
+  parentId="values_EncounterConditionValueSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values+EncounterConditionValueSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="values_EncounterConditionValueSummary_url"
+  parentId="values_EncounterConditionValueSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+responses+200+application-json+values+EncounterConditionValueSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-condition-value/ [#operation-api_v2_encounter_condition_value_list]
+
+_List encounter condition values_
+
+Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="limit"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### limit [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+parameters+limit]
+
+</div>
+
+<div slot="content">
+
+Number of results to return per page.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="offset"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### offset [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+parameters+offset]
+
+</div>
+
+<div slot="content">
+
+The initial index from which to return the results.
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="q"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"query","variant":"info"}]}>
+
+<div slot="title">
+
+##### q [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+parameters+q]
+
+</div>
+
+<div slot="content">
+
+> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the `name` property. 
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="count"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### count [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+count]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+123
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="next"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### next [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+next]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=400&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="previous"
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### previous [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+previous]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+http://api.example.org/accounts/?offset=200&limit=100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results+EncounterConditionValueSummary\">EncounterConditionValueSummary</a>","children":[{"label":"EncounterConditionValueSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results+EncounterConditionValueSummary\">EncounterConditionValueSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}>
+
+<div slot="title">
+
+##### results [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="results_EncounterConditionValueSummary" parentId="results">
+
+<div slot="title">
+
+#### EncounterConditionValueSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results+EncounterConditionValueSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterConditionValueSummary_name"
+  parentId="results_EncounterConditionValueSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results+EncounterConditionValueSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="results_EncounterConditionValueSummary_url"
+  parentId="results_EncounterConditionValueSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+responses+200+application-json+results+EncounterConditionValueSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/encounter-condition-value/\{id\}/ [#operation-api_v2_encounter_condition_value_retrieve]
+
+_Get encounter condition value_
+
+Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+parameters+id]
+
+</div>
+
+<div slot="content">
+
+This parameter can be a string or an integer.
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="condition"
+  typeInfo={{"label":"EncounterConditionSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+condition+EncounterConditionSummary\">EncounterConditionSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### condition [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+condition]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="condition_EncounterConditionSummary" parentId="condition">
+
+<div slot="title">
+
+#### EncounterConditionSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+condition+EncounterConditionSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="condition_EncounterConditionSummary_name"
+  parentId="condition_EncounterConditionSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+condition+EncounterConditionSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="condition_EncounterConditionSummary_url"
+  parentId="condition_EncounterConditionSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+condition+EncounterConditionSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="id"
+  typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+id]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="name"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName\">EncounterConditionValueName</a>","children":[{"label":"EncounterConditionValueName","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName\">EncounterConditionValueName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### names [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterConditionValueName" parentId="names">
+
+<div slot="title">
+
+#### EncounterConditionValueName [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionValueName_language"
+  parentId="names_EncounterConditionValueName"
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+language+LanguageSummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### language [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+language]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="names_EncounterConditionValueName_language_LanguageSummary" parentId="names_EncounterConditionValueName_language">
+
+<div slot="title">
+
+#### LanguageSummary [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+language+LanguageSummary]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionValueName_language_LanguageSummary_name"
+  parentId="names_EncounterConditionValueName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+language+LanguageSummary+name]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionValueName_language_LanguageSummary_url"
+  parentId="names_EncounterConditionValueName_language_LanguageSummary"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+language+LanguageSummary+url]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="names_EncounterConditionValueName_name"
+  parentId="names_EncounterConditionValueName"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+responses+200+application-json+names+EncounterConditionValueName+name]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+## <Pill variant="primary"><b>GET</b></Pill> /api/v2/pokemon/\{pokemon\_id\}/encounters [#operation-api_v2_pokemon_encounters_retrieve]
+
+_Get pokemon encounter_
+
+Handles Pokemon Encounters as a sub-resource.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Security [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+security]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="cookieAuth"
+  typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}>
+
+<div slot="title">
+
+##### cookieAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+security+cookieAuth]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="basicAuth"
+  typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}>
+
+<div slot="title">
+
+##### basicAuth [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+security+basicAuth]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Parameters [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+parameters]
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<ExpandableSection>
+
+<ExpandableProperty
+  slot="entry"
+  id="pokemon_id"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### pokemon_id [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+parameters+pokemon_id]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</Section>
+
+<TabbedSection>
+
+<SectionTitle slot="title" variant="default">
+
+### Responses [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses]
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json">
+
+<ExpandableSection>
+
+<ExpandableBreakout slot="entry" id="ResponseBody">
+
+<div slot="title">
+
+#### ResponseBody [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_location_area"
+  parentId="ResponseBody"
+  typeInfo={{"label":"location_area","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+location_area+location_area\">location_area</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### location_area [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+location_area]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details"
+  parentId="ResponseBody"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail\">version_detail</a>","children":[{"label":"version_detail","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail\">version_detail</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### version_details [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="ResponseBody_version_details_version_detail" parentId="ResponseBody_version_details">
+
+<div slot="title">
+
+#### version\_detail [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details"
+  parentId="ResponseBody_version_details_version_detail"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail\">encounter_detail</a>","children":[{"label":"encounter_detail","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail\">encounter_detail</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### encounter_details [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail" parentId="ResponseBody_version_details_version_detail_encounter_details">
+
+<div slot="title">
+
+#### encounter\_detail [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_chance"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail"
+  typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### chance [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+chance]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values+condition_value\">condition_value</a>","children":[{"label":"condition_value","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values+condition_value\">condition_value</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### condition_values [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableBreakout slot="entry" id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values_condition_value" parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values">
+
+<div slot="title">
+
+#### condition\_value [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values+condition_value]
+
+</div>
+
+</ExpandableBreakout>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values_condition_value_name"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values_condition_value"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### name [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values+condition_value+name]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+story-progress-beat-red
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values_condition_value_url"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_condition_values_condition_value"
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### url [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+condition_values+condition_value+url]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+https://pokeapi.co/api/v2/encounter-condition-value/55/
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_max_level"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail"
+  typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### max_level [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+max_level]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+10
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_method"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail"
+  typeInfo={{"label":"method","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+method+method\">method</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### method [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+method]
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_encounter_details_encounter_detail_min_level"
+  parentId="ResponseBody_version_details_version_detail_encounter_details_encounter_detail"
+  typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### min_level [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+encounter_details+encounter_detail+min_level]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+10
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_max_chance"
+  parentId="ResponseBody_version_details_version_detail"
+  typeInfo={{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### max_chance [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+max_chance]
+
+</div>
+
+<div slot="content">
+
+_Example:_
+
+```
+100
+```
+
+</div>
+
+</ExpandableProperty>
+
+<ExpandableProperty
+  slot="entry"
+  id="ResponseBody_version_details_version_detail_version"
+  parentId="ResponseBody_version_details_version_detail"
+  typeInfo={{"label":"version","linkedLabel":"<a href=\"#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+version+version\">version</a>","children":[],"breakoutSubTypes":{}}}
+  typeAnnotations={[{"title":"required","variant":"warning"}]}>
+
+<div slot="title">
+
+##### version [#operation-api_v2_encounter_method_list+operation-api_v2_encounter_method_retrieve+operation-api_v2_encounter_condition_list+operation-api_v2_encounter_condition_retrieve+operation-api_v2_encounter_condition_value_list+operation-api_v2_encounter_condition_value_retrieve+operation-api_v2_pokemon_encounters_retrieve+responses+200+application-json+ResponseBody+version_details+version_detail+version]
+
+</div>
+
+</ExpandableProperty>
+
+</ExpandableSection>
+
+</SectionContent>
+
+</TabbedSection>

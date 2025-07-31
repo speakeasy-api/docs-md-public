@@ -1,13 +1,18 @@
 import { snakeCase } from "change-case";
 
 import type { OperationChunk } from "../../../types/chunk.ts";
+import type { PropertyAnnotations } from "../../../types/shared.ts";
 import { assertNever } from "../../../util/assertNever.ts";
 import { getSettings } from "../.././settings.ts";
 import type { Renderer } from "../..//renderers/base/base.ts";
 import type { DocsCodeSnippets } from "../../data/generateCodeSnippets.ts";
 import { HEADINGS } from "../constants.ts";
-import { getSchemaFromId } from "../util.ts";
-import { renderBreakouts, renderSchemaFrontmatter } from "./schema.ts";
+import { getSchemaFromId, getSecurityFromId } from "../util.ts";
+import {
+  getDisplayTypeInfo,
+  renderBreakouts,
+  renderSchemaFrontmatter,
+} from "./schema.ts";
 
 type RenderOperationOptions = {
   renderer: Renderer;
@@ -20,6 +25,7 @@ export function renderOperation({
   chunk,
   docsCodeSnippets,
 }: RenderOperationOptions) {
+  const { showDebugPlaceholders } = getSettings().display;
   renderer.addOperationSection(
     {
       method: chunk.chunkData.method,
@@ -29,42 +35,100 @@ export function renderOperation({
       description: chunk.chunkData.description,
     },
     () => {
-      // TODO: Remove explicit references to id and handle in renderers
-      const id = `operation-${snakeCase(chunk.chunkData.operationId)}`;
-
-      // TODO: Security is being rewritten anyways, so I'm not refactoring it as
-      // part of the schema refactor
       if (chunk.chunkData.security) {
+        const { contentChunkId } = chunk.chunkData.security;
         renderer.addSecuritySection(() => {
-          // TODO: Security is being rewritten at the generator level, so I'm
-          // not refactoring this code as part of the schema refactor
-          renderer.appendText("Coming Soon");
+          const securityChunk = getSecurityFromId(
+            contentChunkId,
+            renderer.getDocsData()
+          );
+          for (const entry of securityChunk.chunkData.entries) {
+            const hasFrontmatter = !!entry.description || showDebugPlaceholders;
+            renderer.enterContext(entry.name);
+            renderer.addExpandableProperty({
+              annotations: [
+                {
+                  title: entry.in,
+                  variant: "info",
+                },
+                {
+                  title: entry.type,
+                  variant: "info",
+                },
+              ],
+              title: entry.name,
+              createContent: hasFrontmatter
+                ? () => {
+                    if (entry.description) {
+                      renderer.appendText(entry.description);
+                    }
+                    if (showDebugPlaceholders) {
+                      renderer.appendDebugPlaceholderStart();
+                      renderer.appendText("No description provided");
+                      renderer.appendDebugPlaceholderEnd();
+                    }
+                  }
+                : undefined,
+            });
+            renderer.exitContext();
+          }
         });
       }
 
       if (chunk.chunkData.parameters.length > 0) {
-        renderer.addParametersSection((createParameter) => {
+        renderer.addParametersSection(() => {
           for (const parameter of chunk.chunkData.parameters) {
-            createParameter(
+            renderer.enterContext(parameter.name);
+            const annotations: PropertyAnnotations[] = [
               {
-                name: parameter.name,
-                isRequired: parameter.required,
+                title: parameter.in,
+                variant: "info",
               },
-              () => {
-                const parameterChunk = getSchemaFromId(
-                  parameter.fieldChunkId,
-                  renderer.getDocsData()
-                );
-                renderSchemaFrontmatter({
-                  renderer,
-                  schema: parameterChunk.chunkData.value,
-                });
-                renderBreakouts({
-                  renderer,
-                  schema: parameterChunk.chunkData.value,
-                });
-              }
+            ];
+            if (parameter.required) {
+              annotations.push({ title: "required", variant: "warning" });
+            }
+            if (parameter.deprecated) {
+              annotations.push({ title: "deprecated", variant: "warning" });
+            }
+            const parameterChunk = getSchemaFromId(
+              parameter.fieldChunkId,
+              renderer.getDocsData()
             );
+
+            // Render front-matter. This logic is really similar to rendering
+            // an object property in a schema, but with a few differences
+            const typeInfo = getDisplayTypeInfo(
+              parameterChunk.chunkData.value,
+              renderer,
+              []
+            );
+            const hasFrontmatter = !!parameter.description;
+            renderer.addExpandableProperty({
+              typeInfo,
+              annotations,
+              title: parameter.name,
+              createContent: hasFrontmatter
+                ? () => {
+                    if (parameter.description) {
+                      renderer.appendText(parameter.description);
+                    }
+                    if (showDebugPlaceholders) {
+                      renderer.appendDebugPlaceholderStart();
+                      renderer.appendText("No description provided");
+                      renderer.appendDebugPlaceholderEnd();
+                    }
+                  }
+                : undefined,
+            });
+
+            // Render breakouts, which will be separate expandable entries
+            renderBreakouts({
+              renderer,
+              schema: parameterChunk.chunkData.value,
+            });
+
+            renderer.exitContext();
           }
         });
       }
@@ -76,7 +140,8 @@ export function renderOperation({
         renderer.appendSectionStart({ variant: "top-level" });
         renderer.appendSectionTitleStart({ variant: "top-level" });
         renderer.appendHeading(HEADINGS.SECTION_HEADING_LEVEL, "Try it Now", {
-          id: id + "+try-it-now",
+          // TODO: Remove explicit references to id and handle in renderers
+          id: `operation-${snakeCase(chunk.chunkData.operationId)}+try-it-now`,
         });
         renderer.appendSectionTitleEnd();
         renderer.appendSectionContentStart({ variant: "top-level" });
