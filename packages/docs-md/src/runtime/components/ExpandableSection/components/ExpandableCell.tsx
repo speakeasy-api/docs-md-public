@@ -3,17 +3,20 @@
 import clsx from "clsx";
 
 import styles from "../styles.module.css";
+import { ChevronIcon } from "./ChevronIcon.tsx";
 
 type ExpandableCellProps = {
   isOpen: boolean;
   bottomConnection: "connected" | "highlighted" | "none";
   setIsOpen: (isOpen: boolean) => void;
+  variant: "circle" | "square";
 };
 
 export function ExpandableCell({
   isOpen,
   setIsOpen,
   bottomConnection,
+  variant,
 }: ExpandableCellProps) {
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -22,16 +25,19 @@ export function ExpandableCell({
   return (
     <div className={styles.expandableCellContainer}>
       <div className={styles.expandableButtonContainer}>
-        <button className={styles.expandableButton} onClick={handleClick}>
-          <div
+        <button
+          className={clsx(
+            styles.expandableButton,
+            variant === "circle" && styles.expandableButtonCircle
+          )}
+          onClick={handleClick}
+        >
+          <ChevronIcon
+            className={styles.expandableChevron}
             style={{
               transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
-              transition: "transform 0.2s ease-in-out",
-              transformOrigin: "center",
             }}
-          >
-            △
-          </div>
+          />
         </button>
       </div>
       <div className={styles.expandableConnectionContainer}>
