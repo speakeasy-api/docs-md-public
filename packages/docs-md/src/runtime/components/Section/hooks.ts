@@ -12,17 +12,24 @@ function normalizeChildren(
   if (!Array.isArray(children) && typeof children === "object") {
     children = [children];
   }
-  if (
-    !Array.isArray(children) ||
-    !children.every((child: unknown) => isValidElement(child)) ||
-    !children.every(
-      (child) => typeof child.props === "object" && child.props !== null
-    )
-  ) {
-    throw new InternalError(
-      "Children must be an array of React Elements, not " + typeof children
-    );
+  if (!Array.isArray(children)) {
+    throw new InternalError("Children must be an array");
   }
+
+  // TODO: for some reason we sometimes get invalid children while building in
+  // Nextra. These invalid children seem to be transient though, and work fine
+  // when the site is up an running. The internal representation does set the
+  // "$$typeof" property to Symbol("react.lazy"), which is a hint.
+  children = children.filter((child) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    if (!isValidElement(child)) {
+      return false;
+    }
+    if (typeof child.props !== "object") {
+      return false;
+    }
+    return true;
+  });
 
   return children as ReactElement<Record<string, unknown>>[];
 }
