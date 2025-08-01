@@ -197,8 +197,14 @@ export type RendererAddExpandablePropertyArgs = [
     createContent?: () => void;
   },
 ];
+export type RendererAddFrontMatterDisplayTypeArgs = [
+  options: {
+    typeInfo: DisplayTypeInfo;
+  },
+];
 
 export type RendererAlreadyInContextArgs = [id: string];
+export type RendererGetCurrentIdArgs = [postFixId?: string];
 
 export type RendererConstructorArgs = {
   site: Site;
@@ -219,9 +225,12 @@ export abstract class Renderer {
     ...args: RendererAddExpandableBreakoutArgs
   ): void;
 
-  // Property's show a property in an object schema, including it's type info
+  // Show a property in an object schema, including it's type info
   abstract addExpandableProperty(
     ...args: RendererAddExpandablePropertyArgs
+  ): void;
+  abstract addFrontMatterDisplayType(
+    ...args: RendererAddFrontMatterDisplayTypeArgs
   ): void;
 
   // Low level operations
@@ -289,7 +298,7 @@ export abstract class Renderer {
   abstract exitContext(): void;
   abstract getContextStack(): Context[];
   abstract alreadyInContext(...args: RendererAlreadyInContextArgs): boolean;
-  abstract getCurrentId(): string;
+  abstract getCurrentId(...args: RendererGetCurrentIdArgs): string;
   abstract getDocsData(): Map<string, Chunk>;
   abstract render(): string;
 }
