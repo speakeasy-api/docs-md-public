@@ -4,7 +4,6 @@ import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
 import { InternalError } from "../../util/internalError.ts";
 import { getSettings } from ".././settings.ts";
 import type { Renderer, Site } from "..//renderers/base/base.ts";
-import { getEmbedPath } from "..//renderers/base/util.ts";
 import type { DocsCodeSnippets } from "../data/generateCodeSnippets.ts";
 import { renderAbout } from "./chunks/about.ts";
 import { renderGlobalSecurity } from "./chunks/globalSecurity.ts";
@@ -227,16 +226,5 @@ export function renderContent(
 ) {
   const pageMap = getPageMap(site, data);
   renderPages(site, pageMap, docsCodeSnippets);
-
-  for (const codeSnippet of Object.values(docsCodeSnippets)) {
-    const renderer = site.createPage(
-      getEmbedPath(`code-snippets/${codeSnippet.operationId}`)
-    );
-    renderer.appendCode(codeSnippet.code, {
-      variant: "default",
-      language: "typescript",
-    });
-  }
-
   return site.render();
 }
