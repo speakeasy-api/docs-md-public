@@ -33,6 +33,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   headingId="operation-api_v2_contest_type_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -49,6 +50,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   headingId="operation-api_v2_contest_type_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -84,6 +86,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -107,6 +110,7 @@ Number of results to return per page.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -130,6 +134,7 @@ The initial index from which to return the results.
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -177,6 +182,7 @@ Case-insensitive query applied on the `name` property.
   headingId="operation-api_v2_contest_type_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -203,6 +209,7 @@ _Example:_
   headingId="operation-api_v2_contest_type_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -229,6 +236,7 @@ http://api.example.org/accounts/?offset=400&limit=100
   headingId="operation-api_v2_contest_type_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -255,6 +263,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   headingId="operation-api_v2_contest_type_list+responses+200+application-json+results"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+responses+200+application-json+results+contesttypesummary\">ContestTypeSummary</a>","children":[{"label":"ContestTypeSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+responses+200+application-json+results+contesttypesummary\">ContestTypeSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -270,6 +279,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   id="results_ContestTypeSummary"
   headingId="operation-api_v2_contest_type_list+responses+200+application-json+results+contesttypesummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -288,6 +298,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -306,6 +317,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -332,7 +344,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+security\}
+### Security \{#operation-api_v2_contest_type_retrieve+security\}
 
 </SectionTitle>
 
@@ -343,14 +355,15 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+security+cookieauth"
+  headingId="operation-api_v2_contest_type_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_contest_type_retrieve+security+cookieauth\}
 
 </div>
 
@@ -359,14 +372,15 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+security+basicauth"
+  headingId="operation-api_v2_contest_type_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_contest_type_retrieve+security+basicauth\}
 
 </div>
 
@@ -382,7 +396,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+parameters\}
+### Parameters \{#operation-api_v2_contest_type_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -393,15 +407,16 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+parameters+id"
+  headingId="operation-api_v2_contest_type_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+parameters+id\}
+##### id \{#operation-api_v2_contest_type_retrieve+parameters+id\}
 
 </div>
 
@@ -423,32 +438,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses\}
+### Responses \{#operation-api_v2_contest_type_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_contest_type_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="berry_flavor"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor"
-  typeInfo={{"label":"berry_flavor","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+berry_flavor\">berry_flavor</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor"
+  typeInfo={{"label":"berry_flavor","linkedLabel":"<a href=\"#operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+berry_flavor\">berry_flavor</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### berry_flavor \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor\}
+##### berry_flavor \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor\}
 
 </div>
 
@@ -457,16 +473,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="berry_flavor_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+name"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+name"
   parentId="berry_flavor"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+name\}
+##### name \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+name\}
 
 </div>
 
@@ -475,16 +492,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="berry_flavor_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+url"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+url"
   parentId="berry_flavor"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+url\}
+##### url \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+berry_flavor+url\}
 
 </div>
 
@@ -493,15 +511,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -510,15 +529,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -527,15 +547,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\">ContestTypeName</a>","children":[{"label":"ContestTypeName","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\">ContestTypeName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\">ContestTypeName</a>","children":[{"label":"ContestTypeName","linkedLabel":"<a href=\"#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\">ContestTypeName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -544,13 +565,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_ContestTypeName"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename" parentId="names"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### ContestTypeName \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\}
+#### ContestTypeName \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename\}
 
 </div>
 
@@ -559,16 +581,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_ContestTypeName_color"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+color"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+color"
   parentId="names_ContestTypeName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### color \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+color\}
+##### color \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+color\}
 
 </div>
 
@@ -577,16 +600,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_ContestTypeName_language"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language"
   parentId="names_ContestTypeName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language\}
+##### language \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language\}
 
 </div>
 
@@ -595,16 +619,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_ContestTypeName_language_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+name"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+name"
   parentId="names_ContestTypeName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+name\}
+##### name \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+name\}
 
 </div>
 
@@ -613,16 +638,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_ContestTypeName_language_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+url"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+url"
   parentId="names_ContestTypeName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+url\}
+##### url \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+language+url\}
 
 </div>
 
@@ -631,16 +657,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_ContestTypeName_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+name"
+  headingId="operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+name"
   parentId="names_ContestTypeName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+name\}
+##### name \{#operation-api_v2_contest_type_retrieve+responses+200+application-json+names+contesttypename+name\}
 
 </div>
 
@@ -662,7 +689,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+security\}
+### Security \{#operation-api_v2_contest_effect_list+security\}
 
 </SectionTitle>
 
@@ -673,14 +700,15 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+security+cookieauth"
+  headingId="operation-api_v2_contest_effect_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_contest_effect_list+security+cookieauth\}
 
 </div>
 
@@ -689,14 +717,15 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+security+basicauth"
+  headingId="operation-api_v2_contest_effect_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_contest_effect_list+security+basicauth\}
 
 </div>
 
@@ -712,7 +741,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters\}
+### Parameters \{#operation-api_v2_contest_effect_list+parameters\}
 
 </SectionTitle>
 
@@ -723,15 +752,16 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+limit"
+  headingId="operation-api_v2_contest_effect_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+limit\}
+##### limit \{#operation-api_v2_contest_effect_list+parameters+limit\}
 
 </div>
 
@@ -746,15 +776,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+offset"
+  headingId="operation-api_v2_contest_effect_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+offset\}
+##### offset \{#operation-api_v2_contest_effect_list+parameters+offset\}
 
 </div>
 
@@ -769,15 +800,16 @@ The initial index from which to return the results.
 <ExpandableProperty
   slot="entry"
   id="q"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+q"
+  headingId="operation-api_v2_contest_effect_list+parameters+q"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### q \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+parameters+q\}
+##### q \{#operation-api_v2_contest_effect_list+parameters+q\}
 
 </div>
 
@@ -800,31 +832,32 @@ Case-insensitive query applied on the `name` property.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses\}
+### Responses \{#operation-api_v2_contest_effect_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_contest_effect_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_effect_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+count"
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_contest_effect_list+responses+200+application-json+count\}
 
 </div>
 
@@ -843,14 +876,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+next"
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_contest_effect_list+responses+200+application-json+next\}
 
 </div>
 
@@ -869,14 +903,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_contest_effect_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -895,14 +930,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\">ContestEffectSummary</a>","children":[{"label":"ContestEffectSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\">ContestEffectSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\">ContestEffectSummary</a>","children":[{"label":"ContestEffectSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\">ContestEffectSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_contest_effect_list+responses+200+application-json+results\}
 
 </div>
 
@@ -911,13 +947,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_ContestEffectSummary"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary" parentId="results"
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### ContestEffectSummary \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\}
+#### ContestEffectSummary \{#operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary\}
 
 </div>
 
@@ -926,16 +963,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_ContestEffectSummary_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary+url"
+  headingId="operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary+url"
   parentId="results_ContestEffectSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary+url\}
+##### url \{#operation-api_v2_contest_effect_list+responses+200+application-json+results+contesteffectsummary+url\}
 
 </div>
 
@@ -957,7 +995,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+security\}
+### Security \{#operation-api_v2_contest_effect_retrieve+security\}
 
 </SectionTitle>
 
@@ -968,14 +1006,15 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+security+cookieauth"
+  headingId="operation-api_v2_contest_effect_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_contest_effect_retrieve+security+cookieauth\}
 
 </div>
 
@@ -984,14 +1023,15 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+security+basicauth"
+  headingId="operation-api_v2_contest_effect_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_contest_effect_retrieve+security+basicauth\}
 
 </div>
 
@@ -1007,7 +1047,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+parameters\}
+### Parameters \{#operation-api_v2_contest_effect_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -1018,15 +1058,16 @@ Contest effects refer to the effects of moves when used in contests.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+parameters+id"
+  headingId="operation-api_v2_contest_effect_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+parameters+id\}
+##### id \{#operation-api_v2_contest_effect_retrieve+parameters+id\}
 
 </div>
 
@@ -1048,32 +1089,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses\}
+### Responses \{#operation-api_v2_contest_effect_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_contest_effect_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_effect_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="appeal"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+appeal"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+appeal"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### appeal \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+appeal\}
+##### appeal \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+appeal\}
 
 </div>
 
@@ -1082,15 +1124,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="effect_entries"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\">ContestEffectEffectText</a>","children":[{"label":"ContestEffectEffectText","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\">ContestEffectEffectText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\">ContestEffectEffectText</a>","children":[{"label":"ContestEffectEffectText","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\">ContestEffectEffectText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### effect_entries \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries\}
+##### effect_entries \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries\}
 
 </div>
 
@@ -1099,13 +1142,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="effect_entries_ContestEffectEffectText"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext" parentId="effect_entries"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext" parentId="effect_entries"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### ContestEffectEffectText \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\}
+#### ContestEffectEffectText \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext\}
 
 </div>
 
@@ -1114,16 +1158,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="effect_entries_ContestEffectEffectText_effect"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+effect"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+effect"
   parentId="effect_entries_ContestEffectEffectText"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### effect \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+effect\}
+##### effect \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+effect\}
 
 </div>
 
@@ -1132,16 +1177,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="effect_entries_ContestEffectEffectText_language"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language"
   parentId="effect_entries_ContestEffectEffectText"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language\}
+##### language \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language\}
 
 </div>
 
@@ -1150,16 +1196,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="effect_entries_ContestEffectEffectText_language_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+name"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+name"
   parentId="effect_entries_ContestEffectEffectText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+name\}
+##### name \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+name\}
 
 </div>
 
@@ -1168,16 +1215,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="effect_entries_ContestEffectEffectText_language_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+url"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+url"
   parentId="effect_entries_ContestEffectEffectText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+url\}
+##### url \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+effect_entries+contesteffecteffecttext+language+url\}
 
 </div>
 
@@ -1186,15 +1234,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\">ContestEffectFlavorText</a>","children":[{"label":"ContestEffectFlavorText","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\">ContestEffectFlavorText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\">ContestEffectFlavorText</a>","children":[{"label":"ContestEffectFlavorText","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\">ContestEffectFlavorText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### flavor_text_entries \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries\}
+##### flavor_text_entries \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries\}
 
 </div>
 
@@ -1203,13 +1252,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="flavor_text_entries_ContestEffectFlavorText"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext" parentId="flavor_text_entries"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext" parentId="flavor_text_entries"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### ContestEffectFlavorText \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\}
+#### ContestEffectFlavorText \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext\}
 
 </div>
 
@@ -1218,16 +1268,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_ContestEffectFlavorText_flavor_text"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+flavor_text"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+flavor_text"
   parentId="flavor_text_entries_ContestEffectFlavorText"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### flavor_text \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+flavor_text\}
+##### flavor_text \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+flavor_text\}
 
 </div>
 
@@ -1236,16 +1287,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_ContestEffectFlavorText_language"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language"
   parentId="flavor_text_entries_ContestEffectFlavorText"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language\}
+##### language \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language\}
 
 </div>
 
@@ -1254,16 +1306,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_ContestEffectFlavorText_language_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+name"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+name"
   parentId="flavor_text_entries_ContestEffectFlavorText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+name\}
+##### name \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+name\}
 
 </div>
 
@@ -1272,16 +1325,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_ContestEffectFlavorText_language_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+url"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+url"
   parentId="flavor_text_entries_ContestEffectFlavorText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+url\}
+##### url \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+contesteffectflavortext+language+url\}
 
 </div>
 
@@ -1290,15 +1344,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -1307,15 +1362,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="jam"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+jam"
+  headingId="operation-api_v2_contest_effect_retrieve+responses+200+application-json+jam"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### jam \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+responses+200+application-json+jam\}
+##### jam \{#operation-api_v2_contest_effect_retrieve+responses+200+application-json+jam\}
 
 </div>
 
@@ -1337,7 +1393,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+security\}
+### Security \{#operation-api_v2_super_contest_effect_list+security\}
 
 </SectionTitle>
 
@@ -1348,14 +1404,15 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+security+cookieauth"
+  headingId="operation-api_v2_super_contest_effect_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_super_contest_effect_list+security+cookieauth\}
 
 </div>
 
@@ -1364,14 +1421,15 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+security+basicauth"
+  headingId="operation-api_v2_super_contest_effect_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_super_contest_effect_list+security+basicauth\}
 
 </div>
 
@@ -1387,7 +1445,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters\}
+### Parameters \{#operation-api_v2_super_contest_effect_list+parameters\}
 
 </SectionTitle>
 
@@ -1398,15 +1456,16 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+limit"
+  headingId="operation-api_v2_super_contest_effect_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+limit\}
+##### limit \{#operation-api_v2_super_contest_effect_list+parameters+limit\}
 
 </div>
 
@@ -1421,15 +1480,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+offset"
+  headingId="operation-api_v2_super_contest_effect_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+offset\}
+##### offset \{#operation-api_v2_super_contest_effect_list+parameters+offset\}
 
 </div>
 
@@ -1444,15 +1504,16 @@ The initial index from which to return the results.
 <ExpandableProperty
   slot="entry"
   id="q"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+q"
+  headingId="operation-api_v2_super_contest_effect_list+parameters+q"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### q \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+parameters+q\}
+##### q \{#operation-api_v2_super_contest_effect_list+parameters+q\}
 
 </div>
 
@@ -1475,31 +1536,32 @@ Case-insensitive query applied on the `name` property.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses\}
+### Responses \{#operation-api_v2_super_contest_effect_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_super_contest_effect_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_super_contest_effect_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+count"
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+count\}
 
 </div>
 
@@ -1518,14 +1580,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+next"
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+next\}
 
 </div>
 
@@ -1544,14 +1607,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -1570,14 +1634,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\">SuperContestEffectSummary</a>","children":[{"label":"SuperContestEffectSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\">SuperContestEffectSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\">SuperContestEffectSummary</a>","children":[{"label":"SuperContestEffectSummary","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\">SuperContestEffectSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+results\}
 
 </div>
 
@@ -1586,13 +1651,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_SuperContestEffectSummary"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary" parentId="results"
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### SuperContestEffectSummary \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\}
+#### SuperContestEffectSummary \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary\}
 
 </div>
 
@@ -1601,16 +1667,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_SuperContestEffectSummary_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary+url"
+  headingId="operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary+url"
   parentId="results_SuperContestEffectSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary+url\}
+##### url \{#operation-api_v2_super_contest_effect_list+responses+200+application-json+results+supercontesteffectsummary+url\}
 
 </div>
 
@@ -1632,7 +1699,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+security\}
+### Security \{#operation-api_v2_super_contest_effect_retrieve+security\}
 
 </SectionTitle>
 
@@ -1643,14 +1710,15 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+security+cookieauth"
+  headingId="operation-api_v2_super_contest_effect_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_super_contest_effect_retrieve+security+cookieauth\}
 
 </div>
 
@@ -1659,14 +1727,15 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+security+basicauth"
+  headingId="operation-api_v2_super_contest_effect_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_super_contest_effect_retrieve+security+basicauth\}
 
 </div>
 
@@ -1682,7 +1751,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+parameters\}
+### Parameters \{#operation-api_v2_super_contest_effect_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -1693,15 +1762,16 @@ Super contest effects refer to the effects of moves when used in super contests.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+parameters+id"
+  headingId="operation-api_v2_super_contest_effect_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+parameters+id\}
+##### id \{#operation-api_v2_super_contest_effect_retrieve+parameters+id\}
 
 </div>
 
@@ -1723,32 +1793,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses\}
+### Responses \{#operation-api_v2_super_contest_effect_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="appeal"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+appeal"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+appeal"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### appeal \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+appeal\}
+##### appeal \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+appeal\}
 
 </div>
 
@@ -1757,15 +1828,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\">SuperContestEffectFlavorText</a>","children":[{"label":"SuperContestEffectFlavorText","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\">SuperContestEffectFlavorText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\">SuperContestEffectFlavorText</a>","children":[{"label":"SuperContestEffectFlavorText","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\">SuperContestEffectFlavorText</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### flavor_text_entries \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries\}
+##### flavor_text_entries \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries\}
 
 </div>
 
@@ -1774,13 +1846,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="flavor_text_entries_SuperContestEffectFlavorText"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext" parentId="flavor_text_entries"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext" parentId="flavor_text_entries"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### SuperContestEffectFlavorText \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\}
+#### SuperContestEffectFlavorText \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext\}
 
 </div>
 
@@ -1789,16 +1862,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_SuperContestEffectFlavorText_flavor_text"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+flavor_text"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+flavor_text"
   parentId="flavor_text_entries_SuperContestEffectFlavorText"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### flavor_text \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+flavor_text\}
+##### flavor_text \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+flavor_text\}
 
 </div>
 
@@ -1807,16 +1881,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_SuperContestEffectFlavorText_language"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language"
   parentId="flavor_text_entries_SuperContestEffectFlavorText"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language\}
+##### language \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language\}
 
 </div>
 
@@ -1825,16 +1900,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_SuperContestEffectFlavorText_language_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+name"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+name"
   parentId="flavor_text_entries_SuperContestEffectFlavorText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+name\}
+##### name \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+name\}
 
 </div>
 
@@ -1843,16 +1919,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="flavor_text_entries_SuperContestEffectFlavorText_language_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+url"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+url"
   parentId="flavor_text_entries_SuperContestEffectFlavorText_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+url\}
+##### url \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+flavor_text_entries+supercontesteffectflavortext+language+url\}
 
 </div>
 
@@ -1861,15 +1938,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -1878,15 +1956,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="moves"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\">MoveSummary</a>","children":[{"label":"MoveSummary","linkedLabel":"<a href=\"#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\">MoveSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\">MoveSummary</a>","children":[{"label":"MoveSummary","linkedLabel":"<a href=\"#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\">MoveSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### moves \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves\}
+##### moves \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves\}
 
 </div>
 
@@ -1895,13 +1974,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="moves_MoveSummary"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary" parentId="moves"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary" parentId="moves"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### MoveSummary \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\}
+#### MoveSummary \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary\}
 
 </div>
 
@@ -1910,16 +1990,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="moves_MoveSummary_name"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+name"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+name"
   parentId="moves_MoveSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+name\}
+##### name \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+name\}
 
 </div>
 
@@ -1928,16 +2009,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="moves_MoveSummary_url"
-  headingId="operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+url"
+  headingId="operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+url"
   parentId="moves_MoveSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_contest_type_list+operation-api_v2_contest_type_retrieve+operation-api_v2_contest_effect_list+operation-api_v2_contest_effect_retrieve+operation-api_v2_super_contest_effect_list+operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+url\}
+##### url \{#operation-api_v2_super_contest_effect_retrieve+responses+200+application-json+moves+movesummary+url\}
 
 </div>
 

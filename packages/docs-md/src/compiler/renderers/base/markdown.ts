@@ -89,7 +89,6 @@ export const rendererLines = Symbol();
 
 export abstract class MarkdownRenderer extends Renderer {
   #isFinalized = false;
-  #operationIdContext: string[] = [];
   #contextStack: Context[] = [];
   #docsData: Map<string, Chunk>;
   #site: Site;
@@ -147,7 +146,7 @@ export abstract class MarkdownRenderer extends Renderer {
   ): void {
     const { showDebugPlaceholders } = getSettings().display;
     const id = `operation-${snakeCase(operationId)}`;
-    this.#operationIdContext.push(id);
+    this.enterContext({ id, type: "operation" });
     const methodStart = this.createPillStart("primary");
     const methodEnd = this.createPillEnd();
     path = this.escapeText(path, {
@@ -184,7 +183,7 @@ export abstract class MarkdownRenderer extends Renderer {
       this.appendDebugPlaceholderEnd();
     }
     cb();
-    this.#operationIdContext.pop();
+    this.exitContext();
   }
 
   #addTopLevelSection(
@@ -215,11 +214,11 @@ export abstract class MarkdownRenderer extends Renderer {
   public override addSecuritySection(
     ...[cb]: RendererAddSecuritySectionArgs
   ): void {
-    this.#operationIdContext.push("security");
+    this.enterContext({ id: "security", type: "section" });
     this.#addTopLevelSection({ title: "Security" }, () =>
       this.handleCreateSecurity(cb)
     );
-    this.#operationIdContext.pop();
+    this.exitContext();
   }
 
   protected handleCreateSecurity(cb: () => void) {
@@ -229,11 +228,11 @@ export abstract class MarkdownRenderer extends Renderer {
   public override addParametersSection(
     ...[cb]: RendererAddParametersSectionArgs
   ): void {
-    this.#operationIdContext.push("parameters");
+    this.enterContext({ id: "parameters", type: "section" });
     this.#addTopLevelSection({ title: "Parameters" }, () =>
       this.handleCreateParameters(cb)
     );
-    this.#operationIdContext.pop();
+    this.exitContext();
   }
 
   protected handleCreateParameters(cb: () => void) {
@@ -245,7 +244,7 @@ export abstract class MarkdownRenderer extends Renderer {
       { isOptional, createFrontMatter, createBreakouts },
     ]: RendererAddRequestSectionArgs
   ): void {
-    this.#operationIdContext.push("request");
+    this.enterContext({ id: "request", type: "section" });
     const annotations: PropertyAnnotations[] = [];
     if (isOptional) {
       annotations.push({
@@ -263,13 +262,13 @@ export abstract class MarkdownRenderer extends Renderer {
         this.handleCreateBreakouts(createBreakouts);
       }
     );
-    this.#operationIdContext.pop();
+    this.exitContext();
   }
 
   public override addResponsesSection(
     ...[cb, { title = "Responses" } = {}]: RendererAddResponsesArgs
   ): void {
-    this.#operationIdContext.push("responses");
+    this.enterContext({ id: "responses", type: "section" });
     this.appendTabbedSectionStart();
     this.appendSectionTitleStart({ variant: "default" });
     this.appendHeading(HEADINGS.SECTION_HEADING_LEVEL, title, {
@@ -277,7 +276,8 @@ export abstract class MarkdownRenderer extends Renderer {
     });
     this.appendSectionTitleEnd();
     cb(({ statusCode, contentType, createFrontMatter, createBreakouts }) => {
-      this.#operationIdContext.push(statusCode, contentType.replace("/", "-"));
+      this.enterContext({ id: statusCode, type: "section" });
+      this.enterContext({ id: contentType.replace("/", "-"), type: "section" });
       this.appendTabbedSectionTabStart(this.getCurrentId());
       this.appendText(statusCode);
       this.appendTabbedSectionTabEnd();
@@ -288,12 +288,11 @@ export abstract class MarkdownRenderer extends Renderer {
       this.handleCreateFrontMatter(createFrontMatter);
       this.handleCreateBreakouts(createBreakouts);
       this.appendSectionContentEnd();
-      this.#operationIdContext.pop();
-
+      this.exitContext();
       this.exitContext();
     });
     this.appendTabbedSectionEnd();
-    this.#operationIdContext.pop();
+    this.exitContext();
   }
 
   protected handleCreateFrontMatter(cb: () => void) {
@@ -558,18 +557,8 @@ ${text}\n</code>\n</pre>`;
     this[rendererLines].push(this.createDebugPlaceholderEnd());
   }
 
-  public override enterContext(...[id]: RendererCreateContextArgs) {
-    const parentContext = this.#contextStack.at(-1);
-    if (parentContext) {
-      this.#contextStack.push({
-        ...parentContext,
-        id,
-      });
-    } else {
-      this.#contextStack.push({
-        id,
-      });
-    }
+  public override enterContext(...[context]: RendererCreateContextArgs) {
+    this.#contextStack.push(context);
   }
 
   public override exitContext() {
@@ -577,10 +566,7 @@ ${text}\n</code>\n</pre>`;
   }
 
   public override getCurrentId(...[postFixId]: RendererGetCurrentIdArgs) {
-    const ids = [...this.#operationIdContext];
-    for (const context of this.#contextStack) {
-      ids.push(context.id);
-    }
+    const ids = this.#contextStack.map((context) => context.id);
     if (postFixId) {
       ids.push(postFixId);
     }
@@ -591,8 +577,16 @@ ${text}\n</code>\n</pre>`;
     return "+";
   }
 
-  public override getContextStack() {
+  protected getContextStack() {
     return this.#contextStack;
+  }
+
+  public override getCurrentContextType() {
+    const topLevelContext = this.#contextStack.at(-1);
+    if (!topLevelContext) {
+      throw new InternalError("No context found");
+    }
+    return topLevelContext.type;
   }
 
   public override alreadyInContext(...[id]: RendererAlreadyInContextArgs) {

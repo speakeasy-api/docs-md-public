@@ -36,6 +36,7 @@ export const settingsSchema = z.strictObject({
         .enum(["success", "explicit", "all"])
         .default("explicit"),
       showDebugPlaceholders: z.boolean().default(false),
+      expandTopLevelPropertiesOnPageLoad: z.boolean().default(false),
     })
     .default({
       showSchemasInNav: false,
@@ -44,6 +45,7 @@ export const settingsSchema = z.strictObject({
       maxSchemaNesting: 10,
       visibleResponses: "explicit",
       showDebugPlaceholders: false,
+      expandTopLevelPropertiesOnPageLoad: false,
     }),
   tryItNow: z
     .strictObject({

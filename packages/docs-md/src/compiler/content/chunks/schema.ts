@@ -242,7 +242,7 @@ function renderSidebar({
   }
 
   // TODO: this needs a fresh context stack
-  renderer.enterContext(sidebar.label);
+  renderer.enterContext({ id: sidebar.label, type: "schema" });
 
   sidebarLinkRenderer.appendHeading(
     HEADINGS.SECTION_HEADING_LEVEL,
@@ -271,6 +271,10 @@ function renderObjectProperties({
   renderer: Renderer;
   schema: ObjectValue;
 }) {
+  const { expandTopLevelPropertiesOnPageLoad } = getSettings().display;
+  const expandByDefault =
+    expandTopLevelPropertiesOnPageLoad &&
+    renderer.getCurrentContextType() !== "schema";
   const properties = Object.entries(schema.properties).map(
     ([name, propertySchema]) => {
       if (propertySchema.type === "chunk") {
@@ -293,7 +297,7 @@ function renderObjectProperties({
       // TODO: handle this better
       continue;
     }
-    renderer.enterContext(property.name);
+    renderer.enterContext({ id: property.name, type: "schema" });
 
     // Render the expandable entry
     const typeInfo = getDisplayTypeInfo(property.schema, renderer, []);
@@ -309,6 +313,7 @@ function renderObjectProperties({
       typeInfo,
       annotations,
       title: property.name,
+      expandByDefault,
       createContent: hasFrontmatter
         ? () => {
             renderSchemaFrontmatter({
@@ -336,6 +341,10 @@ function renderContainerTypes({
   renderer: Renderer;
   typeInfo: DisplayTypeInfo;
 }) {
+  const { expandTopLevelPropertiesOnPageLoad } = getSettings().display;
+  const expandByDefault =
+    expandTopLevelPropertiesOnPageLoad &&
+    renderer.getCurrentContextType() !== "schema";
   const entries = Array.from(typeInfo.breakoutSubTypes.entries()).map(
     ([label, schema]) => {
       // Shouldn't be possible due to how type info is computed
@@ -366,10 +375,11 @@ function renderContainerTypes({
       // TODO: handle this better
       continue;
     }
-    renderer.enterContext(breakout.label);
+    renderer.enterContext({ id: breakout.label, type: "schema" });
 
     const hasFrontmatter = hasSchemaFrontmatter(breakout.schema);
     renderer.addExpandableBreakout({
+      expandByDefault,
       createTitle: () => {
         renderer.appendHeading(
           HEADINGS.SUB_SECTION_HEADING_LEVEL,

@@ -33,6 +33,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
   headingId="operation-api_v2_machine_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -49,6 +50,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
   headingId="operation-api_v2_machine_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -84,6 +86,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -107,6 +110,7 @@ Number of results to return per page.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -130,6 +134,7 @@ The initial index from which to return the results.
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -177,6 +182,7 @@ Case-insensitive query applied on the `name` property.
   headingId="operation-api_v2_machine_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -203,6 +209,7 @@ _Example:_
   headingId="operation-api_v2_machine_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -229,6 +236,7 @@ http://api.example.org/accounts/?offset=400&limit=100
   headingId="operation-api_v2_machine_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -255,6 +263,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   headingId="operation-api_v2_machine_list+responses+200+application-json+results"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_machine_list+responses+200+application-json+results+machinesummary\">MachineSummary</a>","children":[{"label":"MachineSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_list+responses+200+application-json+results+machinesummary\">MachineSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -270,6 +279,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   id="results_MachineSummary"
   headingId="operation-api_v2_machine_list+responses+200+application-json+results+machinesummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -288,6 +298,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -314,7 +325,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+security\}
+### Security \{#operation-api_v2_machine_retrieve+security\}
 
 </SectionTitle>
 
@@ -325,14 +336,15 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+security+cookieauth"
+  headingId="operation-api_v2_machine_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_machine_retrieve+security+cookieauth\}
 
 </div>
 
@@ -341,14 +353,15 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+security+basicauth"
+  headingId="operation-api_v2_machine_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_machine_retrieve+security+basicauth\}
 
 </div>
 
@@ -364,7 +377,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+parameters\}
+### Parameters \{#operation-api_v2_machine_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -375,15 +388,16 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+parameters+id"
+  headingId="operation-api_v2_machine_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+parameters+id\}
+##### id \{#operation-api_v2_machine_retrieve+parameters+id\}
 
 </div>
 
@@ -405,32 +419,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses\}
+### Responses \{#operation-api_v2_machine_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_machine_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_machine_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_machine_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -439,15 +454,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="item"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item"
-  typeInfo={{"label":"ItemSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item+itemsummary\">ItemSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+item"
+  typeInfo={{"label":"ItemSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_retrieve+responses+200+application-json+item+itemsummary\">ItemSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### item \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item\}
+##### item \{#operation-api_v2_machine_retrieve+responses+200+application-json+item\}
 
 </div>
 
@@ -456,16 +472,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="item_name"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item+name"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+item+name"
   parentId="item"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item+name\}
+##### name \{#operation-api_v2_machine_retrieve+responses+200+application-json+item+name\}
 
 </div>
 
@@ -474,16 +491,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="item_url"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item+url"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+item+url"
   parentId="item"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+item+url\}
+##### url \{#operation-api_v2_machine_retrieve+responses+200+application-json+item+url\}
 
 </div>
 
@@ -492,15 +510,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="move"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move"
-  typeInfo={{"label":"MoveSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move+movesummary\">MoveSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+move"
+  typeInfo={{"label":"MoveSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_retrieve+responses+200+application-json+move+movesummary\">MoveSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### move \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move\}
+##### move \{#operation-api_v2_machine_retrieve+responses+200+application-json+move\}
 
 </div>
 
@@ -509,16 +528,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="move_name"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move+name"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+move+name"
   parentId="move"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move+name\}
+##### name \{#operation-api_v2_machine_retrieve+responses+200+application-json+move+name\}
 
 </div>
 
@@ -527,16 +547,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="move_url"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move+url"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+move+url"
   parentId="move"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+move+url\}
+##### url \{#operation-api_v2_machine_retrieve+responses+200+application-json+move+url\}
 
 </div>
 
@@ -545,15 +566,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_group"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group"
-  typeInfo={{"label":"VersionGroupSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group+versiongroupsummary\">VersionGroupSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+version_group"
+  typeInfo={{"label":"VersionGroupSummary","linkedLabel":"<a href=\"#operation-api_v2_machine_retrieve+responses+200+application-json+version_group+versiongroupsummary\">VersionGroupSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### version_group \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group\}
+##### version_group \{#operation-api_v2_machine_retrieve+responses+200+application-json+version_group\}
 
 </div>
 
@@ -562,16 +584,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_group_name"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group+name"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+version_group+name"
   parentId="version_group"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group+name\}
+##### name \{#operation-api_v2_machine_retrieve+responses+200+application-json+version_group+name\}
 
 </div>
 
@@ -580,16 +603,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_group_url"
-  headingId="operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group+url"
+  headingId="operation-api_v2_machine_retrieve+responses+200+application-json+version_group+url"
   parentId="version_group"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_machine_list+operation-api_v2_machine_retrieve+responses+200+application-json+version_group+url\}
+##### url \{#operation-api_v2_machine_retrieve+responses+200+application-json+version_group+url\}
 
 </div>
 

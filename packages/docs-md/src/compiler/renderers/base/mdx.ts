@@ -190,14 +190,18 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   }
 
   #getBreakoutIdInfo() {
-    const stack = this.getContextStack().map((c) => c.id);
+    const stack = this.getContextStack()
+      .filter((c) => c.type === "schema")
+      .map((c) => c.id);
     const id = stack.join("_");
     const parentId = stack.slice(0, -1).join("_") || undefined;
     return { id, parentId };
   }
 
   public override addExpandableBreakout(
-    ...[{ createTitle, createContent }]: RendererAddExpandableBreakoutArgs
+    ...[
+      { createTitle, createContent, expandByDefault },
+    ]: RendererAddExpandableBreakoutArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
     this.insertComponentImport("ExpandableBreakout");
@@ -207,6 +211,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   id="${id}"
   headingId="${this.getCurrentId()}"${parentId ? ` parentId="${parentId}"` : ""}
   hasFrontMatter={${createContent ? "true" : "false"}}
+  expandByDefault={${expandByDefault}}
 >`,
       { escape: "none" }
     );
@@ -226,7 +231,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
 
   public override addExpandableProperty(
     ...[
-      { typeInfo, annotations, title, createContent },
+      { typeInfo, annotations, title, createContent, expandByDefault },
     ]: RendererAddExpandablePropertyArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
@@ -252,6 +257,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
       : ""
   }
   hasFrontMatter={${createContent ? "true" : "false"}}
+  expandByDefault={${expandByDefault}}
 >`,
       { escape: "none" }
     );

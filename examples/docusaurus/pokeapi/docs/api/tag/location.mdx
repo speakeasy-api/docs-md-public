@@ -33,6 +33,7 @@ Locations that can be visited within the games. Locations make up sizable portio
   headingId="operation-api_v2_location_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -49,6 +50,7 @@ Locations that can be visited within the games. Locations make up sizable portio
   headingId="operation-api_v2_location_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -84,6 +86,7 @@ Locations that can be visited within the games. Locations make up sizable portio
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -107,6 +110,7 @@ Number of results to return per page.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -130,6 +134,7 @@ The initial index from which to return the results.
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -177,6 +182,7 @@ Case-insensitive query applied on the `name` property.
   headingId="operation-api_v2_location_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -203,6 +209,7 @@ _Example:_
   headingId="operation-api_v2_location_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -229,6 +236,7 @@ http://api.example.org/accounts/?offset=400&limit=100
   headingId="operation-api_v2_location_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -255,6 +263,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   headingId="operation-api_v2_location_list+responses+200+application-json+results"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+responses+200+application-json+results+locationsummary\">LocationSummary</a>","children":[{"label":"LocationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+responses+200+application-json+results+locationsummary\">LocationSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -270,6 +279,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   id="results_LocationSummary"
   headingId="operation-api_v2_location_list+responses+200+application-json+results+locationsummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -288,6 +298,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -306,6 +317,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -332,7 +344,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+security\}
+### Security \{#operation-api_v2_location_retrieve+security\}
 
 </SectionTitle>
 
@@ -343,14 +355,15 @@ Locations that can be visited within the games. Locations make up sizable portio
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+security+cookieauth"
+  headingId="operation-api_v2_location_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_location_retrieve+security+cookieauth\}
 
 </div>
 
@@ -359,14 +372,15 @@ Locations that can be visited within the games. Locations make up sizable portio
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+security+basicauth"
+  headingId="operation-api_v2_location_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_location_retrieve+security+basicauth\}
 
 </div>
 
@@ -382,7 +396,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+parameters\}
+### Parameters \{#operation-api_v2_location_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -393,15 +407,16 @@ Locations that can be visited within the games. Locations make up sizable portio
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+parameters+id"
+  headingId="operation-api_v2_location_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+parameters+id\}
+##### id \{#operation-api_v2_location_retrieve+parameters+id\}
 
 </div>
 
@@ -423,32 +438,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses\}
+### Responses \{#operation-api_v2_location_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_location_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="areas"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\">LocationAreaSummary</a>","children":[{"label":"LocationAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\">LocationAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+areas"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\">LocationAreaSummary</a>","children":[{"label":"LocationAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\">LocationAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### areas \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas\}
+##### areas \{#operation-api_v2_location_retrieve+responses+200+application-json+areas\}
 
 </div>
 
@@ -457,13 +473,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="areas_LocationAreaSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary" parentId="areas"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary" parentId="areas"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationAreaSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\}
+#### LocationAreaSummary \{#operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary\}
 
 </div>
 
@@ -472,16 +489,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="areas_LocationAreaSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+name"
   parentId="areas_LocationAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+name\}
 
 </div>
 
@@ -490,16 +508,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="areas_LocationAreaSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+url"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+url"
   parentId="areas_LocationAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+url\}
+##### url \{#operation-api_v2_location_retrieve+responses+200+application-json+areas+locationareasummary+url\}
 
 </div>
 
@@ -508,15 +527,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="game_indices"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\">LocationGameIndex</a>","children":[{"label":"LocationGameIndex","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\">LocationGameIndex</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\">LocationGameIndex</a>","children":[{"label":"LocationGameIndex","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\">LocationGameIndex</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### game_indices \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices\}
+##### game_indices \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices\}
 
 </div>
 
@@ -525,13 +545,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="game_indices_LocationGameIndex"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex" parentId="game_indices"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex" parentId="game_indices"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationGameIndex \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\}
+#### LocationGameIndex \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex\}
 
 </div>
 
@@ -540,16 +561,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="game_indices_LocationGameIndex_game_index"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+game_index"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+game_index"
   parentId="game_indices_LocationGameIndex"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### game_index \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+game_index\}
+##### game_index \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+game_index\}
 
 </div>
 
@@ -558,16 +580,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="game_indices_LocationGameIndex_generation"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation"
   parentId="game_indices_LocationGameIndex"
-  typeInfo={{"label":"GenerationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+generationsummary\">GenerationSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"GenerationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+generationsummary\">GenerationSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### generation \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation\}
+##### generation \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation\}
 
 </div>
 
@@ -576,16 +599,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="game_indices_LocationGameIndex_generation_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+name"
   parentId="game_indices_LocationGameIndex_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+name\}
 
 </div>
 
@@ -594,16 +618,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="game_indices_LocationGameIndex_generation_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+url"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+url"
   parentId="game_indices_LocationGameIndex_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+url\}
+##### url \{#operation-api_v2_location_retrieve+responses+200+application-json+game_indices+locationgameindex+generation+url\}
 
 </div>
 
@@ -612,15 +637,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_location_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -629,15 +655,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -646,15 +673,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\">LocationName</a>","children":[{"label":"LocationName","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\">LocationName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\">LocationName</a>","children":[{"label":"LocationName","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\">LocationName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_location_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -663,13 +691,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_LocationName"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname" parentId="names"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names+locationname" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationName \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\}
+#### LocationName \{#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname\}
 
 </div>
 
@@ -678,16 +707,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LocationName_language"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language"
   parentId="names_LocationName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language\}
+##### language \{#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language\}
 
 </div>
 
@@ -696,16 +726,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LocationName_language_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+name"
   parentId="names_LocationName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+name\}
 
 </div>
 
@@ -714,16 +745,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LocationName_language_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+url"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+url"
   parentId="names_LocationName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+url\}
+##### url \{#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+language+url\}
 
 </div>
 
@@ -732,16 +764,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LocationName_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+name"
   parentId="names_LocationName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+names+locationname+name\}
 
 </div>
 
@@ -750,15 +783,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="region"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region"
-  typeInfo={{"label":"RegionSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region+regionsummary\">RegionSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+region"
+  typeInfo={{"label":"RegionSummary","linkedLabel":"<a href=\"#operation-api_v2_location_retrieve+responses+200+application-json+region+regionsummary\">RegionSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### region \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region\}
+##### region \{#operation-api_v2_location_retrieve+responses+200+application-json+region\}
 
 </div>
 
@@ -767,16 +801,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="region_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region+name"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+region+name"
   parentId="region"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region+name\}
+##### name \{#operation-api_v2_location_retrieve+responses+200+application-json+region+name\}
 
 </div>
 
@@ -785,16 +820,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="region_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region+url"
+  headingId="operation-api_v2_location_retrieve+responses+200+application-json+region+url"
   parentId="region"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+responses+200+application-json+region+url\}
+##### url \{#operation-api_v2_location_retrieve+responses+200+application-json+region+url\}
 
 </div>
 
@@ -816,7 +852,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+security\}
+### Security \{#operation-api_v2_location_area_list+security\}
 
 </SectionTitle>
 
@@ -827,14 +863,15 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+security+cookieauth"
+  headingId="operation-api_v2_location_area_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_location_area_list+security+cookieauth\}
 
 </div>
 
@@ -843,14 +880,15 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+security+basicauth"
+  headingId="operation-api_v2_location_area_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_location_area_list+security+basicauth\}
 
 </div>
 
@@ -866,7 +904,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+parameters\}
+### Parameters \{#operation-api_v2_location_area_list+parameters\}
 
 </SectionTitle>
 
@@ -877,15 +915,16 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+parameters+limit"
+  headingId="operation-api_v2_location_area_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+parameters+limit\}
+##### limit \{#operation-api_v2_location_area_list+parameters+limit\}
 
 </div>
 
@@ -900,15 +939,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+parameters+offset"
+  headingId="operation-api_v2_location_area_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+parameters+offset\}
+##### offset \{#operation-api_v2_location_area_list+parameters+offset\}
 
 </div>
 
@@ -930,31 +970,32 @@ The initial index from which to return the results.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses\}
+### Responses \{#operation-api_v2_location_area_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_location_area_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_area_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+count"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_location_area_list+responses+200+application-json+count\}
 
 </div>
 
@@ -973,14 +1014,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+next"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_location_area_list+responses+200+application-json+next\}
 
 </div>
 
@@ -999,14 +1041,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_location_area_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -1025,14 +1068,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\">LocationAreaSummary</a>","children":[{"label":"LocationAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\">LocationAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\">LocationAreaSummary</a>","children":[{"label":"LocationAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\">LocationAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_location_area_list+responses+200+application-json+results\}
 
 </div>
 
@@ -1041,13 +1085,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_LocationAreaSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary" parentId="results"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationAreaSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\}
+#### LocationAreaSummary \{#operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary\}
 
 </div>
 
@@ -1056,16 +1101,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_LocationAreaSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+name"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+name"
   parentId="results_LocationAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+name\}
+##### name \{#operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+name\}
 
 </div>
 
@@ -1074,16 +1120,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_LocationAreaSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+url"
+  headingId="operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+url"
   parentId="results_LocationAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+url\}
+##### url \{#operation-api_v2_location_area_list+responses+200+application-json+results+locationareasummary+url\}
 
 </div>
 
@@ -1105,7 +1152,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+security\}
+### Security \{#operation-api_v2_location_area_retrieve+security\}
 
 </SectionTitle>
 
@@ -1116,14 +1163,15 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+security+cookieauth"
+  headingId="operation-api_v2_location_area_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_location_area_retrieve+security+cookieauth\}
 
 </div>
 
@@ -1132,14 +1180,15 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+security+basicauth"
+  headingId="operation-api_v2_location_area_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_location_area_retrieve+security+basicauth\}
 
 </div>
 
@@ -1155,7 +1204,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+parameters\}
+### Parameters \{#operation-api_v2_location_area_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -1166,15 +1215,16 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+parameters+id"
+  headingId="operation-api_v2_location_area_retrieve+parameters+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+parameters+id\}
+##### id \{#operation-api_v2_location_area_retrieve+parameters+id\}
 
 </div>
 
@@ -1196,32 +1246,33 @@ A unique integer value identifying this location area.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses\}
+### Responses \{#operation-api_v2_location_area_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_location_area_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_area_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\">encounter_method_rate</a>","children":[{"label":"encounter_method_rate","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\">encounter_method_rate</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\">encounter_method_rate</a>","children":[{"label":"encounter_method_rate","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\">encounter_method_rate</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### encounter_method_rates \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates\}
+##### encounter_method_rates \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates\}
 
 </div>
 
@@ -1230,13 +1281,14 @@ A unique integer value identifying this location area.
 <ExpandableBreakout
   slot="entry"
   id="encounter_method_rates_encounter_method_rate"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate" parentId="encounter_method_rates"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate" parentId="encounter_method_rates"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### encounter\_method\_rate \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\}
+#### encounter\_method\_rate \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate\}
 
 </div>
 
@@ -1245,16 +1297,17 @@ A unique integer value identifying this location area.
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_encounter_method"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method"
   parentId="encounter_method_rates_encounter_method_rate"
-  typeInfo={{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### encounter_method \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method\}
+##### encounter_method \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method\}
 
 </div>
 
@@ -1263,16 +1316,17 @@ A unique integer value identifying this location area.
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_encounter_method_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+name"
   parentId="encounter_method_rates_encounter_method_rate_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+name\}
 
 </div>
 
@@ -1291,16 +1345,17 @@ old-rod
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_encounter_method_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+url"
   parentId="encounter_method_rates_encounter_method_rate_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+encounter_method+url\}
 
 </div>
 
@@ -1319,16 +1374,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_version_details"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details"
   parentId="encounter_method_rates_encounter_method_rate"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### version_details \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details\}
+##### version_details \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details\}
 
 </div>
 
@@ -1337,13 +1393,14 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableBreakout
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_version_details_encounter_method"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method" parentId="encounter_method_rates_encounter_method_rate_version_details"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method" parentId="encounter_method_rates_encounter_method_rate_version_details"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### encounter\_method \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\}
+#### encounter\_method \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method\}
 
 </div>
 
@@ -1352,16 +1409,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_version_details_encounter_method_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+name"
   parentId="encounter_method_rates_encounter_method_rate_version_details_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+name\}
 
 </div>
 
@@ -1380,16 +1438,17 @@ old-rod
 <ExpandableProperty
   slot="entry"
   id="encounter_method_rates_encounter_method_rate_version_details_encounter_method_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+url"
   parentId="encounter_method_rates_encounter_method_rate_version_details_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+encounter_method_rates+encounter_method_rate+version_details+encounter_method+url\}
 
 </div>
 
@@ -1408,15 +1467,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="game_index"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+game_index"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+game_index"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### game_index \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+game_index\}
+##### game_index \{#operation-api_v2_location_area_retrieve+responses+200+application-json+game_index\}
 
 </div>
 
@@ -1425,15 +1485,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_location_area_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -1442,15 +1503,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="location"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location"
-  typeInfo={{"label":"LocationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location+locationsummary\">LocationSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+location"
+  typeInfo={{"label":"LocationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+location+locationsummary\">LocationSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### location \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location\}
+##### location \{#operation-api_v2_location_area_retrieve+responses+200+application-json+location\}
 
 </div>
 
@@ -1459,16 +1521,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="location_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+location+name"
   parentId="location"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+location+name\}
 
 </div>
 
@@ -1477,16 +1540,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="location_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+location+url"
   parentId="location"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+location+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+location+url\}
 
 </div>
 
@@ -1495,15 +1559,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -1512,15 +1577,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\">LocationAreaName</a>","children":[{"label":"LocationAreaName","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\">LocationAreaName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\">LocationAreaName</a>","children":[{"label":"LocationAreaName","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\">LocationAreaName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -1529,13 +1595,14 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableBreakout
   slot="entry"
   id="names_LocationAreaName"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname" parentId="names"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationAreaName \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\}
+#### LocationAreaName \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname\}
 
 </div>
 
@@ -1544,16 +1611,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="names_LocationAreaName_language"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language"
   parentId="names_LocationAreaName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language\}
+##### language \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language\}
 
 </div>
 
@@ -1562,16 +1630,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="names_LocationAreaName_language_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+name"
   parentId="names_LocationAreaName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+name\}
 
 </div>
 
@@ -1580,16 +1649,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="names_LocationAreaName_language_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+url"
   parentId="names_LocationAreaName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+language+url\}
 
 </div>
 
@@ -1598,16 +1668,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="names_LocationAreaName_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+name"
   parentId="names_LocationAreaName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+names+locationareaname+name\}
 
 </div>
 
@@ -1616,15 +1687,16 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\">encounter_method_rate</a>","children":[{"label":"encounter_method_rate","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\">encounter_method_rate</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\">encounter_method_rate</a>","children":[{"label":"encounter_method_rate","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\">encounter_method_rate</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### pokemon_encounters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters\}
+##### pokemon_encounters \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters\}
 
 </div>
 
@@ -1633,13 +1705,14 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableBreakout
   slot="entry"
   id="pokemon_encounters_encounter_method_rate"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate" parentId="pokemon_encounters"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate" parentId="pokemon_encounters"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### encounter\_method\_rate \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\}
+#### encounter\_method\_rate \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate\}
 
 </div>
 
@@ -1648,16 +1721,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_encounter_method"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method"
   parentId="pokemon_encounters_encounter_method_rate"
-  typeInfo={{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### encounter_method \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method\}
+##### encounter_method \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method\}
 
 </div>
 
@@ -1666,16 +1740,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_encounter_method_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+name"
   parentId="pokemon_encounters_encounter_method_rate_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+name\}
 
 </div>
 
@@ -1694,16 +1769,17 @@ old-rod
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_encounter_method_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+url"
   parentId="pokemon_encounters_encounter_method_rate_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+encounter_method+url\}
 
 </div>
 
@@ -1722,16 +1798,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_version_details"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details"
   parentId="pokemon_encounters_encounter_method_rate"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[{"label":"encounter_method","linkedLabel":"<a href=\"#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\">encounter_method</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### version_details \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details\}
+##### version_details \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details\}
 
 </div>
 
@@ -1740,13 +1817,14 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableBreakout
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_version_details_encounter_method"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method" parentId="pokemon_encounters_encounter_method_rate_version_details"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method" parentId="pokemon_encounters_encounter_method_rate_version_details"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### encounter\_method \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\}
+#### encounter\_method \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method\}
 
 </div>
 
@@ -1755,16 +1833,17 @@ https://pokeapi.co/api/v2/encounter-method/2/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_version_details_encounter_method_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+name"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+name"
   parentId="pokemon_encounters_encounter_method_rate_version_details_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+name\}
+##### name \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+name\}
 
 </div>
 
@@ -1783,16 +1862,17 @@ old-rod
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_encounter_method_rate_version_details_encounter_method_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+url"
+  headingId="operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+url"
   parentId="pokemon_encounters_encounter_method_rate_version_details_encounter_method"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+url\}
+##### url \{#operation-api_v2_location_area_retrieve+responses+200+application-json+pokemon_encounters+encounter_method_rate+version_details+encounter_method+url\}
 
 </div>
 
@@ -1824,7 +1904,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+security\}
+### Security \{#operation-api_v2_pal_park_area_list+security\}
 
 </SectionTitle>
 
@@ -1835,14 +1915,15 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+security+cookieauth"
+  headingId="operation-api_v2_pal_park_area_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_pal_park_area_list+security+cookieauth\}
 
 </div>
 
@@ -1851,14 +1932,15 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+security+basicauth"
+  headingId="operation-api_v2_pal_park_area_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_pal_park_area_list+security+basicauth\}
 
 </div>
 
@@ -1874,7 +1956,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters\}
+### Parameters \{#operation-api_v2_pal_park_area_list+parameters\}
 
 </SectionTitle>
 
@@ -1885,15 +1967,16 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+limit"
+  headingId="operation-api_v2_pal_park_area_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+limit\}
+##### limit \{#operation-api_v2_pal_park_area_list+parameters+limit\}
 
 </div>
 
@@ -1908,15 +1991,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+offset"
+  headingId="operation-api_v2_pal_park_area_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+offset\}
+##### offset \{#operation-api_v2_pal_park_area_list+parameters+offset\}
 
 </div>
 
@@ -1931,15 +2015,16 @@ The initial index from which to return the results.
 <ExpandableProperty
   slot="entry"
   id="q"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+q"
+  headingId="operation-api_v2_pal_park_area_list+parameters+q"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### q \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+parameters+q\}
+##### q \{#operation-api_v2_pal_park_area_list+parameters+q\}
 
 </div>
 
@@ -1962,31 +2047,32 @@ Case-insensitive query applied on the `name` property.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses\}
+### Responses \{#operation-api_v2_pal_park_area_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_pal_park_area_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_pal_park_area_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+count"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_pal_park_area_list+responses+200+application-json+count\}
 
 </div>
 
@@ -2005,14 +2091,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+next"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_pal_park_area_list+responses+200+application-json+next\}
 
 </div>
 
@@ -2031,14 +2118,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_pal_park_area_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -2057,14 +2145,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\">PalParkAreaSummary</a>","children":[{"label":"PalParkAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\">PalParkAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\">PalParkAreaSummary</a>","children":[{"label":"PalParkAreaSummary","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\">PalParkAreaSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_pal_park_area_list+responses+200+application-json+results\}
 
 </div>
 
@@ -2073,13 +2162,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_PalParkAreaSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary" parentId="results"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### PalParkAreaSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\}
+#### PalParkAreaSummary \{#operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary\}
 
 </div>
 
@@ -2088,16 +2178,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_PalParkAreaSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+name"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+name"
   parentId="results_PalParkAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+name\}
+##### name \{#operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+name\}
 
 </div>
 
@@ -2106,16 +2197,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_PalParkAreaSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+url"
+  headingId="operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+url"
   parentId="results_PalParkAreaSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+url\}
+##### url \{#operation-api_v2_pal_park_area_list+responses+200+application-json+results+palparkareasummary+url\}
 
 </div>
 
@@ -2137,7 +2229,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+security\}
+### Security \{#operation-api_v2_pal_park_area_retrieve+security\}
 
 </SectionTitle>
 
@@ -2148,14 +2240,15 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+security+cookieauth"
+  headingId="operation-api_v2_pal_park_area_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_pal_park_area_retrieve+security+cookieauth\}
 
 </div>
 
@@ -2164,14 +2257,15 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+security+basicauth"
+  headingId="operation-api_v2_pal_park_area_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_pal_park_area_retrieve+security+basicauth\}
 
 </div>
 
@@ -2187,7 +2281,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+parameters\}
+### Parameters \{#operation-api_v2_pal_park_area_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -2198,15 +2292,16 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+parameters+id"
+  headingId="operation-api_v2_pal_park_area_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+parameters+id\}
+##### id \{#operation-api_v2_pal_park_area_retrieve+parameters+id\}
 
 </div>
 
@@ -2228,32 +2323,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses\}
+### Responses \{#operation-api_v2_pal_park_area_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_pal_park_area_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_pal_park_area_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -2262,15 +2358,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -2279,15 +2376,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\">PalParkAreaName</a>","children":[{"label":"PalParkAreaName","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\">PalParkAreaName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\">PalParkAreaName</a>","children":[{"label":"PalParkAreaName","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\">PalParkAreaName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -2296,13 +2394,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_PalParkAreaName"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname" parentId="names"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### PalParkAreaName \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\}
+#### PalParkAreaName \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname\}
 
 </div>
 
@@ -2311,16 +2410,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_PalParkAreaName_language"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language"
   parentId="names_PalParkAreaName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language\}
+##### language \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language\}
 
 </div>
 
@@ -2329,16 +2429,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_PalParkAreaName_language_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+name"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+name"
   parentId="names_PalParkAreaName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+name\}
+##### name \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+name\}
 
 </div>
 
@@ -2347,16 +2448,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_PalParkAreaName_language_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+url"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+url"
   parentId="names_PalParkAreaName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+url\}
+##### url \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+language+url\}
 
 </div>
 
@@ -2365,16 +2467,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_PalParkAreaName_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+name"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+name"
   parentId="names_PalParkAreaName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+name\}
+##### name \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+names+palparkareaname+name\}
 
 </div>
 
@@ -2383,15 +2486,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\">pokemon_encounter</a>","children":[{"label":"pokemon_encounter","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\">pokemon_encounter</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\">pokemon_encounter</a>","children":[{"label":"pokemon_encounter","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\">pokemon_encounter</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### pokemon_encounters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters\}
+##### pokemon_encounters \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters\}
 
 </div>
 
@@ -2400,13 +2504,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="pokemon_encounters_pokemon_encounter"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter" parentId="pokemon_encounters"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter" parentId="pokemon_encounters"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### pokemon\_encounter \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\}
+#### pokemon\_encounter \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter\}
 
 </div>
 
@@ -2415,16 +2520,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_pokemon_encounter_base_score"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+base_score"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+base_score"
   parentId="pokemon_encounters_pokemon_encounter"
   typeInfo={{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### base_score \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+base_score\}
+##### base_score \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+base_score\}
 
 </div>
 
@@ -2443,16 +2549,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_pokemon_encounter_pokemon-species"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species"
   parentId="pokemon_encounters_pokemon_encounter"
-  typeInfo={{"label":"pokemon-species","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+pokemon-species\">pokemon-species</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"pokemon-species","linkedLabel":"<a href=\"#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+pokemon-species\">pokemon-species</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### pokemon-species \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species\}
+##### pokemon-species \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species\}
 
 </div>
 
@@ -2461,16 +2568,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_pokemon_encounter_pokemon-species_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+name"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+name"
   parentId="pokemon_encounters_pokemon_encounter_pokemon-species"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+name\}
+##### name \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+name\}
 
 </div>
 
@@ -2489,16 +2597,17 @@ bulbasaur
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_pokemon_encounter_pokemon-species_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+url"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+url"
   parentId="pokemon_encounters_pokemon_encounter_pokemon-species"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+url\}
+##### url \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+pokemon-species+url\}
 
 </div>
 
@@ -2517,16 +2626,17 @@ https://pokeapi.co/api/v2/pokemon-species/1/
 <ExpandableProperty
   slot="entry"
   id="pokemon_encounters_pokemon_encounter_rate"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+rate"
+  headingId="operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+rate"
   parentId="pokemon_encounters_pokemon_encounter"
   typeInfo={{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### rate \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+rate\}
+##### rate \{#operation-api_v2_pal_park_area_retrieve+responses+200+application-json+pokemon_encounters+pokemon_encounter+rate\}
 
 </div>
 
@@ -2558,7 +2668,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+security\}
+### Security \{#operation-api_v2_region_list+security\}
 
 </SectionTitle>
 
@@ -2569,14 +2679,15 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+security+cookieauth"
+  headingId="operation-api_v2_region_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_region_list+security+cookieauth\}
 
 </div>
 
@@ -2585,14 +2696,15 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+security+basicauth"
+  headingId="operation-api_v2_region_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_region_list+security+basicauth\}
 
 </div>
 
@@ -2608,7 +2720,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters\}
+### Parameters \{#operation-api_v2_region_list+parameters\}
 
 </SectionTitle>
 
@@ -2619,15 +2731,16 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+limit"
+  headingId="operation-api_v2_region_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+limit\}
+##### limit \{#operation-api_v2_region_list+parameters+limit\}
 
 </div>
 
@@ -2642,15 +2755,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+offset"
+  headingId="operation-api_v2_region_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+offset\}
+##### offset \{#operation-api_v2_region_list+parameters+offset\}
 
 </div>
 
@@ -2665,15 +2779,16 @@ The initial index from which to return the results.
 <ExpandableProperty
   slot="entry"
   id="q"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+q"
+  headingId="operation-api_v2_region_list+parameters+q"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### q \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+parameters+q\}
+##### q \{#operation-api_v2_region_list+parameters+q\}
 
 </div>
 
@@ -2696,31 +2811,32 @@ Case-insensitive query applied on the `name` property.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses\}
+### Responses \{#operation-api_v2_region_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_region_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_region_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+count"
+  headingId="operation-api_v2_region_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_region_list+responses+200+application-json+count\}
 
 </div>
 
@@ -2739,14 +2855,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+next"
+  headingId="operation-api_v2_region_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_region_list+responses+200+application-json+next\}
 
 </div>
 
@@ -2765,14 +2882,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_region_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_region_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -2791,14 +2909,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary\">RegionSummary</a>","children":[{"label":"RegionSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary\">RegionSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_region_list+responses+200+application-json+results+regionsummary\">RegionSummary</a>","children":[{"label":"RegionSummary","linkedLabel":"<a href=\"#operation-api_v2_region_list+responses+200+application-json+results+regionsummary\">RegionSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_region_list+responses+200+application-json+results\}
 
 </div>
 
@@ -2807,13 +2926,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_RegionSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary" parentId="results"
+  headingId="operation-api_v2_region_list+responses+200+application-json+results+regionsummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### RegionSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary\}
+#### RegionSummary \{#operation-api_v2_region_list+responses+200+application-json+results+regionsummary\}
 
 </div>
 
@@ -2822,16 +2942,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_RegionSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary+name"
+  headingId="operation-api_v2_region_list+responses+200+application-json+results+regionsummary+name"
   parentId="results_RegionSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary+name\}
+##### name \{#operation-api_v2_region_list+responses+200+application-json+results+regionsummary+name\}
 
 </div>
 
@@ -2840,16 +2961,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_RegionSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary+url"
+  headingId="operation-api_v2_region_list+responses+200+application-json+results+regionsummary+url"
   parentId="results_RegionSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+responses+200+application-json+results+regionsummary+url\}
+##### url \{#operation-api_v2_region_list+responses+200+application-json+results+regionsummary+url\}
 
 </div>
 
@@ -2871,7 +2993,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+security\}
+### Security \{#operation-api_v2_region_retrieve+security\}
 
 </SectionTitle>
 
@@ -2882,14 +3004,15 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+security+cookieauth"
+  headingId="operation-api_v2_region_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_region_retrieve+security+cookieauth\}
 
 </div>
 
@@ -2898,14 +3021,15 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+security+basicauth"
+  headingId="operation-api_v2_region_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_region_retrieve+security+basicauth\}
 
 </div>
 
@@ -2921,7 +3045,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+parameters\}
+### Parameters \{#operation-api_v2_region_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -2932,15 +3056,16 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+parameters+id"
+  headingId="operation-api_v2_region_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+parameters+id\}
+##### id \{#operation-api_v2_region_retrieve+parameters+id\}
 
 </div>
 
@@ -2962,32 +3087,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses\}
+### Responses \{#operation-api_v2_region_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_region_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_region_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_region_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -2996,15 +3122,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="locations"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\">LocationSummary</a>","children":[{"label":"LocationSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\">LocationSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+locations"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\">LocationSummary</a>","children":[{"label":"LocationSummary","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\">LocationSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### locations \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations\}
+##### locations \{#operation-api_v2_region_retrieve+responses+200+application-json+locations\}
 
 </div>
 
@@ -3013,13 +3140,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="locations_LocationSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary" parentId="locations"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary" parentId="locations"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### LocationSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\}
+#### LocationSummary \{#operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary\}
 
 </div>
 
@@ -3028,16 +3156,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="locations_LocationSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+name"
   parentId="locations_LocationSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+name\}
 
 </div>
 
@@ -3046,16 +3175,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="locations_LocationSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+url"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+url"
   parentId="locations_LocationSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+url\}
+##### url \{#operation-api_v2_region_retrieve+responses+200+application-json+locations+locationsummary+url\}
 
 </div>
 
@@ -3064,15 +3194,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="main_generation"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation"
-  typeInfo={{"label":"main_generation","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation+main_generation\">main_generation</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+main_generation"
+  typeInfo={{"label":"main_generation","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+main_generation+main_generation\">main_generation</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### main_generation \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation\}
+##### main_generation \{#operation-api_v2_region_retrieve+responses+200+application-json+main_generation\}
 
 </div>
 
@@ -3081,16 +3212,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="main_generation_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+main_generation+name"
   parentId="main_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+main_generation+name\}
 
 </div>
 
@@ -3099,16 +3231,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="main_generation_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation+url"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+main_generation+url"
   parentId="main_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+main_generation+url\}
+##### url \{#operation-api_v2_region_retrieve+responses+200+application-json+main_generation+url\}
 
 </div>
 
@@ -3117,15 +3250,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -3134,15 +3268,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\">RegionName</a>","children":[{"label":"RegionName","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\">RegionName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\">RegionName</a>","children":[{"label":"RegionName","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\">RegionName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_region_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -3151,13 +3286,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_RegionName"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname" parentId="names"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names+regionname" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### RegionName \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\}
+#### RegionName \{#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname\}
 
 </div>
 
@@ -3166,16 +3302,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_RegionName_language"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language"
   parentId="names_RegionName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language\}
+##### language \{#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language\}
 
 </div>
 
@@ -3184,16 +3321,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_RegionName_language_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+name"
   parentId="names_RegionName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+name\}
 
 </div>
 
@@ -3202,16 +3340,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_RegionName_language_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+url"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+url"
   parentId="names_RegionName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+url\}
+##### url \{#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+language+url\}
 
 </div>
 
@@ -3220,16 +3359,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_RegionName_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+name"
   parentId="names_RegionName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+names+regionname+name\}
 
 </div>
 
@@ -3238,15 +3378,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokedexes"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\">PokedexSummary</a>","children":[{"label":"PokedexSummary","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\">PokedexSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+pokedexes"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\">PokedexSummary</a>","children":[{"label":"PokedexSummary","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\">PokedexSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### pokedexes \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes\}
+##### pokedexes \{#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes\}
 
 </div>
 
@@ -3255,13 +3396,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="pokedexes_PokedexSummary"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary" parentId="pokedexes"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary" parentId="pokedexes"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### PokedexSummary \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\}
+#### PokedexSummary \{#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary\}
 
 </div>
 
@@ -3270,16 +3412,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokedexes_PokedexSummary_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+name"
   parentId="pokedexes_PokedexSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+name\}
 
 </div>
 
@@ -3288,16 +3431,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokedexes_PokedexSummary_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+url"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+url"
   parentId="pokedexes_PokedexSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+url\}
+##### url \{#operation-api_v2_region_retrieve+responses+200+application-json+pokedexes+pokedexsummary+url\}
 
 </div>
 
@@ -3306,15 +3450,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_groups"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\">main_generation</a>","children":[{"label":"main_generation","linkedLabel":"<a href=\"#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\">main_generation</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+version_groups"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\">main_generation</a>","children":[{"label":"main_generation","linkedLabel":"<a href=\"#operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\">main_generation</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### version_groups \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups\}
+##### version_groups \{#operation-api_v2_region_retrieve+responses+200+application-json+version_groups\}
 
 </div>
 
@@ -3323,13 +3468,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="version_groups_main_generation"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation" parentId="version_groups"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation" parentId="version_groups"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### main\_generation \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\}
+#### main\_generation \{#operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation\}
 
 </div>
 
@@ -3338,16 +3484,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_groups_main_generation_name"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+name"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+name"
   parentId="version_groups_main_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+name\}
+##### name \{#operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+name\}
 
 </div>
 
@@ -3356,16 +3503,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="version_groups_main_generation_url"
-  headingId="operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+url"
+  headingId="operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+url"
   parentId="version_groups_main_generation"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_location_list+operation-api_v2_location_retrieve+operation-api_v2_location_area_list+operation-api_v2_location_area_retrieve+operation-api_v2_pal_park_area_list+operation-api_v2_pal_park_area_retrieve+operation-api_v2_region_list+operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+url\}
+##### url \{#operation-api_v2_region_retrieve+responses+200+application-json+version_groups+main_generation+url\}
 
 </div>
 
