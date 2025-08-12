@@ -581,11 +581,12 @@ ${text}\n</code>\n</pre>`;
     return this.#contextStack;
   }
 
-  public override isInRootSchemaContext() {
-    return (
-      this.#contextStack.filter((context) => context.type === "schema")
-        .length === 1
-    );
+  public override getCurrentContextType() {
+    const topLevelContext = this.#contextStack.at(-1);
+    if (!topLevelContext) {
+      throw new InternalError("No context found");
+    }
+    return topLevelContext.type;
   }
 
   public override alreadyInContext(...[id]: RendererAlreadyInContextArgs) {

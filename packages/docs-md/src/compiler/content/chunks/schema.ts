@@ -273,7 +273,8 @@ function renderObjectProperties({
 }) {
   const { expandTopLevelPropertiesOnPageLoad } = getSettings().display;
   const expandByDefault =
-    expandTopLevelPropertiesOnPageLoad && renderer.isInRootSchemaContext();
+    expandTopLevelPropertiesOnPageLoad &&
+    renderer.getCurrentContextType() !== "schema";
   const properties = Object.entries(schema.properties).map(
     ([name, propertySchema]) => {
       if (propertySchema.type === "chunk") {
@@ -342,7 +343,8 @@ function renderContainerTypes({
 }) {
   const { expandTopLevelPropertiesOnPageLoad } = getSettings().display;
   const expandByDefault =
-    expandTopLevelPropertiesOnPageLoad && renderer.isInRootSchemaContext();
+    expandTopLevelPropertiesOnPageLoad &&
+    renderer.getCurrentContextType() !== "schema";
   const entries = Array.from(typeInfo.breakoutSubTypes.entries()).map(
     ([label, schema]) => {
       // Shouldn't be possible due to how type info is computed
