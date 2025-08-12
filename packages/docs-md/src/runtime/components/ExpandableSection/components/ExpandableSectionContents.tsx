@@ -43,7 +43,19 @@ export function ExpandableSectionContents({
   children,
 }: ExpandableSectionProps) {
   const { treeData, entries } = useTreeData(children);
-  const [openNodes, setOpenNodes] = useState(new Set<string>());
+  const [openNodes, setOpenNodes] = useState(
+    new Set<string>(
+      treeData.nodes
+        .filter((node) => {
+          if (node.parent) {
+            return false;
+          }
+          const entry = entries.find((entry) => entry.props.id === node.id);
+          return entry?.props.hasFrontMatter;
+        })
+        .map((node) => node.id)
+    )
+  );
 
   const setIsOpen = useCallback((id: string, isOpen: boolean) => {
     setOpenNodes((openNodes) => {
