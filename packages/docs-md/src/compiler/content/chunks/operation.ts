@@ -29,7 +29,8 @@ export function renderOperation({
   debug(
     `Rendering operation chunk: method=${chunk.chunkData.method} path=${chunk.chunkData.path} operationId=${chunk.chunkData.operationId}`
   );
-  const { showDebugPlaceholders } = getSettings().display;
+  const { showDebugPlaceholders, expandTopLevelPropertiesOnPageLoad } =
+    getSettings().display;
   renderer.addOperationSection(
     {
       method: chunk.chunkData.method,
@@ -49,7 +50,7 @@ export function renderOperation({
           for (const entry of securityChunk.chunkData.entries) {
             debug(`Rendering security chunk: name=${entry.name}`);
             const hasFrontmatter = !!entry.description || showDebugPlaceholders;
-            renderer.enterContext(entry.name);
+            renderer.enterContext({ id: entry.name, type: "schema" });
             renderer.addExpandableProperty({
               annotations: [
                 {
@@ -62,6 +63,7 @@ export function renderOperation({
                 },
               ],
               title: entry.name,
+              expandByDefault: expandTopLevelPropertiesOnPageLoad,
               createContent: hasFrontmatter
                 ? () => {
                     if (entry.description) {
@@ -84,7 +86,7 @@ export function renderOperation({
         renderer.addParametersSection(() => {
           for (const parameter of chunk.chunkData.parameters) {
             debug(`Rendering parameter: name=${parameter.name}`);
-            renderer.enterContext(parameter.name);
+            renderer.enterContext({ id: parameter.name, type: "schema" });
             const annotations: PropertyAnnotations[] = [
               {
                 title: parameter.in,
@@ -114,6 +116,7 @@ export function renderOperation({
               typeInfo,
               annotations,
               title: parameter.name,
+              expandByDefault: expandTopLevelPropertiesOnPageLoad,
               createContent: hasFrontmatter
                 ? () => {
                     if (parameter.description) {

@@ -33,6 +33,7 @@ Languages for translations of API resource information.
   headingId="operation-api_v2_language_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -49,6 +50,7 @@ Languages for translations of API resource information.
   headingId="operation-api_v2_language_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -84,6 +86,7 @@ Languages for translations of API resource information.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -107,6 +110,7 @@ Number of results to return per page.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -130,6 +134,7 @@ The initial index from which to return the results.
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -177,6 +182,7 @@ Case-insensitive query applied on the `name` property.
   headingId="operation-api_v2_language_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -203,6 +209,7 @@ _Example:_
   headingId="operation-api_v2_language_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -229,6 +236,7 @@ http://api.example.org/accounts/?offset=400&limit=100
   headingId="operation-api_v2_language_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -255,6 +263,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   headingId="operation-api_v2_language_list+responses+200+application-json+results"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_language_list+responses+200+application-json+results+languagesummary\">LanguageSummary</a>","children":[{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_language_list+responses+200+application-json+results+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -270,6 +279,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   id="results_LanguageSummary"
   headingId="operation-api_v2_language_list+responses+200+application-json+results+languagesummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -288,6 +298,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -306,6 +317,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -332,7 +344,7 @@ Languages for translations of API resource information.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+security\}
+### Security \{#operation-api_v2_language_retrieve+security\}
 
 </SectionTitle>
 
@@ -343,14 +355,15 @@ Languages for translations of API resource information.
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+security+cookieauth"
+  headingId="operation-api_v2_language_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_language_retrieve+security+cookieauth\}
 
 </div>
 
@@ -359,14 +372,15 @@ Languages for translations of API resource information.
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+security+basicauth"
+  headingId="operation-api_v2_language_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_language_retrieve+security+basicauth\}
 
 </div>
 
@@ -382,7 +396,7 @@ Languages for translations of API resource information.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+parameters\}
+### Parameters \{#operation-api_v2_language_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -393,15 +407,16 @@ Languages for translations of API resource information.
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+parameters+id"
+  headingId="operation-api_v2_language_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+parameters+id\}
+##### id \{#operation-api_v2_language_retrieve+parameters+id\}
 
 </div>
 
@@ -423,32 +438,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses\}
+### Responses \{#operation-api_v2_language_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_language_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_language_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_language_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -457,15 +473,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="iso3166"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+iso3166"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+iso3166"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### iso3166 \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+iso3166\}
+##### iso3166 \{#operation-api_v2_language_retrieve+responses+200+application-json+iso3166\}
 
 </div>
 
@@ -474,15 +491,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="iso639"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+iso639"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+iso639"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### iso639 \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+iso639\}
+##### iso639 \{#operation-api_v2_language_retrieve+responses+200+application-json+iso639\}
 
 </div>
 
@@ -491,15 +509,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_language_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -508,15 +527,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\">LanguageName</a>","children":[{"label":"LanguageName","linkedLabel":"<a href=\"#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\">LanguageName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\">LanguageName</a>","children":[{"label":"LanguageName","linkedLabel":"<a href=\"#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\">LanguageName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_language_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -525,13 +545,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_LanguageName"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename" parentId="names"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names+languagename" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-#### LanguageName \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\}
+#### LanguageName \{#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename\}
 
 </div>
 
@@ -540,16 +561,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LanguageName_language"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language"
   parentId="names_LanguageName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language\}
+##### language \{#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language\}
 
 </div>
 
@@ -558,16 +580,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LanguageName_language_name"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+name"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+name"
   parentId="names_LanguageName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+name\}
+##### name \{#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+name\}
 
 </div>
 
@@ -576,16 +599,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LanguageName_language_url"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+url"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+url"
   parentId="names_LanguageName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+url\}
+##### url \{#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+language+url\}
 
 </div>
 
@@ -594,16 +618,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_LanguageName_name"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+name"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+name"
   parentId="names_LanguageName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+name\}
+##### name \{#operation-api_v2_language_retrieve+responses+200+application-json+names+languagename+name\}
 
 </div>
 
@@ -612,14 +637,15 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="official"
-  headingId="operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+official"
+  headingId="operation-api_v2_language_retrieve+responses+200+application-json+official"
   typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### official \{#operation-api_v2_language_list+operation-api_v2_language_retrieve+responses+200+application-json+official\}
+##### official \{#operation-api_v2_language_retrieve+responses+200+application-json+official\}
 
 </div>
 

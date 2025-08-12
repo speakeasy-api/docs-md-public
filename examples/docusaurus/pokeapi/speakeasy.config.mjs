@@ -5,4 +5,7 @@ export default {
     componentOutDir: "./src/components/speakeasy",
     framework: "docusaurus",
   },
+  display: {
+    expandTopLevelPropertiesOnPageLoad: true,
+  },
 };

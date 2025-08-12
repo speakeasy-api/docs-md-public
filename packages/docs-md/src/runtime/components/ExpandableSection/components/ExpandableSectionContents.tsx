@@ -51,7 +51,7 @@ export function ExpandableSectionContents({
             return false;
           }
           const entry = entries.find((entry) => entry.props.id === node.id);
-          return entry?.props.hasFrontMatter;
+          return !!entry?.props.expandByDefault;
         })
         .map((node) => node.id)
     )

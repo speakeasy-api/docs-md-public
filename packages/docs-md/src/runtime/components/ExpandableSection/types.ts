@@ -29,4 +29,5 @@ export type RowProps = PropsWithChildren<{
   headingId: string;
   parentId?: string;
   hasFrontMatter: boolean;
+  expandByDefault: boolean;
 }>;

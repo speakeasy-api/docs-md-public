@@ -23,8 +23,11 @@ import type {
   SectionVariant,
 } from "../../../types/shared.ts";
 
+type ContextType = "operation" | "section" | "schema";
+
 export type Context = {
   id: string;
+  type: ContextType;
 };
 
 // Argument types for Site interface methods
@@ -184,10 +187,11 @@ export type RendererAddResponsesArgs = [
     title?: string;
   },
 ];
-export type RendererCreateContextArgs = [id: string];
+export type RendererCreateContextArgs = [context: Context];
 
 export type RendererAddExpandableBreakoutArgs = [
   options: {
+    expandByDefault: boolean;
     createTitle: () => void;
     createContent?: () => void;
   },
@@ -197,6 +201,7 @@ export type RendererAddExpandablePropertyArgs = [
     typeInfo?: DisplayTypeInfo;
     annotations: PropertyAnnotations[];
     title: string;
+    expandByDefault: boolean;
     createContent?: () => void;
   },
 ];
@@ -299,7 +304,7 @@ export abstract class Renderer {
   abstract escapeText(...args: RendererEscapeTextArgs): string;
   abstract enterContext(...args: RendererCreateContextArgs): void;
   abstract exitContext(): void;
-  abstract getContextStack(): Context[];
+  abstract isInRootSchemaContext(): boolean;
   abstract alreadyInContext(...args: RendererAlreadyInContextArgs): boolean;
   abstract getCurrentId(...args: RendererGetCurrentIdArgs): string;
   abstract getDocsData(): Map<string, Chunk>;

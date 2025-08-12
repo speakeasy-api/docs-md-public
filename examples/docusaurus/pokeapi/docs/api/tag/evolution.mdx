@@ -33,6 +33,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
   headingId="operation-api_v2_evolution_chain_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -49,6 +50,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
   headingId="operation-api_v2_evolution_chain_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -84,6 +86,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -107,6 +110,7 @@ Number of results to return per page.
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -130,6 +134,7 @@ The initial index from which to return the results.
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -177,6 +182,7 @@ Case-insensitive query applied on the `name` property.
   headingId="operation-api_v2_evolution_chain_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -203,6 +209,7 @@ _Example:_
   headingId="operation-api_v2_evolution_chain_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -229,6 +236,7 @@ http://api.example.org/accounts/?offset=400&limit=100
   headingId="operation-api_v2_evolution_chain_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -255,6 +263,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   headingId="operation-api_v2_evolution_chain_list+responses+200+application-json+results"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+responses+200+application-json+results+evolutionchainsummary\">EvolutionChainSummary</a>","children":[{"label":"EvolutionChainSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+responses+200+application-json+results+evolutionchainsummary\">EvolutionChainSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -270,6 +279,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   id="results_EvolutionChainSummary"
   headingId="operation-api_v2_evolution_chain_list+responses+200+application-json+results+evolutionchainsummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
@@ -288,6 +298,7 @@ http://api.example.org/accounts/?offset=200&limit=100
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -314,7 +325,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+security\}
+### Security \{#operation-api_v2_evolution_chain_retrieve+security\}
 
 </SectionTitle>
 
@@ -325,14 +336,15 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+security+cookieauth"
+  headingId="operation-api_v2_evolution_chain_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_evolution_chain_retrieve+security+cookieauth\}
 
 </div>
 
@@ -341,14 +353,15 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+security+basicauth"
+  headingId="operation-api_v2_evolution_chain_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_evolution_chain_retrieve+security+basicauth\}
 
 </div>
 
@@ -364,7 +377,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+parameters\}
+### Parameters \{#operation-api_v2_evolution_chain_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -375,15 +388,16 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+parameters+id"
+  headingId="operation-api_v2_evolution_chain_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+parameters+id\}
+##### id \{#operation-api_v2_evolution_chain_retrieve+parameters+id\}
 
 </div>
 
@@ -405,32 +419,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses\}
+### Responses \{#operation-api_v2_evolution_chain_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_evolution_chain_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_chain_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="baby_trigger_item"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item"
-  typeInfo={{"label":"ItemSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+itemsummary\">ItemSummary</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item"
+  typeInfo={{"label":"ItemSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+itemsummary\">ItemSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### baby_trigger_item \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item\}
+##### baby_trigger_item \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item\}
 
 </div>
 
@@ -439,16 +454,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="baby_trigger_item_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+name"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+name"
   parentId="baby_trigger_item"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+name\}
+##### name \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+name\}
 
 </div>
 
@@ -457,16 +473,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="baby_trigger_item_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+url"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+url"
   parentId="baby_trigger_item"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+url\}
+##### url \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+baby_trigger_item+url\}
 
 </div>
 
@@ -475,15 +492,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain"
-  typeInfo={{"label":"chain","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+chain\">chain</a>","children":[],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain"
+  typeInfo={{"label":"chain","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+chain\">chain</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### chain \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain\}
+##### chain \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain\}
 
 </div>
 
@@ -492,16 +510,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_evolution_details"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolution_details"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolution_details"
   parentId="chain"
   typeInfo={{"label":"array","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### evolution_details \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolution_details\}
+##### evolution_details \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolution_details\}
 
 </div>
 
@@ -510,16 +529,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_evolves_to"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to"
   parentId="chain"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to+evolves_to\">evolves_to</a>","children":[{"label":"evolves_to","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to+evolves_to\">evolves_to</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to+evolves_to\">evolves_to</a>","children":[{"label":"evolves_to","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to+evolves_to\">evolves_to</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### evolves_to \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to\}
+##### evolves_to \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+evolves_to\}
 
 </div>
 
@@ -528,16 +548,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_is_baby"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+is_baby"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+is_baby"
   parentId="chain"
   typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### is_baby \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+is_baby\}
+##### is_baby \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+is_baby\}
 
 </div>
 
@@ -546,16 +567,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_species"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species"
   parentId="chain"
-  typeInfo={{"label":"evolves_to","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolves_to\">evolves_to</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"evolves_to","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolves_to\">evolves_to</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### species \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species\}
+##### species \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species\}
 
 </div>
 
@@ -564,16 +586,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details"
   parentId="chain_species"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\">evolution_detail</a>","children":[{"label":"evolution_detail","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\">evolution_detail</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\">evolution_detail</a>","children":[{"label":"evolution_detail","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\">evolution_detail</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### evolution_details \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details\}
+##### evolution_details \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details\}
 
 </div>
 
@@ -582,13 +605,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="chain_species_evolution_details_evolution_detail"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail" parentId="chain_species_evolution_details"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail" parentId="chain_species_evolution_details"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### evolution\_detail \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\}
+#### evolution\_detail \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail\}
 
 </div>
 
@@ -597,16 +621,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_gender"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender"
   parentId="chain_species_evolution_details_evolution_detail"
-  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### gender \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender\}
+##### gender \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+gender\}
 
 </div>
 
@@ -615,16 +640,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_held_item"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item"
   parentId="chain_species_evolution_details_evolution_detail"
-  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### held_item \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item\}
+##### held_item \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item\}
 
 </div>
 
@@ -633,13 +659,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_held_item_gender"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender" parentId="chain_species_evolution_details_evolution_detail_held_item"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender" parentId="chain_species_evolution_details_evolution_detail_held_item"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### gender \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender\}
+#### gender \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender\}
 
 </div>
 
@@ -648,16 +675,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_held_item_gender_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+name"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+name"
   parentId="chain_species_evolution_details_evolution_detail_held_item_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+name\}
+##### name \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+name\}
 
 </div>
 
@@ -676,16 +704,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_held_item_gender_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+url"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+url"
   parentId="chain_species_evolution_details_evolution_detail_held_item_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+url\}
+##### url \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+held_item+gender+url\}
 
 </div>
 
@@ -704,16 +733,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_item"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item"
   parentId="chain_species_evolution_details_evolution_detail"
-  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### item \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item\}
+##### item \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item\}
 
 </div>
 
@@ -722,13 +752,14 @@ _Example:_
 <ExpandableBreakout
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_item_gender"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender" parentId="chain_species_evolution_details_evolution_detail_item"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender" parentId="chain_species_evolution_details_evolution_detail_item"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### gender \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender\}
+#### gender \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender\}
 
 </div>
 
@@ -737,16 +768,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_item_gender_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+name"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+name"
   parentId="chain_species_evolution_details_evolution_detail_item_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+name\}
+##### name \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+name\}
 
 </div>
 
@@ -765,16 +797,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_item_gender_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+url"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+url"
   parentId="chain_species_evolution_details_evolution_detail_item_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+url\}
+##### url \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+item+gender+url\}
 
 </div>
 
@@ -793,16 +826,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_known_move"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### known_move \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move\}
+##### known_move \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move\}
 
 </div>
 
@@ -811,16 +845,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_known_move_type"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move_type"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move_type"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### known_move_type \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move_type\}
+##### known_move_type \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+known_move_type\}
 
 </div>
 
@@ -829,16 +864,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_location"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location"
   parentId="chain_species_evolution_details_evolution_detail"
-  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### location \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location\}
+##### location \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location\}
 
 </div>
 
@@ -847,13 +883,14 @@ _Example:_
 <ExpandableBreakout
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_location_gender"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender" parentId="chain_species_evolution_details_evolution_detail_location"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender" parentId="chain_species_evolution_details_evolution_detail_location"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### gender \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender\}
+#### gender \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender\}
 
 </div>
 
@@ -862,16 +899,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_location_gender_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+name"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+name"
   parentId="chain_species_evolution_details_evolution_detail_location_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+name\}
+##### name \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+name\}
 
 </div>
 
@@ -890,16 +928,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_location_gender_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+url"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+url"
   parentId="chain_species_evolution_details_evolution_detail_location_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+url\}
+##### url \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+location+gender+url\}
 
 </div>
 
@@ -918,16 +957,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_min_affection"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_affection"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_affection"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### min_affection \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_affection\}
+##### min_affection \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_affection\}
 
 </div>
 
@@ -936,16 +976,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_min_beauty"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_beauty"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_beauty"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### min_beauty \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_beauty\}
+##### min_beauty \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_beauty\}
 
 </div>
 
@@ -954,16 +995,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_min_happiness"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_happiness"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_happiness"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### min_happiness \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_happiness\}
+##### min_happiness \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_happiness\}
 
 </div>
 
@@ -972,16 +1014,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_min_level"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_level"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_level"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"int32","linkedLabel":"int32","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### min_level \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_level\}
+##### min_level \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+min_level\}
 
 </div>
 
@@ -990,16 +1033,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_needs_overworld_rain"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+needs_overworld_rain"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+needs_overworld_rain"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### needs_overworld_rain \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+needs_overworld_rain\}
+##### needs_overworld_rain \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+needs_overworld_rain\}
 
 </div>
 
@@ -1008,16 +1052,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_party_species"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_species"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_species"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### party_species \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_species\}
+##### party_species \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_species\}
 
 </div>
 
@@ -1026,16 +1071,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_party_type"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_type"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_type"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### party_type \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_type\}
+##### party_type \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+party_type\}
 
 </div>
 
@@ -1044,16 +1090,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_relative_physical_stats"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+relative_physical_stats"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+relative_physical_stats"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### relative_physical_stats \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+relative_physical_stats\}
+##### relative_physical_stats \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+relative_physical_stats\}
 
 </div>
 
@@ -1062,16 +1109,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_time_of_day"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+time_of_day"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+time_of_day"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### time_of_day \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+time_of_day\}
+##### time_of_day \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+time_of_day\}
 
 </div>
 
@@ -1080,16 +1128,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_trade_species"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trade_species"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trade_species"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### trade_species \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trade_species\}
+##### trade_species \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trade_species\}
 
 </div>
 
@@ -1098,16 +1147,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_trigger"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger"
   parentId="chain_species_evolution_details_evolution_detail"
-  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"gender","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender\">gender</a>","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### trigger \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger\}
+##### trigger \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger\}
 
 </div>
 
@@ -1116,13 +1166,14 @@ _Example:_
 <ExpandableBreakout
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_trigger_gender"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender" parentId="chain_species_evolution_details_evolution_detail_trigger"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender" parentId="chain_species_evolution_details_evolution_detail_trigger"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### gender \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender\}
+#### gender \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender\}
 
 </div>
 
@@ -1131,16 +1182,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_trigger_gender_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+name"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+name"
   parentId="chain_species_evolution_details_evolution_detail_trigger_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+name\}
+##### name \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+name\}
 
 </div>
 
@@ -1159,16 +1211,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_trigger_gender_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+url"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+url"
   parentId="chain_species_evolution_details_evolution_detail_trigger_gender"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+url\}
+##### url \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+trigger+gender+url\}
 
 </div>
 
@@ -1187,16 +1240,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_evolution_details_evolution_detail_turn_upside_down"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+turn_upside_down"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+turn_upside_down"
   parentId="chain_species_evolution_details_evolution_detail"
   typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### turn_upside_down \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+turn_upside_down\}
+##### turn_upside_down \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+evolution_details+evolution_detail+turn_upside_down\}
 
 </div>
 
@@ -1205,16 +1259,17 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="chain_species_is_baby"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+is_baby"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+is_baby"
   parentId="chain_species"
   typeInfo={{"label":"boolean","linkedLabel":"boolean","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### is_baby \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+is_baby\}
+##### is_baby \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+chain+species+is_baby\}
 
 </div>
 
@@ -1223,15 +1278,16 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_evolution_chain_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_evolution_chain_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -1253,7 +1309,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+security\}
+### Security \{#operation-api_v2_evolution_trigger_list+security\}
 
 </SectionTitle>
 
@@ -1264,14 +1320,15 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+security+cookieauth"
+  headingId="operation-api_v2_evolution_trigger_list+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_evolution_trigger_list+security+cookieauth\}
 
 </div>
 
@@ -1280,14 +1337,15 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+security+basicauth"
+  headingId="operation-api_v2_evolution_trigger_list+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+security+basicauth\}
+##### basicAuth \{#operation-api_v2_evolution_trigger_list+security+basicauth\}
 
 </div>
 
@@ -1303,7 +1361,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters\}
+### Parameters \{#operation-api_v2_evolution_trigger_list+parameters\}
 
 </SectionTitle>
 
@@ -1314,15 +1372,16 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="limit"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+limit"
+  headingId="operation-api_v2_evolution_trigger_list+parameters+limit"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### limit \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+limit\}
+##### limit \{#operation-api_v2_evolution_trigger_list+parameters+limit\}
 
 </div>
 
@@ -1337,15 +1396,16 @@ Number of results to return per page.
 <ExpandableProperty
   slot="entry"
   id="offset"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+offset"
+  headingId="operation-api_v2_evolution_trigger_list+parameters+offset"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### offset \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+offset\}
+##### offset \{#operation-api_v2_evolution_trigger_list+parameters+offset\}
 
 </div>
 
@@ -1360,15 +1420,16 @@ The initial index from which to return the results.
 <ExpandableProperty
   slot="entry"
   id="q"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+q"
+  headingId="operation-api_v2_evolution_trigger_list+parameters+q"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"query","variant":"info"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### q \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+parameters+q\}
+##### q \{#operation-api_v2_evolution_trigger_list+parameters+q\}
 
 </div>
 
@@ -1391,31 +1452,32 @@ Case-insensitive query applied on the `name` property.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses\}
+### Responses \{#operation-api_v2_evolution_trigger_list+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_evolution_trigger_list+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_trigger_list+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="count"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+count"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+count"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### count \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+count\}
+##### count \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+count\}
 
 </div>
 
@@ -1434,14 +1496,15 @@ _Example:_
 <ExpandableProperty
   slot="entry"
   id="next"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+next"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+next"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### next \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+next\}
+##### next \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+next\}
 
 </div>
 
@@ -1460,14 +1523,15 @@ http://api.example.org/accounts/?offset=400&limit=100
 <ExpandableProperty
   slot="entry"
   id="previous"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+previous"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+previous"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### previous \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+previous\}
+##### previous \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+previous\}
 
 </div>
 
@@ -1486,14 +1550,15 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\">EvolutionTriggerSummary</a>","children":[{"label":"EvolutionTriggerSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\">EvolutionTriggerSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+results"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\">EvolutionTriggerSummary</a>","children":[{"label":"EvolutionTriggerSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\">EvolutionTriggerSummary</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### results \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results\}
+##### results \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+results\}
 
 </div>
 
@@ -1502,13 +1567,14 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableBreakout
   slot="entry"
   id="results_EvolutionTriggerSummary"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary" parentId="results"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary" parentId="results"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-#### EvolutionTriggerSummary \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\}
+#### EvolutionTriggerSummary \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary\}
 
 </div>
 
@@ -1517,16 +1583,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_EvolutionTriggerSummary_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+name"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+name"
   parentId="results_EvolutionTriggerSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+name\}
+##### name \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+name\}
 
 </div>
 
@@ -1535,16 +1602,17 @@ http://api.example.org/accounts/?offset=200&limit=100
 <ExpandableProperty
   slot="entry"
   id="results_EvolutionTriggerSummary_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+url"
+  headingId="operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+url"
   parentId="results_EvolutionTriggerSummary"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+url\}
+##### url \{#operation-api_v2_evolution_trigger_list+responses+200+application-json+results+evolutiontriggersummary+url\}
 
 </div>
 
@@ -1566,7 +1634,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 
 <SectionTitle slot="title" variant="top-level">
 
-### Security \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+security\}
+### Security \{#operation-api_v2_evolution_trigger_retrieve+security\}
 
 </SectionTitle>
 
@@ -1577,14 +1645,15 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="cookieAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+security+cookieauth"
+  headingId="operation-api_v2_evolution_trigger_retrieve+security+cookieauth"
   typeAnnotations={[{"title":"cookie","variant":"info"},{"title":"apiKey","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### cookieAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+security+cookieauth\}
+##### cookieAuth \{#operation-api_v2_evolution_trigger_retrieve+security+cookieauth\}
 
 </div>
 
@@ -1593,14 +1662,15 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="basicAuth"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+security+basicauth"
+  headingId="operation-api_v2_evolution_trigger_retrieve+security+basicauth"
   typeAnnotations={[{"title":"basic","variant":"info"},{"title":"http","variant":"info"}]}
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### basicAuth \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+security+basicauth\}
+##### basicAuth \{#operation-api_v2_evolution_trigger_retrieve+security+basicauth\}
 
 </div>
 
@@ -1616,7 +1686,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+parameters\}
+### Parameters \{#operation-api_v2_evolution_trigger_retrieve+parameters\}
 
 </SectionTitle>
 
@@ -1627,15 +1697,16 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+parameters+id"
+  headingId="operation-api_v2_evolution_trigger_retrieve+parameters+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+parameters+id\}
+##### id \{#operation-api_v2_evolution_trigger_retrieve+parameters+id\}
 
 </div>
 
@@ -1657,32 +1728,33 @@ This parameter can be a string or an integer.
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses\}
+### Responses \{#operation-api_v2_evolution_trigger_retrieve+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json">
+<SectionTab slot="tab" id="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json">
 
 <ExpandableSection>
 
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+id"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+id"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+id\}
+##### id \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+id\}
 
 </div>
 
@@ -1691,15 +1763,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+name"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+name"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+name\}
+##### name \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+name\}
 
 </div>
 
@@ -1708,15 +1781,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\">EvolutionTriggerName</a>","children":[{"label":"EvolutionTriggerName","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\">EvolutionTriggerName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\">EvolutionTriggerName</a>","children":[{"label":"EvolutionTriggerName","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\">EvolutionTriggerName</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### names \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names\}
+##### names \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names\}
 
 </div>
 
@@ -1725,13 +1799,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="names_EvolutionTriggerName"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername" parentId="names"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername" parentId="names"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-#### EvolutionTriggerName \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\}
+#### EvolutionTriggerName \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername\}
 
 </div>
 
@@ -1740,16 +1815,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_EvolutionTriggerName_language"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language"
   parentId="names_EvolutionTriggerName"
-  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
+  typeInfo={{"label":"LanguageSummary","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+languagesummary\">LanguageSummary</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### language \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language\}
+##### language \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language\}
 
 </div>
 
@@ -1758,16 +1834,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_EvolutionTriggerName_language_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+name"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+name"
   parentId="names_EvolutionTriggerName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+name\}
+##### name \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+name\}
 
 </div>
 
@@ -1776,16 +1853,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_EvolutionTriggerName_language_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+url"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+url"
   parentId="names_EvolutionTriggerName_language"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+url\}
+##### url \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+language+url\}
 
 </div>
 
@@ -1794,16 +1872,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="names_EvolutionTriggerName_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+name"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+name"
   parentId="names_EvolutionTriggerName"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+name\}
+##### name \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+names+evolutiontriggername+name\}
 
 </div>
 
@@ -1812,15 +1891,16 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokemon_species"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\">pokemon_specie</a>","children":[{"label":"pokemon_specie","linkedLabel":"<a href=\"#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\">pokemon_specie</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\">pokemon_specie</a>","children":[{"label":"pokemon_specie","linkedLabel":"<a href=\"#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\">pokemon_specie</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### pokemon_species \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species\}
+##### pokemon_species \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species\}
 
 </div>
 
@@ -1829,13 +1909,14 @@ This parameter can be a string or an integer.
 <ExpandableBreakout
   slot="entry"
   id="pokemon_species_pokemon_specie"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie" parentId="pokemon_species"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie" parentId="pokemon_species"
   hasFrontMatter={false}
+  expandByDefault={true}
 >
 
 <div slot="title">
 
-#### pokemon\_specie \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\}
+#### pokemon\_specie \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie\}
 
 </div>
 
@@ -1844,16 +1925,17 @@ This parameter can be a string or an integer.
 <ExpandableProperty
   slot="entry"
   id="pokemon_species_pokemon_specie_name"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+name"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+name"
   parentId="pokemon_species_pokemon_specie"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### name \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+name\}
+##### name \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+name\}
 
 </div>
 
@@ -1872,16 +1954,17 @@ ivysaur
 <ExpandableProperty
   slot="entry"
   id="pokemon_species_pokemon_specie_url"
-  headingId="operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+url"
+  headingId="operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+url"
   parentId="pokemon_species_pokemon_specie"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### url \{#operation-api_v2_evolution_chain_list+operation-api_v2_evolution_chain_retrieve+operation-api_v2_evolution_trigger_list+operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+url\}
+##### url \{#operation-api_v2_evolution_trigger_retrieve+responses+200+application-json+pokemon_species+pokemon_specie+url\}
 
 </div>
 
