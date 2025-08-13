@@ -4,16 +4,24 @@ sidebar_label: Models
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Pill, TryItNow, Section, SectionTitle, SectionContent, TabbedSection, SectionTab, ExpandableSection, ExpandableProperty, ExpandableBreakout, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
+import { Operation, OperationFrontMatterSection, Pill, OperationTryItNowSection, TryItNow, Section, SectionTitle, SectionContent, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationParametersSection, FrontMatterDisplayType, OperationRequestBodySection } from "@speakeasy-api/docs-md/react";
 
 
 # Models Operations \{#models\}
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/models \{#operation-list_models_v1_models_get\}
 
 _List Models_
 
 List all models available to the user.
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -46,6 +54,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -1111,11 +1123,23 @@ Raw HTTP response; suitable for custom response parsing
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/models/\{model\_id\} \{#operation-retrieve_model_v1_models_model_id_get\}
 
 _Retrieve Model_
 
 Retrieve a model information.
+
+</OperationFrontMatterSection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -1159,6 +1183,10 @@ The ID of the model to retrieve.
 
 </Section>
 
+</OperationParametersSection>
+
+<OperationTryItNowSection slot="try-it-now">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -1192,6 +1220,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2221,11 +2253,23 @@ Raw HTTP response; suitable for custom response parsing
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>DELETE</b></Pill> /v1/models/\{model\_id\} \{#operation-delete_model_v1_models_model_id_delete\}
 
 _Delete Model_
 
 Delete a fine-tuned model.
+
+</OperationFrontMatterSection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -2269,6 +2313,10 @@ The ID of the model to delete.
 
 </Section>
 
+</OperationParametersSection>
+
+<OperationTryItNowSection slot="try-it-now">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -2302,6 +2350,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2589,11 +2641,23 @@ Raw HTTP response; suitable for custom response parsing
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>PATCH</b></Pill> /v1/fine\_tuning/models/\{model\_id\} \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model\}
 
 _Update Fine Tuned Model_
 
 Update a model name or description.
+
+</OperationFrontMatterSection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -2637,6 +2701,10 @@ The ID of the model to update.
 
 </Section>
 
+</OperationParametersSection>
+
+<OperationTryItNowSection slot="try-it-now">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -2671,6 +2739,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -2723,6 +2795,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -3655,11 +3731,23 @@ _Default Value:_ `"model"`
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fine\_tuning/models/\{model\_id\}/archive \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model\}
 
 _Archive Fine Tuned Model_
 
 Archive a fine-tuned model.
+
+</OperationFrontMatterSection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -3703,6 +3791,10 @@ The ID of the model to archive.
 
 </Section>
 
+</OperationParametersSection>
+
+<OperationTryItNowSection slot="try-it-now">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -3736,6 +3828,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -3827,11 +3923,23 @@ _Default Value:_ `"model"`
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>DELETE</b></Pill> /v1/fine\_tuning/models/\{model\_id\}/archive \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model\}
 
 _Unarchive Fine Tuned Model_
 
 Un-archive a fine-tuned model.
+
+</OperationFrontMatterSection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -3875,6 +3983,10 @@ The ID of the model to unarchive.
 
 </Section>
 
+</OperationParametersSection>
+
+<OperationTryItNowSection slot="try-it-now">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -3908,6 +4020,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -3998,3 +4114,7 @@ _Default Value:_ `"model"`
 </SectionContent>
 
 </TabbedSection>
+
+</OperationResponseBodySection>
+
+</Operation>

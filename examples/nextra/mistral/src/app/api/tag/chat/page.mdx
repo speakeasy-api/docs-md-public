@@ -3,14 +3,22 @@ sidebarTitle: Chat
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Pill, TryItNow, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, ExpandableBreakout, TabbedSection, SectionTab, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
+import { Operation, OperationFrontMatterSection, Pill, OperationTryItNowSection, TryItNow, Section, SectionTitle, SectionContent, OperationRequestBodySection, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationResponseBodySection, TabbedSection, SectionTab, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
 
 
 # Chat Operations [#chat]
 
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/chat/completions [#operation-chat_completion_v1_chat_completions_post]
 
 Chat Completion
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -51,6 +59,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -2309,6 +2321,10 @@ Nucleus sampling, where the model considers the results of the tokens with `top_
 
 </Section>
 
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
+
 <TabbedSection>
 
 <SectionTitle slot="title" variant="default">
@@ -3375,11 +3391,23 @@ Raw HTTP response; suitable for custom response parsing
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/chat/completions\#stream [#operation-stream_chat]
 
 _Stream chat completion_
 
 Mistral AI provides the ability to stream responses back to a client in order to allow partial results for certain requests. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -3422,6 +3450,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -5678,6 +5710,10 @@ Nucleus sampling, where the model considers the results of the tokens with `top_
 
 </Section>
 
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
+
 <TabbedSection>
 
 <SectionTitle slot="title" variant="default">
@@ -6691,3 +6727,7 @@ Raw HTTP response; suitable for custom response parsing
 </SectionContent>
 
 </TabbedSection>
+
+</OperationResponseBodySection>
+
+</Operation>

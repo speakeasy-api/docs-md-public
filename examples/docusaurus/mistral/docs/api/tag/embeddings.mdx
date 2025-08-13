@@ -4,16 +4,24 @@ sidebar_label: Embeddings
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Pill, TryItNow, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import { Operation, OperationFrontMatterSection, Pill, OperationTryItNowSection, TryItNow, Section, SectionTitle, SectionContent, OperationRequestBodySection, ExpandableSection, ExpandableProperty, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
 
 
 # Embeddings Operations \{#embeddings\}
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/embeddings \{#operation-embeddings_v1_embeddings_post\}
 
 _Embeddings_
 
 Embeddings
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -52,6 +60,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -158,6 +170,10 @@ mistral-embed
 </SectionContent>
 
 </Section>
+
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -655,3 +671,7 @@ Raw HTTP response; suitable for custom response parsing
 </SectionContent>
 
 </TabbedSection>
+
+</OperationResponseBodySection>
+
+</Operation>

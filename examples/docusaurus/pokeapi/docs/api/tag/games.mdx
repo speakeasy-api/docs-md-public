@@ -4,16 +4,24 @@ sidebar_label: Games
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Pill, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import { Operation, OperationFrontMatterSection, Pill, OperationSecuritySection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationParametersSection, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
 
 
 # Games Operations \{#games\}
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/generation/ \{#operation-api_v2_generation_list\}
 
 _List genrations_
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -66,6 +74,10 @@ A generation is a grouping of the Pokémon games that separates them based on th
 </SectionContent>
 
 </Section>
+
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -157,6 +169,10 @@ Case-insensitive query applied on the `name` property.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -334,11 +350,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/generation/\{id\}/ \{#operation-api_v2_generation_retrieve\}
 
 _Get genration_
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -392,6 +420,10 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 </Section>
 
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -433,6 +465,10 @@ This parameter can be a string or an integer.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -1020,11 +1056,23 @@ This parameter can be a string or an integer.
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/pokedex/ \{#operation-api_v2_pokedex_list\}
 
 _List pokedex_
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -1077,6 +1125,10 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 </SectionContent>
 
 </Section>
+
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -1168,6 +1220,10 @@ Case-insensitive query applied on the `name` property.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -1345,11 +1401,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/pokedex/\{id\}/ \{#operation-api_v2_pokedex_retrieve\}
 
 _Get pokedex_
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -1403,6 +1471,10 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 </Section>
 
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -1444,6 +1516,10 @@ This parameter can be a string or an integer.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2077,11 +2153,23 @@ https://pokeapi.co/api/v2/pokemon-species/1/
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version/ \{#operation-api_v2_version_list\}
 
 _List versions_
 
 Versions of the games, e.g., Red, Blue or Yellow.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -2134,6 +2222,10 @@ Versions of the games, e.g., Red, Blue or Yellow.
 </SectionContent>
 
 </Section>
+
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -2225,6 +2317,10 @@ Case-insensitive query applied on the `name` property.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2402,11 +2498,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version/\{id\}/ \{#operation-api_v2_version_retrieve\}
 
 _Get version_
 
 Versions of the games, e.g., Red, Blue or Yellow.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -2460,6 +2568,10 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 </Section>
 
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -2501,6 +2613,10 @@ This parameter can be a string or an integer.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2732,11 +2848,23 @@ not sure how to add anything other than a hyperlink
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version-group/ \{#operation-api_v2_version_group_list\}
 
 _List version groups_
 
 Version groups categorize highly similar versions of the games.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -2789,6 +2917,10 @@ Version groups categorize highly similar versions of the games.
 </SectionContent>
 
 </Section>
+
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
 
 <Section variant="top-level">
 
@@ -2880,6 +3012,10 @@ Case-insensitive query applied on the `name` property.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -3057,11 +3193,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version-group/\{id\}/ \{#operation-api_v2_version_group_retrieve\}
 
 _Get version group_
 
 Version groups categorize highly similar versions of the games.
+
+</OperationFrontMatterSection>
+
+<OperationSecuritySection slot="security">
 
 <Section variant="top-level">
 
@@ -3115,6 +3263,10 @@ Version groups categorize highly similar versions of the games.
 
 </Section>
 
+</OperationSecuritySection>
+
+<OperationParametersSection slot="parameters">
+
 <Section variant="top-level">
 
 <SectionTitle slot="title" variant="top-level">
@@ -3156,6 +3308,10 @@ This parameter can be a string or an integer.
 </SectionContent>
 
 </Section>
+
+</OperationParametersSection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -3637,3 +3793,7 @@ https://pokeapi.co/api/v2/move-learn-method/1/
 </SectionContent>
 
 </TabbedSection>
+
+</OperationResponseBodySection>
+
+</Operation>

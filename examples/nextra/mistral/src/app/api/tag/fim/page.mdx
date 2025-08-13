@@ -3,16 +3,24 @@ sidebarTitle: Fim
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Pill, TryItNow, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, TabbedSection, SectionTab, ExpandableBreakout, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
+import { Operation, OperationFrontMatterSection, Pill, OperationTryItNowSection, TryItNow, Section, SectionTitle, SectionContent, OperationRequestBodySection, ExpandableSection, ExpandableProperty, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
 
 
 # Fim Operations [#fim]
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fim/completions [#operation-fim_completion_v1_fim_completions_post]
 
 _Fim Completion_
 
 FIM completion.
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -49,6 +57,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -297,6 +309,10 @@ _Default Value:_ `1`
 </SectionContent>
 
 </Section>
+
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -1364,11 +1380,23 @@ Raw HTTP response; suitable for custom response parsing
 
 </TabbedSection>
 
+</OperationResponseBodySection>
+
+</Operation>
+
+<Operation>
+
+<OperationFrontMatterSection slot="front-matter">
+
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fim/completions\#stream [#operation-stream_fim]
 
 _Stream fim completion_
 
 Mistral AI provides the ability to stream responses back to a client in order to allow partial results for certain requests. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
+
+</OperationFrontMatterSection>
+
+<OperationTryItNowSection slot="try-it-now">
 
 <Section variant="top-level">
 
@@ -1407,6 +1435,10 @@ run();`}
 </SectionContent>
 
 </Section>
+
+</OperationTryItNowSection>
+
+<OperationRequestBodySection slot="request-body">
 
 <Section variant="top-level">
 
@@ -1653,6 +1685,10 @@ _Default Value:_ `1`
 </SectionContent>
 
 </Section>
+
+</OperationRequestBodySection>
+
+<OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
 
@@ -2667,3 +2703,7 @@ Raw HTTP response; suitable for custom response parsing
 </SectionContent>
 
 </TabbedSection>
+
+</OperationResponseBodySection>
+
+</Operation>
