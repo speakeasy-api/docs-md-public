@@ -10,11 +10,6 @@ import type { Renderer } from "../..//renderers/base/base.ts";
 import { HEADINGS } from "../constants.ts";
 import { getSchemaFromId } from "../util.ts";
 
-type ContainerEntry = {
-  label: string;
-  schema: ObjectValue;
-};
-
 /* ---- Helpers ---- */
 
 function getDisplayTypeLabel(schema: SchemaValue) {
@@ -222,46 +217,6 @@ function hasSchemaFrontmatter(schema: SchemaValue) {
   );
 }
 
-/* ---- Intermediary Rendering ---- */
-
-function renderSidebar({
-  renderer,
-  sidebar,
-}: {
-  renderer: Renderer;
-  sidebar: ContainerEntry;
-}) {
-  const sidebarLinkRenderer = renderer.appendSidebarLink({
-    title: sidebar.label,
-    embedName: sidebar.label,
-  });
-
-  // If no renderer was returned, that means we've already rendered this embed
-  if (!sidebarLinkRenderer) {
-    return;
-  }
-
-  // TODO: this needs a fresh context stack
-  renderer.enterContext({ id: sidebar.label, type: "schema" });
-
-  sidebarLinkRenderer.appendHeading(
-    HEADINGS.SECTION_HEADING_LEVEL,
-    sidebar.label
-  );
-
-  renderSchemaFrontmatter({
-    renderer,
-    schema: sidebar.schema,
-  });
-
-  renderObjectProperties({
-    renderer,
-    schema: sidebar.schema,
-  });
-
-  renderer.exitContext();
-}
-
 /* ---- Section Rendering ---- */
 
 function renderObjectProperties({
@@ -309,7 +264,7 @@ function renderObjectProperties({
       annotations.push({ title: "deprecated", variant: "warning" });
     }
     const hasFrontmatter = hasSchemaFrontmatter(property.schema);
-    renderer.addExpandableProperty({
+    renderer.createExpandableProperty({
       typeInfo,
       annotations,
       title: property.name,
@@ -364,10 +319,28 @@ function renderContainerTypes({
   const isSidebar = false;
   for (const breakout of entries) {
     if (isSidebar) {
-      renderSidebar({
-        renderer,
-        sidebar: breakout,
-      });
+      renderer.createPopout(
+        {
+          title: breakout.label,
+          embedName: breakout.label,
+        },
+        (renderer) => {
+          renderer.createHeading(
+            HEADINGS.SECTION_HEADING_LEVEL,
+            breakout.label
+          );
+
+          renderSchemaFrontmatter({
+            renderer,
+            schema: breakout.schema,
+          });
+
+          renderObjectProperties({
+            renderer,
+            schema: breakout.schema,
+          });
+        }
+      );
       return;
     }
 
@@ -378,10 +351,10 @@ function renderContainerTypes({
     renderer.enterContext({ id: breakout.label, type: "schema" });
 
     const hasFrontmatter = hasSchemaFrontmatter(breakout.schema);
-    renderer.addExpandableBreakout({
+    renderer.createExpandableBreakout({
       expandByDefault,
       createTitle: () => {
-        renderer.appendHeading(
+        renderer.createHeading(
           HEADINGS.SUB_SECTION_HEADING_LEVEL,
           breakout.label,
           {
@@ -422,29 +395,23 @@ export function renderSchemaFrontmatter({
   const defaultValue = "defaultValue" in schema ? schema.defaultValue : null;
   const { showDebugPlaceholders } = getSettings().display;
   if (description) {
-    renderer.appendText(description);
+    renderer.createText(description);
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No description provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No description provided");
   }
   if (examples.length > 0) {
-    renderer.appendText(`_${examples.length > 1 ? "Examples" : "Example"}:_`);
+    renderer.createText(`_${examples.length > 1 ? "Examples" : "Example"}:_`);
     for (const example of examples) {
-      renderer.appendCode(example);
+      renderer.createCode(example);
     }
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No examples provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No examples provided");
   }
 
   if (defaultValue) {
-    renderer.appendText(`_Default Value:_ \`${defaultValue}\``);
+    renderer.createText(`_Default Value:_ \`${defaultValue}\``);
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No default value provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No default value provided");
   }
 }
 

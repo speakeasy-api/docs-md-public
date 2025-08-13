@@ -12,12 +12,12 @@ export function renderGlobalSecurity(
   const { showDebugPlaceholders } = getSettings().display;
   for (const entry of chunk.chunkData.entries) {
     const inPill = entry.in
-      ? ` ${renderer.createPillStart("info")}${entry.in}${renderer.createPillEnd()}`
+      ? ` ${renderer.createPill("info", () => entry.in)}`
       : "";
     const typePill = entry.type
-      ? ` ${renderer.createPillStart("info")}${entry.type}${renderer.createPillEnd()}`
+      ? ` ${renderer.createPill("info", () => entry.type)}`
       : "";
-    renderer.appendHeading(
+    renderer.createHeading(
       headingLevel,
       `${renderer.escapeText(entry.name, { escape: "markdown" })}${inPill}${typePill}`,
       {
@@ -27,11 +27,9 @@ export function renderGlobalSecurity(
     );
 
     if (entry.description) {
-      renderer.appendText(entry.description);
+      renderer.createText(entry.description);
     } else if (showDebugPlaceholders) {
-      renderer.appendDebugPlaceholderStart();
-      renderer.appendText("No description provided");
-      renderer.appendDebugPlaceholderEnd();
+      renderer.createDebugPlaceholder(() => "No description provided");
     }
   }
 }

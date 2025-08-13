@@ -140,8 +140,7 @@ function renderPages(
   for (const [currentPagePath, pageMapEntry] of pageMap) {
     debug(`Rendering page ${currentPagePath}`);
     if (pageMapEntry.type === "renderer") {
-      const renderer = site.createPage(currentPagePath);
-      renderer.insertFrontMatter({
+      const renderer = site.createPage(currentPagePath, {
         sidebarPosition: pageMapEntry.sidebarPosition,
         sidebarLabel: pageMapEntry.sidebarLabel,
       });
@@ -149,8 +148,7 @@ function renderPages(
       continue;
     }
     const { chunks, sidebarLabel, sidebarPosition } = pageMapEntry;
-    const renderer = site.createPage(currentPagePath);
-    renderer.insertFrontMatter({
+    const renderer = site.createPage(currentPagePath, {
       sidebarPosition,
       sidebarLabel,
     });
@@ -161,7 +159,7 @@ function renderPages(
           break;
         }
         case "globalSecurity": {
-          renderer.appendHeading(
+          renderer.createHeading(
             HEADINGS.PAGE_TITLE_HEADING_LEVEL,
             "Global Security"
           );
@@ -180,7 +178,7 @@ function renderPages(
           // normally embedded in a separate page. It's not in this case though,
           // so we add one by hand
           const id = `schema-${snakeCase(chunk.chunkData.name)}`;
-          renderer.appendHeading(
+          renderer.createHeading(
             HEADINGS.SECTION_TITLE_HEADING_LEVEL,
             chunk.chunkData.name,
             {

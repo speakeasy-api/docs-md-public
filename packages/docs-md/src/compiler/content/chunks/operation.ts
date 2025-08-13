@@ -1,5 +1,3 @@
-import { snakeCase } from "change-case";
-
 import type { OperationChunk } from "../../../types/chunk.ts";
 import type { PropertyAnnotations } from "../../../types/shared.ts";
 import { assertNever } from "../../../util/assertNever.ts";
@@ -7,7 +5,6 @@ import { getSettings } from "../.././settings.ts";
 import type { Renderer } from "../..//renderers/base/base.ts";
 import type { DocsCodeSnippets } from "../../data/generateCodeSnippets.ts";
 import { debug } from "../../logging.ts";
-import { HEADINGS } from "../constants.ts";
 import { getSchemaFromId, getSecurityFromId } from "../util.ts";
 import {
   getDisplayTypeInfo,
@@ -31,7 +28,7 @@ export function renderOperation({
   );
   const { showDebugPlaceholders, expandTopLevelPropertiesOnPageLoad } =
     getSettings().display;
-  renderer.addOperationSection(
+  renderer.createOperationSection(
     {
       method: chunk.chunkData.method,
       path: chunk.chunkData.path,
@@ -42,7 +39,7 @@ export function renderOperation({
     () => {
       if (chunk.chunkData.security) {
         const { contentChunkId } = chunk.chunkData.security;
-        renderer.addSecuritySection(() => {
+        renderer.createSecuritySection(() => {
           const securityChunk = getSecurityFromId(
             contentChunkId,
             renderer.getDocsData()
@@ -51,7 +48,7 @@ export function renderOperation({
             debug(`Rendering security chunk: name=${entry.name}`);
             const hasFrontmatter = !!entry.description || showDebugPlaceholders;
             renderer.enterContext({ id: entry.name, type: "schema" });
-            renderer.addExpandableProperty({
+            renderer.createExpandableProperty({
               annotations: [
                 {
                   title: entry.in,
@@ -67,12 +64,12 @@ export function renderOperation({
               createContent: hasFrontmatter
                 ? () => {
                     if (entry.description) {
-                      renderer.appendText(entry.description);
+                      renderer.createText(entry.description);
                     }
                     if (showDebugPlaceholders) {
-                      renderer.appendDebugPlaceholderStart();
-                      renderer.appendText("No description provided");
-                      renderer.appendDebugPlaceholderEnd();
+                      renderer.createDebugPlaceholder(
+                        () => "No description provided"
+                      );
                     }
                   }
                 : undefined,
@@ -83,7 +80,7 @@ export function renderOperation({
       }
 
       if (chunk.chunkData.parameters.length > 0) {
-        renderer.addParametersSection(() => {
+        renderer.createParametersSection(() => {
           for (const parameter of chunk.chunkData.parameters) {
             debug(`Rendering parameter: name=${parameter.name}`);
             renderer.enterContext({ id: parameter.name, type: "schema" });
@@ -112,7 +109,7 @@ export function renderOperation({
               []
             );
             const hasFrontmatter = !!parameter.description;
-            renderer.addExpandableProperty({
+            renderer.createExpandableProperty({
               typeInfo,
               annotations,
               title: parameter.name,
@@ -120,12 +117,12 @@ export function renderOperation({
               createContent: hasFrontmatter
                 ? () => {
                     if (parameter.description) {
-                      renderer.appendText(parameter.description);
+                      renderer.createText(parameter.description);
                     }
                     if (showDebugPlaceholders) {
-                      renderer.appendDebugPlaceholderStart();
-                      renderer.appendText("No description provided");
-                      renderer.appendDebugPlaceholderEnd();
+                      renderer.createDebugPlaceholder(
+                        () => "No description provided"
+                      );
                     }
                   }
                 : undefined,
@@ -142,30 +139,17 @@ export function renderOperation({
         });
       }
 
-      // TODO: refactor to match other new high-level renderer methods
       const { tryItNow } = getSettings();
       const usageSnippet = docsCodeSnippets[chunk.id];
       if (usageSnippet && tryItNow) {
         debug(`Rendering try it now`);
-        renderer.appendSectionStart({ variant: "top-level" });
-        renderer.appendSectionTitleStart({ variant: "top-level" });
-        renderer.appendHeading(HEADINGS.SECTION_HEADING_LEVEL, "Try it Now", {
-          // TODO: Remove explicit references to id and handle in renderers
-          id: `operation-${snakeCase(chunk.chunkData.operationId)}+try-it-now`,
-        });
-        renderer.appendSectionTitleEnd();
-        renderer.appendSectionContentStart({ variant: "top-level" });
-        // TODO: Zod is actually hard coded for now since its always a dependency
-        // in our SDKs. Ideally this will come from the SDK package.
-        renderer.appendTryItNow({
+        renderer.createTryItNowSection({
           externalDependencies: {
             zod: "^3.25.64",
             [tryItNow.npmPackageName]: "latest",
           },
           defaultValue: usageSnippet.code,
         });
-        renderer.appendSectionContentEnd();
-        renderer.appendSectionEnd();
       }
 
       if (chunk.chunkData.requestBody) {
@@ -175,11 +159,11 @@ export function renderOperation({
           requestBody.contentChunkId,
           renderer.getDocsData()
         );
-        renderer.addRequestSection({
+        renderer.createRequestSection({
           isOptional: false,
           createFrontMatter() {
             if (requestBodySchema.chunkData.value.type !== "object") {
-              renderer.addFrontMatterDisplayType({
+              renderer.createFrontMatterDisplayType({
                 typeInfo: getDisplayTypeInfo(
                   requestBodySchema.chunkData.value,
                   renderer,
@@ -190,7 +174,7 @@ export function renderOperation({
             // TODO: we can have two descriptions here. Need to figure
             // out something to do with them
             if (requestBody.description) {
-              renderer.appendText(requestBody.description);
+              renderer.createText(requestBody.description);
             }
             renderSchemaFrontmatter({
               renderer,
@@ -237,7 +221,7 @@ export function renderOperation({
                 )
               : true
           );
-          renderer.addResponsesSection(
+          renderer.createResponsesSection(
             (createTab) => {
               for (const [statusCode, responses] of filteredResponseList) {
                 for (const response of responses) {
@@ -253,12 +237,12 @@ export function renderOperation({
                     contentType: response.contentType,
                     createFrontMatter() {
                       if (schema.type !== "object") {
-                        renderer.addFrontMatterDisplayType({
+                        renderer.createFrontMatterDisplayType({
                           typeInfo: getDisplayTypeInfo(schema, renderer, []),
                         });
                       }
                       if (response.description) {
-                        renderer.appendText(response.description);
+                        renderer.createText(response.description);
                       }
                       renderSchemaFrontmatter({
                         renderer,

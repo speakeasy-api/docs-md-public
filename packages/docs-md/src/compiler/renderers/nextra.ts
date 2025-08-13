@@ -2,8 +2,8 @@ import { join, resolve } from "node:path";
 
 import { getSettings } from "../settings.ts";
 import type {
-  RendererAppendHeadingArgs,
-  RendererInsertFrontMatterArgs,
+  RendererConstructorArgs,
+  RendererCreateHeadingArgs,
   SiteBuildPagePathArgs,
   SiteGetRendererArgs,
 } from "./base/base.ts";
@@ -29,7 +29,7 @@ export class NextraSite extends MdxSite {
   "global-security": { title: "Global Security", theme: { collapsed: false } },
   tag: { title: "Operations", theme: { collapsed: false } },${schemasEntry}
 }`;
-    this.createPage(join(settings.output.pageOutDir, "_meta.ts")).appendText(
+    this.createPage(join(settings.output.pageOutDir, "_meta.ts")).createText(
       config,
       { escape: "none" }
     );
@@ -44,6 +44,16 @@ export class NextraSite extends MdxSite {
 class NextraRenderer extends MdxRenderer {
   #frontMatter: string | undefined;
 
+  constructor(args: RendererConstructorArgs) {
+    super(args);
+    if (args.frontMatter) {
+      this.insertPackageImport("@speakeasy-api/docs-md/nextra.css");
+      this.#frontMatter = `---
+sidebarTitle: ${this.escapeText(args.frontMatter.sidebarLabel, { escape: "mdx" })}
+---`;
+    }
+  }
+
   public override render() {
     const parentData = super.render();
     const data =
@@ -55,26 +65,20 @@ class NextraRenderer extends MdxRenderer {
     this.insertNamedImport("@speakeasy-api/docs-md/react", symbol);
   }
 
-  public override insertFrontMatter(
-    ...[{ sidebarLabel }]: RendererInsertFrontMatterArgs
-  ) {
-    this.insertPackageImport("@speakeasy-api/docs-md/nextra.css");
-    this.#frontMatter = `---
-sidebarTitle: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
----`;
-  }
-
   public override createHeading(
     ...[
       level,
       text,
-      { escape = "markdown", id } = {},
-    ]: RendererAppendHeadingArgs
+      { escape = "markdown", id, append = true } = {},
+    ]: RendererCreateHeadingArgs
   ) {
     let line = `${`#`.repeat(level)} ${this.escapeText(text, { escape })}`;
     if (id) {
       // Oddly enough, Nextra uses a different syntax for heading IDs
       line += ` [#${id}]`;
+    }
+    if (append) {
+      this.appendLine(line);
     }
     return line;
   }

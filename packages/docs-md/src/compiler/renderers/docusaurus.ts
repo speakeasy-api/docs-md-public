@@ -2,7 +2,7 @@ import { join, resolve } from "node:path";
 
 import { getSettings } from "../settings.ts";
 import type {
-  RendererInsertFrontMatterArgs,
+  RendererConstructorArgs,
   SiteBuildPagePathArgs,
   SiteGetRendererArgs,
 } from "./base/base.ts";
@@ -23,7 +23,7 @@ export class DocusaurusSite extends MdxSite {
     const settings = getSettings();
     this.createPage(
       join(settings.output.pageOutDir, "_category_.json")
-    ).appendText(
+    ).createText(
       JSON.stringify(
         {
           position: 2,
@@ -38,7 +38,7 @@ export class DocusaurusSite extends MdxSite {
     );
     this.createPage(
       join(settings.output.pageOutDir, "tag", "_category_.json")
-    ).appendText(
+    ).createText(
       JSON.stringify(
         {
           position: 3,
@@ -54,7 +54,7 @@ export class DocusaurusSite extends MdxSite {
     if (settings.display.showSchemasInNav) {
       this.createPage(
         join(settings.output.pageOutDir, "schema", "_category_.json")
-      ).appendText(
+      ).createText(
         JSON.stringify(
           {
             position: 4,
@@ -79,6 +79,17 @@ export class DocusaurusSite extends MdxSite {
 class DocusaurusRenderer extends MdxRenderer {
   #frontMatter: string | undefined;
 
+  constructor(args: RendererConstructorArgs) {
+    super(args);
+    if (args.frontMatter) {
+      this.insertPackageImport("@speakeasy-api/docs-md/docusaurus.css");
+      this.#frontMatter = `---
+sidebar_position: ${args.frontMatter.sidebarPosition}
+sidebar_label: ${this.escapeText(args.frontMatter.sidebarLabel, { escape: "mdx" })}
+---`;
+    }
+  }
+
   public override render() {
     const parentData = super.render();
     const data =
@@ -88,15 +99,5 @@ class DocusaurusRenderer extends MdxRenderer {
 
   protected override insertComponentImport(symbol: string) {
     this.insertNamedImport("@speakeasy-api/docs-md/react", symbol);
-  }
-
-  public override insertFrontMatter(
-    ...[{ sidebarPosition, sidebarLabel }]: RendererInsertFrontMatterArgs
-  ) {
-    this.insertPackageImport("@speakeasy-api/docs-md/docusaurus.css");
-    this.#frontMatter = `---
-sidebar_position: ${sidebarPosition}
-sidebar_label: ${this.escapeText(sidebarLabel, { escape: "mdx" })}
----`;
   }
 }

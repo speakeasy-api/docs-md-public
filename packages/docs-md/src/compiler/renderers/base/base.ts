@@ -31,7 +31,13 @@ export type Context = {
 };
 
 // Argument types for Site interface methods
-export type SiteCreatePageArgs = [path: string];
+
+type PageFrontMatter = {
+  sidebarPosition: string;
+  sidebarLabel: string;
+};
+
+export type SiteCreatePageArgs = [path: string, frontMatter?: PageFrontMatter];
 export type SiteBuildPagePathArgs = [
   slug: string,
   options?: { appendIndex?: boolean },
@@ -50,112 +56,22 @@ export abstract class Site {
 
 type Escape = "markdown" | "html" | "mdx" | "none";
 
-type AppendOptions = {
+type EscapeOptions = {
   escape?: Escape;
 };
 
 // Argument types for Renderer interface methods
-export type RendererEscapeTextArgs = [
-  text: string,
-  options: { escape: Escape },
-];
-export type RendererInsertFrontMatterArgs = [
-  options: {
-    sidebarPosition: string;
-    sidebarLabel: string;
-  },
-];
-export type RendererAppendHeadingArgs = [
-  level: number,
-  text: string,
-  options?: AppendOptions & { id?: string },
-];
-export type RendererCreateAppendTextArgs = [
-  text: string,
-  options?: AppendOptions,
-];
-export type RendererCreateAppendCodeArgs = [
-  text: string,
-  options?:
-    | {
-        /**
-         * The variant to use for the code block. If `raw`, the code will be
-         * appended using a raw `<pre><code></code></pre>` block. Otherwise, the
-         * code will be appended using a triple backtick block.
-         */
-        variant: "default";
-        /**
-         * The language to use for the code block. This is only used when the
-         * variant is `default`.
-         */
-        language?: string;
-        /**
-         * The style to use for the code block. If the style is "block", then
-         * the code will be rendered using <pre> + <code> tags for raw variants,
-         * and triple backtick blocks for default variants. If the style is
-         * "inline", then the code will be rendered using just a <code> tag for
-         * raw variants, and a single backtick for default variants.
-         */
-        style?: "block" | "inline";
-        escape?: Escape;
-      }
-    | {
-        /**
-         * The variant to use for the code block. If `raw`, the code will be
-         * appended using a raw `<pre><code></code></pre>` block. Otherwise, the
-         * code will be appended using a triple backtick block.
-         */
-        variant: "raw";
-        /**
-         * The language to use for the code block. This is only used when the
-         * variant is `default`.
-         */
-        language?: never;
-        /**
-         * The style to use for the code block. If the style is "block", then
-         * the code will be rendered using <pre> + <code> tags for raw variants,
-         * and triple backtick blocks for default variants. If the style is
-         * "inline", then the code will be rendered using just a <code> tag for
-         * raw variants, and a single backtick for default variants.
-         */
-        style?: "block" | "inline";
-        escape?: Escape;
-      },
-];
-export type RendererCreatePillArgs = [variant: PillVariant];
-export type RendererCreateListArgs = [items: string[], options?: AppendOptions];
-export type RendererCreateSectionArgs = [
-  options?: {
-    variant?: SectionVariant;
-  },
-];
-export type RendererCreateSectionTitleArgs = [
-  options?: {
-    variant?: SectionVariant;
-  },
-];
-export type RendererCreateSectionContentArgs = [
-  options?: {
-    id?: string;
-    variant?: SectionVariant;
-  },
-];
-export type RendererCreateTabbedSectionTabArgs = [id: string];
-export type RendererAppendSidebarLinkArgs = [
-  options: {
-    title: string;
-    embedName: string;
-  },
-];
-export type RendererAppendTryItNowArgs = [
-  options: {
-    externalDependencies: Record<string, string>;
-    defaultValue: string;
-  },
-];
 
-// Section args
-export type RendererAddOperationArgs = [
+export type RendererConstructorArgs = {
+  site: Site;
+  docsData: Map<string, Chunk>;
+  currentPagePath: string;
+  frontMatter?: PageFrontMatter;
+};
+
+// High level operations
+
+export type RendererCreateOperationArgs = [
   options: {
     method: string;
     path: string;
@@ -165,16 +81,22 @@ export type RendererAddOperationArgs = [
   },
   cb: () => void,
 ];
-export type RendererAddSecuritySectionArgs = [cb: () => void];
-export type RendererAddParametersSectionArgs = [cb: () => void];
-export type RendererAddRequestSectionArgs = [
+export type RendererCreateTryItNowSectionArgs = [
+  options: {
+    externalDependencies: Record<string, string>;
+    defaultValue: string;
+  },
+];
+export type RendererCreateSecuritySectionArgs = [cb: () => void];
+export type RendererCreateParametersSectionArgs = [cb: () => void];
+export type RendererCreateRequestSectionArgs = [
   options: {
     isOptional: boolean;
     createFrontMatter: () => void;
     createBreakouts: () => void;
   },
 ];
-export type RendererAddResponsesArgs = [
+export type RendererCreateResponsesArgs = [
   cb: (
     createTab: (options: {
       statusCode: string;
@@ -187,16 +109,35 @@ export type RendererAddResponsesArgs = [
     title?: string;
   },
 ];
-export type RendererCreateContextArgs = [context: Context];
 
-export type RendererAddExpandableBreakoutArgs = [
+export type RendererCreateSectionArgs = [
+  cb: () => void,
+  options?: {
+    variant?: SectionVariant;
+  },
+];
+export type RendererCreateSectionTitleArgs = [
+  cb: () => void,
+  options?: {
+    variant?: SectionVariant;
+  },
+];
+export type RendererCreateSectionContentArgs = [
+  cb: () => void,
+  options?: {
+    id?: string;
+    variant?: SectionVariant;
+  },
+];
+
+export type RendererCreateExpandableBreakoutArgs = [
   options: {
     expandByDefault: boolean;
     createTitle: () => void;
     createContent?: () => void;
   },
 ];
-export type RendererAddExpandablePropertyArgs = [
+export type RendererCreateExpandablePropertyArgs = [
   options: {
     typeInfo?: DisplayTypeInfo;
     annotations: PropertyAnnotations[];
@@ -205,109 +146,173 @@ export type RendererAddExpandablePropertyArgs = [
     createContent?: () => void;
   },
 ];
-export type RendererAddFrontMatterDisplayTypeArgs = [
+
+export type RendererCreateFrontMatterDisplayTypeArgs = [
   options: {
     typeInfo: DisplayTypeInfo;
   },
 ];
+export type RendererCreateDebugPlaceholderArgs = [cb: () => string];
 
+export type RendererCreatePopoutArgs = [
+  options: {
+    title: string;
+    embedName: string;
+  },
+  cb: (renderer: Renderer) => void,
+];
+
+// Low level operations
+
+type LowLevelBaseOptions = {
+  append?: boolean;
+};
+
+export type RendererCreateHeadingArgs = [
+  level: number,
+  text: string,
+  options?: LowLevelBaseOptions & EscapeOptions & { id?: string },
+];
+export type RendererCreateTextArgs = [
+  text: string,
+  options?: LowLevelBaseOptions & EscapeOptions,
+];
+export type RendererCreateCodeArgs = [
+  text: string,
+  options?:
+    | (LowLevelBaseOptions &
+        EscapeOptions & {
+          /**
+           * The variant to use for the code block. If `raw`, the code will be
+           * appended using a raw `<pre><code></code></pre>` block. Otherwise, the
+           * code will be appended using a triple backtick block.
+           */
+          variant: "default";
+          /**
+           * The language to use for the code block. This is only used when the
+           * variant is `default`.
+           */
+          language?: string;
+          /**
+           * The style to use for the code block. If the style is "block", then
+           * the code will be rendered using <pre> + <code> tags for raw variants,
+           * and triple backtick blocks for default variants. If the style is
+           * "inline", then the code will be rendered using just a <code> tag for
+           * raw variants, and a single backtick for default variants.
+           */
+          style?: "block" | "inline";
+        })
+    | (LowLevelBaseOptions &
+        EscapeOptions & {
+          /**
+           * The variant to use for the code block. If `raw`, the code will be
+           * appended using a raw `<pre><code></code></pre>` block. Otherwise, the
+           * code will be appended using a triple backtick block.
+           */
+          variant: "raw";
+          /**
+           * The language to use for the code block. This is only used when the
+           * variant is `default`.
+           */
+          language?: never;
+          /**
+           * The style to use for the code block. If the style is "block", then
+           * the code will be rendered using <pre> + <code> tags for raw variants,
+           * and triple backtick blocks for default variants. If the style is
+           * "inline", then the code will be rendered using just a <code> tag for
+           * raw variants, and a single backtick for default variants.
+           */
+          style?: "block" | "inline";
+        }),
+];
+export type RendererCreateListArgs = [
+  items: string[],
+  options?: LowLevelBaseOptions & EscapeOptions,
+];
+export type RendererCreatePillArgs = [
+  variant: PillVariant,
+  cb: () => string,
+  options?: LowLevelBaseOptions,
+];
+
+// Helper methods
+
+export type RendererEscapeTextArgs = [
+  text: string,
+  options: Required<EscapeOptions>,
+];
+
+// Context methods
+
+export type RendererCreateContextArgs = [context: Context];
 export type RendererAlreadyInContextArgs = [id: string];
 export type RendererGetCurrentIdArgs = [postFixId?: string];
 
-export type RendererConstructorArgs = {
-  site: Site;
-  docsData: Map<string, Chunk>;
-  currentPagePath: string;
-};
+// Other types
+
+export type RendererCreateTabbedSectionTabArgs = [id: string];
 
 export abstract class Renderer {
+  abstract render(): string;
+
   // High level operations
-  abstract addOperationSection(...args: RendererAddOperationArgs): void;
-  abstract addSecuritySection(...args: RendererAddSecuritySectionArgs): void;
-  abstract addParametersSection(
-    ...args: RendererAddParametersSectionArgs
+
+  abstract createOperationSection(...args: RendererCreateOperationArgs): void;
+  abstract createTryItNowSection(
+    ...args: RendererCreateTryItNowSectionArgs
   ): void;
-  abstract addRequestSection(...args: RendererAddRequestSectionArgs): void;
-  abstract addResponsesSection(...args: RendererAddResponsesArgs): void;
-  abstract addExpandableBreakout(
-    ...args: RendererAddExpandableBreakoutArgs
+  abstract createSecuritySection(
+    ...args: RendererCreateSecuritySectionArgs
+  ): void;
+  abstract createParametersSection(
+    ...args: RendererCreateParametersSectionArgs
+  ): void;
+  abstract createRequestSection(
+    ...args: RendererCreateRequestSectionArgs
+  ): void;
+  abstract createResponsesSection(...args: RendererCreateResponsesArgs): void;
+
+  abstract createSection(...args: RendererCreateSectionArgs): void;
+  abstract createSectionTitle(...args: RendererCreateSectionTitleArgs): void;
+  abstract createSectionContent(
+    ...args: RendererCreateSectionContentArgs
   ): void;
 
-  // Show a property in an object schema, including it's type info
-  abstract addExpandableProperty(
-    ...args: RendererAddExpandablePropertyArgs
+  abstract createExpandableBreakout(
+    ...args: RendererCreateExpandableBreakoutArgs
   ): void;
-  abstract addFrontMatterDisplayType(
-    ...args: RendererAddFrontMatterDisplayTypeArgs
+  abstract createExpandableProperty(
+    ...args: RendererCreateExpandablePropertyArgs
   ): void;
+
+  abstract createFrontMatterDisplayType(
+    ...args: RendererCreateFrontMatterDisplayTypeArgs
+  ): void;
+  abstract createDebugPlaceholder(
+    ...args: RendererCreateDebugPlaceholderArgs
+  ): void;
+
+  abstract createPopout(...args: RendererCreatePopoutArgs): void;
 
   // Low level operations
 
-  // The following methods are used to create basic content on the page. They
-  // have "create" variants that create the content and "append"/"insert"
-  // variants that append/insert the content into the current page.
-  abstract createHeading(...args: RendererAppendHeadingArgs): void;
-  abstract appendHeading(...args: RendererAppendHeadingArgs): void;
-
-  abstract createText(...args: RendererCreateAppendTextArgs): string;
-  abstract appendText(...args: RendererCreateAppendTextArgs): void;
-
-  abstract createCode(...args: RendererCreateAppendCodeArgs): string;
-  abstract appendCode(...args: RendererCreateAppendCodeArgs): void;
-
+  abstract createHeading(...args: RendererCreateHeadingArgs): string;
+  abstract createText(...args: RendererCreateTextArgs): string;
+  abstract createCode(...args: RendererCreateCodeArgs): string;
   abstract createList(...args: RendererCreateListArgs): string;
-  abstract appendList(...args: RendererCreateListArgs): void;
-
-  abstract createPillStart(...args: RendererCreatePillArgs): string;
-  abstract appendPillStart(...args: RendererCreatePillArgs): void;
-  abstract createPillEnd(): string;
-  abstract appendPillEnd(): void;
-
-  // Sections show a title followed by content
-  abstract createSectionStart(...args: RendererCreateSectionArgs): string;
-  abstract appendSectionStart(...args: RendererCreateSectionArgs): void;
-  abstract createSectionEnd(): string;
-  abstract appendSectionEnd(): void;
-  abstract createSectionTitleStart(
-    ...args: RendererCreateSectionTitleArgs
-  ): string;
-  abstract appendSectionTitleStart(
-    ...args: RendererCreateSectionTitleArgs
-  ): void;
-  abstract createSectionTitleEnd(): string;
-  abstract appendSectionTitleEnd(): void;
-  abstract createSectionContentStart(
-    ...args: RendererCreateSectionContentArgs
-  ): string;
-  abstract appendSectionContentStart(
-    ...args: RendererCreateSectionContentArgs
-  ): void;
-  abstract createSectionContentEnd(): string;
-  abstract appendSectionContentEnd(): void;
-
-  abstract createDebugPlaceholderStart(): string;
-  abstract appendDebugPlaceholderStart(): void;
-  abstract createDebugPlaceholderEnd(): string;
-  abstract appendDebugPlaceholderEnd(): void;
-
-  // The following methods are used to insert complex content onto the page,
-  // and so they don't have "create" variants.
-  abstract insertFrontMatter(...args: RendererInsertFrontMatterArgs): void;
-
-  abstract appendSidebarLink(
-    ...args: RendererAppendSidebarLinkArgs
-  ): Renderer | undefined;
-
-  abstract appendTryItNow(...args: RendererAppendTryItNowArgs): void;
+  abstract createPill(...args: RendererCreatePillArgs): string;
 
   // Helper methods
+
   abstract escapeText(...args: RendererEscapeTextArgs): string;
+  abstract getDocsData(): Map<string, Chunk>;
+
+  // Context methods
+
   abstract enterContext(...args: RendererCreateContextArgs): void;
   abstract exitContext(): void;
   abstract getCurrentContextType(): ContextType;
   abstract getSchemaDepth(): number;
   abstract alreadyInContext(...args: RendererAlreadyInContextArgs): boolean;
   abstract getCurrentId(...args: RendererGetCurrentIdArgs): string;
-  abstract getDocsData(): Map<string, Chunk>;
-  abstract render(): string;
 }

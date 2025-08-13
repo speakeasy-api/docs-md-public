@@ -7,30 +7,24 @@ import { HEADINGS } from "../constants.ts";
 export function renderAbout(renderer: Renderer, chunk: AboutChunk) {
   debug(`Rendering about chunk`);
   const { showDebugPlaceholders } = getSettings().display;
-  renderer.appendHeading(
+  renderer.createHeading(
     HEADINGS.PAGE_TITLE_HEADING_LEVEL,
     `About ${chunk.chunkData.title}`
   );
   if (chunk.chunkData.version) {
-    renderer.appendText(`_Version: ${chunk.chunkData.version}_`);
+    renderer.createText(`_Version: ${chunk.chunkData.version}_`);
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No version provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No version provided");
   }
   if (chunk.chunkData.description) {
-    renderer.appendText(chunk.chunkData.description);
+    renderer.createText(chunk.chunkData.description);
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No description provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No description provided");
   }
   if (chunk.chunkData.servers.length > 0) {
-    renderer.appendText("Servers");
-    renderer.appendList(chunk.chunkData.servers.map((server) => server.url));
+    renderer.createText("Servers");
+    renderer.createList(chunk.chunkData.servers.map((server) => server.url));
   } else if (showDebugPlaceholders) {
-    renderer.appendDebugPlaceholderStart();
-    renderer.appendText("No servers provided");
-    renderer.appendDebugPlaceholderEnd();
+    renderer.createDebugPlaceholder(() => "No servers provided");
   }
 }
