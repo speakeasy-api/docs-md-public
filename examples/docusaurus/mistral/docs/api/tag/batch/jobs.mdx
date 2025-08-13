@@ -4,7 +4,7 @@ sidebar_label: Batch Jobs
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Pill, TabbedSection, SectionTitle, SectionTab, SectionContent, ExpandableSection, ExpandableProperty, ExpandableBreakout, Section } from "@speakeasy-api/docs-md/docusaurus";
+import { Pill, Section, SectionTitle, SectionContent, TryItNow, TabbedSection, SectionTab, ExpandableSection, ExpandableProperty, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
 
 
 # Batch Jobs Operations \{#batch/jobs\}
@@ -14,6 +14,38 @@ import { Pill, TabbedSection, SectionTitle, SectionTab, SectionContent, Expandab
 _Get Batch Jobs_
 
 Get a list of batch jobs for your organization and user.
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Try it Now \{#operation-jobs_api_routes_batch_get_batch_jobs+try-it-now\}
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<TryItNow
+ externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+ defaultValue={`import { Mistral } from "@mistralai/mistralai";
+
+const mistral = new Mistral({
+  apiKey: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await mistral.batch.jobs.list({});
+
+  // Handle the result
+  console.log(result);
+}
+
+run();`}
+/>
+
+</SectionContent>
+
+</Section>
 
 <TabbedSection>
 
@@ -41,6 +73,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout\">BatchJobOut</a>","children":[{"label":"BatchJobOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout\">BatchJobOut</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -56,6 +89,7 @@ OK
   id="data_BatchJobOut"
   headingId="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout" parentId="data"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -73,6 +107,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -91,6 +126,7 @@ OK
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -109,6 +145,7 @@ OK
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -127,6 +164,7 @@ OK
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -144,6 +182,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -162,6 +201,7 @@ OK
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -177,6 +217,7 @@ OK
   id="data_BatchJobOut_errors_BatchError"
   headingId="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror" parentId="data_BatchJobOut_errors"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -194,6 +235,7 @@ OK
   parentId="data_BatchJobOut_errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -218,6 +260,7 @@ _Default Value:_ `1`
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -236,6 +279,7 @@ _Default Value:_ `1`
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -254,6 +298,7 @@ _Default Value:_ `1`
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -272,6 +317,7 @@ _Default Value:_ `1`
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -289,6 +335,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -307,6 +354,7 @@ _Default Value:_ `1`
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -324,6 +372,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -347,6 +396,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -364,6 +414,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -382,6 +433,7 @@ _Default Value:_ `"batch"`
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -400,6 +452,7 @@ _Default Value:_ `"batch"`
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -418,6 +471,7 @@ _Default Value:_ `"batch"`
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -434,6 +488,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"list\"","linkedLabel":"\"list\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -457,6 +512,7 @@ _Default Value:_ `"list"`
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
@@ -483,7 +539,45 @@ Create a new batch job, it will be queued for processing.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Request Body \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request\}
+### Try it Now \{#operation-jobs_api_routes_batch_create_batch_job+try-it-now\}
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<TryItNow
+ externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+ defaultValue={`import { Mistral } from "@mistralai/mistralai";
+
+const mistral = new Mistral({
+  apiKey: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await mistral.batch.jobs.create({
+    inputFiles: [
+      "fe3343a2-3b8d-404b-ba32-a78dede2614a",
+    ],
+    endpoint: "/v1/moderations",
+    model: "Altima",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();`}
+/>
+
+</SectionContent>
+
+</Section>
+
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Request Body \{#operation-jobs_api_routes_batch_create_batch_job+request\}
 
 </SectionTitle>
 
@@ -494,15 +588,16 @@ Create a new batch job, it will be queued for processing.
 <ExpandableProperty
   slot="entry"
   id="endpoint"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+endpoint"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+request+endpoint"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"/v1/chat/completions\"","linkedLabel":"\"/v1/chat/completions\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/embeddings\"","linkedLabel":"\"/v1/embeddings\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/fim/completions\"","linkedLabel":"\"/v1/fim/completions\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/moderations\"","linkedLabel":"\"/v1/moderations\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/chat/moderations\"","linkedLabel":"\"/v1/chat/moderations\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### endpoint \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+endpoint\}
+##### endpoint \{#operation-jobs_api_routes_batch_create_batch_job+request+endpoint\}
 
 </div>
 
@@ -511,15 +606,16 @@ Create a new batch job, it will be queued for processing.
 <ExpandableProperty
   slot="entry"
   id="input_files"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+input_files"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+request+input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### input_files \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+input_files\}
+##### input_files \{#operation-jobs_api_routes_batch_create_batch_job+request+input_files\}
 
 </div>
 
@@ -528,14 +624,15 @@ Create a new batch job, it will be queued for processing.
 <ExpandableProperty
   slot="entry"
   id="metadata"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+metadata"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+request+metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### metadata \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+metadata\}
+##### metadata \{#operation-jobs_api_routes_batch_create_batch_job+request+metadata\}
 
 </div>
 
@@ -544,15 +641,16 @@ Create a new batch job, it will be queued for processing.
 <ExpandableProperty
   slot="entry"
   id="model"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+model"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+request+model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### model \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+model\}
+##### model \{#operation-jobs_api_routes_batch_create_batch_job+request+model\}
 
 </div>
 
@@ -561,14 +659,15 @@ Create a new batch job, it will be queued for processing.
 <ExpandableProperty
   slot="entry"
   id="timeout_hours"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+timeout_hours"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+request+timeout_hours"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### timeout_hours \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+request+timeout_hours\}
+##### timeout_hours \{#operation-jobs_api_routes_batch_create_batch_job+request+timeout_hours\}
 
 </div>
 
@@ -590,17 +689,17 @@ _Default Value:_ `24`
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses\}
+### Responses \{#operation-jobs_api_routes_batch_create_batch_job+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json">
+<SectionTab slot="tab" id="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json">
 
 OK
 
@@ -609,14 +708,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_at"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_at\}
+##### completed_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_at\}
 
 </div>
 
@@ -625,15 +725,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_requests"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_requests\}
+##### completed_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_requests\}
 
 </div>
 
@@ -642,15 +743,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="created_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+created_at"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### created_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+created_at\}
+##### created_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+created_at\}
 
 </div>
 
@@ -659,15 +761,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="endpoint"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+endpoint"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### endpoint \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+endpoint\}
+##### endpoint \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+endpoint\}
 
 </div>
 
@@ -676,14 +779,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="error_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+error_file"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### error_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+error_file\}
+##### error_file \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+error_file\}
 
 </div>
 
@@ -692,15 +796,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### errors \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors\}
+##### errors \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors\}
 
 </div>
 
@@ -709,13 +814,14 @@ OK
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### BatchError \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\}
+#### BatchError \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\}
 
 </div>
 
@@ -724,15 +830,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_count"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+count"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+count"
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### count \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+count\}
+##### count \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+count\}
 
 </div>
 
@@ -747,16 +854,17 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_message"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+message"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+message"
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### message \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+message\}
+##### message \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+message\}
 
 </div>
 
@@ -765,15 +873,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+failed_requests"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+failed_requests\}
+##### failed_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+failed_requests\}
 
 </div>
 
@@ -782,15 +891,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+id"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+id\}
+##### id \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+id\}
 
 </div>
 
@@ -799,15 +909,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="input_files"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+input_files"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### input_files \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+input_files\}
+##### input_files \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+input_files\}
 
 </div>
 
@@ -816,14 +927,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="metadata"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+metadata"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### metadata \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+metadata\}
+##### metadata \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+metadata\}
 
 </div>
 
@@ -832,15 +944,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="model"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+model"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### model \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+model\}
+##### model \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+model\}
 
 </div>
 
@@ -849,14 +962,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="object"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+object"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### object \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+object\}
+##### object \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+object\}
 
 </div>
 
@@ -871,14 +985,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="output_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+output_file"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### output_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+output_file\}
+##### output_file \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+output_file\}
 
 </div>
 
@@ -887,14 +1002,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="started_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+started_at"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### started_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+started_at\}
+##### started_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+started_at\}
 
 </div>
 
@@ -903,15 +1019,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="status"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+status"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### status \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+status\}
+##### status \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+status\}
 
 </div>
 
@@ -920,15 +1037,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="succeeded_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+succeeded_requests"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+succeeded_requests\}
+##### succeeded_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+succeeded_requests\}
 
 </div>
 
@@ -937,15 +1055,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="total_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+total_requests"
+  headingId="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### total_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+total_requests\}
+##### total_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+total_requests\}
 
 </div>
 
@@ -967,7 +1086,7 @@ Get a batch job details by its UUID.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+parameters\}
+### Parameters \{#operation-jobs_api_routes_batch_get_batch_job+parameters\}
 
 </SectionTitle>
 
@@ -978,15 +1097,16 @@ Get a batch job details by its UUID.
 <ExpandableProperty
   slot="entry"
   id="job_id"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+parameters+job_id"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+parameters+job_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### job_id \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+parameters+job_id\}
+##### job_id \{#operation-jobs_api_routes_batch_get_batch_job+parameters+job_id\}
 
 </div>
 
@@ -998,21 +1118,55 @@ Get a batch job details by its UUID.
 
 </Section>
 
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Try it Now \{#operation-jobs_api_routes_batch_get_batch_job+try-it-now\}
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<TryItNow
+ externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+ defaultValue={`import { Mistral } from "@mistralai/mistralai";
+
+const mistral = new Mistral({
+  apiKey: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await mistral.batch.jobs.get({
+    jobId: "4017dc9f-b629-42f4-9700-8c681b9e7f0f",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();`}
+/>
+
+</SectionContent>
+
+</Section>
+
 <TabbedSection>
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses\}
+### Responses \{#operation-jobs_api_routes_batch_get_batch_job+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json">
+<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json">
 
 OK
 
@@ -1021,14 +1175,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_at"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_at\}
+##### completed_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_at\}
 
 </div>
 
@@ -1037,15 +1192,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_requests"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_requests\}
+##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_requests\}
 
 </div>
 
@@ -1054,15 +1210,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="created_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+created_at"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### created_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+created_at\}
+##### created_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+created_at\}
 
 </div>
 
@@ -1071,15 +1228,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="endpoint"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+endpoint"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### endpoint \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+endpoint\}
+##### endpoint \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+endpoint\}
 
 </div>
 
@@ -1088,14 +1246,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="error_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+error_file"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### error_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+error_file\}
+##### error_file \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+error_file\}
 
 </div>
 
@@ -1104,15 +1263,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### errors \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors\}
+##### errors \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors\}
 
 </div>
 
@@ -1121,13 +1281,14 @@ OK
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### BatchError \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\}
+#### BatchError \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\}
 
 </div>
 
@@ -1136,15 +1297,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_count"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+count"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+count"
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### count \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+count\}
+##### count \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+count\}
 
 </div>
 
@@ -1159,16 +1321,17 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_message"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+message"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+message"
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### message \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+message\}
+##### message \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+message\}
 
 </div>
 
@@ -1177,15 +1340,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+failed_requests"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+failed_requests\}
+##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+failed_requests\}
 
 </div>
 
@@ -1194,15 +1358,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+id"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+id\}
+##### id \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+id\}
 
 </div>
 
@@ -1211,15 +1376,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="input_files"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+input_files"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### input_files \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+input_files\}
+##### input_files \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+input_files\}
 
 </div>
 
@@ -1228,14 +1394,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="metadata"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+metadata"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### metadata \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+metadata\}
+##### metadata \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+metadata\}
 
 </div>
 
@@ -1244,15 +1411,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="model"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+model"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### model \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+model\}
+##### model \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+model\}
 
 </div>
 
@@ -1261,14 +1429,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="object"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+object"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### object \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+object\}
+##### object \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+object\}
 
 </div>
 
@@ -1283,14 +1452,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="output_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+output_file"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### output_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+output_file\}
+##### output_file \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+output_file\}
 
 </div>
 
@@ -1299,14 +1469,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="started_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+started_at"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### started_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+started_at\}
+##### started_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+started_at\}
 
 </div>
 
@@ -1315,15 +1486,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="status"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+status"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### status \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+status\}
+##### status \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+status\}
 
 </div>
 
@@ -1332,15 +1504,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="succeeded_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+succeeded_requests"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+succeeded_requests\}
+##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+succeeded_requests\}
 
 </div>
 
@@ -1349,15 +1522,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="total_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+total_requests"
+  headingId="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### total_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+total_requests\}
+##### total_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+total_requests\}
 
 </div>
 
@@ -1379,7 +1553,7 @@ Request the cancellation of a batch job.
 
 <SectionTitle slot="title" variant="top-level">
 
-### Parameters \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+parameters\}
+### Parameters \{#operation-jobs_api_routes_batch_cancel_batch_job+parameters\}
 
 </SectionTitle>
 
@@ -1390,15 +1564,16 @@ Request the cancellation of a batch job.
 <ExpandableProperty
   slot="entry"
   id="job_id"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+parameters+job_id"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+parameters+job_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### job_id \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+parameters+job_id\}
+##### job_id \{#operation-jobs_api_routes_batch_cancel_batch_job+parameters+job_id\}
 
 </div>
 
@@ -1410,21 +1585,55 @@ Request the cancellation of a batch job.
 
 </Section>
 
+<Section variant="top-level">
+
+<SectionTitle slot="title" variant="top-level">
+
+### Try it Now \{#operation-jobs_api_routes_batch_cancel_batch_job+try-it-now\}
+
+</SectionTitle>
+
+<SectionContent slot="content" variant="top-level">
+
+<TryItNow
+ externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+ defaultValue={`import { Mistral } from "@mistralai/mistralai";
+
+const mistral = new Mistral({
+  apiKey: "<YOUR_BEARER_TOKEN_HERE>",
+});
+
+async function run() {
+  const result = await mistral.batch.jobs.cancel({
+    jobId: "4fb29d1c-535b-4f0a-a1cb-2167f86da569",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();`}
+/>
+
+</SectionContent>
+
+</Section>
+
 <TabbedSection>
 
 <SectionTitle slot="title" variant="default">
 
-### Responses \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses\}
+### Responses \{#operation-jobs_api_routes_batch_cancel_batch_job+responses\}
 
 </SectionTitle>
 
-<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json">
+<SectionTab slot="tab" id="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json">
 
 200
 
 </SectionTab>
 
-<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json">
+<SectionContent slot="content" variant="top-level" id="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json">
 
 OK
 
@@ -1433,14 +1642,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_at"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_at\}
+##### completed_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_at\}
 
 </div>
 
@@ -1449,15 +1659,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="completed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_requests"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_requests\}
+##### completed_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_requests\}
 
 </div>
 
@@ -1466,15 +1677,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="created_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+created_at"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### created_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+created_at\}
+##### created_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+created_at\}
 
 </div>
 
@@ -1483,15 +1695,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="endpoint"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+endpoint"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### endpoint \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+endpoint\}
+##### endpoint \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+endpoint\}
 
 </div>
 
@@ -1500,14 +1713,15 @@ OK
 <ExpandableProperty
   slot="entry"
   id="error_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+error_file"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### error_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+error_file\}
+##### error_file \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+error_file\}
 
 </div>
 
@@ -1516,15 +1730,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors"
-  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors"
+  typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### errors \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors\}
+##### errors \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors\}
 
 </div>
 
@@ -1533,13 +1748,14 @@ OK
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror" parentId="errors"
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-#### BatchError \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\}
+#### BatchError \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\}
 
 </div>
 
@@ -1548,15 +1764,16 @@ OK
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_count"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+count"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+count"
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### count \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+count\}
+##### count \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+count\}
 
 </div>
 
@@ -1571,16 +1788,17 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="errors_BatchError_message"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+message"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+message"
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### message \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+message\}
+##### message \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+message\}
 
 </div>
 
@@ -1589,15 +1807,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+failed_requests"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+failed_requests\}
+##### failed_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+failed_requests\}
 
 </div>
 
@@ -1606,15 +1825,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="id"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+id"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### id \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+id\}
+##### id \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+id\}
 
 </div>
 
@@ -1623,15 +1843,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="input_files"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+input_files"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### input_files \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+input_files\}
+##### input_files \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+input_files\}
 
 </div>
 
@@ -1640,14 +1861,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="metadata"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+metadata"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### metadata \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+metadata\}
+##### metadata \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+metadata\}
 
 </div>
 
@@ -1656,15 +1878,16 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="model"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+model"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### model \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+model\}
+##### model \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+model\}
 
 </div>
 
@@ -1673,14 +1896,15 @@ _Default Value:_ `1`
 <ExpandableProperty
   slot="entry"
   id="object"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+object"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={true}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### object \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+object\}
+##### object \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+object\}
 
 </div>
 
@@ -1695,14 +1919,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="output_file"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+output_file"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### output_file \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+output_file\}
+##### output_file \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+output_file\}
 
 </div>
 
@@ -1711,14 +1936,15 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="started_at"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+started_at"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### started_at \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+started_at\}
+##### started_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+started_at\}
 
 </div>
 
@@ -1727,15 +1953,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="status"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+status"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### status \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+status\}
+##### status \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+status\}
 
 </div>
 
@@ -1744,15 +1971,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="succeeded_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+succeeded_requests"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+succeeded_requests\}
+##### succeeded_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+succeeded_requests\}
 
 </div>
 
@@ -1761,15 +1989,16 @@ _Default Value:_ `"batch"`
 <ExpandableProperty
   slot="entry"
   id="total_requests"
-  headingId="operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+total_requests"
+  headingId="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
   hasFrontMatter={false}
+  expandByDefault={false}
 >
 
 <div slot="title">
 
-##### total_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+operation-jobs_api_routes_batch_create_batch_job+operation-jobs_api_routes_batch_get_batch_job+operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+total_requests\}
+##### total_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+total_requests\}
 
 </div>
 

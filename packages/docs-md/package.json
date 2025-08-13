@@ -7,23 +7,15 @@
     "docs-md": "dist/compiler/cli/cli.js"
   },
   "exports": {
-    "./docusaurus": {
-      "types": "./dist/runtime/docusaurus.d.ts",
-      "default": "./dist/runtime/docusaurus.js"
-    },
-    "./nextra": {
-      "types": "./dist/runtime/nextra.d.ts",
-      "default": "./dist/runtime/nextra.js"
-    },
     "./docusaurus.css": {
-      "default": "./dist/runtime/docusaurus.css"
+      "default": "./dist/react/docusaurus.css"
     },
     "./nextra.css": {
-      "default": "./dist/runtime/nextra.css"
+      "default": "./dist/react/nextra.css"
     },
     "./react": {
-      "types": "./dist/runtime/react.d.ts",
-      "default": "./dist/runtime/react.js"
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.js"
     },
     "./compiler": {
       "types": "./dist/compiler/compiler.d.ts",
@@ -59,10 +51,6 @@
     "lucide-react": "^0.525.0",
     "react-use-measure": "^2.1.7",
     "zod": "^3.25.56"
-  },
-  "peerDependencies": {
-    "@docusaurus/theme-common": "^3.0.0",
-    "next-themes": "^0.4.6"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.1",
