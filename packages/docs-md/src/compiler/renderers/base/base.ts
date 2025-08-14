@@ -18,6 +18,7 @@
 import type { Chunk } from "../../../types/chunk.ts";
 import type {
   DisplayTypeInfo,
+  PageMetadata,
   PillVariant,
   PropertyAnnotations,
   SectionVariant,
@@ -37,7 +38,11 @@ type PageFrontMatter = {
   sidebarLabel: string;
 };
 
-export type SiteCreatePageArgs = [path: string, frontMatter?: PageFrontMatter];
+export type SiteCreatePageArgs = [
+  path: string,
+  slug?: string,
+  frontMatter?: PageFrontMatter,
+];
 export type SiteBuildPagePathArgs = [
   slug: string,
   options?: { appendIndex?: boolean },
@@ -49,6 +54,7 @@ export abstract class Site {
   abstract setDocsData(docsData: Map<string, Chunk>): void;
   abstract createPage(...args: SiteCreatePageArgs): Renderer;
   abstract render(): Record<string, string>;
+  abstract processPageMetadata(pageMetadata: PageMetadata[]): void;
   abstract buildPagePath(...args: SiteBuildPagePathArgs): string;
   abstract hasPage(...args: SiteHasPageArgs): boolean;
   protected abstract getRenderer(...args: SiteGetRendererArgs): Renderer;
@@ -66,6 +72,7 @@ export type RendererConstructorArgs = {
   site: Site;
   docsData: Map<string, Chunk>;
   currentPagePath: string;
+  currentPageSlug?: string;
   frontMatter?: PageFrontMatter;
 };
 
@@ -132,17 +139,18 @@ export type RendererCreateSectionContentArgs = [
 
 export type RendererCreateExpandableBreakoutArgs = [
   options: {
-    expandByDefault: boolean;
+    title: string;
+    isTopLevel: boolean;
     createTitle: () => void;
     createContent?: () => void;
   },
 ];
 export type RendererCreateExpandablePropertyArgs = [
   options: {
+    title: string;
+    isTopLevel: boolean;
     typeInfo?: DisplayTypeInfo;
     annotations: PropertyAnnotations[];
-    title: string;
-    expandByDefault: boolean;
     createContent?: () => void;
   },
 ];
@@ -253,7 +261,8 @@ export type RendererGetCurrentIdArgs = [postFixId?: string];
 export type RendererCreateTabbedSectionTabArgs = [id: string];
 
 export abstract class Renderer {
-  abstract render(): string;
+  // Metadata is undefined for embeds, since they're not full pages
+  abstract render(): { contents: string; metadata?: PageMetadata };
 
   // High level operations
 

@@ -5,6 +5,9 @@ import { snakeCase } from "change-case";
 import type { Chunk } from "../../../types/chunk.ts";
 import type {
   DisplayTypeInfo,
+  PageMetadata,
+  PageMetadataOperation,
+  PageMetadataSection,
   PropertyAnnotations,
 } from "../../../types/shared.ts";
 import { InternalError } from "../../../util/internalError.ts";
@@ -45,6 +48,7 @@ import { Site } from "./base.ts";
 export abstract class MarkdownSite extends Site {
   #pages = new Map<string, Renderer>();
   #docsData: Map<string, Chunk> | undefined;
+  #pageMetadata: PageMetadata[] = [];
 
   public setDocsData(docsData: Map<string, Chunk>): void {
     this.#docsData = docsData;
@@ -64,11 +68,12 @@ export abstract class MarkdownSite extends Site {
     return this.#pages.has(path);
   }
 
-  public createPage(...[path, frontMatter]: SiteCreatePageArgs) {
+  public createPage(...[path, slug, frontMatter]: SiteCreatePageArgs) {
     if (!this.#docsData) {
       throw new InternalError("Docs data not set");
     }
     const renderer = this.getRenderer({
+      currentPageSlug: slug,
       currentPagePath: path,
       site: this,
       docsData: this.#docsData,
@@ -81,9 +86,18 @@ export abstract class MarkdownSite extends Site {
   public render() {
     const pages: Record<string, string> = {};
     for (const [path, renderer] of this.#pages) {
-      pages[path] = renderer.render();
+      const { contents, metadata } = renderer.render();
+      pages[path] = contents;
+      if (metadata) {
+        this.#pageMetadata.push(metadata);
+      }
     }
+    this.processPageMetadata(this.#pageMetadata);
     return pages;
+  }
+
+  public processPageMetadata(_pageMetadata: PageMetadata[]) {
+    // Do nothing
   }
 }
 
@@ -92,13 +106,29 @@ export abstract class MarkdownRenderer extends Renderer {
   #contextStack: Context[] = [];
   #docsData: Map<string, Chunk>;
   #site: Site;
+  #pageMetadata?: PageMetadata;
+  #currentOperation?: PageMetadataOperation;
+  #currentSection?: PageMetadataSection;
 
   #rendererLines: string[] = [];
 
-  constructor({ docsData, site }: RendererConstructorArgs) {
+  constructor({
+    docsData,
+    site,
+    currentPageSlug,
+    frontMatter,
+  }: RendererConstructorArgs) {
     super();
     this.#docsData = docsData;
     this.#site = site;
+    if (currentPageSlug && frontMatter) {
+      this.#pageMetadata = {
+        sidebarPosition: frontMatter.sidebarPosition,
+        sidebarLabel: frontMatter.sidebarLabel,
+        slug: currentPageSlug,
+        operations: [],
+      };
+    }
   }
 
   protected getSite() {
@@ -147,6 +177,17 @@ export abstract class MarkdownRenderer extends Renderer {
     const { showDebugPlaceholders } = getSettings().display;
     const id = `operation-${snakeCase(operationId)}`;
     this.enterContext({ id, type: "operation" });
+
+    if (this.#pageMetadata) {
+      const currentOperation = {
+        fragment: id,
+        method,
+        path,
+      };
+      this.#currentOperation = currentOperation;
+      this.#pageMetadata.operations.push(currentOperation);
+    }
+
     this.handleCreateOperationFrontmatter(() => {
       path = this.escapeText(path, {
         escape: "markdown",
@@ -175,6 +216,7 @@ export abstract class MarkdownRenderer extends Renderer {
       }
     });
     cb();
+    this.#currentOperation = undefined;
     this.exitContext();
   }
 
@@ -210,9 +252,19 @@ export abstract class MarkdownRenderer extends Renderer {
     ...[cb]: RendererCreateSecuritySectionArgs
   ): void {
     this.enterContext({ id: "security", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentSection = {
+        fragment: this.getCurrentId(),
+        properties: [],
+      };
+      this.#currentOperation.security = this.#currentSection;
+    }
+
     this.createTopLevelSection({ title: "Security" }, () =>
       this.handleCreateSecurity(cb)
     );
+
+    this.#currentSection = undefined;
     this.exitContext();
   }
 
@@ -228,9 +280,19 @@ export abstract class MarkdownRenderer extends Renderer {
     ...[cb]: RendererCreateParametersSectionArgs
   ): void {
     this.enterContext({ id: "parameters", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentSection = {
+        fragment: this.getCurrentId(),
+        properties: [],
+      };
+      this.#currentOperation.parameters = this.#currentSection;
+    }
+
     this.createTopLevelSection({ title: "Parameters" }, () =>
       this.handleCreateParameters(cb)
     );
+
+    this.#currentSection = undefined;
     this.exitContext();
   }
 
@@ -244,6 +306,13 @@ export abstract class MarkdownRenderer extends Renderer {
     ]: RendererCreateRequestSectionArgs
   ): void {
     this.enterContext({ id: "request", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentSection = {
+        fragment: this.getCurrentId(),
+        properties: [],
+      };
+      this.#currentOperation.requestBody = this.#currentSection;
+    }
     const annotations: PropertyAnnotations[] = [];
     if (isOptional) {
       annotations.push({
@@ -261,6 +330,7 @@ export abstract class MarkdownRenderer extends Renderer {
         this.handleCreateBreakouts(createBreakouts);
       }
     );
+    this.#currentSection = undefined;
     this.exitContext();
   }
 
@@ -268,6 +338,9 @@ export abstract class MarkdownRenderer extends Renderer {
     ...[cb, { title = "Responses" } = {}]: RendererCreateResponsesArgs
   ): void {
     this.enterContext({ id: "responses", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentOperation.responses = {};
+    }
     this.appendTabbedSectionStart();
     this.createSectionTitle(
       () =>
@@ -279,6 +352,15 @@ export abstract class MarkdownRenderer extends Renderer {
     cb(({ statusCode, contentType, createFrontMatter, createBreakouts }) => {
       this.enterContext({ id: statusCode, type: "section" });
       this.enterContext({ id: contentType.replace("/", "-"), type: "section" });
+      if (this.#currentOperation?.responses) {
+        this.#currentSection = {
+          fragment: this.getCurrentId(),
+          properties: [],
+        };
+        this.#currentOperation.responses[`${statusCode}-${contentType}`] =
+          this.#currentSection;
+      }
+
       this.appendTabbedSectionTabStart(this.getCurrentId());
       this.createText(statusCode);
       this.appendTabbedSectionTabEnd();
@@ -292,6 +374,8 @@ export abstract class MarkdownRenderer extends Renderer {
           variant: "top-level",
         }
       );
+
+      this.#currentSection = undefined;
       this.exitContext();
       this.exitContext();
     });
@@ -308,6 +392,18 @@ export abstract class MarkdownRenderer extends Renderer {
   }
 
   public override createExpandableBreakout(
+    ...[props]: RendererCreateExpandableBreakoutArgs
+  ) {
+    if (this.#currentSection && props.isTopLevel) {
+      this.#currentSection.properties.push({
+        fragment: this.getCurrentId(),
+        name: props.title,
+      });
+    }
+    this.handleCreateExpandableBreakout(props);
+  }
+
+  protected handleCreateExpandableBreakout(
     ...[{ createTitle, createContent }]: RendererCreateExpandableBreakoutArgs
   ) {
     createTitle();
@@ -315,6 +411,18 @@ export abstract class MarkdownRenderer extends Renderer {
   }
 
   public override createExpandableProperty(
+    ...[props]: RendererCreateExpandablePropertyArgs
+  ) {
+    if (this.#currentSection && props.isTopLevel) {
+      this.#currentSection.properties.push({
+        fragment: this.getCurrentId(),
+        name: props.title,
+      });
+    }
+    this.handleCreateExpandableProperty(props);
+  }
+
+  protected handleCreateExpandableProperty(
     ...[
       { typeInfo, annotations, title, createContent },
     ]: RendererCreateExpandablePropertyArgs
@@ -565,8 +673,8 @@ ${text}\n</code>\n</pre>`;
     if (this.#isFinalized) {
       throw new InternalError("Renderer has already been finalized");
     }
-    const data = this.#rendererLines.join("\n\n");
+    const contents = this.#rendererLines.join("\n\n");
     this.#isFinalized = true;
-    return data;
+    return { contents, metadata: this.#pageMetadata };
   }
 }

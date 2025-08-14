@@ -1,6 +1,7 @@
 import { dirname, relative } from "node:path";
 
 import { HEADINGS } from "../../content/constants.ts";
+import { getSettings } from "../../settings.ts";
 import type {
   RendererConstructorArgs,
   RendererCreateCodeArgs,
@@ -57,7 +58,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
         imports += `import "${importPath}";\n`;
       }
     }
-    const parentData = super.render();
+    const { contents, metadata } = super.render();
     let data = "";
     if (imports) {
       data += imports + "\n\n";
@@ -65,8 +66,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     if (this.#includeSidebar) {
       data += "\n\n<SideBar />\n";
     }
-    data += parentData;
-    return data;
+    return { contents: data + contents, metadata };
   }
 
   public override createCode(...[text, options]: RendererCreateCodeArgs) {
@@ -249,13 +249,15 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     return { id, parentId };
   }
 
-  public override createExpandableBreakout(
+  protected override handleCreateExpandableBreakout(
     ...[
-      { createTitle, createContent, expandByDefault },
+      { createTitle, createContent, isTopLevel },
     ]: RendererCreateExpandableBreakoutArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
     this.insertComponentImport("ExpandableBreakout");
+    const expandByDefault =
+      getSettings().display.expandTopLevelPropertiesOnPageLoad && isTopLevel;
     this.appendLine(
       `<ExpandableBreakout
   slot="entry"
@@ -279,13 +281,15 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     this.appendLine("</ExpandableBreakout>");
   }
 
-  public override createExpandableProperty(
+  protected override handleCreateExpandableProperty(
     ...[
-      { typeInfo, annotations, title, createContent, expandByDefault },
+      { typeInfo, annotations, title, isTopLevel, createContent },
     ]: RendererCreateExpandablePropertyArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
     this.insertComponentImport("ExpandableProperty");
+    const expandByDefault =
+      getSettings().display.expandTopLevelPropertiesOnPageLoad && isTopLevel;
     this.appendLine(
       `<ExpandableProperty
   slot="entry"

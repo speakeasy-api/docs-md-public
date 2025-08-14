@@ -40,3 +40,30 @@ export type TryItNowProps = {
   _enableUnsafeAutoImport?: boolean;
   layoutStyle?: React.CSSProperties;
 };
+
+export type PageMetadataSection = {
+  fragment: string;
+  properties: {
+    fragment: string;
+    name: string;
+  }[];
+};
+
+export type PageMetadataOperation = {
+  fragment: string;
+  method: string;
+  path: string;
+  security?: PageMetadataSection;
+  parameters?: PageMetadataSection;
+  requestBody?: PageMetadataSection;
+
+  // Map is from status code + response type to section
+  responses?: Record<string, PageMetadataSection>;
+};
+
+export type PageMetadata = {
+  slug: string;
+  sidebarLabel: string;
+  sidebarPosition: string;
+  operations: PageMetadataOperation[];
+};
