@@ -121,7 +121,7 @@ export abstract class MarkdownRenderer extends Renderer {
     super();
     this.#docsData = docsData;
     this.#site = site;
-    if (currentPageSlug && frontMatter) {
+    if (currentPageSlug !== undefined && frontMatter) {
       this.#pageMetadata = {
         sidebarPosition: frontMatter.sidebarPosition,
         sidebarLabel: frontMatter.sidebarLabel,
