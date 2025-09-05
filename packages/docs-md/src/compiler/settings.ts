@@ -16,6 +16,22 @@ export function getSettings() {
   return settings;
 }
 
+const language = z.enum([
+  "typescript",
+  "go",
+  "java",
+  "python",
+  "csharp",
+  "terraform",
+  "unity",
+  "php",
+  "swift",
+  "ruby",
+  "postman",
+]);
+
+export type CodeSampleLanguage = z.infer<typeof language>;
+
 export const settingsSchema = z.strictObject({
   spec: z.string(),
   output: z.strictObject({
@@ -48,10 +64,14 @@ export const settingsSchema = z.strictObject({
       expandTopLevelPropertiesOnPageLoad: false,
     }),
   tryItNow: z
-    .strictObject({
-      npmPackageName: z.string(),
-      sdkClassName: z.string(),
-    })
+    .array(
+      z.strictObject({
+        language,
+        sdkClassName: z.string(),
+        packageName: z.string(),
+      })
+    )
+    .min(1)
     .optional(),
 });
 

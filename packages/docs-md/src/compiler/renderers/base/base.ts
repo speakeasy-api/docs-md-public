@@ -23,6 +23,7 @@ import type {
   PropertyAnnotations,
   SectionVariant,
 } from "../../../types/shared.ts";
+import type { CodeSampleLanguage } from "../../settings.ts";
 
 type ContextType = "operation" | "section" | "schema";
 
@@ -88,11 +89,18 @@ export type RendererCreateOperationArgs = [
   },
   cb: () => void,
 ];
-export type RendererCreateTryItNowSectionArgs = [
-  options: {
-    externalDependencies: Record<string, string>;
-    defaultValue: string;
-  },
+export type RendererCreateCodeSamplesSectionArgs = [
+  cb: (options: {
+    createTryItNowEntry: (options: {
+      language: CodeSampleLanguage;
+      externalDependencies: Record<string, string>;
+      defaultValue: string;
+    }) => void;
+    createCodeSampleEntry: (options: {
+      language: CodeSampleLanguage;
+      value: string;
+    }) => void;
+  }) => void,
 ];
 export type RendererCreateSecuritySectionArgs = [cb: () => void];
 export type RendererCreateParametersSectionArgs = [cb: () => void];
@@ -127,6 +135,13 @@ export type RendererCreateSectionTitleArgs = [
   cb: () => void,
   options?: {
     variant?: SectionVariant;
+  },
+];
+export type RendererCreateTabbedSectionArgs = [cb: () => void];
+export type RendererCreateTabbedSectionTabArgs = [
+  cb: () => void,
+  options: {
+    id: string;
   },
 ];
 export type RendererCreateSectionContentArgs = [
@@ -256,10 +271,6 @@ export type RendererCreateContextArgs = [context: Context];
 export type RendererAlreadyInContextArgs = [id: string];
 export type RendererGetCurrentIdArgs = [postFixId?: string];
 
-// Other types
-
-export type RendererCreateTabbedSectionTabArgs = [id: string];
-
 export abstract class Renderer {
   // Metadata is undefined for embeds, since they're not full pages
   abstract render(): { contents: string; metadata?: PageMetadata };
@@ -267,8 +278,8 @@ export abstract class Renderer {
   // High level operations
 
   abstract createOperationSection(...args: RendererCreateOperationArgs): void;
-  abstract createTryItNowSection(
-    ...args: RendererCreateTryItNowSectionArgs
+  abstract createCodeSamplesSection(
+    ...args: RendererCreateCodeSamplesSectionArgs
   ): void;
   abstract createSecuritySection(
     ...args: RendererCreateSecuritySectionArgs
