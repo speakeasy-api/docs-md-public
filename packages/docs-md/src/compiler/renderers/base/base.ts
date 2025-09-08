@@ -21,7 +21,6 @@ import type {
   PageMetadata,
   PillVariant,
   PropertyAnnotations,
-  SectionVariant,
 } from "../../../types/shared.ts";
 import type { CodeSampleLanguage } from "../../settings.ts";
 
@@ -125,18 +124,8 @@ export type RendererCreateResponsesArgs = [
   },
 ];
 
-export type RendererCreateSectionArgs = [
-  cb: () => void,
-  options?: {
-    variant?: SectionVariant;
-  },
-];
-export type RendererCreateSectionTitleArgs = [
-  cb: () => void,
-  options?: {
-    variant?: SectionVariant;
-  },
-];
+export type RendererCreateSectionArgs = [cb: () => void];
+export type RendererCreateSectionTitleArgs = [cb: () => void];
 export type RendererCreateTabbedSectionArgs = [cb: () => void];
 export type RendererCreateTabbedSectionTabArgs = [
   cb: () => void,
@@ -148,7 +137,6 @@ export type RendererCreateSectionContentArgs = [
   cb: () => void,
   options?: {
     id?: string;
-    variant?: SectionVariant;
   },
 ];
 
@@ -176,14 +164,6 @@ export type RendererCreateFrontMatterDisplayTypeArgs = [
   },
 ];
 export type RendererCreateDebugPlaceholderArgs = [cb: () => string];
-
-export type RendererCreatePopoutArgs = [
-  options: {
-    title: string;
-    embedName: string;
-  },
-  cb: (renderer: Renderer) => void,
-];
 
 // Low level operations
 
@@ -311,8 +291,6 @@ export abstract class Renderer {
   abstract createDebugPlaceholder(
     ...args: RendererCreateDebugPlaceholderArgs
   ): void;
-
-  abstract createPopout(...args: RendererCreatePopoutArgs): void;
 
   // Low level operations
 

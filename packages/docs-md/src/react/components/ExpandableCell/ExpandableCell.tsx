@@ -2,26 +2,18 @@
 
 import clsx from "clsx";
 
-import styles from "../styles.module.css";
-import { ChevronIcon } from "./ChevronIcon.tsx";
-
-type ExpandableCellProps = {
-  isOpen: boolean;
-  bottomConnection: "connected" | "highlighted" | "none";
-  setIsOpen: (isOpen: boolean) => void;
-  variant: "circle" | "square";
-};
+// eslint-disable-next-line fast-import/no-restricted-imports
+import { ExpandableCellIcon as DefaultExpandableCellIcon } from "../ExpandableCellIcon/ExpandableCellIcon.tsx";
+import styles from "../ExpandableSection/styles.module.css";
+import type { ExpandableCellProps } from "./types.ts";
 
 export function ExpandableCell({
   isOpen,
   setIsOpen,
   bottomConnection,
   variant,
+  ExpandableCellIcon = DefaultExpandableCellIcon,
 }: ExpandableCellProps) {
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className={styles.expandableCellContainer}>
       <div className={styles.expandableButtonContainer}>
@@ -30,9 +22,9 @@ export function ExpandableCell({
             styles.expandableButton,
             variant === "circle" && styles.expandableButtonCircle
           )}
-          onClick={handleClick}
+          onClick={() => setIsOpen(!isOpen)}
         >
-          <ChevronIcon
+          <ExpandableCellIcon
             className={styles.expandableChevron}
             style={{
               transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
@@ -46,10 +38,7 @@ export function ExpandableCell({
             styles.expandableConnection,
             isOpen &&
               bottomConnection === "connected" &&
-              styles.verticalConnected,
-            isOpen &&
-              bottomConnection === "highlighted" &&
-              styles.verticalHighlighted
+              styles.verticalConnected
           )}
         ></div>
         <div className={styles.expandableConnection}></div>

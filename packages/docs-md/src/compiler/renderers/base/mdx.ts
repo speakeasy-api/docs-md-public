@@ -3,7 +3,6 @@ import { dirname, relative } from "node:path";
 import { HEADINGS } from "../../content/constants.ts";
 import { getSettings } from "../../settings.ts";
 import type {
-  RendererConstructorArgs,
   RendererCreateCodeArgs,
   RendererCreateCodeSamplesSectionArgs,
   RendererCreateDebugPlaceholderArgs,
@@ -13,7 +12,6 @@ import type {
   RendererCreateOperationArgs,
   RendererCreateParametersSectionArgs,
   RendererCreatePillArgs,
-  RendererCreatePopoutArgs,
   RendererCreateRequestSectionArgs,
   RendererCreateResponsesArgs,
   RendererCreateSectionArgs,
@@ -24,11 +22,7 @@ import type {
   RendererCreateTabbedSectionTabArgs,
 } from "./base.ts";
 import { MarkdownRenderer, MarkdownSite } from "./markdown.ts";
-import {
-  getEmbedPath,
-  getEmbedSymbol,
-  getPrettyCodeSampleLanguage,
-} from "./util.ts";
+import { getPrettyCodeSampleLanguage } from "./util.ts";
 
 export abstract class MdxSite extends MarkdownSite {
   // There isn't any difference between MdxSite and MarkdownSite at the moment,
@@ -40,13 +34,6 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     string,
     { defaultAlias: string | undefined; namedImports: Set<string> }
   >();
-  #includeSidebar = false;
-  #currentPagePath: string;
-
-  constructor(args: RendererConstructorArgs) {
-    super(args);
-    this.#currentPagePath = args.currentPagePath;
-  }
 
   public override render() {
     let imports = "";
@@ -67,9 +54,6 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     let data = "";
     if (imports) {
       data += imports + "\n\n";
-    }
-    if (this.#includeSidebar) {
-      data += "\n\n<SideBar />\n";
     }
     return { contents: data + contents, metadata };
   }
@@ -174,12 +158,10 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     this.insertComponentImport("OperationCodeSamplesSection");
     this.appendLine(`<OperationCodeSamplesSection slot="code-samples">`);
     this.createTabbedSection(() => {
-      this.createSectionTitle(
-        () =>
-          this.createHeading(HEADINGS.SECTION_HEADING_LEVEL, "Code Samples", {
-            id: this.getCurrentId(),
-          }),
-        { variant: "default" }
+      this.createSectionTitle(() =>
+        this.createHeading(HEADINGS.SECTION_HEADING_LEVEL, "Code Samples", {
+          id: this.getCurrentId(),
+        })
       );
       cb({
         createTryItNowEntry: ({
@@ -204,7 +186,6 @@ export abstract class MdxRenderer extends MarkdownRenderer {
             },
             {
               id: this.getCurrentId(),
-              variant: "top-level",
             }
           );
           this.exitContext();
@@ -228,7 +209,6 @@ export abstract class MdxRenderer extends MarkdownRenderer {
             },
             {
               id: this.getCurrentId(),
-              variant: "top-level",
             }
           );
           this.exitContext();
@@ -394,30 +374,26 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     );
   }
 
-  public override createSection(
-    ...[cb, { variant = "default" } = {}]: RendererCreateSectionArgs
-  ) {
+  public override createSection(...[cb]: RendererCreateSectionArgs) {
     this.insertComponentImport("Section");
-    this.appendLine(`<Section variant="${variant}">`);
+    this.appendLine("<Section>");
     cb();
     this.appendLine("</Section>");
   }
 
-  public override createSectionTitle(
-    ...[cb, { variant = "default" } = {}]: RendererCreateSectionTitleArgs
-  ) {
+  public override createSectionTitle(...[cb]: RendererCreateSectionTitleArgs) {
     this.insertComponentImport("SectionTitle");
-    this.appendLine(`<SectionTitle slot="title" variant="${variant}">`);
+    this.appendLine(`<SectionTitle slot="title">`);
     cb();
     this.appendLine("</SectionTitle>");
   }
 
   public override createSectionContent(
-    ...[cb, { variant = "default", id } = {}]: RendererCreateSectionContentArgs
+    ...[cb, { id } = {}]: RendererCreateSectionContentArgs
   ) {
     this.insertComponentImport("SectionContent");
     this.appendLine(
-      `<SectionContent slot="content" variant="${variant}"${id ? ` id="${id}"` : ""}>`
+      `<SectionContent slot="content"${id ? ` id="${id}"` : ""}>`
     );
     cb();
     this.appendLine("</SectionContent>");
@@ -446,41 +422,5 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   ) {
     this.insertComponentImport("DebugPlaceholder");
     this.appendLine(`<DebugPlaceholder>${cb()}</DebugPlaceholder>`);
-  }
-
-  public override createPopout(
-    ...[{ title, embedName }, cb]: RendererCreatePopoutArgs
-  ) {
-    const embedPath = getEmbedPath(embedName);
-
-    // TODO: handle this more gracefully. This happens when we have a direct
-    // circular dependency, and the page needs to import itself, which can't be
-    // done of course
-    if (this.#currentPagePath === embedPath) {
-      return;
-    }
-
-    const importPath = this.getRelativeImportPath(
-      this.#currentPagePath,
-      embedPath
-    );
-    this.insertDefaultImport(importPath, getEmbedSymbol(embedName));
-
-    this.#includeSidebar = true;
-    this.insertComponentImport("SideBarTrigger");
-    this.insertComponentImport("SideBar");
-    this.appendLine(
-      `<p>
-    <SideBarTrigger cta="${`View ${this.escapeText(title, { escape: "mdx" })}`}" title="${this.escapeText(title, { escape: "mdx" })}">
-      <${getEmbedSymbol(embedName)} />
-    </SideBarTrigger>
-  </p>`
-    );
-
-    if (this.getSite().hasPage(embedPath)) {
-      return;
-    }
-    const renderer = this.getSite().createPage(embedPath);
-    cb(renderer);
   }
 }
