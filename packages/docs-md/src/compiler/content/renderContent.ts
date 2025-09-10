@@ -1,15 +1,14 @@
 import { capitalCase } from "change-case";
 
-import type { Chunk, SchemaChunk, TagChunk } from "../../types/chunk.ts";
+import type { Chunk, TagChunk } from "../../types/chunk.ts";
 import { InternalError } from "../../util/internalError.ts";
-import { getSettings } from ".././settings.ts";
 import type { Site } from "..//renderers/base/base.ts";
 import type { DocsCodeSnippets } from "../data/generateCodeSnippets.ts";
 import { debug } from "../logging.ts";
+import { getSettings } from "../settings.ts";
 import { renderAbout } from "./chunks/about.ts";
 import { renderGlobalSecurity } from "./chunks/globalSecurity.ts";
 import { renderOperation } from "./chunks/operation.ts";
-import { renderTag } from "./chunks/tag.ts";
 import { HEADINGS } from "./constants.ts";
 import { getOperationFromId } from "./util.ts";
 
@@ -24,99 +23,99 @@ type PageMapEntry = {
 
 type PageMap = Map<string, PageMapEntry>;
 
-function getPageMap(site: Site, data: Data) {
-  const settings = getSettings();
-
-  const pageMap: PageMap = new Map();
-
-  // Get the about page
+function getAboutChunk(data: Data) {
   for (const [, chunk] of data) {
     if (chunk.chunkType === "about") {
-      pageMap.set(site.buildPagePath("", { appendIndex: true }), {
-        slug: "",
-        sidebarLabel: "About",
-        sidebarPosition: "1",
-        chunks: [chunk],
-      });
+      return chunk;
     }
   }
+  throw new InternalError("About chunk not found");
+}
 
-  // Get the global security page
+function getGlobalSecurityChunk(data: Data) {
   for (const [, chunk] of data) {
     if (chunk.chunkType === "globalSecurity") {
-      pageMap.set(site.buildPagePath("global-security"), {
-        slug: "global-security",
-        sidebarLabel: "Global Security",
-        sidebarPosition: "2",
-        chunks: [chunk],
-      });
+      return chunk;
     }
   }
+  throw new InternalError("Global security chunk not found");
+}
 
-  // Find the tag pages
-  const tagChunks: TagChunk[] = [];
-  for (const [, chunk] of data) {
-    if (chunk.chunkType === "tag") {
-      tagChunks.push(chunk);
-    }
-  }
+function getPageMap(site: Site, data: Data) {
+  const pageMap: PageMap = new Map();
+  const { aboutPage, singlePage } = getSettings().output;
 
-  // Sort by slug so that the sidebar position is stable
-  tagChunks.sort((a, b) => a.slug.localeCompare(b.slug));
+  // If we're in single page mode, we attach all chunks to a single, root-level entry
+  if (singlePage) {
+    const chunks: Chunk[] = [];
 
-  // Render the tag pages
-  let tagIndex = 0;
-  for (const chunk of tagChunks) {
-    const pagePath = site.buildPagePath(chunk.slug);
-    const pageMapEntry: PageMapEntry = {
-      slug: chunk.slug,
-      sidebarLabel: capitalCase(chunk.chunkData.name),
-      sidebarPosition: `3.${tagIndex++}`,
-      chunks: [chunk],
-    };
-    pageMap.set(pagePath, pageMapEntry);
-    for (const operationChunkId of chunk.chunkData.operationChunkIds) {
-      const operationChunk = getOperationFromId(operationChunkId, data);
-      pageMapEntry.chunks.push(operationChunk);
-    }
-  }
-
-  // Create the schema pages, if they're enabled in settings
-  if (settings.display.showSchemasInNav) {
-    // Find the schema chunks
-    const schemaChunks: SchemaChunk[] = [];
+    // Now get the tag chunks and add them to the list
     for (const [, chunk] of data) {
-      if (
-        chunk.chunkType === "schema" &&
-        chunk.chunkData.value.type === "object" &&
-        // We make sure there's a slug so that we're not showing an unnamed or
-        // internal schema
-        chunk.slug
-      ) {
-        schemaChunks.push(chunk);
+      if (chunk.chunkType === "tag") {
+        chunks.push(chunk);
+        for (const operationChunkId of chunk.chunkData.operationChunkIds) {
+          const operationChunk = getOperationFromId(operationChunkId, data);
+          chunks.push(operationChunk);
+        }
       }
     }
 
     // Sort by slug so that the sidebar position is stable
-    schemaChunks.sort((a, b) => a.slug.localeCompare(b.slug));
+    chunks.sort((a, b) => a.slug.localeCompare(b.slug));
 
-    // Render the schema pages
-    let schemaIndex = 0;
-    for (const chunk of schemaChunks) {
-      // This can't happen cause we filter above, but TypeScript doesn't know that
-      if (chunk.chunkData.value.type !== "object") {
-        throw new InternalError(
-          `Schema chunk ${chunk.chunkData.value.type} is not an object`
-        );
+    // Check if the about page content is enabled, and if so add about and
+    // global security chunks to the list
+    if (aboutPage) {
+      chunks.unshift(getAboutChunk(data), getGlobalSecurityChunk(data));
+    }
+
+    // Finally, create the page entry with all collected chunks
+    pageMap.set(site.buildPagePath("", { appendIndex: true }), {
+      slug: "",
+      sidebarLabel: "API Reference",
+      sidebarPosition: "1",
+      chunks,
+    });
+  }
+
+  // If we're not in single page mode, we create a page for about and one for each tag
+  else {
+    // Create the about page, if enabled
+    if (aboutPage) {
+      pageMap.set(site.buildPagePath("", { appendIndex: true }), {
+        slug: "",
+        sidebarLabel: "About",
+        sidebarPosition: "1",
+        chunks: [getAboutChunk(data), getGlobalSecurityChunk(data)],
+      });
+    }
+
+    // Find the tag pages
+    const tagChunks: TagChunk[] = [];
+    for (const [, chunk] of data) {
+      if (chunk.chunkType === "tag") {
+        tagChunks.push(chunk);
       }
+    }
+
+    // Sort by slug so that the sidebar position is stable
+    tagChunks.sort((a, b) => a.slug.localeCompare(b.slug));
+
+    // Render the tag pages
+    let tagIndex = 0;
+    for (const chunk of tagChunks) {
       const pagePath = site.buildPagePath(chunk.slug);
       const pageMapEntry: PageMapEntry = {
         slug: chunk.slug,
-        sidebarLabel: capitalCase(chunk.chunkData.value.name),
-        sidebarPosition: `4.${schemaIndex++}`,
-        chunks: [chunk] as Chunk[],
+        sidebarLabel: capitalCase(chunk.chunkData.name),
+        sidebarPosition: `3.${tagIndex++}`,
+        chunks: [chunk],
       };
       pageMap.set(pagePath, pageMapEntry);
+      for (const operationChunkId of chunk.chunkData.operationChunkIds) {
+        const operationChunk = getOperationFromId(operationChunkId, data);
+        pageMapEntry.chunks.push(operationChunk);
+      }
     }
   }
 
@@ -135,6 +134,8 @@ function renderPages(
       sidebarPosition,
       sidebarLabel,
     });
+    const settings = getSettings();
+    let hasRenderedEndpointHeading = false;
     for (const chunk of chunks) {
       switch (chunk.chunkType) {
         case "about": {
@@ -150,11 +151,27 @@ function renderPages(
           break;
         }
         case "tag": {
-          renderTag(renderer, chunk);
-          break;
-        }
-        case "schema": {
-          // Do nothing, since these are embedded in other pages
+          // If we're in single page mode, we don't render each tag heading
+          // and instead render a single "Endpoints" heading at the top of the
+          // page. Otherwise, we render a tag-specific heading
+          if (settings.output.singlePage) {
+            if (!hasRenderedEndpointHeading) {
+              renderer.createHeading(
+                HEADINGS.PAGE_TITLE_HEADING_LEVEL,
+                "Endpoints"
+              );
+              hasRenderedEndpointHeading = true;
+            }
+          } else {
+            const displayName = `${capitalCase(chunk.chunkData.name)} Operations`;
+            renderer.createHeading(
+              HEADINGS.PAGE_TITLE_HEADING_LEVEL,
+              displayName,
+              {
+                id: chunk.chunkData.name,
+              }
+            );
+          }
           break;
         }
         case "operation": {
