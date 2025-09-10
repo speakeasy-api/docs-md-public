@@ -4,22 +4,54 @@ sidebar_label: Moves
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationSecuritySection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationParametersSection, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import {
+ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationResponseBodySection,
+  OperationSecuritySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection
+} from "@speakeasy-api/docs-md/react";
 
 
 # Moves Operations \{#moves\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move/ \{#operation-api_v2_move_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List moves_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -44,11 +76,11 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -61,11 +93,11 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -101,17 +133,17 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -125,17 +157,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -149,18 +181,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -201,13 +233,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -215,7 +247,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -228,13 +260,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -242,7 +274,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -255,13 +287,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -269,7 +301,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -282,11 +314,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -298,11 +330,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveSummary \{#operation-api_v2_move_list+responses+200+application-json+results+movesummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -317,11 +361,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_list+responses+200+application-json+results+movesummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -336,11 +380,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_list+responses+200+application-json+results+movesummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -356,15 +400,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move/\{id\}/ \{#operation-api_v2_move_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -389,11 +441,11 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -406,11 +458,11 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -446,17 +498,17 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -497,11 +549,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### accuracy \{#operation-api_v2_move_retrieve+responses+200+application-json+accuracy\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -515,11 +567,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### contest_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -534,11 +586,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -553,11 +605,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -569,11 +621,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -588,13 +652,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -602,7 +666,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -617,13 +681,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -631,7 +695,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -646,11 +710,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -665,11 +729,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -684,11 +748,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -700,11 +764,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -719,13 +795,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -733,7 +809,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -748,13 +824,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -762,7 +838,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -777,11 +853,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -795,11 +871,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### contest_effect \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_effect\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -814,11 +890,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_effect+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -832,11 +908,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### contest_type \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -851,11 +927,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_type+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -870,11 +946,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+contest_type+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -888,11 +964,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### damage_class \{#operation-api_v2_move_retrieve+responses+200+application-json+damage_class\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -907,11 +983,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+damage_class+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -926,11 +1002,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+damage_class+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -944,11 +1020,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_chance \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_chance\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -962,11 +1038,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_changes \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -978,11 +1054,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### contest\_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -997,11 +1085,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1016,11 +1104,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1032,11 +1120,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1051,13 +1151,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1065,7 +1165,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1080,13 +1180,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1094,7 +1194,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1109,11 +1209,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1128,11 +1228,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1147,11 +1247,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1163,11 +1263,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1182,13 +1294,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1196,7 +1308,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1211,13 +1323,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1225,7 +1337,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1240,11 +1352,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_changes+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1258,11 +1370,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_entries \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1274,11 +1386,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### contest\_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1293,11 +1417,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1312,11 +1436,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1328,11 +1452,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1347,13 +1483,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1361,7 +1497,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1376,13 +1512,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1390,7 +1526,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1405,11 +1541,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1424,11 +1560,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1443,11 +1579,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1459,11 +1595,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1478,13 +1626,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1492,7 +1640,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1507,13 +1655,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1521,7 +1669,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1536,11 +1684,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+effect_entries+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1554,11 +1702,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text_entries \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1570,11 +1718,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveFlavorText \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1589,11 +1749,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+flavor_text\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1608,11 +1768,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1627,11 +1787,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1646,11 +1806,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1665,11 +1825,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_group \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+version_group\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1684,11 +1844,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+version_group+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1703,11 +1863,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+flavor_text_entries+moveflavortext+version_group+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1721,11 +1881,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### generation \{#operation-api_v2_move_retrieve+responses+200+application-json+generation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1740,11 +1900,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+generation+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1759,11 +1919,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+generation+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1777,11 +1937,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1795,11 +1955,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### learned_by_pokemon \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1811,11 +1971,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### contest\_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1830,11 +2002,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1849,11 +2021,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1865,11 +2037,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1884,13 +2068,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1898,7 +2082,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1913,13 +2097,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1927,7 +2111,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1942,11 +2126,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1961,11 +2145,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1980,11 +2164,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1996,11 +2180,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2015,13 +2211,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2029,7 +2225,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2044,13 +2240,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2058,7 +2254,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2073,11 +2269,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+learned_by_pokemon+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2091,11 +2287,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### machines \{#operation-api_v2_move_retrieve+responses+200+application-json+machines\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2107,11 +2303,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### contest\_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2126,11 +2334,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2145,11 +2353,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2161,11 +2369,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2180,13 +2400,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2194,7 +2414,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2209,13 +2429,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2223,7 +2443,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2238,11 +2458,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2257,11 +2477,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2276,11 +2496,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2292,11 +2512,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2311,13 +2543,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2325,7 +2557,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2340,13 +2572,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2354,7 +2586,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2369,11 +2601,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+machines+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2387,11 +2619,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### meta \{#operation-api_v2_move_retrieve+responses+200+application-json+meta\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2406,11 +2638,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2425,11 +2657,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2441,11 +2673,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2460,13 +2704,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2474,7 +2718,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2489,13 +2733,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2503,7 +2747,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2518,11 +2762,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2537,11 +2781,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2556,11 +2800,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2572,11 +2816,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2591,13 +2847,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2605,7 +2861,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2620,13 +2876,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2634,7 +2890,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2649,11 +2905,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+meta+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2667,11 +2923,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2685,11 +2941,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_move_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2701,11 +2957,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveName \{#operation-api_v2_move_retrieve+responses+200+application-json+names+movename\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2720,11 +2988,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_retrieve+responses+200+application-json+names+movename+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2739,11 +3007,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+names+movename+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2758,11 +3026,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+names+movename+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2777,11 +3045,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+names+movename+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2795,11 +3063,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### past_values \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2811,11 +3079,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveChange \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2829,11 +3109,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### accuracy \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+accuracy\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2848,11 +3128,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_chance \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_chance\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2867,11 +3147,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_entries \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2883,11 +3163,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### effect\_entry \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2902,13 +3194,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry+effect\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2916,7 +3208,7 @@ _Example:_
 Inflicts [regular damage]{mechanic:regular-damage}.
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2931,11 +3223,11 @@ Inflicts [regular damage]{mechanic:regular-damage}.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2950,13 +3242,13 @@ Inflicts [regular damage]{mechanic:regular-damage}.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2964,7 +3256,7 @@ _Example:_
 en
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2979,13 +3271,13 @@ en
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2993,7 +3285,7 @@ _Example:_
 https://pokeapi.co/api/v2/language/9/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3008,13 +3300,13 @@ https://pokeapi.co/api/v2/language/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### short_effect \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+effect_entries+effect_entry+short_effect\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3022,7 +3314,7 @@ _Example:_
 Inflicts regular damage with no additional effect.
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3036,11 +3328,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### power \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+power\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3054,11 +3346,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pp \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+pp\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3073,11 +3365,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3092,11 +3384,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+type+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3111,11 +3403,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+type+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3130,11 +3422,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_group \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+version_group\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3149,11 +3441,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+version_group+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3168,11 +3460,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+past_values+movechange+version_group+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3185,11 +3477,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### power \{#operation-api_v2_move_retrieve+responses+200+application-json+power\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3202,11 +3494,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pp \{#operation-api_v2_move_retrieve+responses+200+application-json+pp\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3219,11 +3511,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### priority \{#operation-api_v2_move_retrieve+responses+200+application-json+priority\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3237,11 +3529,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stat_changes \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3253,11 +3545,23 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### contest\_combos \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3272,11 +3576,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### normal \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3291,11 +3595,11 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3307,11 +3611,23 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3326,13 +3642,13 @@ Inflicts regular damage with no additional effect.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3340,7 +3656,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3355,13 +3671,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3369,7 +3685,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3384,11 +3700,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+normal+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3403,11 +3719,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3422,11 +3738,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_after \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super+use_after\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3438,11 +3754,23 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### use\_before \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super+use_after+use_before\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3457,13 +3785,13 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super+use_after+use_before+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3471,7 +3799,7 @@ _Example:_
 fire-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3486,13 +3814,13 @@ fire-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super+use_after+use_before+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3500,7 +3828,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/7/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3515,11 +3843,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### use_before \{#operation-api_v2_move_retrieve+responses+200+application-json+stat_changes+contest_combos+super+use_before\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3533,11 +3861,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### super_contest_effect \{#operation-api_v2_move_retrieve+responses+200+application-json+super_contest_effect\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3552,11 +3880,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+super_contest_effect+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3570,11 +3898,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### target \{#operation-api_v2_move_retrieve+responses+200+application-json+target\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3589,11 +3917,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+target+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3608,11 +3936,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+target+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3626,11 +3954,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-api_v2_move_retrieve+responses+200+application-json+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3645,11 +3973,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_retrieve+responses+200+application-json+type+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3664,11 +3992,11 @@ https://pokeapi.co/api/v2/move/7/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_retrieve+responses+200+application-json+type+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3684,15 +4012,23 @@ https://pokeapi.co/api/v2/move/7/
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-ailment/ \{#operation-api_v2_move_ailment_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List move meta ailments_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -3717,11 +4053,11 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_ailment_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3734,11 +4070,11 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_ailment_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3774,17 +4110,17 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_ailment_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3798,17 +4134,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_ailment_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3822,18 +4158,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_ailment_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3874,13 +4210,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_ailment_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3888,7 +4224,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3901,13 +4237,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_ailment_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3915,7 +4251,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3928,13 +4264,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_ailment_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3942,7 +4278,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3955,11 +4291,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_ailment_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3971,11 +4307,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveMetaAilmentSummary \{#operation-api_v2_move_ailment_list+responses+200+application-json+results+movemetaailmentsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3990,11 +4338,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_ailment_list+responses+200+application-json+results+movemetaailmentsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4009,11 +4357,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_ailment_list+responses+200+application-json+results+movemetaailmentsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4029,15 +4377,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-ailment/\{id\}/ \{#operation-api_v2_move_ailment_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move meta ailment_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -4062,11 +4418,11 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_ailment_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4079,11 +4435,11 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_ailment_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4119,17 +4475,17 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_ailment_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4171,11 +4527,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4189,11 +4545,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### moves \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+moves\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4205,11 +4561,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### move \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+moves+move\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4224,13 +4592,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+moves+move+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4238,7 +4606,7 @@ _Example:_
 thunder-punch
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4253,13 +4621,13 @@ thunder-punch
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+moves+move+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4267,7 +4635,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/9/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4281,11 +4649,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4299,11 +4667,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4315,11 +4683,23 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveMetaAilmentName \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names+movemetaailmentname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4334,11 +4714,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names+movemetaailmentname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4353,11 +4733,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names+movemetaailmentname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4372,11 +4752,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names+movemetaailmentname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4391,11 +4771,11 @@ https://pokeapi.co/api/v2/move/9/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_ailment_retrieve+responses+200+application-json+names+movemetaailmentname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4411,15 +4791,23 @@ https://pokeapi.co/api/v2/move/9/
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-battle-style/ \{#operation-api_v2_move_battle_style_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List move battle styles_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -4444,11 +4832,11 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_battle_style_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4461,11 +4849,11 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_battle_style_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4501,17 +4889,17 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_battle_style_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4525,17 +4913,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_battle_style_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4549,18 +4937,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_battle_style_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4601,13 +4989,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_battle_style_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4615,7 +5003,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4628,13 +5016,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_battle_style_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4642,7 +5030,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4655,13 +5043,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_battle_style_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4669,7 +5057,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4682,11 +5070,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_battle_style_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4698,11 +5086,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveBattleStyleSummary \{#operation-api_v2_move_battle_style_list+responses+200+application-json+results+movebattlestylesummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4717,11 +5117,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_battle_style_list+responses+200+application-json+results+movebattlestylesummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4736,11 +5136,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_battle_style_list+responses+200+application-json+results+movebattlestylesummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4756,15 +5156,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-battle-style/\{id\}/ \{#operation-api_v2_move_battle_style_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move battle style_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -4789,11 +5197,11 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_battle_style_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4806,11 +5214,11 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_battle_style_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4846,17 +5254,17 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_battle_style_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4898,11 +5306,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4916,11 +5324,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4934,11 +5342,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4950,11 +5358,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveBattleStyleName \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names+movebattlestylename\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4969,11 +5389,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names+movebattlestylename+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4988,11 +5408,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names+movebattlestylename+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5007,11 +5427,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names+movebattlestylename+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5026,11 +5446,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_battle_style_retrieve+responses+200+application-json+names+movebattlestylename+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5046,15 +5466,23 @@ This parameter can be a string or an integer.
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-category/ \{#operation-api_v2_move_category_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List move meta categories_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Very general categories that loosely group move effects.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -5079,11 +5507,11 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_category_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5096,11 +5524,11 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_category_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5136,17 +5564,17 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_category_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5160,17 +5588,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_category_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5184,18 +5612,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_category_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5236,13 +5664,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_category_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5250,7 +5678,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5263,13 +5691,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_category_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5277,7 +5705,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5290,13 +5718,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_category_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5304,7 +5732,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5317,11 +5745,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_category_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5333,11 +5761,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveMetaCategorySummary \{#operation-api_v2_move_category_list+responses+200+application-json+results+movemetacategorysummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5352,11 +5792,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_category_list+responses+200+application-json+results+movemetacategorysummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5371,11 +5811,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_category_list+responses+200+application-json+results+movemetacategorysummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5391,15 +5831,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-category/\{id\}/ \{#operation-api_v2_move_category_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move meta category_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Very general categories that loosely group move effects.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -5424,11 +5872,11 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_category_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5441,11 +5889,11 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_category_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5481,17 +5929,17 @@ Very general categories that loosely group move effects.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_category_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5533,11 +5981,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### descriptions \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5549,11 +5997,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveMetaCategoryDescription \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions+movemetacategorydescription\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5567,11 +6027,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions+movemetacategorydescription+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5586,11 +6046,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions+movemetacategorydescription+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5605,11 +6065,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions+movemetacategorydescription+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5624,11 +6084,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_category_retrieve+responses+200+application-json+descriptions+movemetacategorydescription+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5642,11 +6102,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_category_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5660,11 +6120,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### moves \{#operation-api_v2_move_category_retrieve+responses+200+application-json+moves\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5676,11 +6136,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### move \{#operation-api_v2_move_category_retrieve+responses+200+application-json+moves+move\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5695,13 +6167,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_category_retrieve+responses+200+application-json+moves+move+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5709,7 +6181,7 @@ _Example:_
 sing
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5724,13 +6196,13 @@ sing
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_category_retrieve+responses+200+application-json+moves+move+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5738,7 +6210,7 @@ _Example:_
 https://pokeapi.co/api/v2/move/47/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5752,11 +6224,11 @@ https://pokeapi.co/api/v2/move/47/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_category_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5772,15 +6244,23 @@ https://pokeapi.co/api/v2/move/47/
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-learn-method/ \{#operation-api_v2_move_learn_method_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List move learn methods_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Methods by which Pokémon can learn moves.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -5805,11 +6285,11 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_learn_method_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5822,11 +6302,11 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_learn_method_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5862,17 +6342,17 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_learn_method_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5886,17 +6366,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_learn_method_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5910,18 +6390,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_learn_method_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5962,13 +6442,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_learn_method_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -5976,7 +6456,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -5989,13 +6469,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_learn_method_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6003,7 +6483,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6016,13 +6496,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_learn_method_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6030,7 +6510,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6043,11 +6523,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_learn_method_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6059,11 +6539,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveLearnMethodSummary \{#operation-api_v2_move_learn_method_list+responses+200+application-json+results+movelearnmethodsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6078,11 +6570,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_list+responses+200+application-json+results+movelearnmethodsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6097,11 +6589,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_learn_method_list+responses+200+application-json+results+movelearnmethodsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6117,15 +6609,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-learn-method/\{id\}/ \{#operation-api_v2_move_learn_method_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move learn method_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Methods by which Pokémon can learn moves.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -6150,11 +6650,11 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_learn_method_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6167,11 +6667,11 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_learn_method_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6207,17 +6707,17 @@ Methods by which Pokémon can learn moves.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_learn_method_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6259,11 +6759,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### descriptions \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6275,11 +6775,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveLearnMethodDescription \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions+movelearnmethoddescription\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6293,11 +6805,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions+movelearnmethoddescription+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6312,11 +6824,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions+movelearnmethoddescription+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6331,11 +6843,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions+movelearnmethoddescription+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6350,11 +6862,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+descriptions+movelearnmethoddescription+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6368,11 +6880,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6386,11 +6898,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6404,11 +6916,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6420,11 +6932,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveLearnMethodName \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names+movelearnmethodname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6439,11 +6963,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names+movelearnmethodname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6458,11 +6982,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names+movelearnmethodname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6477,11 +7001,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names+movelearnmethodname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6496,11 +7020,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+names+movelearnmethodname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6514,11 +7038,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_groups \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+version_groups\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6530,11 +7054,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### version\_group \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+version_groups+version_group\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6549,13 +7085,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+version_groups+version_group+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6563,7 +7099,7 @@ _Example:_
 red-blue
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6578,13 +7114,13 @@ red-blue
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_learn_method_retrieve+responses+200+application-json+version_groups+version_group+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6592,7 +7128,7 @@ _Example:_
 https://pokeapi.co/api/v2/version-group/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6608,15 +7144,23 @@ https://pokeapi.co/api/v2/version-group/1/
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-target/ \{#operation-api_v2_move_target_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List move targets_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -6641,11 +7185,11 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_target_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6658,11 +7202,11 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_target_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6698,17 +7242,17 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_move_target_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6722,17 +7266,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_move_target_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6746,18 +7290,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_move_target_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6798,13 +7342,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_move_target_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6812,7 +7356,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6825,13 +7369,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_move_target_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6839,7 +7383,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6852,13 +7396,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_move_target_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6866,7 +7410,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6879,11 +7423,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_move_target_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6895,11 +7439,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveTargetSummary \{#operation-api_v2_move_target_list+responses+200+application-json+results+movetargetsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6914,11 +7470,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_list+responses+200+application-json+results+movetargetsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6933,11 +7489,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_target_list+responses+200+application-json+results+movetargetsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6953,15 +7509,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/move-target/\{id\}/ \{#operation-api_v2_move_target_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get move target_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -6986,11 +7550,11 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_move_target_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7003,11 +7567,11 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_move_target_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7043,17 +7607,17 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_target_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -7095,11 +7659,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### descriptions \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7111,11 +7675,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveTargetDescription \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions+movetargetdescription\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7129,11 +7705,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions+movetargetdescription+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7148,11 +7724,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions+movetargetdescription+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7167,11 +7743,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions+movetargetdescription+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7186,11 +7762,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_target_retrieve+responses+200+application-json+descriptions+movetargetdescription+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7204,11 +7780,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_move_target_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7222,11 +7798,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### moves \{#operation-api_v2_move_target_retrieve+responses+200+application-json+moves\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7238,11 +7814,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveSummary \{#operation-api_v2_move_target_retrieve+responses+200+application-json+moves+movesummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7257,11 +7845,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_retrieve+responses+200+application-json+moves+movesummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7276,11 +7864,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_target_retrieve+responses+200+application-json+moves+movesummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7294,11 +7882,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7312,11 +7900,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7328,11 +7916,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveTargetName \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names+movetargetname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7347,11 +7947,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names+movetargetname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7366,11 +7966,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names+movetargetname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7385,11 +7985,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names+movetargetname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7404,11 +8004,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_move_target_retrieve+responses+200+application-json+names+movetargetname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

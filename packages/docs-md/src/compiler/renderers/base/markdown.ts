@@ -189,7 +189,7 @@ export abstract class MarkdownRenderer extends Renderer {
       this.#pageMetadata.operations.push(currentOperation);
     }
 
-    this.handleCreateOperationFrontmatter(() => {
+    this.handleCreateOperationTitle(() => {
       path = this.escapeText(path, {
         escape: "markdown",
       });
@@ -198,25 +198,32 @@ export abstract class MarkdownRenderer extends Renderer {
         `${this.createPill("primary", () => `<b>${method.toUpperCase()}</b>`)} ${path}`,
         { id, escape: "none" }
       );
-      if (summary && description) {
-        this.createText(`_${summary}_`);
-        this.createText(description);
-      } else if (summary) {
-        this.createText(summary);
-        if (showDebugPlaceholders) {
-          this.createDebugPlaceholder(() => "No description provided");
-        }
-      } else if (description) {
-        this.createText(description);
-        if (showDebugPlaceholders) {
+    });
+
+    if (summary || showDebugPlaceholders) {
+      this.handleCreateOperationSummary(() => {
+        if (summary && description) {
+          this.createText(`_${summary}_`);
+        } else if (summary) {
+          this.createText(summary);
+        } else if (showDebugPlaceholders) {
           this.createDebugPlaceholder(() => "No summary provided");
         }
-      } else if (showDebugPlaceholders) {
-        this.createDebugPlaceholder(() => "No summary provided");
-        this.createDebugPlaceholder(() => "No description provided");
-      }
-    });
+      });
+    }
+
+    if (description || showDebugPlaceholders) {
+      this.handleCreateOperationDescription(() => {
+        if (description) {
+          this.createText(description);
+        } else if (showDebugPlaceholders) {
+          this.createDebugPlaceholder(() => "No description provided");
+        }
+      });
+    }
+
     cb();
+
     this.#currentOperation = undefined;
     this.exitContext();
   }
@@ -264,7 +271,15 @@ export abstract class MarkdownRenderer extends Renderer {
     this.exitContext();
   }
 
-  protected handleCreateOperationFrontmatter(cb: () => void) {
+  protected handleCreateOperationTitle(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateOperationSummary(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateOperationDescription(cb: () => void) {
     cb();
   }
 
@@ -298,7 +313,14 @@ export abstract class MarkdownRenderer extends Renderer {
 
   public override createRequestSection(
     ...[
-      { isOptional, createFrontMatter, createBreakouts },
+      {
+        isOptional,
+        createDisplayType,
+        createDescription,
+        createExamples,
+        createDefaultValue,
+        createBreakouts,
+      },
     ]: RendererCreateRequestSectionArgs
   ): void {
     this.enterContext({ id: "request", type: "section" });
@@ -322,7 +344,18 @@ export abstract class MarkdownRenderer extends Renderer {
         annotations,
       },
       () => {
-        this.handleCreateFrontMatter(createFrontMatter);
+        if (createDisplayType) {
+          this.handleCreateRequestDisplayType(createDisplayType);
+        }
+        if (createDescription) {
+          this.handleCreateRequestDescription(createDescription);
+        }
+        if (createExamples) {
+          this.handleCreateRequestExamples(createExamples);
+        }
+        if (createDefaultValue) {
+          this.handleCreateRequestDefaultValue(createDefaultValue);
+        }
         this.handleCreateBreakouts(createBreakouts);
       }
     );
@@ -343,43 +376,92 @@ export abstract class MarkdownRenderer extends Renderer {
           id: this.getCurrentId(),
         })
       );
-      cb(({ statusCode, contentType, createFrontMatter, createBreakouts }) => {
-        this.enterContext({ id: statusCode, type: "section" });
-        this.enterContext({
-          id: contentType.replace("/", "-"),
-          type: "section",
-        });
-        if (this.#currentOperation?.responses) {
-          this.#currentSection = {
-            fragment: this.getCurrentId(),
-            properties: [],
-          };
-          this.#currentOperation.responses[`${statusCode}-${contentType}`] =
-            this.#currentSection;
-        }
-
-        this.createTabbedSectionTab(() => this.createText(statusCode), {
-          id: this.getCurrentId(),
-        });
-        this.createSectionContent(
-          () => {
-            this.handleCreateFrontMatter(createFrontMatter);
-            this.handleCreateBreakouts(createBreakouts);
-          },
-          {
-            id: this.getCurrentId(),
+      cb(
+        ({
+          statusCode,
+          contentType,
+          createDisplayType,
+          createDescription,
+          createExamples,
+          createDefaultValue,
+          createBreakouts,
+        }) => {
+          this.enterContext({ id: statusCode, type: "section" });
+          this.enterContext({
+            id: contentType.replace("/", "-"),
+            type: "section",
+          });
+          if (this.#currentOperation?.responses) {
+            this.#currentSection = {
+              fragment: this.getCurrentId(),
+              properties: [],
+            };
+            this.#currentOperation.responses[`${statusCode}-${contentType}`] =
+              this.#currentSection;
           }
-        );
 
-        this.#currentSection = undefined;
-        this.exitContext();
-        this.exitContext();
-      });
+          this.createTabbedSectionTab(() => this.createText(statusCode), {
+            id: this.getCurrentId(),
+          });
+          this.createSectionContent(
+            () => {
+              if (createDisplayType) {
+                this.handleCreateResponseDisplayType(createDisplayType);
+              }
+              if (createDescription) {
+                this.handleCreateResponseDescription(createDescription);
+              }
+              if (createExamples) {
+                this.handleCreateResponseExamples(createExamples);
+              }
+              if (createDefaultValue) {
+                this.handleCreateResponseDefaultValue(createDefaultValue);
+              }
+              this.handleCreateBreakouts(createBreakouts);
+            },
+            {
+              id: this.getCurrentId(),
+            }
+          );
+
+          this.#currentSection = undefined;
+          this.exitContext();
+          this.exitContext();
+        }
+      );
     });
     this.exitContext();
   }
 
-  protected handleCreateFrontMatter(cb: () => void) {
+  protected handleCreateRequestDisplayType(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateRequestDescription(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateRequestExamples(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateRequestDefaultValue(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateResponseDisplayType(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateResponseDescription(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateResponseExamples(cb: () => void) {
+    cb();
+  }
+
+  protected handleCreateResponseDefaultValue(cb: () => void) {
     cb();
   }
 
@@ -393,17 +475,21 @@ export abstract class MarkdownRenderer extends Renderer {
     if (this.#currentSection && props.isTopLevel) {
       this.#currentSection.properties.push({
         fragment: this.getCurrentId(),
-        name: props.title,
+        name: props.rawTitle,
       });
     }
     this.handleCreateExpandableBreakout(props);
   }
 
   protected handleCreateExpandableBreakout(
-    ...[{ createTitle, createContent }]: RendererCreateExpandableBreakoutArgs
+    ...[
+      { createTitle, createDescription, createExamples, createDefaultValue },
+    ]: RendererCreateExpandableBreakoutArgs
   ) {
     createTitle();
-    createContent?.();
+    createDescription?.();
+    createExamples?.();
+    createDefaultValue?.();
   }
 
   public override createExpandableProperty(
@@ -412,7 +498,7 @@ export abstract class MarkdownRenderer extends Renderer {
     if (this.#currentSection && props.isTopLevel) {
       this.#currentSection.properties.push({
         fragment: this.getCurrentId(),
-        name: props.title,
+        name: props.rawTitle,
       });
     }
     this.handleCreateExpandableProperty(props);
@@ -420,7 +506,14 @@ export abstract class MarkdownRenderer extends Renderer {
 
   protected handleCreateExpandableProperty(
     ...[
-      { typeInfo, annotations, title, createContent },
+      {
+        rawTitle,
+        typeInfo,
+        annotations,
+        createDescription,
+        createExamples,
+        createDefaultValue,
+      },
     ]: RendererCreateExpandablePropertyArgs
   ) {
     let type;
@@ -439,10 +532,12 @@ export abstract class MarkdownRenderer extends Renderer {
     });
     this.createHeading(
       HEADINGS.PROPERTY_HEADING_LEVEL,
-      `${title} ${renderedAnnotations.join(" ")}${type}`,
+      `${rawTitle} ${renderedAnnotations.join(" ")}${type}`,
       { id: this.getCurrentId(), escape: "mdx" }
     );
-    createContent?.();
+    createDescription?.();
+    createExamples?.();
+    createDefaultValue?.();
   }
 
   public override createFrontMatterDisplayType(

@@ -8,9 +8,10 @@ import type { DocsCodeSnippets } from "../../data/generateCodeSnippets.ts";
 import { debug } from "../../logging.ts";
 import { getSchemaFromId, getSecurityFromId } from "../util.ts";
 import {
+  createDefaultValue,
+  createExamples,
   getDisplayTypeInfo,
   renderBreakouts,
-  renderSchemaFrontmatter,
 } from "./schema.ts";
 
 type RenderOperationOptions = {
@@ -46,10 +47,9 @@ export function renderOperation({
           );
           for (const entry of securityChunk.chunkData.entries) {
             debug(`Rendering security chunk: name=${entry.name}`);
-            const hasFrontmatter = !!entry.description || showDebugPlaceholders;
             renderer.enterContext({ id: entry.name, type: "schema" });
             renderer.createExpandableProperty({
-              title: entry.name,
+              rawTitle: entry.name,
               isTopLevel: true,
               annotations: [
                 {
@@ -61,18 +61,19 @@ export function renderOperation({
                   variant: "info",
                 },
               ],
-              createContent: hasFrontmatter
-                ? () => {
-                    if (entry.description) {
-                      renderer.createText(entry.description);
+              hasFrontMatter: !!entry.description || showDebugPlaceholders,
+              createDescription:
+                entry.description || showDebugPlaceholders
+                  ? () => {
+                      if (entry.description) {
+                        renderer.createText(entry.description);
+                      } else if (showDebugPlaceholders) {
+                        renderer.createDebugPlaceholder(
+                          () => "No description provided"
+                        );
+                      }
                     }
-                    if (showDebugPlaceholders) {
-                      renderer.createDebugPlaceholder(
-                        () => "No description provided"
-                      );
-                    }
-                  }
-                : undefined,
+                  : undefined,
             });
             renderer.exitContext();
           }
@@ -108,24 +109,24 @@ export function renderOperation({
               renderer,
               []
             );
-            const hasFrontmatter = !!parameter.description;
             renderer.createExpandableProperty({
               typeInfo,
               annotations,
-              title: parameter.name,
+              rawTitle: parameter.name,
               isTopLevel: true,
-              createContent: hasFrontmatter
-                ? () => {
-                    if (parameter.description) {
-                      renderer.createText(parameter.description);
+              hasFrontMatter: !!parameter.description || showDebugPlaceholders,
+              createDescription:
+                parameter.description || showDebugPlaceholders
+                  ? () => {
+                      if (parameter.description) {
+                        renderer.createText(parameter.description);
+                      } else if (showDebugPlaceholders) {
+                        renderer.createDebugPlaceholder(
+                          () => "No description provided"
+                        );
+                      }
                     }
-                    if (showDebugPlaceholders) {
-                      renderer.createDebugPlaceholder(
-                        () => "No description provided"
-                      );
-                    }
-                  }
-                : undefined,
+                  : undefined,
             });
 
             // Render breakouts, which will be separate expandable entries
@@ -175,28 +176,49 @@ export function renderOperation({
           requestBody.contentChunkId,
           renderer.getDocsData()
         );
+        const requestBodySchemaValue = requestBodySchema.chunkData.value;
         renderer.createRequestSection({
           isOptional: false,
-          createFrontMatter() {
-            if (requestBodySchema.chunkData.value.type !== "object") {
-              renderer.createFrontMatterDisplayType({
-                typeInfo: getDisplayTypeInfo(
-                  requestBodySchema.chunkData.value,
-                  renderer,
-                  []
-                ),
-              });
-            }
-            // TODO: we can have two descriptions here. Need to figure
-            // out something to do with them
-            if (requestBody.description) {
-              renderer.createText(requestBody.description);
-            }
-            renderSchemaFrontmatter({
-              renderer,
-              schema: requestBodySchema.chunkData.value,
-            });
-          },
+          createDisplayType:
+            requestBodySchemaValue.type !== "object"
+              ? () => {
+                  renderer.createFrontMatterDisplayType({
+                    typeInfo: getDisplayTypeInfo(
+                      requestBodySchema.chunkData.value,
+                      renderer,
+                      []
+                    ),
+                  });
+                }
+              : undefined,
+          createDescription:
+            requestBody.description ||
+            ("description" in requestBodySchemaValue &&
+              requestBodySchemaValue.description) ||
+            showDebugPlaceholders
+              ? () => {
+                  // TODO: We can have a description at the requestBody level, or at
+                  // the top-level schema. We prioritize the requestBody level
+                  // description currently, but should we show both?
+                  if (requestBody.description) {
+                    renderer.createText(requestBody.description);
+                  } else if (
+                    "description" in requestBodySchemaValue &&
+                    requestBodySchemaValue.description
+                  ) {
+                    renderer.createText(requestBodySchemaValue.description);
+                  } else if (showDebugPlaceholders) {
+                    renderer.createDebugPlaceholder(
+                      () => "No description provided"
+                    );
+                  }
+                }
+              : undefined,
+          createExamples: createExamples(requestBodySchemaValue, renderer),
+          createDefaultValue: createDefaultValue(
+            requestBodySchemaValue,
+            renderer
+          ),
           createBreakouts() {
             renderBreakouts({
               renderer,
@@ -251,20 +273,42 @@ export function renderOperation({
                   createTab({
                     statusCode,
                     contentType: response.contentType,
-                    createFrontMatter() {
-                      if (schema.type !== "object") {
-                        renderer.createFrontMatterDisplayType({
-                          typeInfo: getDisplayTypeInfo(schema, renderer, []),
-                        });
-                      }
-                      if (response.description) {
-                        renderer.createText(response.description);
-                      }
-                      renderSchemaFrontmatter({
-                        renderer,
-                        schema,
-                      });
-                    },
+                    createDisplayType:
+                      schema.type !== "object"
+                        ? () => {
+                            renderer.createFrontMatterDisplayType({
+                              typeInfo: getDisplayTypeInfo(
+                                schema,
+                                renderer,
+                                []
+                              ),
+                            });
+                          }
+                        : undefined,
+                    createDescription:
+                      response.description ||
+                      ("description" in schema && schema.description) ||
+                      showDebugPlaceholders
+                        ? () => {
+                            // TODO: We can have a description at the requestBody level, or at
+                            // the top-level schema. We prioritize the requestBody level
+                            // description currently, but should we show both?
+                            if (response.description) {
+                              renderer.createText(response.description);
+                            } else if (
+                              "description" in schema &&
+                              schema.description
+                            ) {
+                              renderer.createText(schema.description);
+                            } else if (showDebugPlaceholders) {
+                              renderer.createDebugPlaceholder(
+                                () => "No description provided"
+                              );
+                            }
+                          }
+                        : undefined,
+                    createExamples: createExamples(schema, renderer),
+                    createDefaultValue: createDefaultValue(schema, renderer),
                     createBreakouts() {
                       renderBreakouts({
                         renderer,

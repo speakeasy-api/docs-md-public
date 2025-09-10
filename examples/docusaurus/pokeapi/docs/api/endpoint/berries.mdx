@@ -4,22 +4,54 @@ sidebar_label: Berries
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationSecuritySection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationParametersSection, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import {
+ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationResponseBodySection,
+  OperationSecuritySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection
+} from "@speakeasy-api/docs-md/react";
 
 
 # Berries Operations \{#berries\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry/ \{#operation-api_v2_berry_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List berries_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -44,11 +76,11 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -61,11 +93,11 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -101,17 +133,17 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_berry_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -125,17 +157,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_berry_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -149,18 +181,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_berry_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -201,13 +233,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_berry_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -215,7 +247,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -228,13 +260,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_berry_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -242,7 +274,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -255,13 +287,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_berry_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -269,7 +301,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -282,11 +314,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_berry_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -298,11 +330,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerrySummary \{#operation-api_v2_berry_list+responses+200+application-json+results+berrysummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -317,11 +361,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_list+responses+200+application-json+results+berrysummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -336,11 +380,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_list+responses+200+application-json+results+berrysummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -356,15 +400,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry/\{id\}/ \{#operation-api_v2_berry_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get a berry_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -389,11 +441,11 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -406,11 +458,11 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -446,17 +498,17 @@ Berries are small fruits that can provide HP and status condition restoration, s
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -498,11 +550,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### firmness \{#operation-api_v2_berry_retrieve+responses+200+application-json+firmness\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -517,11 +569,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_retrieve+responses+200+application-json+firmness+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -536,11 +588,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_retrieve+responses+200+application-json+firmness+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -554,11 +606,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavors \{#operation-api_v2_berry_retrieve+responses+200+application-json+flavors\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -570,11 +622,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### flavor \{#operation-api_v2_berry_retrieve+responses+200+application-json+flavors+flavor\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -589,13 +653,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### potency \{#operation-api_v2_berry_retrieve+responses+200+application-json+flavors+flavor+potency\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -603,7 +667,7 @@ _Example:_
 10
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -617,11 +681,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### growth_time \{#operation-api_v2_berry_retrieve+responses+200+application-json+growth_time\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -635,11 +699,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -653,11 +717,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### item \{#operation-api_v2_berry_retrieve+responses+200+application-json+item\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -672,11 +736,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_retrieve+responses+200+application-json+item+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -691,11 +755,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_retrieve+responses+200+application-json+item+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -709,11 +773,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_harvest \{#operation-api_v2_berry_retrieve+responses+200+application-json+max_harvest\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -727,11 +791,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -745,11 +809,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### natural_gift_power \{#operation-api_v2_berry_retrieve+responses+200+application-json+natural_gift_power\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -763,11 +827,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### natural_gift_type \{#operation-api_v2_berry_retrieve+responses+200+application-json+natural_gift_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -782,11 +846,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_retrieve+responses+200+application-json+natural_gift_type+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -801,11 +865,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_retrieve+responses+200+application-json+natural_gift_type+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -819,11 +883,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### size \{#operation-api_v2_berry_retrieve+responses+200+application-json+size\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -837,11 +901,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### smoothness \{#operation-api_v2_berry_retrieve+responses+200+application-json+smoothness\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -855,11 +919,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### soil_dryness \{#operation-api_v2_berry_retrieve+responses+200+application-json+soil_dryness\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -875,15 +939,23 @@ _Example:_
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry-firmness/ \{#operation-api_v2_berry_firmness_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List berry firmness_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -908,11 +980,11 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_firmness_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -925,11 +997,11 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_firmness_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -965,17 +1037,17 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_berry_firmness_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -989,17 +1061,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_berry_firmness_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1013,18 +1085,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_berry_firmness_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1065,13 +1137,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_berry_firmness_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1079,7 +1151,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1092,13 +1164,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_berry_firmness_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1106,7 +1178,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1119,13 +1191,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_berry_firmness_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1133,7 +1205,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1146,11 +1218,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_berry_firmness_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1162,11 +1234,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerryFirmnessSummary \{#operation-api_v2_berry_firmness_list+responses+200+application-json+results+berryfirmnesssummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1181,11 +1265,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_firmness_list+responses+200+application-json+results+berryfirmnesssummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1200,11 +1284,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_firmness_list+responses+200+application-json+results+berryfirmnesssummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1220,15 +1304,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry-firmness/\{id\}/ \{#operation-api_v2_berry_firmness_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get berry by firmness_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1253,11 +1345,11 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_firmness_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1270,11 +1362,11 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_firmness_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1310,17 +1402,17 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_firmness_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1362,11 +1454,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### berries \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+berries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1378,11 +1470,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerrySummary \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+berries+berrysummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1397,11 +1501,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+berries+berrysummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1416,11 +1520,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+berries+berrysummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1434,11 +1538,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1452,11 +1556,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1470,11 +1574,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1486,11 +1590,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerryFirmnessName \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names+berryfirmnessname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1505,11 +1621,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names+berryfirmnessname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1524,11 +1640,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names+berryfirmnessname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1543,11 +1659,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names+berryfirmnessname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1562,11 +1678,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_firmness_retrieve+responses+200+application-json+names+berryfirmnessname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1582,15 +1698,23 @@ This parameter can be a string or an integer.
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry-flavor/ \{#operation-api_v2_berry_flavor_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List berry flavors_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1615,11 +1739,11 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_flavor_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1632,11 +1756,11 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_flavor_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1672,17 +1796,17 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_berry_flavor_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1696,17 +1820,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_berry_flavor_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1720,18 +1844,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_berry_flavor_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1772,13 +1896,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_berry_flavor_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1786,7 +1910,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1799,13 +1923,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_berry_flavor_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1813,7 +1937,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1826,13 +1950,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_berry_flavor_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1840,7 +1964,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1853,11 +1977,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_berry_flavor_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1869,11 +1993,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerryFlavorSummary \{#operation-api_v2_berry_flavor_list+responses+200+application-json+results+berryflavorsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1888,11 +2024,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_flavor_list+responses+200+application-json+results+berryflavorsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1907,11 +2043,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_flavor_list+responses+200+application-json+results+berryflavorsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1927,15 +2063,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/berry-flavor/\{id\}/ \{#operation-api_v2_berry_flavor_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get berries by flavor_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1960,11 +2104,11 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_berry_flavor_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1977,11 +2121,11 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_berry_flavor_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2017,17 +2161,17 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_flavor_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2069,11 +2213,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### berries \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+berries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2085,11 +2229,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### berry \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+berries+berry\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2104,13 +2260,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### potency \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+berries+berry+potency\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2118,7 +2274,7 @@ _Example:_
 10
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2132,11 +2288,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### contest_type \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+contest_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2151,11 +2307,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+contest_type+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2170,11 +2326,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+contest_type+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2188,11 +2344,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2206,11 +2362,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2224,11 +2380,11 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2240,11 +2396,23 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BerryFlavorName \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names+berryflavorname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2259,11 +2427,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names+berryflavorname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2278,11 +2446,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names+berryflavorname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2297,11 +2465,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names+berryflavorname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2316,11 +2484,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_berry_flavor_retrieve+responses+200+application-json+names+berryflavorname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

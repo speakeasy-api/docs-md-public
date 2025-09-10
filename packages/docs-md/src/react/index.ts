@@ -12,13 +12,33 @@ export { ExpandableCellIcon } from "./components/ExpandableCellIcon/ExpandableCe
 export type { ExpandableCellIconProps } from "./components/ExpandableCellIcon/type.ts";
 export { ExpandableCell } from "./components/ExpandableCell/ExpandableCell.tsx";
 export type { ExpandableCellProps } from "./components/ExpandableCell/types.ts";
-export { ExpandableBreakout } from "./components/ExpandableSection/ExpandableBreakout.tsx";
-export { ExpandableProperty } from "./components/ExpandableSection/ExpandableProperty.tsx";
+export {
+  ExpandableBreakout,
+  ExpandableBreakoutTitle,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutDefaultValue,
+} from "./components/ExpandableSection/ExpandableBreakout.tsx";
+export {
+  ExpandableProperty,
+  ExpandablePropertyTitle,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyDefaultValue,
+} from "./components/ExpandableSection/ExpandableProperty.tsx";
 export { ExpandableSection } from "./components/ExpandableSection/ExpandableSection.tsx";
 export type {
   ExpandableSectionProps,
   ExpandablePropertyProps,
+  ExpandablePropertyTitleProps,
+  ExpandablePropertyDescriptionProps,
+  ExpandablePropertyExamplesProps,
+  ExpandablePropertyDefaultValueProps,
   ExpandableBreakoutProps,
+  ExpandableBreakoutTitleProps,
+  ExpandableBreakoutDescriptionProps,
+  ExpandableBreakoutExamplesProps,
+  ExpandableBreakoutDefaultValueProps,
 } from "./components/ExpandableSection/types.ts";
 export { FrontMatterDisplayType } from "./components/FrontMatterDisplayType/FrontMatterDisplayType.tsx";
 export type { FrontMatterDisplayTypeProps } from "./components/FrontMatterDisplayType/types.ts";
@@ -26,20 +46,40 @@ export { NonExpandableCell } from "./components/NonExpandableCell/NonExpandableC
 export type { NonExpandableCellProps } from "./components/NonExpandableCell/types.ts";
 export {
   Operation,
+  OperationTitleSection,
+  OperationSummarySection,
+  OperationDescriptionSection,
   OperationCodeSamplesSection,
-  OperationFrontMatterSection,
   OperationParametersSection,
   OperationRequestBodySection,
+  OperationRequestBodyDisplayTypeSection,
+  OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
+  OperationRequestBodyDefaultValueSection,
   OperationResponseBodySection,
+  OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
+  OperationResponseBodyDefaultValueSection,
   OperationSecuritySection,
 } from "./components/Operation/Operation.tsx";
 export type {
-  OperationCodeSamplesSectionProps,
-  OperationFrontMatterSectionProps,
-  OperationParametersSectionProps,
   OperationProps,
+  OperationTitleSectionProps,
+  OperationSummarySectionProps,
+  OperationDescriptionSectionProps,
+  OperationCodeSamplesSectionProps,
+  OperationParametersSectionProps,
   OperationRequestBodySectionProps,
+  OperationRequestBodyDisplayTypeSectionProps,
+  OperationRequestBodyDescriptionSectionProps,
+  OperationRequestBodyExamplesSectionProps,
+  OperationRequestBodyDefaultValueSectionProps,
   OperationResponseBodySectionProps,
+  OperationResponseBodyDisplayTypeSectionProps,
+  OperationResponseBodyDescriptionSectionProps,
+  OperationResponseBodyExamplesSectionProps,
+  OperationResponseBodyDefaultValueSectionProps,
   OperationSecuritySectionProps,
 } from "./components/Operation/types.ts";
 export { Pill } from "./components/Pill/Pill.tsx";

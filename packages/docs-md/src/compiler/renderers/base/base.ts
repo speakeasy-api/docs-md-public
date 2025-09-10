@@ -106,7 +106,10 @@ export type RendererCreateParametersSectionArgs = [cb: () => void];
 export type RendererCreateRequestSectionArgs = [
   options: {
     isOptional: boolean;
-    createFrontMatter: () => void;
+    createDisplayType?: () => void;
+    createDescription?: () => void;
+    createExamples?: () => void;
+    createDefaultValue?: () => void;
     createBreakouts: () => void;
   },
 ];
@@ -115,7 +118,10 @@ export type RendererCreateResponsesArgs = [
     createTab: (options: {
       statusCode: string;
       contentType: string;
-      createFrontMatter: () => void;
+      createDisplayType?: () => void;
+      createDescription?: () => void;
+      createExamples?: () => void;
+      createDefaultValue?: () => void;
       createBreakouts: () => void;
     }) => void
   ) => void,
@@ -142,19 +148,25 @@ export type RendererCreateSectionContentArgs = [
 
 export type RendererCreateExpandableBreakoutArgs = [
   options: {
-    title: string;
+    rawTitle: string;
     isTopLevel: boolean;
+    hasFrontMatter: boolean;
     createTitle: () => void;
-    createContent?: () => void;
+    createDescription?: () => void;
+    createExamples?: () => void;
+    createDefaultValue?: () => void;
   },
 ];
 export type RendererCreateExpandablePropertyArgs = [
   options: {
-    title: string;
+    rawTitle: string;
     isTopLevel: boolean;
+    hasFrontMatter: boolean;
     typeInfo?: DisplayTypeInfo;
     annotations: PropertyAnnotations[];
-    createContent?: () => void;
+    createDescription?: () => void;
+    createExamples?: () => void;
+    createDefaultValue?: () => void;
   },
 ];
 

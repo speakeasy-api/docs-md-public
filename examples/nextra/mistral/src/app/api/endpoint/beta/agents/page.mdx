@@ -3,22 +3,60 @@ sidebarTitle: Beta Agents
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationParametersSection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationCodeSamplesSection, TabbedSection, TryItNow, SectionTab, CodeSample, OperationResponseBodySection, FrontMatterDisplayType, ExpandableBreakout, OperationRequestBodySection } from "@speakeasy-api/docs-md/react";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyDescription,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  FrontMatterDisplayType,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@speakeasy-api/docs-md/react";
 
 
 # Beta Agents Operations [#beta/agents]
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/agents [#operation-agents_api_v1_agents_list]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List agent entities._
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Retrieve a list of agent entities sorted by creation time.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -44,11 +82,11 @@ Retrieve a list of agent entities sorted by creation time.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### page [#operation-agents_api_v1_agents_list_parameters_page]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -62,11 +100,11 @@ Retrieve a list of agent entities sorted by creation time.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### page_size [#operation-agents_api_v1_agents_list_parameters_page_size]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -166,11 +204,17 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_list_responses_200_application-json">
 
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
 <FrontMatterDisplayType typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-agents_api_v1_agents_list_responses_200_application-json_agent\">Agent</a>","children":[{"label":"Agent","linkedLabel":"<a href=\"#operation-agents_api_v1_agents_list_responses_200_application-json_agent\">Agent</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} />
 
-Successful Response
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
 
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -182,11 +226,23 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Agent [#operation-agents_api_v1_agents_list_responses_200_application-json_agent]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -200,17 +256,17 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -224,11 +280,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -242,11 +298,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -260,11 +316,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -276,11 +332,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -294,17 +362,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -318,17 +386,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -342,11 +410,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -360,11 +428,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -378,11 +446,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -394,11 +462,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -412,11 +492,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -428,11 +508,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -446,11 +538,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -465,11 +557,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -484,11 +576,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -502,11 +594,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -520,17 +612,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -544,11 +636,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -562,17 +654,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -586,11 +678,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -604,11 +696,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -623,11 +715,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_created_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -641,11 +733,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -659,11 +751,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -678,11 +770,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -696,11 +788,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -715,11 +807,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -734,11 +826,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -752,17 +844,17 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"agent"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -776,17 +868,17 @@ _Default Value:_ `"agent"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -798,11 +890,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -817,11 +921,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -835,11 +939,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -854,11 +958,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -873,11 +977,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -891,11 +995,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -909,17 +1013,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -931,11 +1035,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -949,17 +1065,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -971,11 +1087,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -989,17 +1117,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1011,11 +1139,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1029,17 +1169,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1051,11 +1191,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1069,17 +1221,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1091,11 +1243,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1110,17 +1274,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1134,17 +1298,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1159,11 +1323,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### updated_at [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_updated_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1178,11 +1342,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_list_responses_200_application-json_agent_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1198,15 +1362,23 @@ _Default Value:_ `"document_library"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/agents [#operation-agents_api_v1_agents_create]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Create a agent that can be used within a conversation._
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Create a new agent giving it instructions, tools, description. The agent is then available to be used as a regular assistant in a conversation or as part of an agent pool from which it can be used.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -1304,17 +1476,17 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_create_request_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1328,11 +1500,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_create_request_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1346,11 +1518,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_create_request_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1364,11 +1536,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_create_request_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1380,11 +1552,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_create_request_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1398,17 +1582,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_create_request_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1422,17 +1606,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1446,11 +1630,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_create_request_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1464,11 +1648,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_create_request_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1482,11 +1666,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_create_request_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1498,11 +1682,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1516,11 +1712,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1532,11 +1728,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1550,11 +1758,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1569,11 +1777,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1588,11 +1796,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1606,11 +1814,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1624,17 +1832,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1648,11 +1856,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_create_request_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1666,17 +1874,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_create_request_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1690,11 +1898,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_create_request_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1708,11 +1916,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_create_request_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1725,11 +1933,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_request_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1742,11 +1950,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_create_request_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1759,11 +1967,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_create_request_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1777,11 +1985,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_create_request_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1795,11 +2003,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_request_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1812,17 +2020,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_create_request_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1834,11 +2042,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_create_request_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1853,11 +2073,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_create_request_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1871,11 +2091,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_request_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1890,11 +2110,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_request_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1909,11 +2129,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_create_request_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1927,11 +2147,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_create_request_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1945,17 +2165,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1967,11 +2187,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_create_request_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1985,17 +2217,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2007,11 +2239,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_create_request_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2025,17 +2269,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2047,11 +2291,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_create_request_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2065,17 +2321,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2087,11 +2343,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_create_request_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2105,17 +2373,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2127,11 +2395,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_create_request_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2146,17 +2426,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_create_request_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2170,17 +2450,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_request_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2210,7 +2490,11 @@ _Default Value:_ `"document_library"`
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_create_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -2223,17 +2507,17 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2247,11 +2531,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2265,11 +2549,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2283,11 +2567,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2299,11 +2583,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2317,17 +2613,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2341,17 +2637,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2365,11 +2661,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2383,11 +2679,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2401,11 +2697,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2417,11 +2713,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2435,11 +2743,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2451,11 +2759,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2469,11 +2789,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2488,11 +2808,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2507,11 +2827,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2525,11 +2845,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2543,17 +2863,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2567,11 +2887,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2585,17 +2905,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2609,11 +2929,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2627,11 +2947,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_create_responses_200_application-json_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2645,11 +2965,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at [#operation-agents_api_v1_agents_create_responses_200_application-json_created_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2662,11 +2982,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_responses_200_application-json_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2679,11 +2999,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_create_responses_200_application-json_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2697,11 +3017,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-agents_api_v1_agents_create_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2714,11 +3034,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_create_responses_200_application-json_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2732,11 +3052,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_create_responses_200_application-json_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2750,11 +3070,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_responses_200_application-json_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2767,17 +3087,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-agents_api_v1_agents_create_responses_200_application-json_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"agent"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2790,17 +3110,17 @@ _Default Value:_ `"agent"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_create_responses_200_application-json_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2812,11 +3132,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2831,11 +3163,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2849,11 +3181,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2868,11 +3200,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2887,11 +3219,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2905,11 +3237,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2923,17 +3255,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2945,11 +3277,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2963,17 +3307,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2985,11 +3329,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3003,17 +3359,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3025,11 +3381,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3043,17 +3411,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3065,11 +3433,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3083,17 +3463,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3105,11 +3485,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3124,17 +3516,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3148,17 +3540,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_create_responses_200_application-json_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3172,11 +3564,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### updated_at [#operation-agents_api_v1_agents_create_responses_200_application-json_updated_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3190,11 +3582,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_create_responses_200_application-json_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3210,15 +3602,23 @@ _Default Value:_ `"document_library"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/agents/\{agent\_id\} [#operation-agents_api_v1_agents_get]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Retrieve an agent entity._
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Given an agent retrieve an agent entity with its attributes.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -3244,11 +3644,11 @@ Given an agent retrieve an agent entity with its attributes.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### agent_id [#operation-agents_api_v1_agents_get_parameters_agent_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3350,7 +3750,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_get_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -3363,17 +3767,17 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3387,11 +3791,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3405,11 +3809,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3423,11 +3827,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3439,11 +3843,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3457,17 +3873,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3481,17 +3897,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3505,11 +3921,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3523,11 +3939,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3541,11 +3957,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3557,11 +3973,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3575,11 +4003,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3591,11 +4019,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3609,11 +4049,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3628,11 +4068,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3647,11 +4087,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3665,11 +4105,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3683,17 +4123,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3707,11 +4147,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3725,17 +4165,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3749,11 +4189,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3767,11 +4207,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_get_responses_200_application-json_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3785,11 +4225,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at [#operation-agents_api_v1_agents_get_responses_200_application-json_created_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3802,11 +4242,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_get_responses_200_application-json_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3819,11 +4259,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_get_responses_200_application-json_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3837,11 +4277,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-agents_api_v1_agents_get_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3854,11 +4294,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_get_responses_200_application-json_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3872,11 +4312,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_get_responses_200_application-json_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3890,11 +4330,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_get_responses_200_application-json_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3907,17 +4347,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-agents_api_v1_agents_get_responses_200_application-json_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"agent"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3930,17 +4370,17 @@ _Default Value:_ `"agent"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_get_responses_200_application-json_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3952,11 +4392,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3971,11 +4423,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3989,11 +4441,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4008,11 +4460,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4027,11 +4479,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4045,11 +4497,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4063,17 +4515,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4085,11 +4537,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4103,17 +4567,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4125,11 +4589,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4143,17 +4619,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4165,11 +4641,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4183,17 +4671,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4205,11 +4693,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4223,17 +4723,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4245,11 +4745,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4264,17 +4776,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4288,17 +4800,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_get_responses_200_application-json_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4312,11 +4824,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### updated_at [#operation-agents_api_v1_agents_get_responses_200_application-json_updated_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4330,11 +4842,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_get_responses_200_application-json_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4350,15 +4862,23 @@ _Default Value:_ `"document_library"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>PATCH</b></Pill> /v1/agents/\{agent\_id\} [#operation-agents_api_v1_agents_update]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Update an agent entity._
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Update an agent attributes and create a new version.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -4384,11 +4904,11 @@ Update an agent attributes and create a new version.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### agent_id [#operation-agents_api_v1_agents_update_parameters_agent_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4496,17 +5016,17 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_update_request_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4520,11 +5040,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_update_request_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4538,11 +5058,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_update_request_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4556,11 +5076,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_update_request_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4572,11 +5092,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_update_request_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4590,17 +5122,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_update_request_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4614,17 +5146,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4638,11 +5170,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_update_request_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4656,11 +5188,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_update_request_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4674,11 +5206,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_update_request_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4690,11 +5222,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4708,11 +5252,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4724,11 +5268,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4742,11 +5298,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4761,11 +5317,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4780,11 +5336,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4798,11 +5354,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4816,17 +5372,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -4840,11 +5396,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_update_request_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4858,17 +5414,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_update_request_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4882,11 +5438,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_update_request_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4900,11 +5456,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_update_request_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4917,11 +5473,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_request_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4934,11 +5490,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_update_request_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4951,11 +5507,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_update_request_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4968,11 +5524,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_update_request_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4985,11 +5541,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_request_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5002,17 +5558,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_update_request_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5024,11 +5580,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_update_request_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5043,11 +5611,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_update_request_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5061,11 +5629,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_request_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5080,11 +5648,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_request_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5099,11 +5667,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_update_request_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5117,11 +5685,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_request_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5135,17 +5703,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5157,11 +5725,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_update_request_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5175,17 +5755,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5197,11 +5777,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_update_request_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5215,17 +5807,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5237,11 +5829,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_update_request_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5255,17 +5859,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5277,11 +5881,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_update_request_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5295,17 +5911,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5317,11 +5933,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_update_request_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5336,17 +5964,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_update_request_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5360,17 +5988,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_request_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5400,7 +6028,11 @@ _Default Value:_ `"document_library"`
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_update_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -5413,17 +6045,17 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5437,11 +6069,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5455,11 +6087,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5473,11 +6105,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5489,11 +6121,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5507,17 +6151,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5531,17 +6175,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5555,11 +6199,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5573,11 +6217,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5591,11 +6235,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5607,11 +6251,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5625,11 +6281,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5641,11 +6297,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5659,11 +6327,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5678,11 +6346,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5697,11 +6365,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5715,11 +6383,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5733,17 +6401,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5757,11 +6425,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5775,17 +6443,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5799,11 +6467,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5817,11 +6485,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_update_responses_200_application-json_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5835,11 +6503,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at [#operation-agents_api_v1_agents_update_responses_200_application-json_created_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5852,11 +6520,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_responses_200_application-json_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5869,11 +6537,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_update_responses_200_application-json_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5887,11 +6555,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-agents_api_v1_agents_update_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5904,11 +6572,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_update_responses_200_application-json_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5922,11 +6590,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_update_responses_200_application-json_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5940,11 +6608,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_responses_200_application-json_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5957,17 +6625,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-agents_api_v1_agents_update_responses_200_application-json_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"agent"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5980,17 +6648,17 @@ _Default Value:_ `"agent"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_update_responses_200_application-json_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6002,11 +6670,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6021,11 +6701,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6039,11 +6719,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6058,11 +6738,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6077,11 +6757,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6095,11 +6775,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6113,17 +6793,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6135,11 +6815,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6153,17 +6845,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6175,11 +6867,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6193,17 +6897,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6215,11 +6919,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6233,17 +6949,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6255,11 +6971,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6273,17 +7001,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6295,11 +7023,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6314,17 +7054,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6338,17 +7078,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_responses_200_application-json_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6362,11 +7102,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### updated_at [#operation-agents_api_v1_agents_update_responses_200_application-json_updated_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6380,11 +7120,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_update_responses_200_application-json_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6400,15 +7140,23 @@ _Default Value:_ `"document_library"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>PATCH</b></Pill> /v1/agents/\{agent\_id\}/version [#operation-agents_api_v1_agents_update_version]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Update an agent version._
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Switch the version of an agent.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -6434,11 +7182,11 @@ Switch the version of an agent.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### agent_id [#operation-agents_api_v1_agents_update_version_parameters_agent_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6452,11 +7200,11 @@ Switch the version of an agent.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_update_version_parameters_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6559,7 +7307,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_update_version_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -6572,17 +7324,17 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_args [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 White-listed arguments from the completion API
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6596,11 +7348,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6614,11 +7366,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6632,11 +7384,11 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6648,11 +7400,23 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6666,17 +7430,17 @@ White-listed arguments from the completion API
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6690,17 +7454,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6714,11 +7478,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6732,11 +7496,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6750,11 +7514,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6766,11 +7530,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6784,11 +7560,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6800,11 +7576,23 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6818,11 +7606,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6837,11 +7625,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6856,11 +7644,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6874,11 +7662,11 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6892,17 +7680,17 @@ _Default Value:_ `"content"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -6916,11 +7704,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6934,17 +7722,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0.3`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6958,11 +7746,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6976,11 +7764,11 @@ _Default Value:_ `0.3`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-agents_api_v1_agents_update_version_responses_200_application-json_completion_args_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6994,11 +7782,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at [#operation-agents_api_v1_agents_update_version_responses_200_application-json_created_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7011,11 +7799,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_version_responses_200_application-json_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7028,11 +7816,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### handoffs [#operation-agents_api_v1_agents_update_version_responses_200_application-json_handoffs]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7046,11 +7834,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-agents_api_v1_agents_update_version_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7063,11 +7851,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### instructions [#operation-agents_api_v1_agents_update_version_responses_200_application-json_instructions]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7081,11 +7869,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-agents_api_v1_agents_update_version_responses_200_application-json_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7099,11 +7887,11 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_version_responses_200_application-json_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7116,17 +7904,17 @@ _Default Value:_ `0.3`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-agents_api_v1_agents_update_version_responses_200_application-json_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"agent"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7139,17 +7927,17 @@ _Default Value:_ `"agent"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of tools which are available to the model during the conversation.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -7161,11 +7949,23 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FunctionTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7180,11 +7980,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7198,11 +7998,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7217,11 +8017,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7236,11 +8036,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7254,11 +8054,11 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7272,17 +8072,17 @@ List of tools which are available to the model during the conversation.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_functiontool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"function"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7294,11 +8094,23 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_websearchtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7312,17 +8124,17 @@ _Default Value:_ `"function"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_websearchtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7334,11 +8146,23 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### WebSearchPremiumTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_websearchpremiumtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7352,17 +8176,17 @@ _Default Value:_ `"web_search"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_websearchpremiumtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"web_search_premium"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7374,11 +8198,23 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CodeInterpreterTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_codeinterpretertool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7392,17 +8228,17 @@ _Default Value:_ `"web_search_premium"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_codeinterpretertool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"code_interpreter"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7414,11 +8250,23 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageGenerationTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_imagegenerationtool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7432,17 +8280,17 @@ _Default Value:_ `"code_interpreter"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_imagegenerationtool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_generation"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7454,11 +8302,23 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentLibraryTool [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_documentlibrarytool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -7473,17 +8333,17 @@ _Default Value:_ `"image_generation"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### library_ids [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_documentlibrarytool_library_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Ids of the library in which to search.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -7497,17 +8357,17 @@ Ids of the library in which to search.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-agents_api_v1_agents_update_version_responses_200_application-json_tools_documentlibrarytool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_library"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -7521,11 +8381,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### updated_at [#operation-agents_api_v1_agents_update_version_responses_200_application-json_updated_at]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -7539,11 +8399,11 @@ _Default Value:_ `"document_library"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version [#operation-agents_api_v1_agents_update_version_responses_200_application-json_version]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

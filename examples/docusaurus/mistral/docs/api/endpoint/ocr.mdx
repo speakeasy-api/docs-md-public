@@ -4,20 +4,50 @@ sidebar_label: Ocr
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationCodeSamplesSection, TabbedSection, SectionTitle, TryItNow, SectionTab, SectionContent, CodeSample, OperationRequestBodySection, Section, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationResponseBodySection } from "@speakeasy-api/docs-md/react";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyDescription,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@speakeasy-api/docs-md/react";
 
 
 # Ocr Operations \{#ocr\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/ocr \{#operation-ocr_v1_ocr_post\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 OCR
 
-</OperationFrontMatterSection>
+</OperationSummarySection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -125,11 +155,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### bbox_annotation_format \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -141,11 +171,23 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -159,11 +201,11 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -175,11 +217,23 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema+jsonschema\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -193,11 +247,11 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema+jsonschema+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -212,11 +266,11 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema+jsonschema+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -231,11 +285,11 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema+jsonschema+schema_definition\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -249,11 +303,11 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+json_schema+jsonschema+strict\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -267,17 +321,17 @@ with Mistral(
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-ocr_v1_ocr_post+request+bbox_annotation_format+responseformat+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -291,17 +345,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document \{#operation-ocr_v1_ocr_post+request+document\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Document to run OCR on
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -313,11 +367,23 @@ Document to run OCR on
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk \{#operation-ocr_v1_ocr_post+request+document+documenturlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -331,11 +397,11 @@ Document to run OCR on
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name \{#operation-ocr_v1_ocr_post+request+document+documenturlchunk+document_name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -350,11 +416,11 @@ Document to run OCR on
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url \{#operation-ocr_v1_ocr_post+request+document+documenturlchunk+document_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -368,17 +434,17 @@ Document to run OCR on
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-ocr_v1_ocr_post+request+document+documenturlchunk+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -390,17 +456,25 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -415,11 +489,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk+image_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -431,11 +505,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk+image_url+imageurl\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -449,11 +535,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk+image_url+imageurl+detail\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -468,11 +554,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk+image_url+imageurl+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -486,17 +572,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-ocr_v1_ocr_post+request+document+imageurlchunk+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -509,11 +595,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_annotation_format \{#operation-ocr_v1_ocr_post+request+document_annotation_format\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -525,11 +611,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -543,11 +641,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -559,11 +657,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema+jsonschema\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -577,11 +687,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema+jsonschema+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -596,11 +706,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema+jsonschema+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -615,11 +725,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema+jsonschema+schema_definition\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -633,11 +743,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+json_schema+jsonschema+strict\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -651,17 +761,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-ocr_v1_ocr_post+request+document_annotation_format+responseformat+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -674,11 +784,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-ocr_v1_ocr_post+request+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -691,11 +801,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_limit \{#operation-ocr_v1_ocr_post+request+image_limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -708,11 +818,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_min_size \{#operation-ocr_v1_ocr_post+request+image_min_size\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -725,11 +835,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### include_image_base64 \{#operation-ocr_v1_ocr_post+request+include_image_base64\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -743,11 +853,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-ocr_v1_ocr_post+request+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -760,11 +870,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pages \{#operation-ocr_v1_ocr_post+request+pages\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -794,7 +904,11 @@ An object specifying the format that the model must output. Setting to `\{ "type
 
 <SectionContent slot="content" id="operation-ocr_v1_ocr_post+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -807,11 +921,11 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_annotation \{#operation-ocr_v1_ocr_post+responses+200+application-json+document_annotation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -825,17 +939,17 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-ocr_v1_ocr_post+responses+200+application-json+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The model used to generate the OCR.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -849,17 +963,17 @@ The model used to generate the OCR.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pages \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of OCR info for pages.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -871,11 +985,23 @@ List of OCR info for pages.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### OCRPageObject \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -890,11 +1016,11 @@ List of OCR info for pages.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### dimensions \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+dimensions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -906,17 +1032,25 @@ List of OCR info for pages.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### OCRPageDimensions \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+dimensions+ocrpagedimensions\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 The dimensions of the PDF Page's screenshot image
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -931,17 +1065,17 @@ The dimensions of the PDF Page's screenshot image
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### dpi \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+dimensions+ocrpagedimensions+dpi\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Dots per inch of the page-image
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -956,17 +1090,17 @@ Dots per inch of the page-image
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### height \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+dimensions+ocrpagedimensions+height\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Height of the image in pixels
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -981,17 +1115,17 @@ Height of the image in pixels
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### width \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+dimensions+ocrpagedimensions+width\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Width of the image in pixels
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1006,17 +1140,17 @@ Width of the image in pixels
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### images \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 List of all extracted images in the page
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1028,11 +1162,23 @@ List of all extracted images in the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### OCRImageObject \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1047,11 +1193,11 @@ List of all extracted images in the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### bottom_right_x \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+bottom_right_x\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1066,11 +1212,11 @@ List of all extracted images in the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### bottom_right_y \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+bottom_right_y\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1085,17 +1231,17 @@ List of all extracted images in the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Image ID for extracted image in a page
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1109,11 +1255,11 @@ Image ID for extracted image in a page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_annotation \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+image_annotation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1127,11 +1273,11 @@ Image ID for extracted image in a page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_base64 \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+image_base64\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1146,11 +1292,11 @@ Image ID for extracted image in a page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_left_x \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+top_left_x\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1165,11 +1311,11 @@ Image ID for extracted image in a page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_left_y \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+images+ocrimageobject+top_left_y\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1184,17 +1330,17 @@ Image ID for extracted image in a page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+index\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The page index in a pdf document starting from 0
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1209,17 +1355,17 @@ The page index in a pdf document starting from 0
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### markdown \{#operation-ocr_v1_ocr_post+responses+200+application-json+pages+ocrpageobject+markdown\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The markdown string response of the page
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1233,11 +1379,11 @@ The markdown string response of the page
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### usage_info \{#operation-ocr_v1_ocr_post+responses+200+application-json+usage_info\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1251,11 +1397,11 @@ The markdown string response of the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### doc_size_bytes \{#operation-ocr_v1_ocr_post+responses+200+application-json+usage_info+doc_size_bytes\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1270,17 +1416,17 @@ The markdown string response of the page
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pages_processed \{#operation-ocr_v1_ocr_post+responses+200+application-json+usage_info+pages_processed\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of pages processed
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 

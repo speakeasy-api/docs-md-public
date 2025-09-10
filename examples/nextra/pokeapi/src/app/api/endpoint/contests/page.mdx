@@ -3,22 +3,54 @@ sidebarTitle: Contests
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationSecuritySection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationParametersSection, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import {
+ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationResponseBodySection,
+  OperationSecuritySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection
+} from "@speakeasy-api/docs-md/react";
 
 
 # Contests Operations [#contests]
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/contest-type/ [#operation-api_v2_contest_type_list]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List contest types_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√©mon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -43,11 +75,11 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_contest_type_list_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -60,11 +92,11 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_contest_type_list_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -100,17 +132,17 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit [#operation-api_v2_contest_type_list_parameters_limit]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -124,17 +156,17 @@ Number of results to return per page.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset [#operation-api_v2_contest_type_list_parameters_offset]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -148,18 +180,18 @@ The initial index from which to return the results.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q [#operation-api_v2_contest_type_list_parameters_q]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -200,13 +232,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count [#operation-api_v2_contest_type_list_responses_200_application-json_count]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -214,7 +246,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -227,13 +259,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next [#operation-api_v2_contest_type_list_responses_200_application-json_next]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -241,7 +273,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -254,13 +286,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous [#operation-api_v2_contest_type_list_responses_200_application-json_previous]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -268,7 +300,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -281,11 +313,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results [#operation-api_v2_contest_type_list_responses_200_application-json_results]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -297,11 +329,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ContestTypeSummary [#operation-api_v2_contest_type_list_responses_200_application-json_results_contesttypesummary]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -316,11 +360,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_type_list_responses_200_application-json_results_contesttypesummary_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -335,11 +379,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_type_list_responses_200_application-json_results_contesttypesummary_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -355,15 +399,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/contest-type/\{id\}/ [#operation-api_v2_contest_type_retrieve]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get contest type_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√©mon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -388,11 +440,11 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_contest_type_retrieve_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -405,11 +457,11 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_contest_type_retrieve_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -445,17 +497,17 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_contest_type_retrieve_parameters_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -497,11 +549,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### berry_flavor [#operation-api_v2_contest_type_retrieve_responses_200_application-json_berry_flavor]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -516,11 +568,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_type_retrieve_responses_200_application-json_berry_flavor_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -535,11 +587,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_type_retrieve_responses_200_application-json_berry_flavor_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -553,11 +605,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_contest_type_retrieve_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -571,11 +623,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_type_retrieve_responses_200_application-json_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -589,11 +641,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -605,11 +657,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ContestTypeName [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -624,11 +688,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### color [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename_color]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -643,11 +707,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename_language]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -662,11 +726,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename_language_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -681,11 +745,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename_language_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -700,11 +764,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_type_retrieve_responses_200_application-json_names_contesttypename_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -720,15 +784,23 @@ This parameter can be a string or an integer.
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/contest-effect/ [#operation-api_v2_contest_effect_list]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List contest effects_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Contest effects refer to the effects of moves when used in contests.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -753,11 +825,11 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_contest_effect_list_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -770,11 +842,11 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_contest_effect_list_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -810,17 +882,17 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit [#operation-api_v2_contest_effect_list_parameters_limit]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -834,17 +906,17 @@ Number of results to return per page.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset [#operation-api_v2_contest_effect_list_parameters_offset]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -858,18 +930,18 @@ The initial index from which to return the results.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q [#operation-api_v2_contest_effect_list_parameters_q]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -910,13 +982,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count [#operation-api_v2_contest_effect_list_responses_200_application-json_count]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -924,7 +996,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -937,13 +1009,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next [#operation-api_v2_contest_effect_list_responses_200_application-json_next]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -951,7 +1023,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -964,13 +1036,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous [#operation-api_v2_contest_effect_list_responses_200_application-json_previous]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -978,7 +1050,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -991,11 +1063,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results [#operation-api_v2_contest_effect_list_responses_200_application-json_results]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1007,11 +1079,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ContestEffectSummary [#operation-api_v2_contest_effect_list_responses_200_application-json_results_contesteffectsummary]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1026,11 +1110,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_effect_list_responses_200_application-json_results_contesteffectsummary_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1046,15 +1130,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/contest-effect/\{id\}/ [#operation-api_v2_contest_effect_retrieve]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get contest effect_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Contest effects refer to the effects of moves when used in contests.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1079,11 +1171,11 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_contest_effect_retrieve_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1096,11 +1188,11 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_contest_effect_retrieve_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1136,17 +1228,17 @@ Contest effects refer to the effects of moves when used in contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_contest_effect_retrieve_parameters_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1188,11 +1280,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### appeal [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_appeal]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1206,11 +1298,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect_entries [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1222,11 +1314,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ContestEffectEffectText [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries_contesteffecteffecttext]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1241,11 +1345,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### effect [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries_contesteffecteffecttext_effect]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1260,11 +1364,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries_contesteffecteffecttext_language]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1279,11 +1383,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries_contesteffecteffecttext_language_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1298,11 +1402,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_effect_entries_contesteffecteffecttext_language_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1316,11 +1420,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text_entries [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1332,11 +1436,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ContestEffectFlavorText [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_contesteffectflavortext]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1351,11 +1467,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_contesteffectflavortext_flavor_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1370,11 +1486,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_contesteffectflavortext_language]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1389,11 +1505,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_contesteffectflavortext_language_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1408,11 +1524,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_contesteffectflavortext_language_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1426,11 +1542,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1444,11 +1560,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### jam [#operation-api_v2_contest_effect_retrieve_responses_200_application-json_jam]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1464,15 +1580,23 @@ This parameter can be a string or an integer.
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/super-contest-effect/ [#operation-api_v2_super_contest_effect_list]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List super contest effects_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Super contest effects refer to the effects of moves when used in super contests.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1497,11 +1621,11 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_super_contest_effect_list_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1514,11 +1638,11 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_super_contest_effect_list_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1554,17 +1678,17 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit [#operation-api_v2_super_contest_effect_list_parameters_limit]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1578,17 +1702,17 @@ Number of results to return per page.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset [#operation-api_v2_super_contest_effect_list_parameters_offset]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1602,18 +1726,18 @@ The initial index from which to return the results.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q [#operation-api_v2_super_contest_effect_list_parameters_q]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1654,13 +1778,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count [#operation-api_v2_super_contest_effect_list_responses_200_application-json_count]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1668,7 +1792,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1681,13 +1805,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next [#operation-api_v2_super_contest_effect_list_responses_200_application-json_next]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1695,7 +1819,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1708,13 +1832,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous [#operation-api_v2_super_contest_effect_list_responses_200_application-json_previous]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1722,7 +1846,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1735,11 +1859,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results [#operation-api_v2_super_contest_effect_list_responses_200_application-json_results]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1751,11 +1875,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### SuperContestEffectSummary [#operation-api_v2_super_contest_effect_list_responses_200_application-json_results_supercontesteffectsummary]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1770,11 +1906,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_super_contest_effect_list_responses_200_application-json_results_supercontesteffectsummary_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1790,15 +1926,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/super-contest-effect/\{id\}/ [#operation-api_v2_super_contest_effect_retrieve]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get super contest effect_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Super contest effects refer to the effects of moves when used in super contests.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1823,11 +1967,11 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth [#operation-api_v2_super_contest_effect_retrieve_security_cookieauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1840,11 +1984,11 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth [#operation-api_v2_super_contest_effect_retrieve_security_basicauth]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1880,17 +2024,17 @@ Super contest effects refer to the effects of moves when used in super contests.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_super_contest_effect_retrieve_parameters_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1932,11 +2076,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### appeal [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_appeal]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1950,11 +2094,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text_entries [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1966,11 +2110,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### SuperContestEffectFlavorText [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_supercontesteffectflavortext]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1985,11 +2141,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### flavor_text [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_supercontesteffectflavortext_flavor_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2004,11 +2160,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_supercontesteffectflavortext_language]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2023,11 +2179,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_supercontesteffectflavortext_language_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2042,11 +2198,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_flavor_text_entries_supercontesteffectflavortext_language_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2060,11 +2216,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2078,11 +2234,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### moves [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_moves]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2094,11 +2250,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveSummary [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_moves_movesummary]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2113,11 +2281,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_moves_movesummary_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2132,11 +2300,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-api_v2_super_contest_effect_retrieve_responses_200_application-json_moves_movesummary_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

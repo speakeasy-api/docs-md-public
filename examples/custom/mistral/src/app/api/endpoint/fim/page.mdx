@@ -1,20 +1,58 @@
 import "@/app/speakeasy.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationCodeSamplesSection, TabbedSection, SectionTitle, TryItNow, SectionTab, SectionContent, CodeSample, OperationRequestBodySection, Section, ExpandableSection, ExpandableProperty, OperationResponseBodySection, ExpandableBreakout, FrontMatterDisplayType } from "@/components/speakeasy";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  FrontMatterDisplayType,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationDescriptionSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@/components/speakeasy-custom";
 
 
 # Fim Operations \{#fim\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fim/completions \{#operation-fim_completion_v1_fim_completions_post\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Fim Completion_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 FIM completion.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -113,11 +151,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens \{#operation-fim_completion_v1_fim_completions_post_request_max_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -130,11 +168,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### min_tokens \{#operation-fim_completion_v1_fim_completions_post_request_min_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -148,17 +186,21 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-fim_completion_v1_fim_completions_post_request_model\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 ID of the model to use. Only compatible for now with:
   - `codestral-2405`
   - `codestral-latest`
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -166,7 +208,7 @@ _Example:_
 codestral-2405
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -180,15 +222,19 @@ codestral-2405
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt \{#operation-fim_completion_v1_fim_completions_post_request_prompt\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The text/code to complete.
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -196,7 +242,7 @@ _Example:_
 def
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -209,11 +255,11 @@ def
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed \{#operation-fim_completion_v1_fim_completions_post_request_random_seed\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -226,17 +272,17 @@ def
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop \{#operation-fim_completion_v1_fim_completions_post_request_stop\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Stop generation if this token is detected. Or if one of these tokens is detected when providing an array
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -249,19 +295,23 @@ Stop generation if this token is detected. Or if one of these tokens is detected
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stream \{#operation-fim_completion_v1_fim_completions_post_request_stream\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Whether to stream back partial progress. If set, tokens will be sent as data-only server-side events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -274,13 +324,13 @@ _Default Value:_ `false`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### suffix \{#operation-fim_completion_v1_fim_completions_post_request_suffix\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -288,7 +338,7 @@ _Example:_
 return a+b
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -301,11 +351,11 @@ return a+b
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature \{#operation-fim_completion_v1_fim_completions_post_request_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -318,19 +368,23 @@ return a+b
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p \{#operation-fim_completion_v1_fim_completions_post_request_top_p\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or `temperature` but not both.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -360,7 +414,11 @@ _Default Value:_ `1`
 
 <SectionContent slot="content" id="operation-fim_completion_v1_fim_completions_post_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -374,11 +432,11 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### choices \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -390,11 +448,23 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ChatCompletionChoice \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -409,13 +479,13 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### finish_reason \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_finish_reason\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -423,7 +493,7 @@ _Example:_
 stop
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -438,13 +508,13 @@ stop
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_index\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -452,7 +522,7 @@ _Example:_
 0
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -467,11 +537,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -485,11 +555,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -501,11 +571,23 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -520,11 +602,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk_text\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -538,17 +620,17 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -560,17 +642,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -585,11 +675,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -601,11 +691,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -619,11 +721,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl_detail\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -638,11 +740,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -656,17 +758,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -678,11 +780,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -696,11 +810,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_document_name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -715,11 +829,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_document_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -733,17 +847,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -755,11 +869,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -774,11 +900,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk_reference_ids\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -792,17 +918,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -816,19 +942,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prefix \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_prefix\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -842,17 +972,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_role\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"assistant"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -866,11 +996,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -882,11 +1012,23 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -901,11 +1043,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -920,11 +1062,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function_arguments\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -939,11 +1081,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function_name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -957,17 +1099,17 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -981,17 +1123,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_index\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1005,11 +1147,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1023,13 +1165,13 @@ _Default Value:_ `0`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_created\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1037,7 +1179,7 @@ _Example:_
 1702256327
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1051,13 +1193,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1065,7 +1207,7 @@ _Example:_
 cmpl-e5cc70bb28c444948073e77776eb30ef
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1079,13 +1221,13 @@ cmpl-e5cc70bb28c444948073e77776eb30ef
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_model\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1093,7 +1235,7 @@ _Example:_
 codestral-latest
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1107,13 +1249,13 @@ codestral-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1121,7 +1263,7 @@ _Example:_
 chat.completion
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1135,11 +1277,11 @@ chat.completion
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### usage \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_usage\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1154,13 +1296,13 @@ chat.completion
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_tokens \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_usage_completion_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1168,7 +1310,7 @@ _Example:_
 34
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1183,13 +1325,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_tokens \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_usage_prompt_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1197,7 +1339,7 @@ _Example:_
 16
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1212,13 +1354,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_tokens \{#operation-fim_completion_v1_fim_completions_post_responses_200_application-json_usage_total_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1226,7 +1368,7 @@ _Example:_
 50
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1242,15 +1384,23 @@ _Example:_
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fim/completions\#stream \{#operation-stream_fim\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Stream fim completion_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Mistral AI provides the ability to stream responses back to a client in order to allow partial results for certain requests. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -1353,11 +1503,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens \{#operation-stream_fim_request_max_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1370,11 +1520,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### min_tokens \{#operation-stream_fim_request_min_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1388,17 +1538,21 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-stream_fim_request_model\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 ID of the model to use. Only compatible for now with:
   - `codestral-2405`
   - `codestral-latest`
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1406,7 +1560,7 @@ _Example:_
 codestral-2405
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1420,15 +1574,19 @@ codestral-2405
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt \{#operation-stream_fim_request_prompt\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The text/code to complete.
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1436,7 +1594,7 @@ _Example:_
 def
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1449,11 +1607,11 @@ def
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed \{#operation-stream_fim_request_random_seed\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1466,17 +1624,17 @@ def
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop \{#operation-stream_fim_request_stop\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Stop generation if this token is detected. Or if one of these tokens is detected when providing an array
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1489,17 +1647,17 @@ Stop generation if this token is detected. Or if one of these tokens is detected
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stream \{#operation-stream_fim_request_stream\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1512,13 +1670,13 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### suffix \{#operation-stream_fim_request_suffix\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1526,7 +1684,7 @@ _Example:_
 return a+b
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1539,11 +1697,11 @@ return a+b
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature \{#operation-stream_fim_request_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1556,19 +1714,23 @@ return a+b
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p \{#operation-stream_fim_request_top_p\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or `temperature` but not both.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1598,9 +1760,17 @@ _Default Value:_ `1`
 
 <SectionContent slot="content" id="operation-stream_fim_responses_200_text-event-stream">
 
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
 <FrontMatterDisplayType typeInfo={{"label":"event-stream","linkedLabel":"<a href=\"#operation-stream_fim_responses_200_text-event-stream_completionevent\">CompletionEvent</a>","children":[{"label":"CompletionEvent","linkedLabel":"<a href=\"#operation-stream_fim_responses_200_text-event-stream_completionevent\">CompletionEvent</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} />
 
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 A stream of FIM completion events
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -1612,11 +1782,23 @@ A stream of FIM completion events
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CompletionEvent \{#operation-stream_fim_responses_200_text-event-stream_completionevent\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1631,11 +1813,11 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### data \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1650,11 +1832,11 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### choices \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1666,11 +1848,23 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CompletionResponseStreamChoice \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1685,11 +1879,11 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### delta \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1703,11 +1897,11 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1719,11 +1913,23 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1738,11 +1944,11 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk_text\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1756,17 +1962,17 @@ A stream of FIM completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1778,17 +1984,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1803,11 +2017,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1819,11 +2033,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1837,11 +2063,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl_detail\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1856,11 +2082,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1874,17 +2100,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1896,11 +2122,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1914,11 +2152,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_document_name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1933,11 +2171,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_document_url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1951,17 +2189,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1973,11 +2211,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1992,11 +2242,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk_reference_ids\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2010,17 +2260,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2034,11 +2284,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_role\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2052,11 +2302,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2068,11 +2318,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2087,11 +2349,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2106,11 +2368,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function_arguments\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2125,11 +2387,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function_name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2143,17 +2405,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2167,17 +2429,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_index\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2191,11 +2453,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2210,11 +2472,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### finish_reason \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_finish_reason\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2229,11 +2491,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_index\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2247,11 +2509,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2266,11 +2528,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2285,11 +2547,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2303,11 +2565,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_object\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2321,11 +2583,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### usage \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_usage\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2340,13 +2602,13 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_tokens \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_usage_completion_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2354,7 +2616,7 @@ _Example:_
 34
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2369,13 +2631,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_tokens \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_usage_prompt_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2383,7 +2645,7 @@ _Example:_
 16
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2398,13 +2660,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_tokens \{#operation-stream_fim_responses_200_text-event-stream_completionevent_data_usage_total_tokens\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2412,7 +2674,7 @@ _Example:_
 50
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 

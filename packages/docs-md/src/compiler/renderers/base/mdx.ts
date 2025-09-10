@@ -45,7 +45,7 @@ export abstract class MdxRenderer extends MarkdownRenderer {
       } else if (symbols.defaultAlias) {
         imports += `import ${symbols.defaultAlias} from "${importPath}";\n`;
       } else if (symbols.namedImports.size > 0) {
-        imports += `import { ${Array.from(symbols.namedImports).join(", ")} } from "${importPath}";\n`;
+        imports += `import {\n${Array.from(symbols.namedImports).sort().join(",\n  ")}\n} from "${importPath}";\n`;
       } else {
         imports += `import "${importPath}";\n`;
       }
@@ -144,11 +144,25 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     this.appendLine(`</Operation>`);
   }
 
-  protected override handleCreateOperationFrontmatter(cb: () => void) {
-    this.insertComponentImport("OperationFrontMatterSection");
-    this.appendLine(`<OperationFrontMatterSection slot="front-matter">`);
+  protected override handleCreateOperationTitle(cb: () => void): void {
+    this.insertComponentImport("OperationTitleSection");
+    this.appendLine(`<OperationTitleSection slot="title">`);
     cb();
-    this.appendLine(`</OperationFrontMatterSection>`);
+    this.appendLine(`</OperationTitleSection>`);
+  }
+
+  protected override handleCreateOperationSummary(cb: () => void) {
+    this.insertComponentImport("OperationSummarySection");
+    this.appendLine(`<OperationSummarySection slot="summary">`);
+    cb();
+    this.appendLine(`</OperationSummarySection>`);
+  }
+
+  protected override handleCreateOperationDescription(cb: () => void) {
+    this.insertComponentImport("OperationDescriptionSection");
+    this.appendLine(`<OperationDescriptionSection slot="description">`);
+    cb();
+    this.appendLine(`</OperationDescriptionSection>`);
   }
 
   public override createCodeSamplesSection(
@@ -253,6 +267,78 @@ export abstract class MdxRenderer extends MarkdownRenderer {
     this.appendLine("</OperationResponseBodySection>");
   }
 
+  protected override handleCreateRequestDisplayType(cb: () => void) {
+    this.insertComponentImport("OperationRequestBodyDisplayTypeSection");
+    this.appendLine(
+      '<OperationRequestBodyDisplayTypeSection slot="request-body-display-type">'
+    );
+    cb();
+    this.appendLine("</OperationRequestBodyDisplayTypeSection>");
+  }
+
+  protected override handleCreateRequestDescription(cb: () => void) {
+    this.insertComponentImport("OperationRequestBodyDescriptionSection");
+    this.appendLine(
+      '<OperationRequestBodyDescriptionSection slot="request-body-description">'
+    );
+    cb();
+    this.appendLine("</OperationRequestBodyDescriptionSection>");
+  }
+
+  protected override handleCreateRequestExamples(cb: () => void) {
+    this.insertComponentImport("OperationRequestBodyExamplesSection");
+    this.appendLine(
+      '<OperationRequestBodyExamplesSection slot="request-body-examples">'
+    );
+    cb();
+    this.appendLine("</OperationRequestBodyExamplesSection>");
+  }
+
+  protected override handleCreateRequestDefaultValue(cb: () => void) {
+    this.insertComponentImport("OperationRequestBodyDefaultValueSection");
+    this.appendLine(
+      '<OperationRequestBodyDefaultValueSection slot="request-body-default-value">'
+    );
+    cb();
+    this.appendLine("</OperationRequestBodyDefaultValueSection>");
+  }
+
+  protected override handleCreateResponseDisplayType(cb: () => void) {
+    this.insertComponentImport("OperationResponseBodyDisplayTypeSection");
+    this.appendLine(
+      '<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">'
+    );
+    cb();
+    this.appendLine("</OperationResponseBodyDisplayTypeSection>");
+  }
+
+  protected override handleCreateResponseDescription(cb: () => void) {
+    this.insertComponentImport("OperationResponseBodyDescriptionSection");
+    this.appendLine(
+      '<OperationResponseBodyDescriptionSection slot="response-body-description">'
+    );
+    cb();
+    this.appendLine("</OperationResponseBodyDescriptionSection>");
+  }
+
+  protected override handleCreateResponseExamples(cb: () => void) {
+    this.insertComponentImport("OperationResponseBodyExamplesSection");
+    this.appendLine(
+      '<OperationResponseBodyExamplesSection slot="response-body-examples">'
+    );
+    cb();
+    this.appendLine("</OperationResponseBodyExamplesSection>");
+  }
+
+  protected override handleCreateResponseDefaultValue(cb: () => void) {
+    this.insertComponentImport("OperationResponseBodyDefaultValueSection");
+    this.appendLine(
+      '<OperationResponseBodyDefaultValueSection slot="response-body-default-value">'
+    );
+    cb();
+    this.appendLine("</OperationResponseBodyDefaultValueSection>");
+  }
+
   protected override handleCreateSecurity(cb: () => void) {
     this.insertComponentImport("ExpandableSection");
     this.appendLine("<ExpandableSection>");
@@ -285,7 +371,14 @@ export abstract class MdxRenderer extends MarkdownRenderer {
 
   protected override handleCreateExpandableBreakout(
     ...[
-      { createTitle, createContent, isTopLevel },
+      {
+        hasFrontMatter,
+        createTitle,
+        createDescription,
+        createExamples,
+        createDefaultValue,
+        isTopLevel,
+      },
     ]: RendererCreateExpandableBreakoutArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
@@ -297,19 +390,35 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   slot="entry"
   id="${id}"
   headingId="${this.getCurrentId()}"${parentId ? ` parentId="${parentId}"` : ""}
-  hasFrontMatter={${createContent ? "true" : "false"}}
+  hasFrontMatter={${hasFrontMatter ? "true" : "false"}}
   expandByDefault={${expandByDefault}}
 >`
     );
 
-    this.appendLine(`<div slot="title">`);
+    this.insertComponentImport("ExpandableBreakoutTitle");
+    this.appendLine(`<ExpandableBreakoutTitle slot="title">`);
     createTitle();
-    this.appendLine("</div>");
+    this.appendLine("</ExpandableBreakoutTitle>");
 
-    if (createContent) {
-      this.appendLine(`<div slot="content">`);
-      createContent();
-      this.appendLine("</div>");
+    if (createDescription) {
+      this.insertComponentImport("ExpandableBreakoutDescription");
+      this.appendLine(`<ExpandableBreakoutDescription slot="description">`);
+      createDescription();
+      this.appendLine("</ExpandableBreakoutDescription>");
+    }
+
+    if (createExamples) {
+      this.insertComponentImport("ExpandableBreakoutExamples");
+      this.appendLine(`<ExpandableBreakoutExamples slot="examples">`);
+      createExamples();
+      this.appendLine("</ExpandableBreakoutExamples>");
+    }
+
+    if (createDefaultValue) {
+      this.insertComponentImport("ExpandableBreakoutDefaultValue");
+      this.appendLine(`<ExpandableBreakoutDefaultValue slot="defaultValue">`);
+      createDefaultValue();
+      this.appendLine("</ExpandableBreakoutDefaultValue>");
     }
 
     this.appendLine("</ExpandableBreakout>");
@@ -317,10 +426,20 @@ export abstract class MdxRenderer extends MarkdownRenderer {
 
   protected override handleCreateExpandableProperty(
     ...[
-      { typeInfo, annotations, title, isTopLevel, createContent },
+      {
+        typeInfo,
+        annotations,
+        rawTitle,
+        isTopLevel,
+        hasFrontMatter,
+        createDescription,
+        createExamples,
+        createDefaultValue,
+      },
     ]: RendererCreateExpandablePropertyArgs
   ) {
     const { id, parentId } = this.#getBreakoutIdInfo();
+
     this.insertComponentImport("ExpandableProperty");
     const expandByDefault =
       getSettings().display.expandTopLevelPropertiesOnPageLoad && isTopLevel;
@@ -344,22 +463,38 @@ export abstract class MdxRenderer extends MarkdownRenderer {
   typeAnnotations={${JSON.stringify(annotations)}}`
       : ""
   }
-  hasFrontMatter={${createContent ? "true" : "false"}}
+  hasFrontMatter={${hasFrontMatter ? "true" : "false"}}
   expandByDefault={${expandByDefault}}
 >`
     );
 
-    this.appendLine(`<div slot="title">`);
-    this.createHeading(HEADINGS.PROPERTY_HEADING_LEVEL, title, {
-      escape: "mdx",
+    this.insertComponentImport("ExpandablePropertyTitle");
+    this.appendLine(`<ExpandablePropertyTitle slot="title">`);
+    this.createHeading(HEADINGS.PROPERTY_HEADING_LEVEL, rawTitle, {
       id: this.getCurrentId(),
+      escape: "mdx",
     });
-    this.appendLine("</div>");
+    this.appendLine("</ExpandablePropertyTitle>");
 
-    if (createContent) {
-      this.appendLine(`<div slot="content">`);
-      createContent();
-      this.appendLine("</div>");
+    if (createDescription) {
+      this.insertComponentImport("ExpandablePropertyDescription");
+      this.appendLine(`<ExpandablePropertyDescription slot="description">`);
+      createDescription();
+      this.appendLine("</ExpandablePropertyDescription>");
+    }
+
+    if (createExamples) {
+      this.insertComponentImport("ExpandablePropertyExamples");
+      this.appendLine(`<ExpandablePropertyExamples slot="examples">`);
+      createExamples();
+      this.appendLine("</ExpandablePropertyExamples>");
+    }
+
+    if (createDefaultValue) {
+      this.insertComponentImport("ExpandablePropertyDefaultValue");
+      this.appendLine(`<ExpandablePropertyDefaultValue slot="defaultValue">`);
+      createDefaultValue();
+      this.appendLine("</ExpandablePropertyDefaultValue>");
     }
 
     this.appendLine("</ExpandableProperty>");

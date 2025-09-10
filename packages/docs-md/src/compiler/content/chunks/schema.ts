@@ -5,8 +5,8 @@ import type {
 } from "../../../types/shared.ts";
 import { assertNever } from "../../../util/assertNever.ts";
 import { InternalError } from "../../../util/internalError.ts";
-import { getSettings } from "../.././settings.ts";
 import type { Renderer } from "../..//renderers/base/base.ts";
+import { getSettings } from "../../settings.ts";
 import { HEADINGS } from "../constants.ts";
 import { getSchemaFromId } from "../util.ts";
 
@@ -212,9 +212,53 @@ function hasSchemaFrontmatter(schema: SchemaValue) {
   const defaultValue = "defaultValue" in schema ? schema.defaultValue : null;
   const { showDebugPlaceholders } = getSettings().display;
   return (
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    description || examples.length > 0 || defaultValue || showDebugPlaceholders
+    !!description ||
+    examples.length > 0 ||
+    !!defaultValue ||
+    showDebugPlaceholders
   );
+}
+
+/* ---- Front matter rendering */
+
+function createDescription(schema: SchemaValue, renderer: Renderer) {
+  const { showDebugPlaceholders } = getSettings().display;
+  const description = "description" in schema ? schema.description : null;
+  if (description) {
+    return () => renderer.createText(description);
+  } else if (showDebugPlaceholders) {
+    return () =>
+      renderer.createDebugPlaceholder(() => "No description provided");
+  }
+  return undefined;
+}
+
+export function createExamples(schema: SchemaValue, renderer: Renderer) {
+  const examples = "examples" in schema ? schema.examples : [];
+  const { showDebugPlaceholders } = getSettings().display;
+  if (examples.length > 0) {
+    return () => {
+      renderer.createText(`_${examples.length > 1 ? "Examples" : "Example"}:_`);
+      for (const example of examples) {
+        renderer.createCode(example);
+      }
+    };
+  } else if (showDebugPlaceholders) {
+    return () => renderer.createDebugPlaceholder(() => "No examples provided");
+  }
+  return undefined;
+}
+
+export function createDefaultValue(schema: SchemaValue, renderer: Renderer) {
+  const defaultValue = "defaultValue" in schema ? schema.defaultValue : null;
+  const { showDebugPlaceholders } = getSettings().display;
+  if (defaultValue) {
+    return () => renderer.createText(`_Default Value:_ \`${defaultValue}\``);
+  } else if (showDebugPlaceholders) {
+    return () =>
+      renderer.createDebugPlaceholder(() => "No default value provided");
+  }
+  return undefined;
 }
 
 /* ---- Section Rendering ---- */
@@ -260,20 +304,15 @@ function renderObjectProperties({
     if (property.isDeprecated) {
       annotations.push({ title: "deprecated", variant: "warning" });
     }
-    const hasFrontmatter = hasSchemaFrontmatter(property.schema);
     renderer.createExpandableProperty({
       typeInfo,
       annotations,
-      title: property.name,
+      rawTitle: property.name,
       isTopLevel,
-      createContent: hasFrontmatter
-        ? () => {
-            renderSchemaFrontmatter({
-              renderer,
-              schema: property.schema,
-            });
-          }
-        : undefined,
+      hasFrontMatter: hasSchemaFrontmatter(property.schema),
+      createDescription: createDescription(property.schema, renderer),
+      createExamples: createExamples(property.schema, renderer),
+      createDefaultValue: createDefaultValue(property.schema, renderer),
     });
 
     // Render breakouts, which will be separate expandable entries
@@ -314,9 +353,9 @@ function renderContainerTypes({
     }
     renderer.enterContext({ id: breakout.label, type: "schema" });
 
-    const hasFrontmatter = hasSchemaFrontmatter(breakout.schema);
+    const { showDebugPlaceholders } = getSettings().display;
     renderer.createExpandableBreakout({
-      title: breakout.label,
+      rawTitle: breakout.label,
       isTopLevel,
       createTitle: () => {
         renderer.createHeading(
@@ -327,14 +366,41 @@ function renderContainerTypes({
           }
         );
       },
-      createContent: hasFrontmatter
-        ? () => {
-            renderSchemaFrontmatter({
-              renderer,
-              schema: breakout.schema,
-            });
+      hasFrontMatter: hasSchemaFrontmatter(breakout.schema),
+      createDescription() {
+        const description =
+          "description" in breakout.schema ? breakout.schema.description : null;
+        if (description) {
+          renderer.createText(description);
+        } else if (showDebugPlaceholders) {
+          renderer.createDebugPlaceholder(() => "No description provided");
+        }
+      },
+      createExamples() {
+        const examples =
+          "examples" in breakout.schema ? breakout.schema.examples : [];
+        if (examples.length > 0) {
+          renderer.createText(
+            `_${examples.length > 1 ? "Examples" : "Example"}:_`
+          );
+          for (const example of examples) {
+            renderer.createCode(example);
           }
-        : undefined,
+        } else if (showDebugPlaceholders) {
+          renderer.createDebugPlaceholder(() => "No examples provided");
+        }
+      },
+      createDefaultValue() {
+        const defaultValue =
+          "defaultValue" in breakout.schema
+            ? breakout.schema.defaultValue
+            : null;
+        if (defaultValue) {
+          renderer.createText(`_Default Value:_ \`${defaultValue}\``);
+        } else if (showDebugPlaceholders) {
+          renderer.createDebugPlaceholder(() => "No default value provided");
+        }
+      },
     });
 
     renderObjectProperties({
@@ -347,38 +413,6 @@ function renderContainerTypes({
 }
 
 /* ---- Root ---- */
-
-export function renderSchemaFrontmatter({
-  schema,
-  renderer,
-}: {
-  renderer: Renderer;
-  schema: SchemaValue;
-}) {
-  const description = "description" in schema ? schema.description : null;
-  const examples = "examples" in schema ? schema.examples : [];
-  const defaultValue = "defaultValue" in schema ? schema.defaultValue : null;
-  const { showDebugPlaceholders } = getSettings().display;
-  if (description) {
-    renderer.createText(description);
-  } else if (showDebugPlaceholders) {
-    renderer.createDebugPlaceholder(() => "No description provided");
-  }
-  if (examples.length > 0) {
-    renderer.createText(`_${examples.length > 1 ? "Examples" : "Example"}:_`);
-    for (const example of examples) {
-      renderer.createCode(example);
-    }
-  } else if (showDebugPlaceholders) {
-    renderer.createDebugPlaceholder(() => "No examples provided");
-  }
-
-  if (defaultValue) {
-    renderer.createText(`_Default Value:_ \`${defaultValue}\``);
-  } else if (showDebugPlaceholders) {
-    renderer.createDebugPlaceholder(() => "No default value provided");
-  }
-}
 
 export function renderBreakouts({
   renderer,

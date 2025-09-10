@@ -3,20 +3,54 @@ sidebarTitle: Chat
 ---
 
 import "@speakeasy-api/docs-md/nextra.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationCodeSamplesSection, TabbedSection, SectionTitle, TryItNow, SectionTab, SectionContent, CodeSample, OperationRequestBodySection, Section, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationResponseBodySection, FrontMatterDisplayType } from "@speakeasy-api/docs-md/react";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  FrontMatterDisplayType,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationDescriptionSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@speakeasy-api/docs-md/react";
 
 
 # Chat Operations [#chat]
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/chat/completions [#operation-chat_completion_v1_chat_completions_post]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 Chat Completion
 
-</OperationFrontMatterSection>
+</OperationSummarySection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -124,17 +158,17 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-chat_completion_v1_chat_completions_post_request_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 frequency_penalty penalizes the repetition of words based on their frequency in the generated text. A higher frequency penalty discourages the model from repeating words that have already appeared frequently in the output, promoting diversity and reducing repetition.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -147,11 +181,11 @@ frequency_penalty penalizes the repetition of words based on their frequency in 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-chat_completion_v1_chat_completions_post_request_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -165,17 +199,17 @@ frequency_penalty penalizes the repetition of words based on their frequency in 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### messages [#operation-chat_completion_v1_chat_completions_post_request_messages]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The prompt(s) to generate completions for, encoded as a list of dict with role and content.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -187,11 +221,23 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### SystemMessage [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -206,11 +252,11 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -222,11 +268,23 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -241,11 +299,11 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -259,17 +317,17 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -283,17 +341,17 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-chat_completion_v1_chat_completions_post_request_messages_systemmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"system"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -305,11 +363,23 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### UserMessage [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -324,11 +394,11 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -340,11 +410,23 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -359,11 +441,11 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -377,17 +459,17 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -399,17 +481,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -424,11 +514,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -440,11 +530,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -458,11 +560,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -477,11 +579,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -495,17 +597,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -517,11 +619,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -535,11 +649,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -554,11 +668,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -572,17 +686,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -594,11 +708,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -613,11 +739,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -631,17 +757,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -655,17 +781,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-chat_completion_v1_chat_completions_post_request_messages_usermessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"user"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -677,11 +803,23 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### AssistantMessage [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -695,11 +833,11 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -711,11 +849,23 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -730,11 +880,11 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -748,17 +898,17 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -770,17 +920,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -795,11 +953,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -811,11 +969,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -829,11 +999,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -848,11 +1018,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -866,17 +1036,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -888,11 +1058,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -906,11 +1088,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -925,11 +1107,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -943,17 +1125,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -965,11 +1147,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -984,11 +1178,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1002,17 +1196,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1026,19 +1220,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prefix [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_prefix]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1052,17 +1250,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"assistant"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1076,11 +1274,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1092,11 +1290,23 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1111,11 +1321,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1130,11 +1340,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_function_arguments]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1149,11 +1359,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1167,17 +1377,17 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1191,17 +1401,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_index]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1215,11 +1425,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_assistantmessage_tool_calls_toolcall_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1231,11 +1441,23 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolMessage [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1250,11 +1472,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1266,11 +1488,23 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1285,11 +1519,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1303,17 +1537,17 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1325,17 +1559,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1350,11 +1592,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1366,11 +1608,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1384,11 +1638,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1403,11 +1657,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1421,17 +1675,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1443,11 +1697,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1461,11 +1727,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1480,11 +1746,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1498,17 +1764,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1520,11 +1786,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1539,11 +1817,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1557,17 +1835,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1581,11 +1859,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1599,17 +1877,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"tool"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1623,11 +1901,11 @@ _Default Value:_ `"tool"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_call_id [#operation-chat_completion_v1_chat_completions_post_request_messages_toolmessage_tool_call_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1641,15 +1919,19 @@ _Default Value:_ `"tool"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-chat_completion_v1_chat_completions_post_request_model]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 ID of the model to use. You can use the List Available Models API to see all of your available models, or see our Model overview for model descriptions.
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1657,7 +1939,7 @@ _Example:_
 mistral-small-latest
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1670,11 +1952,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### n [#operation-chat_completion_v1_chat_completions_post_request_n]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1687,11 +1969,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parallel_tool_calls [#operation-chat_completion_v1_chat_completions_post_request_parallel_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1704,11 +1986,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-chat_completion_v1_chat_completions_post_request_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1720,11 +2002,23 @@ mistral-small-latest
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-chat_completion_v1_chat_completions_post_request_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1738,17 +2032,17 @@ mistral-small-latest
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_request_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1762,17 +2056,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1785,17 +2079,17 @@ _Default Value:_ `"content"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-chat_completion_v1_chat_completions_post_request_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 presence_penalty determines how much the model penalizes the repetition of words or phrases. A higher presence penalty encourages the model to use a wider variety of words and phrases, making the output more diverse and creative.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1808,11 +2102,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_mode [#operation-chat_completion_v1_chat_completions_post_request_prompt_mode]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1825,11 +2119,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-chat_completion_v1_chat_completions_post_request_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1842,11 +2136,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-chat_completion_v1_chat_completions_post_request_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1858,11 +2152,23 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1876,11 +2182,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1892,11 +2198,23 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1910,11 +2228,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1929,11 +2247,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1948,11 +2266,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1966,11 +2284,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1984,17 +2302,17 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2007,17 +2325,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### safe_prompt [#operation-chat_completion_v1_chat_completions_post_request_safe_prompt]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Whether to inject a safety prompt before all conversations.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2030,17 +2348,17 @@ Whether to inject a safety prompt before all conversations.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-chat_completion_v1_chat_completions_post_request_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Stop generation if this token is detected. Or if one of these tokens is detected when providing an array
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2053,19 +2371,23 @@ Stop generation if this token is detected. Or if one of these tokens is detected
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stream [#operation-chat_completion_v1_chat_completions_post_request_stream]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Whether to stream back partial progress. If set, tokens will be sent as data-only server-side events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2078,11 +2400,11 @@ _Default Value:_ `false`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-chat_completion_v1_chat_completions_post_request_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2095,11 +2417,11 @@ _Default Value:_ `false`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-chat_completion_v1_chat_completions_post_request_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2111,17 +2433,25 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolChoice [#operation-chat_completion_v1_chat_completions_post_request_tool_choice_toolchoice]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 ToolChoice is either a ToolChoiceEnum or a ToolChoice
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2136,17 +2466,17 @@ ToolChoice is either a ToolChoiceEnum or a ToolChoice
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-chat_completion_v1_chat_completions_post_request_tool_choice_toolchoice_function]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 this restriction of `Function` is used to select a specific function to call
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2161,11 +2491,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_request_tool_choice_toolchoice_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2179,11 +2509,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_tool_choice_toolchoice_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2196,11 +2526,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-chat_completion_v1_chat_completions_post_request_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2212,11 +2542,23 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Tool [#operation-chat_completion_v1_chat_completions_post_request_tools_tool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2231,11 +2573,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2249,11 +2591,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2268,11 +2610,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2287,11 +2629,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2305,11 +2647,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2323,11 +2665,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_request_tools_tool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2340,17 +2682,17 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-chat_completion_v1_chat_completions_post_request_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or `temperature` but not both.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2380,7 +2722,11 @@ Nucleus sampling, where the model considers the results of the tokens with `top_
 
 <SectionContent slot="content" id="operation-chat_completion_v1_chat_completions_post_responses_200_application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -2394,11 +2740,11 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### choices [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2410,11 +2756,23 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ChatCompletionChoice [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2429,13 +2787,13 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### finish_reason [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_finish_reason]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2443,7 +2801,7 @@ _Example:_
 stop
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2458,13 +2816,13 @@ stop
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_index]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2472,7 +2830,7 @@ _Example:_
 0
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2487,11 +2845,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2505,11 +2863,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2521,11 +2879,23 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2540,11 +2910,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2558,17 +2928,17 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2580,17 +2950,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2605,11 +2983,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2621,11 +2999,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2639,11 +3029,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2658,11 +3048,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2676,17 +3066,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2698,11 +3088,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2716,11 +3118,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2735,11 +3137,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2753,17 +3155,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2775,11 +3177,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2794,11 +3208,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2812,17 +3226,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2836,19 +3250,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prefix [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_prefix]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2862,17 +3280,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"assistant"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2886,11 +3304,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2902,11 +3320,23 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2921,11 +3351,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2940,11 +3370,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function_arguments]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2959,11 +3389,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2977,17 +3407,17 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3001,17 +3431,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_index]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3025,11 +3455,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_choices_chatcompletionchoice_message_tool_calls_toolcall_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3043,13 +3473,13 @@ _Default Value:_ `0`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_created]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3057,7 +3487,7 @@ _Example:_
 1702256327
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3071,13 +3501,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3085,7 +3515,7 @@ _Example:_
 cmpl-e5cc70bb28c444948073e77776eb30ef
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3099,13 +3529,13 @@ cmpl-e5cc70bb28c444948073e77776eb30ef
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_model]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3113,7 +3543,7 @@ _Example:_
 mistral-small-latest
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3127,13 +3557,13 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_object]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3141,7 +3571,7 @@ _Example:_
 chat.completion
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3155,11 +3585,11 @@ chat.completion
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### usage [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_usage]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3174,13 +3604,13 @@ chat.completion
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_tokens [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_usage_completion_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3188,7 +3618,7 @@ _Example:_
 34
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3203,13 +3633,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_tokens [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_usage_prompt_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3217,7 +3647,7 @@ _Example:_
 16
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3232,13 +3662,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_tokens [#operation-chat_completion_v1_chat_completions_post_responses_200_application-json_usage_total_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3246,7 +3676,7 @@ _Example:_
 50
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3262,15 +3692,23 @@ _Example:_
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/chat/completions\#stream [#operation-stream_chat]
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Stream chat completion_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Mistral AI provides the ability to stream responses back to a client in order to allow partial results for certain requests. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a data: [DONE] message. Otherwise, the server will hold the request open until the timeout or until completion, with the response containing the full result as JSON.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -3382,17 +3820,17 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### frequency_penalty [#operation-stream_chat_request_frequency_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 frequency_penalty penalizes the repetition of words based on their frequency in the generated text. A higher frequency penalty discourages the model from repeating words that have already appeared frequently in the output, promoting diversity and reducing repetition.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3405,11 +3843,11 @@ frequency_penalty penalizes the repetition of words based on their frequency in 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_tokens [#operation-stream_chat_request_max_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3423,17 +3861,17 @@ frequency_penalty penalizes the repetition of words based on their frequency in 
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### messages [#operation-stream_chat_request_messages]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The prompt(s) to generate completions for, encoded as a list of dict with role and content.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3445,11 +3883,23 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### SystemMessage [#operation-stream_chat_request_messages_systemmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3464,11 +3914,11 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_request_messages_systemmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3480,11 +3930,23 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-stream_chat_request_messages_systemmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3499,11 +3961,11 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-stream_chat_request_messages_systemmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3517,17 +3979,17 @@ The prompt(s) to generate completions for, encoded as a list of dict with role a
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_systemmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3541,17 +4003,17 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-stream_chat_request_messages_systemmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"system"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3563,11 +4025,23 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### UserMessage [#operation-stream_chat_request_messages_usermessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3582,11 +4056,11 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_request_messages_usermessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3598,11 +4072,23 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-stream_chat_request_messages_usermessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3617,11 +4103,11 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-stream_chat_request_messages_usermessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3635,17 +4121,17 @@ _Default Value:_ `"system"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_usermessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3657,17 +4143,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3682,11 +4176,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3698,11 +4192,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3716,11 +4222,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3735,11 +4241,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3753,17 +4259,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_usermessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3775,11 +4281,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-stream_chat_request_messages_usermessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3793,11 +4311,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-stream_chat_request_messages_usermessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3812,11 +4330,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-stream_chat_request_messages_usermessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3830,17 +4348,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_usermessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3852,11 +4370,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-stream_chat_request_messages_usermessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3871,11 +4401,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-stream_chat_request_messages_usermessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3889,17 +4419,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_usermessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3913,17 +4443,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-stream_chat_request_messages_usermessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"user"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3935,11 +4465,23 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### AssistantMessage [#operation-stream_chat_request_messages_assistantmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3953,11 +4495,11 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_request_messages_assistantmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3969,11 +4511,23 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-stream_chat_request_messages_assistantmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3988,11 +4542,11 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-stream_chat_request_messages_assistantmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4006,17 +4560,17 @@ _Default Value:_ `"user"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_assistantmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4028,17 +4582,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4053,11 +4615,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4069,11 +4631,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4087,11 +4661,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4106,11 +4680,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4124,17 +4698,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_assistantmessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4146,11 +4720,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-stream_chat_request_messages_assistantmessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4164,11 +4750,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-stream_chat_request_messages_assistantmessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4183,11 +4769,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-stream_chat_request_messages_assistantmessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4201,17 +4787,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_assistantmessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4223,11 +4809,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-stream_chat_request_messages_assistantmessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4242,11 +4840,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-stream_chat_request_messages_assistantmessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4260,17 +4858,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_assistantmessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4284,19 +4882,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prefix [#operation-stream_chat_request_messages_assistantmessage_prefix]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Set this to `true` when adding an assistant message as prefix to condition the model response. The role of the prefix message is to force the model to start its answer by the content of the message.
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4310,17 +4912,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-stream_chat_request_messages_assistantmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"assistant"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4334,11 +4936,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls [#operation-stream_chat_request_messages_assistantmessage_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4350,11 +4952,23 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4369,11 +4983,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4388,11 +5002,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_function_arguments]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4407,11 +5021,11 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4425,17 +5039,17 @@ _Default Value:_ `"assistant"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4449,17 +5063,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_index]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4473,11 +5087,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_assistantmessage_tool_calls_toolcall_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4489,11 +5103,23 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolMessage [#operation-stream_chat_request_messages_toolmessage]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4508,11 +5134,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_request_messages_toolmessage_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4524,11 +5150,23 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-stream_chat_request_messages_toolmessage_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4543,11 +5181,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-stream_chat_request_messages_toolmessage_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4561,17 +5199,17 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_toolmessage_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4583,17 +5221,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4608,11 +5254,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4624,11 +5270,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4642,11 +5300,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4661,11 +5319,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4679,17 +5337,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_toolmessage_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4701,11 +5359,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-stream_chat_request_messages_toolmessage_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4719,11 +5389,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-stream_chat_request_messages_toolmessage_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4738,11 +5408,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-stream_chat_request_messages_toolmessage_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4756,17 +5426,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_toolmessage_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4778,11 +5448,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-stream_chat_request_messages_toolmessage_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4797,11 +5479,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-stream_chat_request_messages_toolmessage_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4815,17 +5497,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_messages_toolmessage_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4839,11 +5521,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_request_messages_toolmessage_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4857,17 +5539,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-stream_chat_request_messages_toolmessage_role]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"tool"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -4881,11 +5563,11 @@ _Default Value:_ `"tool"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_call_id [#operation-stream_chat_request_messages_toolmessage_tool_call_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4899,15 +5581,19 @@ _Default Value:_ `"tool"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-stream_chat_request_model]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 ID of the model to use. You can use the List Available Models API to see all of your available models, or see our Model overview for model descriptions.
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -4915,7 +5601,7 @@ _Example:_
 mistral-small-latest
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -4928,11 +5614,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### n [#operation-stream_chat_request_n]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4945,11 +5631,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parallel_tool_calls [#operation-stream_chat_request_parallel_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4962,11 +5648,11 @@ mistral-small-latest
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prediction [#operation-stream_chat_request_prediction]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -4978,11 +5664,23 @@ mistral-small-latest
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Prediction [#operation-stream_chat_request_prediction_prediction]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -4996,17 +5694,17 @@ mistral-small-latest
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_request_prediction_prediction_content]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `""`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5020,17 +5718,17 @@ _Default Value:_ `""`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_prediction_prediction_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"content"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5043,17 +5741,17 @@ _Default Value:_ `"content"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### presence_penalty [#operation-stream_chat_request_presence_penalty]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 presence_penalty determines how much the model penalizes the repetition of words or phrases. A higher presence penalty encourages the model to use a wider variety of words and phrases, making the output more diverse and creative.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5066,11 +5764,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_mode [#operation-stream_chat_request_prompt_mode]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5083,11 +5781,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### random_seed [#operation-stream_chat_request_random_seed]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5100,11 +5798,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### response_format [#operation-stream_chat_request_response_format]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5116,11 +5814,23 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ResponseFormat [#operation-stream_chat_request_response_format_responseformat]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5134,11 +5844,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### json_schema [#operation-stream_chat_request_response_format_responseformat_json_schema]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5150,11 +5860,23 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### JsonSchema [#operation-stream_chat_request_response_format_responseformat_json_schema_jsonschema]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5168,11 +5890,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-stream_chat_request_response_format_responseformat_json_schema_jsonschema_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5187,11 +5909,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_request_response_format_responseformat_json_schema_jsonschema_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5206,11 +5928,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### schema_definition [#operation-stream_chat_request_response_format_responseformat_json_schema_jsonschema_schema_definition]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5224,11 +5946,11 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-stream_chat_request_response_format_responseformat_json_schema_jsonschema_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5242,17 +5964,17 @@ presence_penalty determines how much the model penalizes the repetition of words
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_response_format_responseformat_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 An object specifying the format that the model must output. Setting to `\{ "type": "json_object" \}` enables JSON mode, which guarantees the message the model generates is in JSON. When using JSON mode you MUST also instruct the model to produce JSON yourself with a system or a user message.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5265,17 +5987,17 @@ An object specifying the format that the model must output. Setting to `\{ "type
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### safe_prompt [#operation-stream_chat_request_safe_prompt]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Whether to inject a safety prompt before all conversations.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5288,17 +6010,17 @@ Whether to inject a safety prompt before all conversations.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stop [#operation-stream_chat_request_stop]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Stop generation if this token is detected. Or if one of these tokens is detected when providing an array
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5311,17 +6033,17 @@ Stop generation if this token is detected. Or if one of these tokens is detected
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### stream [#operation-stream_chat_request_stream]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5334,11 +6056,11 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### temperature [#operation-stream_chat_request_temperature]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5351,11 +6073,11 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_choice [#operation-stream_chat_request_tool_choice]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5367,17 +6089,25 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolChoice [#operation-stream_chat_request_tool_choice_toolchoice]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 ToolChoice is either a ToolChoiceEnum or a ToolChoice
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5392,17 +6122,17 @@ ToolChoice is either a ToolChoiceEnum or a ToolChoice
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-stream_chat_request_tool_choice_toolchoice_function]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 this restriction of `Function` is used to select a specific function to call
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5417,11 +6147,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_request_tool_choice_toolchoice_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5435,11 +6165,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_tool_choice_toolchoice_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5452,11 +6182,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tools [#operation-stream_chat_request_tools]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5468,11 +6198,23 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### Tool [#operation-stream_chat_request_tools_tool]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5487,11 +6229,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-stream_chat_request_tools_tool_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5505,11 +6247,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description [#operation-stream_chat_request_tools_tool_function_description]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5524,11 +6266,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_request_tools_tool_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5543,11 +6285,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### parameters [#operation-stream_chat_request_tools_tool_function_parameters]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5561,11 +6303,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### strict [#operation-stream_chat_request_tools_tool_function_strict]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5579,11 +6321,11 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_request_tools_tool_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5596,17 +6338,17 @@ this restriction of `Function` is used to select a specific function to call
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### top_p [#operation-stream_chat_request_top_p]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or `temperature` but not both.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -5636,9 +6378,17 @@ Nucleus sampling, where the model considers the results of the tokens with `top_
 
 <SectionContent slot="content" id="operation-stream_chat_responses_200_text-event-stream">
 
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
 <FrontMatterDisplayType typeInfo={{"label":"event-stream","linkedLabel":"<a href=\"#operation-stream_chat_responses_200_text-event-stream_completionevent\">CompletionEvent</a>","children":[{"label":"CompletionEvent","linkedLabel":"<a href=\"#operation-stream_chat_responses_200_text-event-stream_completionevent\">CompletionEvent</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} />
 
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 A stream of chat completion events
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -5650,11 +6400,23 @@ A stream of chat completion events
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CompletionEvent [#operation-stream_chat_responses_200_text-event-stream_completionevent]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5669,11 +6431,11 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### data [#operation-stream_chat_responses_200_text-event-stream_completionevent_data]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5688,11 +6450,11 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### choices [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5704,11 +6466,23 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CompletionResponseStreamChoice [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5723,11 +6497,11 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### delta [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5741,11 +6515,11 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### content [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5757,11 +6531,23 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TextChunk [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5776,11 +6562,11 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### text [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk_text]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5794,17 +6580,17 @@ A stream of chat completion events
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_textchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"text"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5816,17 +6602,25 @@ _Default Value:_ `"text"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURLChunk [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/png;base64,iVBORw0`
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5841,11 +6635,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### image_url [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5857,11 +6651,23 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ImageURL [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5875,11 +6681,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### detail [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl_detail]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5894,11 +6700,11 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_image_url_imageurl_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5912,17 +6718,17 @@ An object that looks like `\{"type":"image_url","image_url":\{"url":"data:image/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_imageurlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"image_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -5934,11 +6740,23 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### DocumentURLChunk [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -5952,11 +6770,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_name [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_document_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5971,11 +6789,11 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### document_url [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_document_url]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -5989,17 +6807,17 @@ _Default Value:_ `"image_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_documenturlchunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"document_url"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6011,11 +6829,23 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ReferenceChunk [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6030,11 +6860,11 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### reference_ids [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk_reference_ids]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6048,17 +6878,17 @@ _Default Value:_ `"document_url"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_content_referencechunk_type]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"reference"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6072,11 +6902,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### role [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_role]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6090,11 +6920,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### tool_calls [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6106,11 +6936,23 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ToolCall [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall]
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -6125,11 +6967,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6144,11 +6986,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### arguments [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function_arguments]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6163,11 +7005,11 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_function_name]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6181,17 +7023,17 @@ _Default Value:_ `"reference"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_id]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"null"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6205,17 +7047,17 @@ _Default Value:_ `"null"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_index]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `0`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -6229,11 +7071,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_delta_tool_calls_toolcall_type]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6248,11 +7090,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### finish_reason [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_finish_reason]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6267,11 +7109,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### index [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_choices_completionresponsestreamchoice_index]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6285,11 +7127,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_created]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6304,11 +7146,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_id]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6323,11 +7165,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_model]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6341,11 +7183,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_object]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6359,11 +7201,11 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### usage [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_usage]
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -6378,13 +7220,13 @@ _Default Value:_ `0`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_tokens [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_usage_completion_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6392,7 +7234,7 @@ _Example:_
 34
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6407,13 +7249,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### prompt_tokens [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_usage_prompt_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6421,7 +7263,7 @@ _Example:_
 16
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -6436,13 +7278,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_tokens [#operation-stream_chat_responses_200_text-event-stream_completionevent_data_usage_total_tokens]
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -6450,7 +7292,7 @@ _Example:_
 50
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 

@@ -4,22 +4,57 @@ sidebar_label: Batch Jobs
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationCodeSamplesSection, TabbedSection, SectionTitle, TryItNow, SectionTab, SectionContent, CodeSample, OperationResponseBodySection, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationRequestBodySection, Section, OperationParametersSection } from "@speakeasy-api/docs-md/react";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@speakeasy-api/docs-md/react";
 
 
 # Batch Jobs Operations \{#batch/jobs\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/batch/jobs \{#operation-jobs_api_routes_batch_get_batch_jobs\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get Batch Jobs_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Get a list of batch jobs for your organization and user.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -109,7 +144,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -122,11 +161,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### data \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -138,11 +177,23 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BatchJobOut \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -156,11 +207,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_at \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+completed_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -175,11 +226,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+completed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -194,11 +245,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+created_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -213,11 +264,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### endpoint \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+endpoint\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -231,11 +282,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### error_file \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+error_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -250,11 +301,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### errors \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -266,11 +317,23 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BatchError \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -284,17 +347,17 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -309,11 +372,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+errors+batcherror+message\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -328,11 +391,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+failed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -347,11 +410,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -366,11 +429,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### input_files \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+input_files\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -384,11 +447,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### metadata \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+metadata\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -403,11 +466,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -421,17 +484,17 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"batch"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -445,11 +508,11 @@ _Default Value:_ `"batch"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### output_file \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+output_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -463,11 +526,11 @@ _Default Value:_ `"batch"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### started_at \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+started_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -482,11 +545,11 @@ _Default Value:_ `"batch"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### status \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+status\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -501,11 +564,11 @@ _Default Value:_ `"batch"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+succeeded_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -520,11 +583,11 @@ _Default Value:_ `"batch"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_requests \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+data+batchjobout+total_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -537,17 +600,17 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"list"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -561,11 +624,11 @@ _Default Value:_ `"list"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+total\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -581,15 +644,23 @@ _Default Value:_ `"list"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/batch/jobs \{#operation-jobs_api_routes_batch_create_batch_job\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Create Batch Job_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Create a new batch job, it will be queued for processing.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -693,11 +764,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### endpoint \{#operation-jobs_api_routes_batch_create_batch_job+request+endpoint\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -711,11 +782,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### input_files \{#operation-jobs_api_routes_batch_create_batch_job+request+input_files\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -728,11 +799,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### metadata \{#operation-jobs_api_routes_batch_create_batch_job+request+metadata\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -746,11 +817,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-jobs_api_routes_batch_create_batch_job+request+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -763,17 +834,17 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### timeout_hours \{#operation-jobs_api_routes_batch_create_batch_job+request+timeout_hours\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `24`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -803,7 +874,11 @@ _Default Value:_ `24`
 
 <SectionContent slot="content" id="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -816,11 +891,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -834,11 +909,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+completed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -852,11 +927,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+created_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -870,11 +945,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### endpoint \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+endpoint\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -887,11 +962,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### error_file \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+error_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -905,11 +980,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### errors \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -921,11 +996,23 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BatchError \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -939,17 +1026,17 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -964,11 +1051,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+errors+batcherror+message\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -982,11 +1069,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### failed_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+failed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1000,11 +1087,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1018,11 +1105,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### input_files \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+input_files\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1035,11 +1122,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### metadata \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+metadata\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1053,11 +1140,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1070,17 +1157,17 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"batch"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1093,11 +1180,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### output_file \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+output_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1110,11 +1197,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### started_at \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+started_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1128,11 +1215,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### status \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+status\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1146,11 +1233,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### succeeded_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+succeeded_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1164,11 +1251,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_requests \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+total_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1184,15 +1271,23 @@ _Default Value:_ `"batch"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/batch/jobs/\{job\_id\} \{#operation-jobs_api_routes_batch_get_batch_job\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get Batch Job_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Get a batch job details by its UUID.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -1218,11 +1313,11 @@ Get a batch job details by its UUID.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job_id \{#operation-jobs_api_routes_batch_get_batch_job+parameters+job_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1324,7 +1419,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -1337,11 +1436,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1355,11 +1454,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+completed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1373,11 +1472,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+created_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1391,11 +1490,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### endpoint \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+endpoint\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1408,11 +1507,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### error_file \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+error_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1426,11 +1525,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### errors \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1442,11 +1541,23 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BatchError \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1460,17 +1571,17 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1485,11 +1596,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+errors+batcherror+message\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1503,11 +1614,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### failed_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+failed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1521,11 +1632,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1539,11 +1650,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### input_files \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+input_files\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1556,11 +1667,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### metadata \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+metadata\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1574,11 +1685,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1591,17 +1702,17 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"batch"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1614,11 +1725,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### output_file \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+output_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1631,11 +1742,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### started_at \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+started_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1649,11 +1760,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### status \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+status\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1667,11 +1778,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### succeeded_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+succeeded_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1685,11 +1796,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_requests \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+total_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1705,15 +1816,23 @@ _Default Value:_ `"batch"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/batch/jobs/\{job\_id\}/cancel \{#operation-jobs_api_routes_batch_cancel_batch_job\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Cancel Batch Job_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Request the cancellation of a batch job.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -1739,11 +1858,11 @@ Request the cancellation of a batch job.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job_id \{#operation-jobs_api_routes_batch_cancel_batch_job+parameters+job_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1845,7 +1964,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -1858,11 +1981,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1876,11 +1999,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completed_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+completed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1894,11 +2017,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+created_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1912,11 +2035,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### endpoint \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+endpoint\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1929,11 +2052,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### error_file \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+error_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1947,11 +2070,11 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### errors \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1963,11 +2086,23 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BatchError \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1981,17 +2116,17 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `1`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2006,11 +2141,11 @@ _Default Value:_ `1`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### message \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+errors+batcherror+message\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2024,11 +2159,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### failed_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+failed_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2042,11 +2177,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2060,11 +2195,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### input_files \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+input_files\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2077,11 +2212,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### metadata \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+metadata\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2095,11 +2230,11 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+model\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2112,17 +2247,17 @@ _Default Value:_ `1`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"batch"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2135,11 +2270,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### output_file \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+output_file\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2152,11 +2287,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### started_at \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+started_at\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2170,11 +2305,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### status \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+status\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2188,11 +2323,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### succeeded_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+succeeded_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2206,11 +2341,11 @@ _Default Value:_ `"batch"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### total_requests \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+total_requests\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

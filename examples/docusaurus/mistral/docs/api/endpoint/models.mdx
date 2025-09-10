@@ -4,22 +4,61 @@ sidebar_label: Models
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationCodeSamplesSection, TabbedSection, SectionTitle, TryItNow, SectionTab, SectionContent, CodeSample, OperationResponseBodySection, ExpandableSection, ExpandableProperty, ExpandableBreakout, OperationParametersSection, Section, FrontMatterDisplayType, OperationRequestBodySection } from "@speakeasy-api/docs-md/react";
+import {
+CodeSample,
+  ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDefaultValue,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  FrontMatterDisplayType,
+  Operation,
+  OperationCodeSamplesSection,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationRequestBodySection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection,
+  TryItNow
+} from "@speakeasy-api/docs-md/react";
 
 
 # Models Operations \{#models\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/models \{#operation-list_models_v1_models_get\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List Models_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 List all models available to the user.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationCodeSamplesSection slot="code-samples">
 
@@ -109,7 +148,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-list_models_v1_models_get+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -122,11 +165,11 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### data \{#operation-list_models_v1_models_get+responses+200+application-json+data\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -138,11 +181,23 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BaseModelCard \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -156,11 +211,11 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -175,11 +230,11 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -193,17 +248,17 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -217,17 +272,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -241,17 +296,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -265,17 +320,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -289,17 +344,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### vision \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+capabilities+vision\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -313,11 +368,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -331,11 +386,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### default_model_temperature \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+default_model_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -349,11 +404,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### deprecation \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+deprecation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -367,11 +422,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -386,11 +441,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -404,17 +459,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -428,11 +483,11 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -446,17 +501,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -470,17 +525,17 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"mistralai"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -494,17 +549,17 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-list_models_v1_models_get+responses+200+application-json+data+basemodelcard+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"base"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -516,17 +571,25 @@ _Default Value:_ `"base"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FTModelCard \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 Extra fields for fine-tuned models.
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -540,11 +603,11 @@ Extra fields for fine-tuned models.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -558,17 +621,17 @@ Extra fields for fine-tuned models.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -583,11 +646,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -601,17 +664,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -625,17 +688,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -649,17 +712,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -673,17 +736,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -697,17 +760,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### vision \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+capabilities+vision\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -721,11 +784,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -739,11 +802,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### default_model_temperature \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+default_model_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -757,11 +820,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### deprecation \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+deprecation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -775,11 +838,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -794,11 +857,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -813,11 +876,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+job\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -831,17 +894,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -855,11 +918,11 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -873,17 +936,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -897,17 +960,17 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"mistralai"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -922,11 +985,11 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### root \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+root\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -940,17 +1003,17 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-list_models_v1_models_get+responses+200+application-json+data+ftmodelcard+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"fine-tuned"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -963,17 +1026,17 @@ _Default Value:_ `"fine-tuned"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-list_models_v1_models_get+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"list"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -989,15 +1052,23 @@ _Default Value:_ `"list"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /v1/models/\{model\_id\} \{#operation-retrieve_model_v1_models_model_id_get\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Retrieve Model_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Retrieve a model information.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -1023,17 +1094,17 @@ Retrieve a model information.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_id \{#operation-retrieve_model_v1_models_model_id_get+parameters+model_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the model to retrieve.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1135,11 +1206,17 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-retrieve_model_v1_models_model_id_get+responses+200+application-json">
 
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
 <FrontMatterDisplayType typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"BaseModelCard","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard\">BaseModelCard</a>","children":[],"breakoutSubTypes":{}},{"label":"FTModelCard","linkedLabel":"<a href=\"#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard\">FTModelCard</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} />
 
-Successful Response
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
 
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -1151,11 +1228,23 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### BaseModelCard \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1169,11 +1258,11 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1188,11 +1277,11 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1206,17 +1295,17 @@ Successful Response
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1230,17 +1319,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1254,17 +1343,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1278,17 +1367,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1302,17 +1391,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### vision \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+capabilities+vision\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1326,11 +1415,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1344,11 +1433,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### default_model_temperature \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+default_model_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1362,11 +1451,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### deprecation \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+deprecation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1380,11 +1469,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1399,11 +1488,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1417,17 +1506,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1441,11 +1530,11 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1459,17 +1548,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1483,17 +1572,17 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"mistralai"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1507,17 +1596,17 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+basemodelcard+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"base"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1529,17 +1618,25 @@ _Default Value:_ `"base"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### FTModelCard \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard\}
 
-</div>
+</ExpandableBreakoutTitle>
 
-<div slot="content">
+<ExpandableBreakoutDescription slot="description">
 
 Extra fields for fine-tuned models.
 
-</div>
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1553,11 +1650,11 @@ Extra fields for fine-tuned models.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1571,17 +1668,17 @@ Extra fields for fine-tuned models.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1596,11 +1693,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1614,17 +1711,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1638,17 +1735,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1662,17 +1759,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1686,17 +1783,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1710,17 +1807,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### vision \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+capabilities+vision\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1734,11 +1831,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1752,11 +1849,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### default_model_temperature \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+default_model_temperature\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1770,11 +1867,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### deprecation \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+deprecation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1788,11 +1885,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1807,11 +1904,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1826,11 +1923,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+job\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1844,17 +1941,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1868,11 +1965,11 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1886,17 +1983,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1910,17 +2007,17 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"mistralai"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1935,11 +2032,11 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### root \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+root\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1953,17 +2050,17 @@ _Default Value:_ `"mistralai"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### type \{#operation-retrieve_model_v1_models_model_id_get+responses+200+application-json+ftmodelcard+type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"fine-tuned"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -1979,15 +2076,23 @@ _Default Value:_ `"fine-tuned"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>DELETE</b></Pill> /v1/models/\{model\_id\} \{#operation-delete_model_v1_models_model_id_delete\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Delete Model_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Delete a fine-tuned model.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -2013,17 +2118,17 @@ Delete a fine-tuned model.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_id \{#operation-delete_model_v1_models_model_id_delete+parameters+model_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the model to delete.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2125,7 +2230,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-delete_model_v1_models_model_id_delete+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Successful Response
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -2138,15 +2247,19 @@ Successful Response
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### deleted \{#operation-delete_model_v1_models_model_id_delete+responses+200+application-json+deleted\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The deletion status
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2154,9 +2267,13 @@ _Example:_
 true
 ```
 
+</ExpandablePropertyExamples>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2170,15 +2287,19 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-delete_model_v1_models_model_id_delete+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the deleted model.
+
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2186,7 +2307,7 @@ _Example:_
 ft:open-mistral-7b:587a6b29:20240514:7e773925
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2199,19 +2320,23 @@ ft:open-mistral-7b:587a6b29:20240514:7e773925
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-delete_model_v1_models_model_id_delete+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The object type that was deleted
 
+</ExpandablePropertyDescription>
+
+<ExpandablePropertyDefaultValue slot="defaultValue">
+
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2227,15 +2352,23 @@ _Default Value:_ `"model"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>PATCH</b></Pill> /v1/fine\_tuning/models/\{model\_id\} \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Update Fine Tuned Model_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Update a model name or description.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -2261,17 +2394,17 @@ Update a model name or description.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_id \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+parameters+model_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the model to update.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2379,11 +2512,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2396,11 +2529,11 @@ with Mistral(
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+request+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2430,11 +2563,17 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json">
 
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
 <FrontMatterDisplayType typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"CompletionFTModelOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout\">CompletionFTModelOut</a>","children":[],"breakoutSubTypes":{}},{"label":"ClassifierFTModelOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout\">ClassifierFTModelOut</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}} />
 
-OK
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
 
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -2446,11 +2585,23 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### CompletionFTModelOut \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2464,11 +2615,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2483,11 +2634,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2502,11 +2653,11 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2520,17 +2671,17 @@ OK
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### classification \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities+classification\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2544,17 +2695,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2568,17 +2719,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2592,17 +2743,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2616,17 +2767,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2641,11 +2792,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2659,11 +2810,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2678,11 +2829,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2697,11 +2848,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+job\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2715,17 +2866,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2739,17 +2890,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_type \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+model_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"completion"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2763,11 +2914,11 @@ _Default Value:_ `"completion"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2781,17 +2932,17 @@ _Default Value:_ `"completion"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2806,11 +2957,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2825,11 +2976,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### root \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+completionftmodelout+root\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2841,11 +2992,23 @@ _Default Value:_ `"model"`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ClassifierFTModelOut \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2859,11 +3022,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### aliases \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+aliases\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2878,11 +3041,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2897,11 +3060,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### capabilities \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2915,17 +3078,17 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### classification \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities+classification\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2939,17 +3102,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_chat \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities+completion_chat\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2963,17 +3126,17 @@ _Default Value:_ `true`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### completion_fim \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities+completion_fim\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -2987,17 +3150,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### fine_tuning \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities+fine_tuning\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3011,17 +3174,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### function_calling \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+capabilities+function_calling\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3036,11 +3199,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### classifier_targets \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3052,11 +3215,23 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### ClassifierTargetOut \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets+classifiertargetout\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3071,11 +3246,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### labels \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets+classifiertargetout+labels\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3090,11 +3265,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### loss_function \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets+classifiertargetout+loss_function\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3109,11 +3284,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets+classifiertargetout+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3128,11 +3303,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### weight \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+classifier_targets+classifiertargetout+weight\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3147,11 +3322,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### created \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+created\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3165,11 +3340,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3184,11 +3359,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3203,11 +3378,11 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### job \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+job\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3221,17 +3396,17 @@ _Default Value:_ `false`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### max_context_length \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+max_context_length\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `32768`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3245,17 +3420,17 @@ _Default Value:_ `32768`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_type \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+model_type\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"classifier"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3269,11 +3444,11 @@ _Default Value:_ `"classifier"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3287,17 +3462,17 @@ _Default Value:_ `"classifier"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3312,11 +3487,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### owned_by \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+owned_by\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3331,11 +3506,11 @@ _Default Value:_ `"model"`
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### root \{#operation-jobs_api_routes_fine_tuning_update_fine_tuned_model+responses+200+application-json+classifierftmodelout+root\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3351,15 +3526,23 @@ _Default Value:_ `"model"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>POST</b></Pill> /v1/fine\_tuning/models/\{model\_id\}/archive \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Archive Fine Tuned Model_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Archive a fine-tuned model.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -3385,17 +3568,17 @@ Archive a fine-tuned model.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_id \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+parameters+model_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the model to archive.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3497,7 +3680,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -3510,17 +3697,17 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `true`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3534,11 +3721,11 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3551,17 +3738,17 @@ _Default Value:_ `true`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_fine_tuning_archive_fine_tuned_model+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3577,15 +3764,23 @@ _Default Value:_ `"model"`
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>DELETE</b></Pill> /v1/fine\_tuning/models/\{model\_id\}/archive \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Unarchive Fine Tuned Model_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Un-archive a fine-tuned model.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationParametersSection slot="parameters">
 
@@ -3611,17 +3806,17 @@ Un-archive a fine-tuned model.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### model_id \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+parameters+model_id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The ID of the model to unarchive.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3723,7 +3918,11 @@ with Mistral(
 
 <SectionContent slot="content" id="operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -3736,17 +3935,17 @@ OK
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### archived \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+archived\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `false`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 
@@ -3760,11 +3959,11 @@ _Default Value:_ `false`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3777,17 +3976,17 @@ _Default Value:_ `false`
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### object \{#operation-jobs_api_routes_fine_tuning_unarchive_fine_tuned_model+responses+200+application-json+object\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDefaultValue slot="defaultValue">
 
 _Default Value:_ `"model"`
 
-</div>
+</ExpandablePropertyDefaultValue>
 
 </ExpandableProperty>
 

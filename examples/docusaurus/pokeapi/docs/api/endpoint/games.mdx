@@ -4,22 +4,55 @@ sidebar_label: Games
 ---
 
 import "@speakeasy-api/docs-md/docusaurus.css";
-import { Operation, OperationFrontMatterSection, Pill, OperationSecuritySection, Section, SectionTitle, SectionContent, ExpandableSection, ExpandableProperty, OperationParametersSection, OperationResponseBodySection, TabbedSection, SectionTab, ExpandableBreakout } from "@speakeasy-api/docs-md/react";
+import {
+ExpandableBreakout,
+  ExpandableBreakoutDefaultValue,
+  ExpandableBreakoutDescription,
+  ExpandableBreakoutExamples,
+  ExpandableBreakoutTitle,
+  ExpandableProperty,
+  ExpandablePropertyDescription,
+  ExpandablePropertyExamples,
+  ExpandablePropertyTitle,
+  ExpandableSection,
+  Operation,
+  OperationDescriptionSection,
+  OperationParametersSection,
+  OperationResponseBodyDescriptionSection,
+  OperationResponseBodySection,
+  OperationSecuritySection,
+  OperationSummarySection,
+  OperationTitleSection,
+  Pill,
+  Section,
+  SectionContent,
+  SectionTab,
+  SectionTitle,
+  TabbedSection
+} from "@speakeasy-api/docs-md/react";
 
 
 # Games Operations \{#games\}
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/generation/ \{#operation-api_v2_generation_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List genrations_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -44,11 +77,11 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_generation_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -61,11 +94,11 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_generation_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -101,17 +134,17 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_generation_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -125,17 +158,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_generation_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -149,18 +182,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_generation_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -201,13 +234,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_generation_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -215,7 +248,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -228,13 +261,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_generation_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -242,7 +275,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -255,13 +288,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_generation_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -269,7 +302,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -282,11 +315,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_generation_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -298,11 +331,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### GenerationSummary \{#operation-api_v2_generation_list+responses+200+application-json+results+generationsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -317,11 +362,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_list+responses+200+application-json+results+generationsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -336,11 +381,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_list+responses+200+application-json+results+generationsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -356,15 +401,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/generation/\{id\}/ \{#operation-api_v2_generation_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get genration_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -389,11 +442,11 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_generation_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -406,11 +459,11 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_generation_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -446,17 +499,17 @@ A generation is a grouping of the Pokémon games that separates them based on th
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_generation_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -498,11 +551,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### abilities \{#operation-api_v2_generation_retrieve+responses+200+application-json+abilities\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -514,11 +567,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### AbilitySummary \{#operation-api_v2_generation_retrieve+responses+200+application-json+abilities+abilitysummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -533,11 +598,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+abilities+abilitysummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -552,11 +617,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+abilities+abilitysummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -570,11 +635,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_generation_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -588,11 +653,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### main_region \{#operation-api_v2_generation_retrieve+responses+200+application-json+main_region\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -607,11 +672,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+main_region+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -626,11 +691,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+main_region+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -644,11 +709,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### moves \{#operation-api_v2_generation_retrieve+responses+200+application-json+moves\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -660,11 +725,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### MoveSummary \{#operation-api_v2_generation_retrieve+responses+200+application-json+moves+movesummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -679,11 +756,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+moves+movesummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -698,11 +775,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+moves+movesummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -716,11 +793,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -734,11 +811,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_generation_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -750,11 +827,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### GenerationName \{#operation-api_v2_generation_retrieve+responses+200+application-json+names+generationname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -769,11 +858,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_generation_retrieve+responses+200+application-json+names+generationname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -788,11 +877,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+names+generationname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -807,11 +896,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+names+generationname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -826,11 +915,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+names+generationname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -844,11 +933,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pokemon_species \{#operation-api_v2_generation_retrieve+responses+200+application-json+pokemon_species\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -860,11 +949,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### PokemonSpeciesSummary \{#operation-api_v2_generation_retrieve+responses+200+application-json+pokemon_species+pokemonspeciessummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -879,11 +980,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+pokemon_species+pokemonspeciessummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -898,11 +999,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+pokemon_species+pokemonspeciessummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -916,11 +1017,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### types \{#operation-api_v2_generation_retrieve+responses+200+application-json+types\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -932,11 +1033,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### TypeSummary \{#operation-api_v2_generation_retrieve+responses+200+application-json+types+typesummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -951,11 +1064,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+types+typesummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -970,11 +1083,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+types+typesummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -988,11 +1101,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_groups \{#operation-api_v2_generation_retrieve+responses+200+application-json+version_groups\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1004,11 +1117,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### VersionGroupSummary \{#operation-api_v2_generation_retrieve+responses+200+application-json+version_groups+versiongroupsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1023,11 +1148,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_generation_retrieve+responses+200+application-json+version_groups+versiongroupsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1042,11 +1167,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_generation_retrieve+responses+200+application-json+version_groups+versiongroupsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1062,15 +1187,23 @@ This parameter can be a string or an integer.
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/pokedex/ \{#operation-api_v2_pokedex_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List pokedex_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1095,11 +1228,11 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_pokedex_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1112,11 +1245,11 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_pokedex_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1152,17 +1285,17 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_pokedex_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1176,17 +1309,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_pokedex_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1200,18 +1333,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_pokedex_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1252,13 +1385,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_pokedex_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1266,7 +1399,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1279,13 +1412,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_pokedex_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1293,7 +1426,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1306,13 +1439,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_pokedex_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1320,7 +1453,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1333,11 +1466,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_pokedex_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1349,11 +1482,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### PokedexSummary \{#operation-api_v2_pokedex_list+responses+200+application-json+results+pokedexsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1368,11 +1513,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_list+responses+200+application-json+results+pokedexsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1387,11 +1532,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_list+responses+200+application-json+results+pokedexsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1407,15 +1552,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/pokedex/\{id\}/ \{#operation-api_v2_pokedex_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get pokedex_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -1440,11 +1593,11 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_pokedex_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1457,11 +1610,11 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_pokedex_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1497,17 +1650,17 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_pokedex_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -1549,11 +1702,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### descriptions \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1565,11 +1718,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### PokedexDescription \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions+pokedexdescription\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1583,11 +1748,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### description \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions+pokedexdescription+description\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1602,11 +1767,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions+pokedexdescription+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1621,11 +1786,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions+pokedexdescription+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1640,11 +1805,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+descriptions+pokedexdescription+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1658,11 +1823,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1675,11 +1840,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### is_main_series \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+is_main_series\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1693,11 +1858,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1711,11 +1876,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1727,11 +1892,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### PokedexName \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names+pokedexname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1746,11 +1923,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names+pokedexname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1765,11 +1942,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names+pokedexname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1784,11 +1961,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names+pokedexname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1803,11 +1980,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+names+pokedexname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1821,11 +1998,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pokemon_entries \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1837,11 +2014,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### pokemon\_entry \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries+pokemon_entry\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -1856,13 +2045,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### entry_number \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries+pokemon_entry+entry_number\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1870,7 +2059,7 @@ _Example:_
 1
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1885,11 +2074,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pokemon_species \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries+pokemon_entry+pokemon_species\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1904,13 +2093,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries+pokemon_entry+pokemon_species+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1918,7 +2107,7 @@ _Example:_
 bulbasaur
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1933,13 +2122,13 @@ bulbasaur
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+pokemon_entries+pokemon_entry+pokemon_species+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -1947,7 +2136,7 @@ _Example:_
 https://pokeapi.co/api/v2/pokemon-species/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -1961,11 +2150,11 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### region \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+region\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1980,11 +2169,11 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+region+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -1999,11 +2188,11 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+region+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2017,11 +2206,11 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_groups \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2033,11 +2222,23 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### pokemon\_entry \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups+pokemon_entry\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2052,13 +2253,13 @@ https://pokeapi.co/api/v2/pokemon-species/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### entry_number \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups+pokemon_entry+entry_number\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2066,7 +2267,7 @@ _Example:_
 1
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2081,11 +2282,11 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pokemon_species \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups+pokemon_entry+pokemon_species\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2100,13 +2301,13 @@ _Example:_
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups+pokemon_entry+pokemon_species+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2114,7 +2315,7 @@ _Example:_
 bulbasaur
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2129,13 +2330,13 @@ bulbasaur
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_pokedex_retrieve+responses+200+application-json+version_groups+pokemon_entry+pokemon_species+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2143,7 +2344,7 @@ _Example:_
 https://pokeapi.co/api/v2/pokemon-species/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2159,15 +2360,23 @@ https://pokeapi.co/api/v2/pokemon-species/1/
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version/ \{#operation-api_v2_version_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List versions_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Versions of the games, e.g., Red, Blue or Yellow.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -2192,11 +2401,11 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_version_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2209,11 +2418,11 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_version_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2249,17 +2458,17 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_version_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2273,17 +2482,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_version_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2297,18 +2506,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_version_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2349,13 +2558,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_version_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2363,7 +2572,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2376,13 +2585,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_version_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2390,7 +2599,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2403,13 +2612,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_version_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -2417,7 +2626,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -2430,11 +2639,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_version_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2446,11 +2655,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### VersionSummary \{#operation-api_v2_version_list+responses+200+application-json+results+versionsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2465,11 +2686,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_list+responses+200+application-json+results+versionsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2484,11 +2705,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_list+responses+200+application-json+results+versionsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2504,15 +2725,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version/\{id\}/ \{#operation-api_v2_version_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get version_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Versions of the games, e.g., Red, Blue or Yellow.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -2537,11 +2766,11 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_version_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2554,11 +2783,11 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_version_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2594,17 +2823,17 @@ Versions of the games, e.g., Red, Blue or Yellow.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_version_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2634,9 +2863,13 @@ This parameter can be a string or an integer.
 
 <SectionContent slot="content" id="operation-api_v2_version_retrieve+responses+200+application-json">
 
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
 Should have a link to Version Group info but the Circular
 dependency and compilation order fight eachother and I'm
 not sure how to add anything other than a hyperlink
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -2650,11 +2883,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_version_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2668,11 +2901,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2686,11 +2919,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### names \{#operation-api_v2_version_retrieve+responses+200+application-json+names\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2702,11 +2935,23 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### VersionName \{#operation-api_v2_version_retrieve+responses+200+application-json+names+versionname\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -2721,11 +2966,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### language \{#operation-api_v2_version_retrieve+responses+200+application-json+names+versionname+language\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2740,11 +2985,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_retrieve+responses+200+application-json+names+versionname+language+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2759,11 +3004,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_retrieve+responses+200+application-json+names+versionname+language+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2778,11 +3023,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_retrieve+responses+200+application-json+names+versionname+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2796,11 +3041,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### version_group \{#operation-api_v2_version_retrieve+responses+200+application-json+version_group\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2815,11 +3060,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_retrieve+responses+200+application-json+version_group+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2834,11 +3079,11 @@ not sure how to add anything other than a hyperlink
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_retrieve+responses+200+application-json+version_group+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2854,15 +3099,23 @@ not sure how to add anything other than a hyperlink
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version-group/ \{#operation-api_v2_version_group_list\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _List version groups_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Version groups categorize highly similar versions of the games.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -2887,11 +3140,11 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_version_group_list+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2904,11 +3157,11 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_version_group_list+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -2944,17 +3197,17 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### limit \{#operation-api_v2_version_group_list+parameters+limit\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 Number of results to return per page.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2968,17 +3221,17 @@ Number of results to return per page.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### offset \{#operation-api_v2_version_group_list+parameters+offset\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 The initial index from which to return the results.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -2992,18 +3245,18 @@ The initial index from which to return the results.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### q \{#operation-api_v2_version_group_list+parameters+q\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
 Case-insensitive query applied on the `name` property. 
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3044,13 +3297,13 @@ Case-insensitive query applied on the `name` property.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### count \{#operation-api_v2_version_group_list+responses+200+application-json+count\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3058,7 +3311,7 @@ _Example:_
 123
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3071,13 +3324,13 @@ _Example:_
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### next \{#operation-api_v2_version_group_list+responses+200+application-json+next\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3085,7 +3338,7 @@ _Example:_
 http://api.example.org/accounts/?offset=400&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3098,13 +3351,13 @@ http://api.example.org/accounts/?offset=400&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### previous \{#operation-api_v2_version_group_list+responses+200+application-json+previous\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3112,7 +3365,7 @@ _Example:_
 http://api.example.org/accounts/?offset=200&limit=100
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3125,11 +3378,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### results \{#operation-api_v2_version_group_list+responses+200+application-json+results\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3141,11 +3394,23 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### VersionGroupSummary \{#operation-api_v2_version_group_list+responses+200+application-json+results+versiongroupsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3160,11 +3425,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_list+responses+200+application-json+results+versiongroupsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3179,11 +3444,11 @@ http://api.example.org/accounts/?offset=200&limit=100
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_list+responses+200+application-json+results+versiongroupsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3199,15 +3464,23 @@ http://api.example.org/accounts/?offset=200&limit=100
 
 <Operation>
 
-<OperationFrontMatterSection slot="front-matter">
+<OperationTitleSection slot="title">
 
 ## <Pill variant="primary"><b>GET</b></Pill> /api/v2/version-group/\{id\}/ \{#operation-api_v2_version_group_retrieve\}
 
+</OperationTitleSection>
+
+<OperationSummarySection slot="summary">
+
 _Get version group_
+
+</OperationSummarySection>
+
+<OperationDescriptionSection slot="description">
 
 Version groups categorize highly similar versions of the games.
 
-</OperationFrontMatterSection>
+</OperationDescriptionSection>
 
 <OperationSecuritySection slot="security">
 
@@ -3232,11 +3505,11 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### cookieAuth \{#operation-api_v2_version_group_retrieve+security+cookieauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3249,11 +3522,11 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### basicAuth \{#operation-api_v2_version_group_retrieve+security+basicauth\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3289,17 +3562,17 @@ Version groups categorize highly similar versions of the games.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_version_group_retrieve+parameters+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyDescription slot="description">
 
 This parameter can be a string or an integer.
 
-</div>
+</ExpandablePropertyDescription>
 
 </ExpandableProperty>
 
@@ -3341,11 +3614,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### generation \{#operation-api_v2_version_group_retrieve+responses+200+application-json+generation\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3360,11 +3633,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+generation+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3379,11 +3652,11 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_retrieve+responses+200+application-json+generation+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3397,11 +3670,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### id \{#operation-api_v2_version_group_retrieve+responses+200+application-json+id\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3415,11 +3688,11 @@ This parameter can be a string or an integer.
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### move_learn_methods \{#operation-api_v2_version_group_retrieve+responses+200+application-json+move_learn_methods\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3431,11 +3704,23 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### move\_learn\_method \{#operation-api_v2_version_group_retrieve+responses+200+application-json+move_learn_methods+move_learn_method\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3450,13 +3735,13 @@ This parameter can be a string or an integer.
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+move_learn_methods+move_learn_method+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3464,7 +3749,7 @@ _Example:_
 level-up
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3479,13 +3764,13 @@ level-up
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_retrieve+responses+200+application-json+move_learn_methods+move_learn_method+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3493,7 +3778,7 @@ _Example:_
 https://pokeapi.co/api/v2/move-learn-method/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3507,11 +3792,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3524,11 +3809,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### order \{#operation-api_v2_version_group_retrieve+responses+200+application-json+order\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3542,11 +3827,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### pokedexes \{#operation-api_v2_version_group_retrieve+responses+200+application-json+pokedexes\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3558,11 +3843,23 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### move\_learn\_method \{#operation-api_v2_version_group_retrieve+responses+200+application-json+pokedexes+move_learn_method\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3577,13 +3874,13 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+pokedexes+move_learn_method+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3591,7 +3888,7 @@ _Example:_
 level-up
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3606,13 +3903,13 @@ level-up
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_retrieve+responses+200+application-json+pokedexes+move_learn_method+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3620,7 +3917,7 @@ _Example:_
 https://pokeapi.co/api/v2/move-learn-method/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3634,11 +3931,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### regions \{#operation-api_v2_version_group_retrieve+responses+200+application-json+regions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3650,11 +3947,23 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### move\_learn\_method \{#operation-api_v2_version_group_retrieve+responses+200+application-json+regions+move_learn_method\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3669,13 +3978,13 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+regions+move_learn_method+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3683,7 +3992,7 @@ _Example:_
 level-up
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3698,13 +4007,13 @@ level-up
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_retrieve+responses+200+application-json+regions+move_learn_method+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
-<div slot="content">
+<ExpandablePropertyExamples slot="examples">
 
 _Example:_
 
@@ -3712,7 +4021,7 @@ _Example:_
 https://pokeapi.co/api/v2/move-learn-method/1/
 ```
 
-</div>
+</ExpandablePropertyExamples>
 
 </ExpandableProperty>
 
@@ -3726,11 +4035,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={true}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### versions \{#operation-api_v2_version_group_retrieve+responses+200+application-json+versions\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3742,11 +4051,23 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandableBreakoutTitle slot="title">
 
 #### VersionSummary \{#operation-api_v2_version_group_retrieve+responses+200+application-json+versions+versionsummary\}
 
-</div>
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutDescription slot="description">
+
+</ExpandableBreakoutDescription>
+
+<ExpandableBreakoutExamples slot="examples">
+
+</ExpandableBreakoutExamples>
+
+<ExpandableBreakoutDefaultValue slot="defaultValue">
+
+</ExpandableBreakoutDefaultValue>
 
 </ExpandableBreakout>
 
@@ -3761,11 +4082,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### name \{#operation-api_v2_version_group_retrieve+responses+200+application-json+versions+versionsummary+name\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 
@@ -3780,11 +4101,11 @@ https://pokeapi.co/api/v2/move-learn-method/1/
   expandByDefault={false}
 >
 
-<div slot="title">
+<ExpandablePropertyTitle slot="title">
 
 ##### url \{#operation-api_v2_version_group_retrieve+responses+200+application-json+versions+versionsummary+url\}
 
-</div>
+</ExpandablePropertyTitle>
 
 </ExpandableProperty>
 

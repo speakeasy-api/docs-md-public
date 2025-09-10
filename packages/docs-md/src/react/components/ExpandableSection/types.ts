@@ -126,6 +126,34 @@ export type ExpandablePropertyProps = RowProps & {
   ConnectingCell?: FC<ConnectingCellProps>;
 };
 
+export type ExpandablePropertyTitleProps = PropsWithChildren<{
+  /**
+   * The slot for the title, always "title"
+   */
+  slot: "title";
+}>;
+
+export type ExpandablePropertyDescriptionProps = PropsWithChildren<{
+  /**
+   * The slot for the description, always "description"
+   */
+  slot: "description";
+}>;
+
+export type ExpandablePropertyExamplesProps = PropsWithChildren<{
+  /**
+   * The slot for the examples, always "examples"
+   */
+  slot: "examples";
+}>;
+
+export type ExpandablePropertyDefaultValueProps = PropsWithChildren<{
+  /**
+   * The slot for the default value, always "defaultValue"
+   */
+  slot: "defaultValue";
+}>;
+
 export type ExpandableBreakoutProps = RowProps & {
   /**
    * The component to use for rendering expandable cells, and defaults to
@@ -150,3 +178,14 @@ export type ExpandableBreakoutProps = RowProps & {
    */
   ConnectingCell?: FC<ConnectingCellProps>;
 };
+
+export type ExpandableBreakoutTitleProps = PropsWithChildren<{ slot: "title" }>;
+export type ExpandableBreakoutDescriptionProps = PropsWithChildren<{
+  slot: "description";
+}>;
+export type ExpandableBreakoutExamplesProps = PropsWithChildren<{
+  slot: "examples";
+}>;
+export type ExpandableBreakoutDefaultValueProps = PropsWithChildren<{
+  slot: "defaultValue";
+}>;
