@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "rm -rf .next && next -p 3004",
     "build-api-docs": "docs-md",
-    "prebuild": "cd ../../../packages/docs-md && npm run build",
+    "prebuild": "cd ../../../ && make build-packages",
     "build": "next build",
     "postbuild": "pagefind --site .next/server/app --output-path out/_pagefind",
     "start": "http-server out"
@@ -16,9 +16,10 @@
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
     "@speakeasy-api/docs-md": "*",
+    "@speakeasy-api/docs-md-react": "*",
     "jotai": "^2.12.5",
     "motion": "^12.16.0",
-    "next": "^15.3.1",
+    "next": "^15.5.3",
     "nextra": "^4.2.17",
     "nextra-theme-docs": "^4.2.17",
     "radix-ui": "^1.3.4",

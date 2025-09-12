@@ -5,6 +5,7 @@
     "url": "git+https://github.com/speakeasy-api/docs.git"
   },
   "devDependencies": {
+    "@swc/core": "^1.13.5",
     "@types/node": "^24.3.1",
     "cross-dirname": "^0.1.0",
     "eslint": "^9.26.0",
@@ -12,12 +13,14 @@
     "typescript": "^5.8.3"
   },
   "workspaces": [
-    "packages/docs-md",
-    "packages/config",
+    "packages/compiler",
+    "packages/react",
+    "packages/shared",
     "examples/docusaurus/pokeapi",
     "examples/docusaurus/mistral",
     "examples/nextra/pokeapi",
     "examples/nextra/mistral",
+    "examples/custom/pokeapi",
     "examples/custom/mistral"
   ]
 }

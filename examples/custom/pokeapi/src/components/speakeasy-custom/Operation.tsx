@@ -1,4 +1,4 @@
-import { OperationProps, useChildren } from "@speakeasy-api/docs-md/react";
+import { OperationProps, useChildren } from "@speakeasy-api/docs-md-react";
 
 export function Operation({ children }: OperationProps) {
   const titleSection = useChildren(children, "title")[0];
@@ -21,6 +21,7 @@ export function Operation({ children }: OperationProps) {
       </div>
       {summarySection}
       {descriptionSection}
+      {tryItNowSection}
       <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
         <div
           style={{

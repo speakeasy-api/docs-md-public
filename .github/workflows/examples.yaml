@@ -1,4 +1,4 @@
-name: Example Builds
+name: Examples
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    name: Example Build and Test
+    name: Example Build Verification
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +22,10 @@ jobs:
         with:
           node-version: "24"
       - name: Install dependencies
-        run: npm ci && npm install --workspaces
-      - name: Build Docs MD
-        working-directory: ./packages/docs-md
-        run: npm run build
-      # We have to run npm install again to link the newly built docs-md binary
+        run: npm ci
+      - name: Build Packages
+        run: make build-packages
+      # We have to run npm install again to link the newly built compiler binary
       - name: Link workspace binaries
         run: npm install --workspaces
       - name: Verify example builds

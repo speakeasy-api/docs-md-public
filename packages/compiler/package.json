@@ -1,0 +1,43 @@
+{
+  "name": "@speakeasy-api/docs-md",
+  "version": "0.2.0",
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "docs-md": "dist/cli/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/compiler.d.ts",
+      "default": "./dist/compiler.js"
+    }
+  },
+  "types": "./dist/compiler.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsc && cp ./src/data/*.gz ./dist/data/ && chmod a+x dist/cli/cli.js && cpx \"src/**/*.css\" dist/",
+    "prettier": "prettier --config ../../prettier.config.mjs --ignore-path ../../.gitignore \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
+    "format": "npm run prettier -- --write",
+    "check-formatting": "npm run prettier -- --check",
+    "lint": "eslint \"**/*.{js,jsx,mjs,ts,tsx,mts}\"",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@speakeasy-api/docs-md-react": "*",
+    "@speakeasy-api/docs-md-shared": "*",
+    "arg": "^5.0.2",
+    "chalk": "^5.3.0",
+    "change-case": "^5.4.4",
+    "cpx2": "^8.0.0",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.25.56"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.17",
+    "globals": "^16.3.0",
+    "typescript": "^5.8.3"
+  }
+}
