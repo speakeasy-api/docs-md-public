@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Reset margins, which vary between scaffolds */
+.section h1:first-child,
+.section h2:first-child,
+.section h3:first-child,
+.section h4:first-child,
+.section h5:first-child,
+.section h6:first-child {
+  margin: 0;
+}

@@ -1,0 +1,13 @@
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  /* Normalize padding on headings across scaffolds */
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.content > :last-child {
+  margin-bottom: 0;
+}
