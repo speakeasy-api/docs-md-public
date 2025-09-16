@@ -39,15 +39,15 @@ const remotes = remoteOutput[1]
   ?.split("\n")
   .filter(Boolean)
   .map((r) => r.trim());
-if (!remotes?.includes("public-react")) {
+if (!remotes?.includes("public")) {
   console.log("Adding remote");
   runCommand(
     "git",
     [
       "remote",
       "add",
-      "public-react",
-      "https://github.com/speakeasy-api/docs-md-react.git",
+      "public",
+      "https://github.com/speakeasy-api/docs-md-public.git",
     ],
     {
       cwd: ROOT_DIR,
@@ -56,11 +56,16 @@ if (!remotes?.includes("public-react")) {
   );
 }
 
-// Sync the remote
+// Sync code
 runCommand(
   "git",
-  ["subtree", "push", "--prefix=packages/react", "public-react", "main"],
+  ["subtree", "push", "--prefix=packages/react", "public", "main"],
   {
     cwd: ROOT_DIR,
   }
 );
+
+// Sync tags
+runCommand("git", ["push", "public", "--tags"], {
+  cwd: ROOT_DIR,
+});
