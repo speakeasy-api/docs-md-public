@@ -1,9 +1,9 @@
 {
   "name": "@speakeasy-api/docs-md-react",
-  "version": "0.2.5",
-  "author": "",
+  "version": "0.2.6",
+  "author": "Speakeasy",
   "license": "MIT",
-  "description": "",
+  "description": "React components used with Speakeasy's DocsMD product",
   "type": "module",
   "exports": {
     "./docusaurus.css": {
