@@ -6,6 +6,28 @@ import {
   userPrompt,
 } from "./util.mts";
 
+// Make sure we're on main
+const currentBranchOutput = runCommand("git", ["branch", "--show-current"], {
+  cwd: ROOT_DIR,
+  stdio: "pipe",
+});
+const currentBranch = currentBranchOutput[1]?.trim();
+if (currentBranch !== "main") {
+  console.error("Must be on main branch");
+  process.exit(1);
+}
+
+// Make sure there are no uncommitted changes
+const statusOutput = runCommand("git", ["status", "-s"], {
+  cwd: ROOT_DIR,
+  stdio: "pipe",
+});
+const status = statusOutput[1]?.trim();
+if (status !== "") {
+  console.error("Must have no uncommitted changes");
+  process.exit(1);
+}
+
 // Validate versions
 import "./versionCheck.mts";
 
