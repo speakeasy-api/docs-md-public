@@ -1,6 +1,10 @@
+import { dirname, join, relative } from "node:path";
+
 import type {
   CodeSampleProps,
   DebugPlaceholderProps,
+  EmbedProps,
+  EmbedTriggerProps,
   ExpandableBreakoutDefaultValueProps,
   ExpandableBreakoutDescriptionProps,
   ExpandableBreakoutExamplesProps,
@@ -37,13 +41,14 @@ import type {
 } from "@speakeasy-api/docs-md-react";
 
 import { HEADINGS } from "../content/constants.ts";
-import { getSettings } from "../settings.ts";
-import type { FrameworkConfig } from "../types/compilerConfig.ts";
+import { getOnPageComplete, getSettings } from "../settings.ts";
+import { InternalError } from "../util/internalError.ts";
 import type {
   RendererConstructorArgs,
   RendererCreateCodeArgs,
   RendererCreateCodeSamplesSectionArgs,
   RendererCreateDebugPlaceholderArgs,
+  RendererCreateEmbedArgs,
   RendererCreateExpandableBreakoutArgs,
   RendererCreateExpandablePropertyArgs,
   RendererCreateFrontMatterDisplayTypeArgs,
@@ -60,66 +65,160 @@ import type {
   RendererCreateTabbedSectionArgs,
   RendererCreateTabbedSectionTabArgs,
   SiteBuildPagePathArgs,
+  SiteCreateEmbedArgs,
   SiteGetRendererArgs,
 } from "./base.ts";
 import { MarkdownRenderer, MarkdownSite } from "./markdown.ts";
 import { escapeText, getPrettyCodeSampleLanguage } from "./util.ts";
 
 export class MdxSite extends MarkdownSite {
-  #compilerConfig: FrameworkConfig;
-
-  constructor(compilerConfig: FrameworkConfig) {
-    super();
-    this.#compilerConfig = compilerConfig;
-  }
+  #embedsCreated = new Set<string>();
+  #embedStack: string[] = [];
 
   public override buildPagePath(
     ...[slug, { appendIndex = false } = {}]: SiteBuildPagePathArgs
   ): string {
-    return this.#compilerConfig.buildPagePath(slug, { appendIndex });
+    return this.compilerConfig.buildPagePath(slug, { appendIndex });
   }
 
   protected override getRenderer(...[options]: SiteGetRendererArgs) {
-    return new MdxRenderer({ ...options }, this.#compilerConfig);
+    return new MdxRenderer({ ...options }, this);
+  }
+
+  public override createEmbed(
+    ...[{ slug, createdEmbeddedContent }]: SiteCreateEmbedArgs
+  ) {
+    if (!this.docsData) {
+      throw new InternalError("Docs data not set");
+    }
+
+    // Check if this is a circular reference
+    if (this.#embedStack.includes(slug)) {
+      return undefined;
+    }
+    this.#embedStack.push(slug);
+
+    const {
+      output: { embedOutDir },
+    } = getSettings();
+    if (!embedOutDir) {
+      throw new InternalError(
+        "Embed output directory not set, but should have been caught by the settings parser"
+      );
+    }
+
+    const loaderPath = join(embedOutDir, "loaders", `${slug}.tsx`);
+    const embedPath = join(embedOutDir, "contents", `${slug}.mdx`);
+    if (this.#embedsCreated.has(slug)) {
+      this.#embedStack.pop();
+      return loaderPath;
+    }
+    this.#embedsCreated.add(slug);
+
+    // Create the lazy loader
+    const importPath = relative(dirname(loaderPath), embedPath);
+    const loaderContents = `import { lazy, Suspense } from "react";
+
+// This import needs to have a literal value so bundlers can statically
+// analyze this component. This is why we don't use a generic component that
+// takes in a 'src' property, or anything like that.
+const Contents = lazy(() => import("${importPath}"));
+
+export default function() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Contents />
+    </Suspense>
+  );
+}
+`;
+    getOnPageComplete()(loaderPath, loaderContents);
+
+    // Create the embed contents
+    const renderer = this.getRenderer({
+      currentPageSlug: slug,
+      currentPagePath: embedPath,
+      site: this,
+      docsData: this.docsData,
+      compilerConfig: this.compilerConfig,
+      isEmbed: true,
+    });
+
+    renderer.enterContext({
+      id: `embed-${slug}`,
+      type: "embed",
+    });
+    renderer.enterContext({ id: slug, type: "schema" });
+
+    renderer.createEmbedWrapper(() => {
+      createdEmbeddedContent(renderer);
+    });
+
+    renderer.exitContext();
+    renderer.exitContext();
+
+    const { contents } = renderer.render();
+    getOnPageComplete()(embedPath, contents);
+
+    this.#embedStack.pop();
+    return loaderPath;
   }
 }
 
-class MdxRenderer extends MarkdownRenderer {
-  // Mapping of import path to imported symbols
-  #imports = new Map<string, Set<string>>();
-  #compilerConfig: FrameworkConfig;
-  #frontMatter: string | undefined;
+let slugCounter = 0;
 
-  constructor(
-    options: RendererConstructorArgs,
-    compilerConfig: FrameworkConfig
-  ) {
+class MdxRenderer extends MarkdownRenderer {
+  // Mapping of import path to imported symbols to imported symbol alias
+  #imports = new Map<string, Map<string, string>>();
+  #frontMatter: string | undefined;
+  #site: MdxSite;
+  #hasEmbed = false;
+
+  constructor(options: RendererConstructorArgs, site: MdxSite) {
     super(options);
-    this.#compilerConfig = compilerConfig;
-    if (options.frontMatter) {
-      this.#frontMatter = compilerConfig.buildPagePreamble(options.frontMatter);
-    }
+    this.#site = site;
+    this.#frontMatter = this.compilerConfig.buildPagePreamble(
+      options.frontMatter
+    );
   }
 
   #insertNamedImport(importPath: string, symbol: string) {
     if (!this.#imports.has(importPath)) {
-      this.#imports.set(importPath, new Set());
+      this.#imports.set(importPath, new Map());
     }
-    this.#imports.get(importPath)?.add(symbol);
+    this.#imports.get(importPath)?.set(symbol, symbol);
+  }
+
+  #insertDefaultImport(importPath: string, alias: string) {
+    if (!this.#imports.has(importPath)) {
+      this.#imports.set(importPath, new Map());
+    }
+    this.#imports.get(importPath)?.set("default", alias);
   }
 
   #insertComponentImport(symbol: string) {
-    this.#insertNamedImport(this.#compilerConfig.componentPackageName, symbol);
+    this.#insertNamedImport(this.compilerConfig.componentPackageName, symbol);
   }
 
-  #createComponentOpeningTag<Props extends Record<string, unknown>>(
-    symbol: string,
-    props: Props,
-    { selfClosing }: { selfClosing: boolean }
-  ) {
-    this.#insertComponentImport(symbol);
+  #createComponentOpeningTag<Props extends Record<string, unknown>>({
+    symbol,
+    props,
+    selfClosing,
+    noImport = false,
+  }: {
+    symbol: string;
+    props: Props;
+    selfClosing: boolean;
+    noImport?: boolean;
+  }) {
+    if (!noImport) {
+      this.#insertComponentImport(symbol);
+    }
 
     function serializeProps(separator: string) {
+      if (!props) {
+        return "";
+      }
       return Object.entries(props)
         .map(([key, value]) => {
           if (typeof value === "string") {
@@ -149,13 +248,23 @@ class MdxRenderer extends MarkdownRenderer {
   }
 
   #appendComponent<Props extends Record<string, unknown>>(
-    symbol: string,
-    props: Props,
+    {
+      symbol,
+      props,
+      noImport,
+    }: {
+      symbol: string;
+      props: Props;
+      noImport?: boolean;
+    },
     cb?: () => void
   ) {
     this.appendLine(
-      this.#createComponentOpeningTag<Props>(symbol, props, {
+      this.#createComponentOpeningTag<Props>({
+        symbol,
+        props,
         selfClosing: !cb,
+        noImport,
       })
     );
     if (cb) {
@@ -171,21 +280,88 @@ class MdxRenderer extends MarkdownRenderer {
   ) {
     if (cb) {
       return (
-        this.#createComponentOpeningTag<Props>(symbol, props, {
+        this.#createComponentOpeningTag<Props>({
+          symbol,
+          props,
           selfClosing: false,
         }) +
         cb() +
         this.#createComponentClosingTag(symbol)
       );
     } else {
-      return this.#createComponentOpeningTag<Props>(symbol, props, {
+      return this.#createComponentOpeningTag<Props>({
+        symbol,
+        props,
         selfClosing: true,
       });
     }
   }
 
   protected override getIdSeparator() {
-    return this.#compilerConfig.elementIdSeparator ?? "+";
+    return this.compilerConfig.elementIdSeparator ?? "+";
+  }
+
+  public createEmbedWrapper(cb: () => void) {
+    this.#appendComponent<ExpandableSectionProps>(
+      {
+        symbol: "ExpandableSection",
+        props: {},
+      },
+      cb
+    );
+  }
+
+  public override createEmbed(...[args]: RendererCreateEmbedArgs) {
+    if (!this.#hasEmbed && !this.hasParentContextType("embed")) {
+      this.#hasEmbed = true;
+      this.#insertComponentImport("EmbedProvider");
+    }
+
+    // If we don't have a slug, make one up
+    // TODO: fix the reason we're not getting a name on the generator side.
+    if (!args.slug) {
+      args.slug = `EmbedNameMissing${slugCounter++}`;
+    }
+    args.slug = args.slug.toLowerCase();
+
+    const absolutePath = this.#site.createEmbed(args);
+
+    // If we get back undefined, it means we have a circular reference
+    if (!absolutePath) {
+      // TODO: handle this circular reference better
+      return;
+    }
+
+    const { triggerText, embedTitle, slug } = args;
+
+    this.#appendComponent<EmbedProps>(
+      { symbol: "Embed", props: { slot: "embed" } },
+      () => {
+        const componentName = `Embed${slug}`;
+
+        this.#appendComponent<EmbedTriggerProps>(
+          {
+            symbol: "EmbedTrigger",
+            props: { slot: "trigger", embedTitle, triggerText },
+          },
+          () => {
+            this.#appendComponent({
+              symbol: componentName,
+              props: {},
+              noImport: true,
+            });
+          }
+        );
+
+        let importPath = relative(dirname(this.getPagePath()), absolutePath);
+
+        // When an embed imports another embed, we don't get the leading `./`
+        if (!importPath.startsWith(".")) {
+          importPath = `./${importPath}`;
+        }
+        this.#insertDefaultImport(importPath, componentName);
+      }
+    );
   }
 
   public override render() {
@@ -197,12 +373,31 @@ class MdxRenderer extends MarkdownRenderer {
 
     // Add imports after front matter
     for (const [importPath, symbols] of this.#imports) {
-      frontMatter += `import {\n  ${Array.from(symbols).sort().join(",\n  ")}\n} from "${importPath}";\n`;
+      const defaultImportName = symbols.get("default");
+      const nonDefaultImports = Array.from(symbols)
+        .filter(([symbol]) => symbol !== "default")
+        .map(([symbol, alias]) =>
+          alias !== symbol ? `${alias} as ${symbol}` : symbol
+        )
+        .sort()
+        .join(",\n  ");
+      if (defaultImportName && nonDefaultImports.length > 0) {
+        frontMatter += `import ${defaultImportName}, {\n  ${nonDefaultImports}\n} from "${importPath}";\n`;
+      } else if (defaultImportName) {
+        frontMatter += `import ${defaultImportName} from "${importPath}";\n`;
+      } else {
+        frontMatter += `import {\n  ${nonDefaultImports}\n} from "${importPath}";\n`;
+      }
     }
 
     // Add a blank line after front matter, if it exists
     if (frontMatter) {
       frontMatter += "\n";
+    }
+
+    // Add the embed provider, if we need one
+    if (this.#hasEmbed && !this.hasParentContextType("embed")) {
+      frontMatter += "<EmbedProvider />\n\n";
     }
 
     // Return the final result
@@ -221,8 +416,8 @@ class MdxRenderer extends MarkdownRenderer {
   ) {
     let line = `${`#`.repeat(level)} ${escapeText(text, { escape })}`;
     if (id) {
-      if (this.#compilerConfig.formatHeadingId) {
-        line += ` ${this.#compilerConfig.formatHeadingId(id)}`;
+      if (this.compilerConfig.formatHeadingId) {
+        line += ` ${this.compilerConfig.formatHeadingId(id)}`;
       } else {
         line += ` \\{#${id}\\}`;
       }
@@ -268,31 +463,41 @@ class MdxRenderer extends MarkdownRenderer {
   }
 
   public override createOperationSection(...args: RendererCreateOperationArgs) {
-    this.#appendComponent<OperationProps>("Operation", {}, () =>
-      super.createOperationSection(...args)
+    this.#appendComponent<OperationProps>(
+      {
+        symbol: "Operation",
+        props: {},
+      },
+      () => super.createOperationSection(...args)
     );
   }
 
   protected override handleCreateOperationTitle(cb: () => void): void {
     this.#appendComponent<OperationTitleSectionProps>(
-      "OperationTitleSection",
-      { slot: "title" },
+      {
+        symbol: "OperationTitleSection",
+        props: { slot: "title" },
+      },
       cb
     );
   }
 
   protected override handleCreateOperationSummary(cb: () => void) {
     this.#appendComponent<OperationSummarySectionProps>(
-      "OperationSummarySection",
-      { slot: "summary" },
+      {
+        symbol: "OperationSummarySection",
+        props: { slot: "summary" },
+      },
       cb
     );
   }
 
   protected override handleCreateOperationDescription(cb: () => void) {
     this.#appendComponent<OperationDescriptionSectionProps>(
-      "OperationDescriptionSection",
-      { slot: "description" },
+      {
+        symbol: "OperationDescriptionSection",
+        props: { slot: "description" },
+      },
       cb
     );
   }
@@ -302,8 +507,10 @@ class MdxRenderer extends MarkdownRenderer {
   ) {
     this.enterContext({ id: "code-samples", type: "section" });
     this.#appendComponent<OperationCodeSamplesSectionProps>(
-      "OperationCodeSamplesSection",
-      { slot: "code-samples" },
+      {
+        symbol: "OperationCodeSamplesSection",
+        props: { slot: "code-samples" },
+      },
       () => {
         this.createTabbedSection(() => {
           this.createSectionTitle(() =>
@@ -324,9 +531,12 @@ class MdxRenderer extends MarkdownRenderer {
               );
               this.createSectionContent(
                 () => {
-                  this.#appendComponent<TryItNowProps>("TryItNow", {
-                    externalDependencies,
-                    defaultValue,
+                  this.#appendComponent<TryItNowProps>({
+                    symbol: "TryItNow",
+                    props: {
+                      externalDependencies,
+                      defaultValue,
+                    },
                   });
                 },
                 {
@@ -343,12 +553,17 @@ class MdxRenderer extends MarkdownRenderer {
               );
               this.createSectionContent(
                 () => {
-                  this.#appendComponent<CodeSampleProps>("CodeSample", {}, () =>
-                    this.createCode(value, {
-                      language,
-                      variant: "default",
-                      style: "block",
-                    })
+                  this.#appendComponent<CodeSampleProps>(
+                    {
+                      symbol: "CodeSample",
+                      props: {},
+                    },
+                    () =>
+                      this.createCode(value, {
+                        language,
+                        variant: "default",
+                        style: "block",
+                      })
                   );
                 },
                 {
@@ -368,8 +583,10 @@ class MdxRenderer extends MarkdownRenderer {
     ...args: RendererCreateSecuritySectionArgs
   ) {
     this.#appendComponent<OperationSecuritySectionProps>(
-      "OperationSecuritySection",
-      { slot: "security" },
+      {
+        symbol: "OperationSecuritySection",
+        props: { slot: "security" },
+      },
       () => super.createSecuritySection(...args)
     );
   }
@@ -378,8 +595,10 @@ class MdxRenderer extends MarkdownRenderer {
     ...args: RendererCreateParametersSectionArgs
   ) {
     this.#appendComponent<OperationParametersSectionProps>(
-      "OperationParametersSection",
-      { slot: "parameters" },
+      {
+        symbol: "OperationParametersSection",
+        props: { slot: "parameters" },
+      },
       () => super.createParametersSection(...args)
     );
   }
@@ -388,78 +607,112 @@ class MdxRenderer extends MarkdownRenderer {
     ...args: RendererCreateRequestSectionArgs
   ) {
     this.#appendComponent<OperationRequestBodySectionProps>(
-      "OperationRequestBodySection",
-      { slot: "request-body" },
+      {
+        symbol: "OperationRequestBodySection",
+        props: { slot: "request-body" },
+      },
       () => super.createRequestSection(...args)
     );
   }
 
   public override createResponsesSection(...args: RendererCreateResponsesArgs) {
     this.#appendComponent<OperationResponseBodySectionProps>(
-      "OperationResponseBodySection",
-      { slot: "response-body" },
+      {
+        symbol: "OperationResponseBodySection",
+        props: { slot: "response-body" },
+      },
       () => super.createResponsesSection(...args)
     );
   }
 
   protected override handleCreateRequestDisplayType(cb: () => void) {
     this.#appendComponent<OperationRequestBodyDisplayTypeSectionProps>(
-      "OperationRequestBodyDisplayTypeSection",
-      { slot: "request-body-display-type" },
+      {
+        symbol: "OperationRequestBodyDisplayTypeSection",
+        props: { slot: "request-body-display-type" },
+      },
       cb
     );
   }
 
   protected override handleCreateRequestDescription(cb: () => void) {
     this.#appendComponent<OperationRequestBodyDescriptionSectionProps>(
-      "OperationRequestBodyDescriptionSection",
-      { slot: "request-body-description" },
+      {
+        symbol: "OperationRequestBodyDescriptionSection",
+        props: { slot: "request-body-description" },
+      },
       cb
     );
   }
 
   protected override handleCreateRequestExamples(cb: () => void) {
     this.#appendComponent<OperationRequestBodyExamplesSectionProps>(
-      "OperationRequestBodyExamplesSection",
-      { slot: "request-body-examples" },
+      {
+        symbol: "OperationRequestBodyExamplesSection",
+        props: { slot: "request-body-examples" },
+      },
       cb
     );
   }
 
   protected override handleCreateResponseDisplayType(cb: () => void) {
     this.#appendComponent<OperationResponseBodyDisplayTypeSectionProps>(
-      "OperationResponseBodyDisplayTypeSection",
-      { slot: "response-body-display-type" },
+      {
+        symbol: "OperationResponseBodyDisplayTypeSection",
+        props: { slot: "response-body-display-type" },
+      },
       cb
     );
   }
 
   protected override handleCreateResponseDescription(cb: () => void) {
     this.#appendComponent<OperationResponseBodyDescriptionSectionProps>(
-      "OperationResponseBodyDescriptionSection",
-      { slot: "response-body-description" },
+      {
+        symbol: "OperationResponseBodyDescriptionSection",
+        props: { slot: "response-body-description" },
+      },
       cb
     );
   }
 
   protected override handleCreateResponseExamples(cb: () => void) {
     this.#appendComponent<OperationResponseBodyExamplesSectionProps>(
-      "OperationResponseBodyExamplesSection",
-      { slot: "response-body-examples" },
+      {
+        symbol: "OperationResponseBodyExamplesSection",
+        props: { slot: "response-body-examples" },
+      },
       cb
     );
   }
 
   protected override handleCreateSecurity(cb: () => void) {
-    this.#appendComponent<ExpandableSectionProps>("ExpandableSection", {}, cb);
+    this.#appendComponent<ExpandableSectionProps>(
+      {
+        symbol: "ExpandableSection",
+        props: {},
+      },
+      cb
+    );
   }
 
   protected override handleCreateParameters(cb: () => void) {
-    this.#appendComponent<ExpandableSectionProps>("ExpandableSection", {}, cb);
+    this.#appendComponent<ExpandableSectionProps>(
+      {
+        symbol: "ExpandableSection",
+        props: {},
+      },
+      cb
+    );
   }
 
   protected override handleCreateBreakouts(cb: () => void) {
-    this.#appendComponent<ExpandableSectionProps>("ExpandableSection", {}, cb);
+    this.#appendComponent<ExpandableSectionProps>(
+      {
+        symbol: "ExpandableSection",
+        props: {},
+      },
+      cb
+    );
   }
 
   #getBreakoutIdInfo() {
@@ -479,6 +732,7 @@ class MdxRenderer extends MarkdownRenderer {
         createDescription,
         createExamples,
         createDefaultValue,
+        createEmbed,
         isTopLevel,
       },
     ]: RendererCreateExpandableBreakoutArgs
@@ -487,44 +741,59 @@ class MdxRenderer extends MarkdownRenderer {
     const expandByDefault =
       getSettings().display.expandTopLevelPropertiesOnPageLoad && isTopLevel;
     this.#appendComponent<ExpandableBreakoutProps>(
-      "ExpandableBreakout",
       {
-        slot: "entry",
-        id,
-        headingId: this.getCurrentId(),
-        parentId,
-        hasFrontMatter,
-        expandByDefault,
+        symbol: "ExpandableBreakout",
+        props: {
+          slot: "entry",
+          id,
+          headingId: this.getCurrentId(),
+          parentId,
+          hasFrontMatter,
+          expandByDefault,
+        },
       },
       () => {
         this.#appendComponent<ExpandableBreakoutTitleProps>(
-          "ExpandableBreakoutTitle",
-          { slot: "title" },
+          {
+            symbol: "ExpandableBreakoutTitle",
+            props: { slot: "title" },
+          },
           createTitle
         );
 
         if (createDescription) {
           this.#appendComponent<ExpandableBreakoutDescriptionProps>(
-            "ExpandableBreakoutDescription",
-            { slot: "description" },
+            {
+              symbol: "ExpandableBreakoutDescription",
+              props: { slot: "description" },
+            },
             createDescription
           );
         }
 
         if (createExamples) {
           this.#appendComponent<ExpandableBreakoutExamplesProps>(
-            "ExpandableBreakoutExamples",
-            { slot: "examples" },
+            {
+              symbol: "ExpandableBreakoutExamples",
+              props: { slot: "examples" },
+            },
             createExamples
           );
         }
 
         if (createDefaultValue) {
           this.#appendComponent<ExpandableBreakoutDefaultValueProps>(
-            "ExpandableBreakoutDefaultValue",
-            { slot: "defaultValue" },
+            {
+              symbol: "ExpandableBreakoutDefaultValue",
+              props: { slot: "defaultValue" },
+            },
             createDefaultValue
           );
+        }
+
+        // Embeds handle their own component imports
+        if (createEmbed) {
+          createEmbed();
         }
       }
     );
@@ -541,6 +810,7 @@ class MdxRenderer extends MarkdownRenderer {
         createDescription,
         createExamples,
         createDefaultValue,
+        createEmbed,
       },
     ]: RendererCreateExpandablePropertyArgs
   ) {
@@ -549,21 +819,25 @@ class MdxRenderer extends MarkdownRenderer {
       getSettings().display.expandTopLevelPropertiesOnPageLoad && isTopLevel;
 
     this.#appendComponent<ExpandablePropertyProps>(
-      "ExpandableProperty",
       {
-        slot: "entry",
-        id,
-        headingId: this.getCurrentId(),
-        parentId,
-        typeInfo,
-        typeAnnotations: annotations,
-        hasFrontMatter,
-        expandByDefault,
+        symbol: "ExpandableProperty",
+        props: {
+          slot: "entry",
+          id,
+          headingId: this.getCurrentId(),
+          parentId,
+          typeInfo,
+          typeAnnotations: annotations,
+          hasFrontMatter,
+          expandByDefault,
+        },
       },
       () => {
         this.#appendComponent<ExpandablePropertyTitleProps>(
-          "ExpandablePropertyTitle",
-          { slot: "title" },
+          {
+            symbol: "ExpandablePropertyTitle",
+            props: { slot: "title" },
+          },
           () => {
             this.createHeading(HEADINGS.PROPERTY_HEADING_LEVEL, rawTitle, {
               id: this.getCurrentId(),
@@ -574,26 +848,37 @@ class MdxRenderer extends MarkdownRenderer {
 
         if (createDescription) {
           this.#appendComponent<ExpandablePropertyDescriptionProps>(
-            "ExpandablePropertyDescription",
-            { slot: "description" },
+            {
+              symbol: "ExpandablePropertyDescription",
+              props: { slot: "description" },
+            },
             createDescription
           );
         }
 
         if (createExamples) {
           this.#appendComponent<ExpandablePropertyExamplesProps>(
-            "ExpandablePropertyExamples",
-            { slot: "examples" },
+            {
+              symbol: "ExpandablePropertyExamples",
+              props: { slot: "examples" },
+            },
             createExamples
           );
         }
 
         if (createDefaultValue) {
           this.#appendComponent<ExpandablePropertyDefaultValueProps>(
-            "ExpandablePropertyDefaultValue",
-            { slot: "defaultValue" },
+            {
+              symbol: "ExpandablePropertyDefaultValue",
+              props: { slot: "defaultValue" },
+            },
             createDefaultValue
           );
+        }
+
+        // Embeds handle their own component imports
+        if (createEmbed) {
+          createEmbed();
         }
       }
     );
@@ -602,20 +887,28 @@ class MdxRenderer extends MarkdownRenderer {
   public override createFrontMatterDisplayType(
     ...[{ typeInfo }]: RendererCreateFrontMatterDisplayTypeArgs
   ) {
-    this.#appendComponent<FrontMatterDisplayTypeProps>(
-      "FrontMatterDisplayType",
-      { typeInfo }
-    );
+    this.#appendComponent<FrontMatterDisplayTypeProps>({
+      symbol: "FrontMatterDisplayType",
+      props: { typeInfo },
+    });
   }
 
   public override createSection(...[cb]: RendererCreateSectionArgs) {
-    this.#appendComponent<SectionProps>("Section", {}, cb);
+    this.#appendComponent<SectionProps>(
+      {
+        symbol: "Section",
+        props: {},
+      },
+      cb
+    );
   }
 
   public override createSectionTitle(...[cb]: RendererCreateSectionTitleArgs) {
     this.#appendComponent<SectionTitleProps>(
-      "SectionTitle",
-      { slot: "title" },
+      {
+        symbol: "SectionTitle",
+        props: { slot: "title" },
+      },
       cb
     );
   }
@@ -624,8 +917,10 @@ class MdxRenderer extends MarkdownRenderer {
     ...[cb, { id } = {}]: RendererCreateSectionContentArgs
   ) {
     this.#appendComponent<SectionContentProps>(
-      "SectionContent",
-      { slot: "content", id },
+      {
+        symbol: "SectionContent",
+        props: { slot: "content", id },
+      },
       cb
     );
   }
@@ -636,8 +931,10 @@ class MdxRenderer extends MarkdownRenderer {
     // We have to do a manual Omit here, since TabbedSectionProps.children is
     // specially defined and not a standard PropsWithChildren type
     this.#appendComponent<Omit<TabbedSectionProps, "children">>(
-      "TabbedSection",
-      {},
+      {
+        symbol: "TabbedSection",
+        props: {},
+      },
       cb
     );
   }
@@ -646,8 +943,10 @@ class MdxRenderer extends MarkdownRenderer {
     ...[cb, { id }]: RendererCreateTabbedSectionTabArgs
   ) {
     this.#appendComponent<SectionTabProps>(
-      "SectionTab",
-      { slot: "tab", id },
+      {
+        symbol: "SectionTab",
+        props: { slot: "tab", id },
+      },
       cb
     );
   }
@@ -655,10 +954,16 @@ class MdxRenderer extends MarkdownRenderer {
   public override createDebugPlaceholder(
     ...[{ createTitle, createExample }]: RendererCreateDebugPlaceholderArgs
   ) {
-    this.#appendComponent<DebugPlaceholderProps>("DebugPlaceholder", {}, () => {
-      createTitle();
-      this.createText("_OpenAPI example:_");
-      createExample();
-    });
+    this.#appendComponent<DebugPlaceholderProps>(
+      {
+        symbol: "DebugPlaceholder",
+        props: {},
+      },
+      () => {
+        createTitle();
+        this.createText("_OpenAPI example:_");
+        createExample();
+      }
+    );
   }
 }

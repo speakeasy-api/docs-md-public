@@ -18,8 +18,10 @@
     "packages/shared",
     "examples/docusaurus/pokeapi",
     "examples/docusaurus/mistral",
+    "examples/docusaurus/glean",
     "examples/nextra/pokeapi",
     "examples/nextra/mistral",
+    "examples/nextra/glean",
     "examples/custom/pokeapi",
     "examples/custom/mistral"
   ]

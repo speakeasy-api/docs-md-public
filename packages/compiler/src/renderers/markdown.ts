@@ -15,6 +15,7 @@ import { snakeCase } from "change-case";
 
 import { HEADINGS } from "../content/constants.ts";
 import { getSettings } from "../settings.ts";
+import type { FrameworkConfig } from "../types/FrameworkConfig.ts";
 import { InternalError } from "../util/internalError.ts";
 import type {
   Context,
@@ -23,6 +24,7 @@ import type {
   RendererCreateCodeArgs,
   RendererCreateContextArgs,
   RendererCreateDebugPlaceholderArgs,
+  RendererCreateEmbedArgs,
   RendererCreateExpandableBreakoutArgs,
   RendererCreateExpandablePropertyArgs,
   RendererCreateFrontMatterDisplayTypeArgs,
@@ -41,7 +43,9 @@ import type {
   RendererCreateTabbedSectionTabArgs,
   RendererCreateTextArgs,
   RendererGetCurrentIdArgs,
+  RendererHasParentContextTypeArgs,
   SiteBuildPagePathArgs,
+  SiteCreateEmbedArgs,
   SiteCreatePageArgs,
 } from "./base.ts";
 import { Renderer } from "./base.ts";
@@ -49,10 +53,16 @@ import { Site } from "./base.ts";
 import { escapeText } from "./util.ts";
 
 export abstract class MarkdownSite extends Site {
-  #docsData: Map<string, Chunk> | undefined;
+  protected compilerConfig: FrameworkConfig;
+  protected docsData: Map<string, Chunk> | undefined;
+
+  constructor(compilerConfig: FrameworkConfig) {
+    super();
+    this.compilerConfig = compilerConfig;
+  }
 
   public setDocsData(docsData: Map<string, Chunk>): void {
-    this.#docsData = docsData;
+    this.docsData = docsData;
   }
 
   public buildPagePath(
@@ -66,17 +76,23 @@ export abstract class MarkdownSite extends Site {
   }
 
   public createPage(...[path, slug, frontMatter]: SiteCreatePageArgs) {
-    if (!this.#docsData) {
+    if (!this.docsData) {
       throw new InternalError("Docs data not set");
     }
     const renderer = this.getRenderer({
       currentPageSlug: slug,
       currentPagePath: path,
       site: this,
-      docsData: this.#docsData,
+      docsData: this.docsData,
       frontMatter,
+      compilerConfig: this.compilerConfig,
+      isEmbed: false,
     });
     return renderer;
+  }
+
+  public createEmbed(..._args: SiteCreateEmbedArgs): string | undefined {
+    throw new Error(`Base markdown renderer does not support createEmbed`);
   }
 }
 
@@ -88,18 +104,23 @@ export abstract class MarkdownRenderer extends Renderer {
   #pageMetadata?: PageMetadata;
   #currentOperation?: PageMetadataOperation;
   #currentSection?: PageMetadataSection;
-
+  #currentPagePath: string;
   #rendererLines: string[] = [];
+
+  protected compilerConfig: FrameworkConfig;
 
   constructor({
     docsData,
     site,
     currentPageSlug,
+    currentPagePath,
     frontMatter,
+    compilerConfig,
   }: RendererConstructorArgs) {
     super();
     this.#docsData = docsData;
     this.#site = site;
+    this.#currentPagePath = currentPagePath;
     if (currentPageSlug !== undefined && frontMatter) {
       this.#pageMetadata = {
         sidebarLabel: frontMatter.sidebarLabel,
@@ -107,10 +128,19 @@ export abstract class MarkdownRenderer extends Renderer {
         tags: [],
       };
     }
+    this.compilerConfig = compilerConfig;
   }
 
   protected getSite() {
     return this.#site;
+  }
+
+  public override getPagePath() {
+    return this.#currentPagePath;
+  }
+
+  public override createEmbed(..._args: RendererCreateEmbedArgs) {
+    throw new Error(`Base markdown renderer does not support createEmbed`);
   }
 
   public override createOperationSection(
@@ -666,6 +696,12 @@ ${text}\n</code>\n</pre>`;
       throw new InternalError("No context found");
     }
     return topLevelContext.type;
+  }
+
+  public override hasParentContextType(
+    ...[type]: RendererHasParentContextTypeArgs
+  ) {
+    return this.#contextStack.some((context) => context.type === type);
   }
 
   public override getSchemaDepth() {

@@ -223,6 +223,17 @@ function hasSchemaFrontmatter(schema: SchemaValue) {
   );
 }
 
+function shouldRenderInEmbed(renderer: Renderer) {
+  const { maxNestingLevel } = getSettings().display;
+  if (
+    maxNestingLevel !== undefined &&
+    renderer.getSchemaDepth() > maxNestingLevel
+  ) {
+    return true;
+  }
+  return false;
+}
+
 /* ---- Front matter rendering */
 
 function createDescription(schema: SchemaValue, renderer: Renderer) {
@@ -298,6 +309,102 @@ function createDefaultValue(schema: SchemaValue, renderer: Renderer) {
 
 /* ---- Section Rendering ---- */
 
+function createExpandableProperty({
+  renderer,
+  property,
+  typeInfo,
+  isTopLevel,
+  createEmbed,
+}: {
+  renderer: Renderer;
+  property: {
+    name: string;
+    isRequired: boolean;
+    isDeprecated: boolean;
+    schema: SchemaValue;
+  };
+  typeInfo: DisplayTypeInfo;
+  isTopLevel: boolean;
+  createEmbed?: () => void;
+}) {
+  const annotations: PropertyAnnotations[] = [];
+  if (property.isRequired) {
+    annotations.push({ title: "required", variant: "warning" });
+  }
+  if (property.isDeprecated) {
+    annotations.push({ title: "deprecated", variant: "warning" });
+  }
+  switch (property.schema.type) {
+    case "array": {
+      if (property.schema.minItems !== null) {
+        annotations.push({
+          title: `Min Items: ${property.schema.minItems}`,
+          variant: "warning",
+        });
+      }
+      if (property.schema.maxItems !== null) {
+        annotations.push({
+          title: `Max Items: ${property.schema.maxItems}`,
+          variant: "warning",
+        });
+      }
+      break;
+    }
+    case "integer":
+    case "number":
+    case "int32":
+    case "float32":
+    case "decimal":
+    case "bigint": {
+      if (property.schema.minimum !== null) {
+        annotations.push({
+          title: `Min: ${property.schema.minimum}`,
+          variant: "warning",
+        });
+      }
+      if (property.schema.maximum !== null) {
+        annotations.push({
+          title: `Max: ${property.schema.maximum}`,
+          variant: "warning",
+        });
+      }
+      break;
+    }
+    case "string": {
+      if (property.schema.minLength !== null) {
+        annotations.push({
+          title: `Min Length: ${property.schema.minLength}`,
+          variant: "warning",
+        });
+      }
+      if (property.schema.maxLength !== null) {
+        annotations.push({
+          title: `Max Length: ${property.schema.maxLength}`,
+          variant: "warning",
+        });
+      }
+      if (property.schema.pattern !== null) {
+        annotations.push({
+          title: `Pattern: ${property.schema.pattern}`,
+          variant: "warning",
+        });
+      }
+      break;
+    }
+  }
+  renderer.createExpandableProperty({
+    typeInfo,
+    annotations,
+    rawTitle: property.name,
+    isTopLevel,
+    hasFrontMatter: !!createEmbed || hasSchemaFrontmatter(property.schema),
+    createDescription: createDescription(property.schema, renderer),
+    createExamples: createExamples(property.schema, renderer),
+    createDefaultValue: createDefaultValue(property.schema, renderer),
+    createEmbed,
+  });
+}
+
 function renderObjectProperties({
   renderer,
   schema,
@@ -328,97 +435,154 @@ function renderObjectProperties({
       // TODO: handle this recursive case better
       continue;
     }
+
     renderer.enterContext({ id: property.name, type: "schema" });
 
-    // Render the expandable entry
+    // Check if we're too deeply nested to render this inline, but have more
+    // breakouts to render at a deeper level
     const typeInfo = getDisplayTypeInfo(property.schema, renderer, []);
-    const annotations: PropertyAnnotations[] = [];
-    if (property.isRequired) {
-      annotations.push({ title: "required", variant: "warning" });
-    }
-    if (property.isDeprecated) {
-      annotations.push({ title: "deprecated", variant: "warning" });
-    }
-    switch (property.schema.type) {
-      case "array": {
-        if (property.schema.minItems !== null) {
-          annotations.push({
-            title: `Min Items: ${property.schema.minItems}`,
-            variant: "warning",
-          });
-        }
-        if (property.schema.maxItems !== null) {
-          annotations.push({
-            title: `Max Items: ${property.schema.maxItems}`,
-            variant: "warning",
-          });
-        }
-        break;
-      }
-      case "integer":
-      case "number":
-      case "int32":
-      case "float32":
-      case "decimal":
-      case "bigint": {
-        if (property.schema.minimum !== null) {
-          annotations.push({
-            title: `Min: ${property.schema.minimum}`,
-            variant: "warning",
-          });
-        }
-        if (property.schema.maximum !== null) {
-          annotations.push({
-            title: `Max: ${property.schema.maximum}`,
-            variant: "warning",
-          });
-        }
-        break;
-      }
-      case "string": {
-        if (property.schema.minLength !== null) {
-          annotations.push({
-            title: `Min Length: ${property.schema.minLength}`,
-            variant: "warning",
-          });
-        }
-        if (property.schema.maxLength !== null) {
-          annotations.push({
-            title: `Max Length: ${property.schema.maxLength}`,
-            variant: "warning",
-          });
-        }
-        if (property.schema.pattern !== null) {
-          annotations.push({
-            title: `Pattern: ${property.schema.pattern}`,
-            variant: "warning",
-          });
-        }
-        break;
-      }
-    }
-    renderer.createExpandableProperty({
+    const hasEmbed =
+      shouldRenderInEmbed(renderer) && typeInfo.breakoutSubTypes.size > 0;
+
+    // Render the expandable entry in the main document
+    createExpandableProperty({
+      renderer,
+      property,
       typeInfo,
-      annotations,
-      rawTitle: property.name,
       isTopLevel,
-      hasFrontMatter: hasSchemaFrontmatter(property.schema),
-      createDescription: createDescription(property.schema, renderer),
-      createExamples: createExamples(property.schema, renderer),
-      createDefaultValue: createDefaultValue(property.schema, renderer),
+      createEmbed: !hasEmbed
+        ? undefined
+        : () => {
+            renderer.createEmbed({
+              slug: property.name,
+              embedTitle: property.name,
+              triggerText: `View ${property.name} details`,
+              createdEmbeddedContent(embedRenderer) {
+                // Re-render the breakout in the embed document
+                createExpandableProperty({
+                  renderer: embedRenderer,
+                  property,
+                  typeInfo,
+                  isTopLevel: true,
+                });
+
+                // Render breakouts, which will be separate expandable entries
+                renderBreakouts({
+                  renderer: embedRenderer,
+                  schema: property.schema,
+                });
+              },
+            });
+          },
     });
 
-    // Render breakouts, which will be separate expandable entries
-    renderBreakouts({
-      renderer,
-      schema: property.schema,
-    });
+    // If we aren't embedding, render its entries in the main document
+    if (!hasEmbed) {
+      renderBreakouts({
+        renderer,
+        schema: property.schema,
+      });
+    }
 
     renderer.exitContext();
   }
 }
 
-function renderContainerTypes({
+function createExpandableBreakout({
+  renderer,
+  breakout,
+  isTopLevel,
+  createEmbed,
+}: {
+  renderer: Renderer;
+  breakout: {
+    label: string;
+    schema: ObjectValue;
+  };
+  isTopLevel: boolean;
+  createEmbed?: () => void;
+}) {
+  const { showDebugPlaceholders } = getSettings().display;
+  renderer.createExpandableBreakout({
+    rawTitle: breakout.label,
+    isTopLevel,
+    createTitle: () => {
+      renderer.createHeading(
+        HEADINGS.SUB_SECTION_HEADING_LEVEL,
+        breakout.label,
+        {
+          id: renderer.getCurrentId(),
+        }
+      );
+    },
+    hasFrontMatter: !!createEmbed || hasSchemaFrontmatter(breakout.schema),
+    createDescription() {
+      const description =
+        "description" in breakout.schema ? breakout.schema.description : null;
+      if (description) {
+        renderer.createText(description);
+      } else if (showDebugPlaceholders) {
+        renderer.createDebugPlaceholder({
+          createTitle() {
+            renderer.createText("No description provided");
+          },
+          createExample() {
+            renderer.createCode("description: My awesome description", {
+              variant: "default",
+              style: "block",
+            });
+          },
+        });
+      }
+    },
+    createExamples() {
+      const examples =
+        "examples" in breakout.schema ? breakout.schema.examples : [];
+      if (examples.length > 0) {
+        renderer.createText(
+          `_${examples.length > 1 ? "Examples" : "Example"}:_`
+        );
+        for (const example of examples) {
+          renderer.createCode(example);
+        }
+      } else if (showDebugPlaceholders) {
+        renderer.createDebugPlaceholder({
+          createTitle() {
+            renderer.createText("No examples provided");
+          },
+          createExample() {
+            renderer.createCode("examples:\n  - MyExampleValue", {
+              variant: "default",
+              style: "block",
+            });
+          },
+        });
+      }
+    },
+    createDefaultValue() {
+      const defaultValue =
+        "defaultValue" in breakout.schema ? breakout.schema.defaultValue : null;
+      if (defaultValue) {
+        renderer.createText(`_Default Value:_ \`${defaultValue}\``);
+      } else if (showDebugPlaceholders) {
+        renderer.createDebugPlaceholder({
+          createTitle() {
+            renderer.createText("No default value provided");
+          },
+          createExample() {
+            renderer.createCode("defaultValue: MyDefaultValue", {
+              variant: "default",
+              style: "block",
+            });
+          },
+        });
+      }
+    },
+    createEmbed,
+  });
+}
+
+function renderBreakoutEntries({
   renderer,
   typeInfo,
 }: {
@@ -441,95 +605,55 @@ function renderContainerTypes({
 
   for (const breakout of entries) {
     if (renderer.alreadyInContext(breakout.label)) {
-      // TODO: handle this better
+      // TODO: handle this recursive case better
       continue;
     }
+
     renderer.enterContext({ id: breakout.label, type: "schema" });
 
-    const { showDebugPlaceholders } = getSettings().display;
-    renderer.createExpandableBreakout({
-      rawTitle: breakout.label,
+    // Check if we're too deeply nested to render this inline, but have more
+    // properties to render at a deeper level
+    const hasEmbed =
+      shouldRenderInEmbed(renderer) &&
+      Object.keys(breakout.schema.properties).length > 0;
+
+    // Render the breakout entry in the main document
+    createExpandableBreakout({
+      renderer,
+      breakout,
       isTopLevel,
-      createTitle: () => {
-        renderer.createHeading(
-          HEADINGS.SUB_SECTION_HEADING_LEVEL,
-          breakout.label,
-          {
-            id: renderer.getCurrentId(),
-          }
-        );
-      },
-      hasFrontMatter: hasSchemaFrontmatter(breakout.schema),
-      createDescription() {
-        const description =
-          "description" in breakout.schema ? breakout.schema.description : null;
-        if (description) {
-          renderer.createText(description);
-        } else if (showDebugPlaceholders) {
-          renderer.createDebugPlaceholder({
-            createTitle() {
-              renderer.createText("No description provided");
-            },
-            createExample() {
-              renderer.createCode("description: My awesome description", {
-                variant: "default",
-                style: "block",
-              });
-            },
-          });
-        }
-      },
-      createExamples() {
-        const examples =
-          "examples" in breakout.schema ? breakout.schema.examples : [];
-        if (examples.length > 0) {
-          renderer.createText(
-            `_${examples.length > 1 ? "Examples" : "Example"}:_`
-          );
-          for (const example of examples) {
-            renderer.createCode(example);
-          }
-        } else if (showDebugPlaceholders) {
-          renderer.createDebugPlaceholder({
-            createTitle() {
-              renderer.createText("No examples provided");
-            },
-            createExample() {
-              renderer.createCode("examples:\n  - MyExampleValue", {
-                variant: "default",
-                style: "block",
-              });
-            },
-          });
-        }
-      },
-      createDefaultValue() {
-        const defaultValue =
-          "defaultValue" in breakout.schema
-            ? breakout.schema.defaultValue
-            : null;
-        if (defaultValue) {
-          renderer.createText(`_Default Value:_ \`${defaultValue}\``);
-        } else if (showDebugPlaceholders) {
-          renderer.createDebugPlaceholder({
-            createTitle() {
-              renderer.createText("No default value provided");
-            },
-            createExample() {
-              renderer.createCode("defaultValue: MyDefaultValue", {
-                variant: "default",
-                style: "block",
-              });
-            },
-          });
-        }
-      },
+      createEmbed: !hasEmbed
+        ? undefined
+        : () => {
+            renderer.createEmbed({
+              slug: breakout.label,
+              embedTitle: breakout.label,
+              triggerText: `View ${breakout.label} details`,
+              createdEmbeddedContent(embedRenderer) {
+                // Re-render the breakout in the embed document
+                createExpandableBreakout({
+                  renderer: embedRenderer,
+                  breakout,
+                  isTopLevel: true,
+                });
+
+                // Render the breakout properties in the embed document
+                renderObjectProperties({
+                  renderer: embedRenderer,
+                  schema: breakout.schema,
+                });
+              },
+            });
+          },
     });
 
-    renderObjectProperties({
-      renderer,
-      schema: breakout.schema,
-    });
+    // If we aren't embedding, render its entries in the main document
+    if (!hasEmbed) {
+      renderObjectProperties({
+        renderer,
+        schema: breakout.schema,
+      });
+    }
 
     renderer.exitContext();
   }
@@ -556,7 +680,7 @@ export function renderBreakouts({
   }
   // Otherwise check if we have any breakouts to render
   else if (typeInfo.breakoutSubTypes.size > 0) {
-    renderContainerTypes({
+    renderBreakoutEntries({
       renderer,
       typeInfo,
     });

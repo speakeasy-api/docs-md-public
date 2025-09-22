@@ -3,7 +3,7 @@ import { join, resolve } from "node:path";
 
 import { escapeText } from "../../renderers/util.ts";
 import { getSettings } from "../../settings.ts";
-import type { FrameworkConfig } from "../../types/compilerConfig.ts";
+import type { FrameworkConfig } from "../../types/FrameworkConfig.ts";
 
 export const nextraConfig: FrameworkConfig = {
   rendererType: "mdx",
@@ -18,6 +18,10 @@ export const nextraConfig: FrameworkConfig = {
   },
 
   buildPagePreamble(frontMatter) {
+    if (!frontMatter) {
+      return "";
+    }
+
     return `---
 sidebarTitle: ${escapeText(frontMatter.sidebarLabel, { escape: "mdx" })}
 ---

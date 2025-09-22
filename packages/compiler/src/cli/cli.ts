@@ -141,16 +141,51 @@ async function getSettings(): Promise<Settings> {
       configFileContents.data.spec
     );
   }
-  if (!existsSync(configFileContents.data.spec)) {
-    throw new Error(
-      `OpenAPI spec file "${configFileContents.data.spec}" does not exist`
+  if (!isAbsolute(configFileContents.data.spec)) {
+    configFileContents.data.spec = resolve(
+      configFileDirectory,
+      configFileContents.data.spec
     );
+  }
+  if (!existsSync(configFileContents.data.spec)) {
+    error(`OpenAPI spec file "${configFileContents.data.spec}" does not exist`);
+    process.exit(1);
   }
   if (!isAbsolute(configFileContents.data.output.pageOutDir)) {
     configFileContents.data.output.pageOutDir = resolve(
       configFileDirectory,
       configFileContents.data.output.pageOutDir
     );
+  }
+  if (configFileContents.data.display.maxNestingLevel !== undefined) {
+    if (configFileContents.data.display.maxNestingLevel < 1) {
+      error(
+        `display.maxNestingLevel must be at least 1, but was ${configFileContents.data.display.maxNestingLevel}`
+      );
+      process.exit(1);
+    }
+    if (!configFileContents.data.output.embedOutDir) {
+      error(
+        `output.embedOutDir must be specified when display.maxNestingLevel is specified`
+      );
+      process.exit(1);
+    }
+    if (
+      typeof configFileContents.data.output.framework !== "string" &&
+      typeof configFileContents.data.output.framework.buildEmbedPath !==
+        "function"
+    ) {
+      error(
+        `output.framework must have a buildEmbedPath function when display.maxNestingLevel is specified`
+      );
+      process.exit(1);
+    }
+    if (!isAbsolute(configFileContents.data.output.embedOutDir)) {
+      configFileContents.data.output.embedOutDir = resolve(
+        configFileDirectory,
+        configFileContents.data.output.embedOutDir
+      );
+    }
   }
 
   return configFileContents.data as Settings;
@@ -165,14 +200,16 @@ let frameworkConfig: FrameworkConfig;
 switch (settings.output.framework) {
   case "docusaurus": {
     if (settings.output.singlePage) {
-      throw new Error("output.singlePage can only be used with custom sites");
+      error("output.singlePage can only be used with custom sites");
+      process.exit(1);
     }
     frameworkConfig = docusaurusConfig;
     break;
   }
   case "nextra": {
     if (settings.output.singlePage) {
-      throw new Error("output.singlePage can only be used with custom sites");
+      error("output.singlePage can only be used with custom sites");
+      process.exit(1);
     }
     frameworkConfig = nextraConfig;
     break;
@@ -194,6 +231,12 @@ if (args["--clean"]) {
     recursive: true,
     force: true,
   });
+  if (settings.output.embedOutDir) {
+    rmSync(settings.output.embedOutDir, {
+      recursive: true,
+      force: true,
+    });
+  }
 }
 
 let site: Site;

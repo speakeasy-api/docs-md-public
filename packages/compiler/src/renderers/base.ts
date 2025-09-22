@@ -24,10 +24,13 @@ import type {
 } from "@speakeasy-api/docs-md-shared/types";
 
 import type { CodeSampleLanguage } from "../settings.ts";
-import type { PageFrontMatter } from "../types/compilerConfig.ts";
+import type {
+  FrameworkConfig,
+  PageFrontMatter,
+} from "../types/FrameworkConfig.ts";
 import type { EscapeOptions } from "./util.ts";
 
-type ContextType = "operation" | "section" | "schema";
+type ContextType = "operation" | "section" | "schema" | "embed";
 
 export type Context = {
   id: string;
@@ -41,6 +44,14 @@ export type SiteCreatePageArgs = [
   slug?: string,
   frontMatter?: PageFrontMatter,
 ];
+export type SiteCreateEmbedArgs = [
+  options: {
+    slug: string;
+    embedTitle: string;
+    triggerText: string;
+    createdEmbeddedContent: (renderer: Renderer) => void;
+  },
+];
 export type SiteBuildPagePathArgs = [
   slug: string,
   options?: { appendIndex?: boolean },
@@ -50,6 +61,8 @@ export type SiteGetRendererArgs = [args: RendererConstructorArgs];
 export abstract class Site {
   abstract setDocsData(docsData: Map<string, Chunk>): void;
   abstract createPage(...args: SiteCreatePageArgs): Renderer;
+  // Undefined is returned when an embed circularly references another embed
+  abstract createEmbed(...args: SiteCreateEmbedArgs): string | undefined;
   abstract buildPagePath(...args: SiteBuildPagePathArgs): string;
   protected abstract getRenderer(...args: SiteGetRendererArgs): Renderer;
 }
@@ -61,7 +74,9 @@ export type RendererConstructorArgs = {
   docsData: Map<string, Chunk>;
   currentPagePath: string;
   currentPageSlug?: string;
+  compilerConfig: FrameworkConfig;
   frontMatter?: PageFrontMatter;
+  isEmbed: boolean;
 };
 
 // High level operations
@@ -142,6 +157,7 @@ export type RendererCreateExpandableBreakoutArgs = [
     createDescription?: () => void;
     createExamples?: () => void;
     createDefaultValue?: () => void;
+    createEmbed?: () => void;
   },
 ];
 export type RendererCreateExpandablePropertyArgs = [
@@ -154,6 +170,7 @@ export type RendererCreateExpandablePropertyArgs = [
     createDescription?: () => void;
     createExamples?: () => void;
     createDefaultValue?: () => void;
+    createEmbed?: () => void;
   },
 ];
 
@@ -166,6 +183,15 @@ export type RendererCreateDebugPlaceholderArgs = [
   options: {
     createTitle: () => void;
     createExample: () => void;
+  },
+];
+
+export type RendererCreateEmbedArgs = [
+  options: {
+    slug: string;
+    embedTitle: string;
+    triggerText: string;
+    createdEmbeddedContent: (renderer: Renderer) => void;
   },
 ];
 
@@ -246,11 +272,14 @@ export type RendererCreatePillArgs = [
 
 export type RendererCreateContextArgs = [context: Context];
 export type RendererAlreadyInContextArgs = [id: string];
+export type RendererHasParentContextTypeArgs = [type: ContextType];
 export type RendererGetCurrentIdArgs = [postFixId?: string];
 
 export abstract class Renderer {
   // Metadata is undefined for embeds, since they're not full pages
   abstract render(): { contents: string; metadata?: PageMetadata };
+  abstract getPagePath(): string;
+  abstract createEmbed(...args: RendererCreateEmbedArgs): void;
 
   // High level operations
 
@@ -308,5 +337,8 @@ export abstract class Renderer {
   abstract getCurrentContextType(): ContextType;
   abstract getSchemaDepth(): number;
   abstract alreadyInContext(...args: RendererAlreadyInContextArgs): boolean;
+  abstract hasParentContextType(
+    ...args: RendererHasParentContextTypeArgs
+  ): boolean;
   abstract getCurrentId(...args: RendererGetCurrentIdArgs): string;
 }
