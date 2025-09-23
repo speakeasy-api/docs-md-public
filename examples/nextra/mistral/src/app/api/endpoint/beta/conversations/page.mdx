@@ -36,7 +36,8 @@ import {
   TabbedSection,
   Tag,
   TagDescription,
-  TagTitle
+  TagTitle,
+  TryItNow
 } from "@speakeasy-api/docs-md-react";
 
 <Tag slot="tag">
@@ -99,10 +100,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_list_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -115,10 +115,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -1609,10 +1607,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_start_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -1627,10 +1624,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -5226,10 +5221,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_get_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -5244,10 +5238,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -6720,10 +6712,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_append_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -6753,10 +6744,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -9879,10 +9868,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_history_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -9897,10 +9885,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -12279,10 +12265,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_messages_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -12297,10 +12282,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -13926,10 +13909,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_restart_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -13948,10 +13930,8 @@ async function run() {
   console.log(result);
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -17080,10 +17060,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_start_stream_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -17119,10 +17098,8 @@ async function run() {
   }
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -21241,10 +21218,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_append_stream_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -21264,10 +21240,8 @@ async function run() {
   }
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 
@@ -24879,10 +24853,9 @@ TypeScript
   id="operation-agents_api_v1_conversations_restart_stream_code-samples_typescript"
 >
 
-<CodeSample>
-
-```typescript
-import { Mistral } from "@mistralai/mistralai";
+<TryItNow
+  externalDependencies={{"zod":"^3.25.64","@mistralai/mistralai":"latest"}}
+  defaultValue={`import { Mistral } from "@mistralai/mistralai";
 
 const mistral = new Mistral({
   apiKey: "<YOUR_BEARER_TOKEN_HERE>",
@@ -24916,10 +24889,8 @@ async function run() {
   }
 }
 
-run();
-```
-
-</CodeSample>
+run();`}
+/>
 
 </SectionContent>
 

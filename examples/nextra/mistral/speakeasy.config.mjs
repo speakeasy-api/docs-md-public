@@ -12,7 +12,7 @@ export default {
       language: "typescript",
       sdkClassName: "Mistral",
       packageName: "@mistralai/mistralai",
-      enableTryItNow: false,
+      enableTryItNow: true,
     },
     {
       language: "python",
