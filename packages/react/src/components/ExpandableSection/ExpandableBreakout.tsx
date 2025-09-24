@@ -3,11 +3,18 @@
 // with "use client", for some reason, but it's perfectly happy to import a
 // server component (this file) that then imports a client component.
 
+import { Children, isValidElement } from "react";
+
+import { InternalError } from "../../util/internalError.ts";
+// eslint-disable-next-line fast-import/no-restricted-imports
+import { ConnectingCell as DefaultConnectingCell } from "../ConnectingCell/ConnectingCell.tsx";
 import { BreakoutContents } from "./components/BreakoutContents.tsx";
+import styles from "./styles.module.css";
 import type {
   ExpandableBreakoutDefaultValueProps,
   ExpandableBreakoutDescriptionProps,
   ExpandableBreakoutExamplesProps,
+  ExpandableBreakoutPropertiesProps,
   ExpandableBreakoutProps,
   ExpandableBreakoutTitleProps,
 } from "./types.ts";
@@ -66,4 +73,40 @@ export function ExpandableBreakoutDefaultValue({
   slot,
 }: ExpandableBreakoutDefaultValueProps) {
   return <div slot={slot}>{children}</div>;
+}
+
+/**
+ * The properties of an expandable breakout. This is assigned to the
+ * `properties` slot.
+ */
+export function ExpandableBreakoutProperties({
+  children,
+  slot,
+  ConnectingCell = DefaultConnectingCell,
+}: ExpandableBreakoutPropertiesProps) {
+  return (
+    <div slot={slot} className={styles.childContainer}>
+      {Children.map(children, (child, index) => {
+        // Filter out non-React elements to match ConnectingCell's type requirements
+        if (!isValidElement(child)) {
+          throw new InternalError("Expected a valid React element");
+        }
+
+        // `index` is stable for this data, since the children are determined by
+        // the compiler and not at runtime
+        return (
+          <ConnectingCell
+            key={index}
+            bottom={
+              index === Children.count(children) - 1 ? "none" : "connected"
+            }
+            top="connected"
+            right="connected"
+          >
+            {child}
+          </ConnectingCell>
+        );
+      })}
+    </div>
+  );
 }

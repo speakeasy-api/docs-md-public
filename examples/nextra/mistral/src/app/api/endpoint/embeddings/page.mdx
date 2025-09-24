@@ -7,11 +7,10 @@ import "@speakeasy-api/docs-md-react/nextra.css";
 import {
   CodeSample,
   ExpandableBreakout,
-  ExpandableBreakoutDefaultValue,
-  ExpandableBreakoutDescription,
-  ExpandableBreakoutExamples,
+  ExpandableBreakoutProperties,
   ExpandableBreakoutTitle,
   ExpandableProperty,
+  ExpandablePropertyBreakouts,
   ExpandablePropertyDescription,
   ExpandablePropertyExamples,
   ExpandablePropertyTitle,
@@ -174,7 +173,7 @@ with Mistral(
   headingId="operation-embeddings_v1_embeddings_post_request_inputs"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -198,7 +197,7 @@ Text to embed.
   headingId="operation-embeddings_v1_embeddings_post_request_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -232,7 +231,7 @@ mistral-embed
   headingId="operation-embeddings_v1_embeddings_post_request_output_dimension"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -250,7 +249,7 @@ mistral-embed
   headingId="operation-embeddings_v1_embeddings_post_request_output_dtype"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"float\"","linkedLabel":"\"float\"","children":[],"breakoutSubTypes":{}},{"label":"\"int8\"","linkedLabel":"\"int8\"","children":[],"breakoutSubTypes":{}},{"label":"\"uint8\"","linkedLabel":"\"uint8\"","children":[],"breakoutSubTypes":{}},{"label":"\"binary\"","linkedLabel":"\"binary\"","children":[],"breakoutSubTypes":{}},{"label":"\"ubinary\"","linkedLabel":"\"ubinary\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -308,7 +307,7 @@ Successful Response
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_data"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post_responses_200_application-json_data_embeddingresponsedata\">EmbeddingResponseData</a>","children":[{"label":"EmbeddingResponseData","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post_responses_200_application-json_data_embeddingresponsedata\">EmbeddingResponseData</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -318,14 +317,14 @@ Successful Response
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="data_EmbeddingResponseData"
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_data_embeddingresponsedata"
   parentId="data"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -335,19 +334,7 @@ Successful Response
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -356,7 +343,7 @@ Successful Response
   parentId="data_EmbeddingResponseData"
   typeInfo={{"label":"array","linkedLabel":"number","children":[{"label":"number","linkedLabel":"number","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -375,7 +362,7 @@ Successful Response
   parentId="data_EmbeddingResponseData"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -404,7 +391,7 @@ _Example:_
   parentId="data_EmbeddingResponseData"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -426,13 +413,21 @@ embedding
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="id"
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -460,7 +455,7 @@ cmpl-e5cc70bb28c444948073e77776eb30ef
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -488,7 +483,7 @@ mistral-small-latest
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_object"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -516,7 +511,7 @@ chat.completion
   headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage"
   typeInfo={{"label":"UsageInfo","linkedLabel":"<a href=\"#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo\">UsageInfo</a>","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -526,22 +521,39 @@ chat.completion
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
+
+<ExpandableBreakout
+  slot="entry"
+  id="usage_UsageInfo"
+  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo"
+  parentId="usage"
+  hasExpandableContent={true}
+  expandByDefault={false}
+>
+
+<ExpandableBreakoutTitle slot="title">
+
+#### UsageInfo [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo]
+
+</ExpandableBreakoutTitle>
+
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
-  id="usage_completion_tokens"
-  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_completion_tokens"
-  parentId="usage"
+  id="usage_UsageInfo_completion_tokens"
+  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_completion_tokens"
+  parentId="usage_UsageInfo"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
 <ExpandablePropertyTitle slot="title">
 
-##### completion_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_completion_tokens]
+##### completion_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_completion_tokens]
 
 </ExpandablePropertyTitle>
 
@@ -559,18 +571,18 @@ _Example:_
 
 <ExpandableProperty
   slot="entry"
-  id="usage_prompt_tokens"
-  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_prompt_tokens"
-  parentId="usage"
+  id="usage_UsageInfo_prompt_tokens"
+  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_prompt_tokens"
+  parentId="usage_UsageInfo"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
 <ExpandablePropertyTitle slot="title">
 
-##### prompt_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_prompt_tokens]
+##### prompt_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_prompt_tokens]
 
 </ExpandablePropertyTitle>
 
@@ -588,18 +600,18 @@ _Example:_
 
 <ExpandableProperty
   slot="entry"
-  id="usage_total_tokens"
-  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_total_tokens"
-  parentId="usage"
+  id="usage_UsageInfo_total_tokens"
+  headingId="operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_total_tokens"
+  parentId="usage_UsageInfo"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
 <ExpandablePropertyTitle slot="title">
 
-##### total_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_total_tokens]
+##### total_tokens [#operation-embeddings_v1_embeddings_post_responses_200_application-json_usage_usageinfo_total_tokens]
 
 </ExpandablePropertyTitle>
 
@@ -612,6 +624,14 @@ _Example:_
 ```
 
 </ExpandablePropertyExamples>
+
+</ExpandableProperty>
+
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
 
 </ExpandableProperty>
 

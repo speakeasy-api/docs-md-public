@@ -7,11 +7,10 @@ import "@speakeasy-api/docs-md-react/nextra.css";
 import {
   CodeSample,
   ExpandableBreakout,
-  ExpandableBreakoutDefaultValue,
-  ExpandableBreakoutDescription,
-  ExpandableBreakoutExamples,
+  ExpandableBreakoutProperties,
   ExpandableBreakoutTitle,
   ExpandableProperty,
+  ExpandablePropertyBreakouts,
   ExpandablePropertyDefaultValue,
   ExpandablePropertyTitle,
   ExpandableSection,
@@ -185,7 +184,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout\">BatchJobOut</a>","children":[{"label":"BatchJobOut","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout\">BatchJobOut</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -195,14 +194,14 @@ OK
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="data_BatchJobOut"
   headingId="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout"
   parentId="data"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -212,19 +211,7 @@ OK
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -233,7 +220,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -252,7 +239,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -271,7 +258,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -290,7 +277,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -309,7 +296,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -328,7 +315,7 @@ OK
   parentId="data_BatchJobOut"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout_errors_batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout_errors_batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -338,14 +325,14 @@ OK
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="data_BatchJobOut_errors_BatchError"
   headingId="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_data_batchjobout_errors_batcherror"
   parentId="data_BatchJobOut_errors"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -355,19 +342,7 @@ OK
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -376,7 +351,7 @@ OK
   parentId="data_BatchJobOut_errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -401,7 +376,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut_errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -413,6 +388,14 @@ _Default Value:_ `1`
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="data_BatchJobOut_failed_requests"
@@ -420,7 +403,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -439,7 +422,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -458,7 +441,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -477,7 +460,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -496,7 +479,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -515,7 +498,7 @@ _Default Value:_ `1`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -540,7 +523,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -559,7 +542,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -578,7 +561,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -597,7 +580,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -616,7 +599,7 @@ _Default Value:_ `"batch"`
   parentId="data_BatchJobOut"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -628,13 +611,21 @@ _Default Value:_ `"batch"`
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="object"
   headingId="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"list\"","linkedLabel":"\"list\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -658,7 +649,7 @@ _Default Value:_ `"list"`
   headingId="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json_total"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -810,7 +801,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_create_batch_job_request_endpoint"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"/v1/chat/completions\"","linkedLabel":"\"/v1/chat/completions\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/embeddings\"","linkedLabel":"\"/v1/embeddings\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/fim/completions\"","linkedLabel":"\"/v1/fim/completions\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/moderations\"","linkedLabel":"\"/v1/moderations\"","children":[],"breakoutSubTypes":{}},{"label":"\"/v1/chat/moderations\"","linkedLabel":"\"/v1/chat/moderations\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -828,7 +819,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_create_batch_job_request_input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -846,7 +837,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_create_batch_job_request_metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -864,7 +855,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_create_batch_job_request_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -882,7 +873,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_create_batch_job_request_timeout_hours"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -946,7 +937,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -964,7 +955,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -982,7 +973,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1000,7 +991,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1018,7 +1009,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1036,7 +1027,7 @@ OK
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_errors"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -1046,14 +1037,14 @@ OK
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_errors_batcherror"
   parentId="errors"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -1063,19 +1054,7 @@ OK
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -1084,7 +1063,7 @@ OK
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -1109,7 +1088,7 @@ _Default Value:_ `1`
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -1121,13 +1100,21 @@ _Default Value:_ `1`
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1145,7 +1132,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1163,7 +1150,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1181,7 +1168,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1199,7 +1186,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1217,7 +1204,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -1241,7 +1228,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1259,7 +1246,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1277,7 +1264,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1295,7 +1282,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1313,7 +1300,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json_total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1459,7 +1446,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_get_batch_job_parameters_job_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1468,6 +1455,10 @@ with Mistral(
 ##### job_id [#operation-jobs_api_routes_batch_get_batch_job_parameters_job_id]
 
 </ExpandablePropertyTitle>
+
+<ExpandablePropertyBreakouts slot="breakouts">
+
+</ExpandablePropertyBreakouts>
 
 </ExpandableProperty>
 
@@ -1517,7 +1508,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1535,7 +1526,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1553,7 +1544,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1571,7 +1562,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1589,7 +1580,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1607,7 +1598,7 @@ OK
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_errors"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -1617,14 +1608,14 @@ OK
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_errors_batcherror"
   parentId="errors"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -1634,19 +1625,7 @@ OK
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -1655,7 +1634,7 @@ OK
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -1680,7 +1659,7 @@ _Default Value:_ `1`
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -1692,13 +1671,21 @@ _Default Value:_ `1`
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1716,7 +1703,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1734,7 +1721,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1752,7 +1739,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1770,7 +1757,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1788,7 +1775,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -1812,7 +1799,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1830,7 +1817,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1848,7 +1835,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1866,7 +1853,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -1884,7 +1871,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json_total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2030,7 +2017,7 @@ with Mistral(
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_parameters_job_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"path","variant":"info"},{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2039,6 +2026,10 @@ with Mistral(
 ##### job_id [#operation-jobs_api_routes_batch_cancel_batch_job_parameters_job_id]
 
 </ExpandablePropertyTitle>
+
+<ExpandablePropertyBreakouts slot="breakouts">
+
+</ExpandablePropertyBreakouts>
 
 </ExpandableProperty>
 
@@ -2088,7 +2079,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_completed_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2106,7 +2097,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_completed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2124,7 +2115,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_created_at"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2142,7 +2133,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_endpoint"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2160,7 +2151,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_error_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2178,7 +2169,7 @@ OK
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_errors"
   typeInfo={{"label":"array","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[{"label":"BatchError","linkedLabel":"<a href=\"#operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_errors_batcherror\">BatchError</a>","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -2188,14 +2179,14 @@ OK
 
 </ExpandablePropertyTitle>
 
-</ExpandableProperty>
+<ExpandablePropertyBreakouts slot="breakouts">
 
 <ExpandableBreakout
   slot="entry"
   id="errors_BatchError"
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_errors_batcherror"
   parentId="errors"
-  hasFrontMatter={false}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -2205,19 +2196,7 @@ OK
 
 </ExpandableBreakoutTitle>
 
-<ExpandableBreakoutDescription slot="description">
-
-</ExpandableBreakoutDescription>
-
-<ExpandableBreakoutExamples slot="examples">
-
-</ExpandableBreakoutExamples>
-
-<ExpandableBreakoutDefaultValue slot="defaultValue">
-
-</ExpandableBreakoutDefaultValue>
-
-</ExpandableBreakout>
+<ExpandableBreakoutProperties slot="properties">
 
 <ExpandableProperty
   slot="entry"
@@ -2226,7 +2205,7 @@ OK
   parentId="errors_BatchError"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={false}
 >
 
@@ -2251,7 +2230,7 @@ _Default Value:_ `1`
   parentId="errors_BatchError"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={false}
 >
 
@@ -2263,13 +2242,21 @@ _Default Value:_ `1`
 
 </ExpandableProperty>
 
+</ExpandableBreakoutProperties>
+
+</ExpandableBreakout>
+
+</ExpandablePropertyBreakouts>
+
+</ExpandableProperty>
+
 <ExpandableProperty
   slot="entry"
   id="failed_requests"
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_failed_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2287,7 +2274,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_id"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2305,7 +2292,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_input_files"
   typeInfo={{"label":"array","linkedLabel":"string","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2323,7 +2310,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_metadata"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"map","linkedLabel":"any","children":[{"label":"any","linkedLabel":"any","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2341,7 +2328,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_model"
   typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2359,7 +2346,7 @@ _Default Value:_ `1`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_object"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"batch\"","linkedLabel":"\"batch\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={true}
+  hasExpandableContent={true}
   expandByDefault={true}
 >
 
@@ -2383,7 +2370,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_output_file"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2401,7 +2388,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_started_at"
   typeInfo={{"label":"union","linkedLabel":"union","children":[{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}},{"label":"null","linkedLabel":"null","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2419,7 +2406,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_status"
   typeInfo={{"label":"enum","linkedLabel":"enum","children":[{"label":"\"QUEUED\"","linkedLabel":"\"QUEUED\"","children":[],"breakoutSubTypes":{}},{"label":"\"RUNNING\"","linkedLabel":"\"RUNNING\"","children":[],"breakoutSubTypes":{}},{"label":"\"SUCCESS\"","linkedLabel":"\"SUCCESS\"","children":[],"breakoutSubTypes":{}},{"label":"\"FAILED\"","linkedLabel":"\"FAILED\"","children":[],"breakoutSubTypes":{}},{"label":"\"TIMEOUT_EXCEEDED\"","linkedLabel":"\"TIMEOUT_EXCEEDED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLATION_REQUESTED\"","linkedLabel":"\"CANCELLATION_REQUESTED\"","children":[],"breakoutSubTypes":{}},{"label":"\"CANCELLED\"","linkedLabel":"\"CANCELLED\"","children":[],"breakoutSubTypes":{}}],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2437,7 +2424,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_succeeded_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 
@@ -2455,7 +2442,7 @@ _Default Value:_ `"batch"`
   headingId="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json_total_requests"
   typeInfo={{"label":"integer","linkedLabel":"integer","children":[],"breakoutSubTypes":{}}}
   typeAnnotations={[{"title":"required","variant":"warning"}]}
-  hasFrontMatter={false}
+  hasExpandableContent={false}
   expandByDefault={true}
 >
 

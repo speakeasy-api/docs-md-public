@@ -1,5 +1,6 @@
 import type {
   OperationChunk,
+  SchemaValue,
   TagChunk,
 } from "@speakeasy-api/docs-md-shared/types";
 import type { PropertyAnnotations } from "@speakeasy-api/docs-md-shared/types";
@@ -11,7 +12,11 @@ import type { CodeSampleLanguage } from "../../settings.ts";
 import { getSettings } from "../../settings.ts";
 import { assertNever } from "../../util/assertNever.ts";
 import { getSchemaFromId, getSecurityFromId } from "../util.ts";
-import { getDisplayTypeInfo, renderBreakouts } from "./schema.ts";
+import {
+  getDisplayTypeInfo,
+  renderBreakoutEntries,
+  renderObjectProperties,
+} from "./schema.ts";
 
 type RenderOperationOptions = {
   renderer: Renderer;
@@ -98,6 +103,33 @@ function renderCodeSamples(
   }
 }
 
+function renderBreakouts({
+  renderer,
+  schema,
+}: {
+  renderer: Renderer;
+  schema: SchemaValue;
+}) {
+  const typeInfo = getDisplayTypeInfo(schema, renderer, []);
+
+  // Check if this is an object, and if so render its properties
+  if (schema.type === "object") {
+    renderObjectProperties({
+      renderer,
+      schema,
+    });
+    return;
+  }
+  // Otherwise check if we have any breakouts to render
+  else if (typeInfo.breakoutSubTypes.size > 0) {
+    renderBreakoutEntries({
+      renderer,
+      typeInfo,
+    });
+    return;
+  }
+}
+
 export function renderSecurity(
   security: OperationChunk["chunkData"]["security"],
   renderer: Renderer
@@ -128,7 +160,7 @@ export function renderSecurity(
             variant: "info",
           },
         ],
-        hasFrontMatter: !!entry.description || showDebugPlaceholders,
+        hasExpandableContent: !!entry.description || showDebugPlaceholders,
         createDescription:
           entry.description || showDebugPlaceholders
             ? () => {
@@ -200,7 +232,7 @@ export function renderParameters(
         annotations,
         rawTitle: parameter.name,
         isTopLevel: true,
-        hasFrontMatter: !!parameter.description || showDebugPlaceholders,
+        hasExpandableContent: !!parameter.description || showDebugPlaceholders,
         createDescription:
           parameter.description || showDebugPlaceholders
             ? () => {
@@ -224,12 +256,12 @@ export function renderParameters(
                 }
               }
             : undefined,
-      });
-
-      // Render breakouts, which will be separate expandable entries
-      renderBreakouts({
-        renderer,
-        schema: parameterChunk.chunkData.value,
+        createBreakouts() {
+          renderBreakouts({
+            renderer,
+            schema: parameterChunk.chunkData.value,
+          });
+        },
       });
 
       renderer.exitContext();
