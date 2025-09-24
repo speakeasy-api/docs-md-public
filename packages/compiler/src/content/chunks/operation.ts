@@ -121,7 +121,7 @@ function renderBreakouts({
     return;
   }
   // Otherwise check if we have any breakouts to render
-  else if (typeInfo.breakoutSubTypes.size > 0) {
+  else if (typeInfo && typeInfo.breakoutSubTypes.size > 0) {
     renderBreakoutEntries({
       renderer,
       typeInfo,
@@ -227,6 +227,9 @@ export function renderParameters(
         renderer,
         []
       );
+      if (!typeInfo) {
+        continue;
+      }
       renderer.createExpandableProperty({
         typeInfo,
         annotations,
@@ -283,17 +286,18 @@ export function renderRequestBody(
     renderer.getDocsData()
   );
   const requestBodySchemaValue = requestBodySchema.chunkData.value;
+  const typeInfo = getDisplayTypeInfo(
+    requestBodySchema.chunkData.value,
+    renderer,
+    []
+  );
   renderer.createRequestSection({
     isOptional: false,
     createDisplayType:
-      requestBodySchemaValue.type !== "object"
+      requestBodySchemaValue.type !== "object" && typeInfo
         ? () => {
             renderer.createFrontMatterDisplayType({
-              typeInfo: getDisplayTypeInfo(
-                requestBodySchema.chunkData.value,
-                renderer,
-                []
-              ),
+              typeInfo,
             });
           }
         : undefined,
@@ -381,17 +385,19 @@ export function renderResponseBodies(
               response.contentChunkId,
               renderer.getDocsData()
             ).chunkData.value;
+            const typeInfo = getDisplayTypeInfo(schema, renderer, []);
             debug(
               `Rendering response: statusCode=${statusCode}, contentType=${response.contentType}`
             );
             createTab({
               statusCode,
               contentType: response.contentType,
+              showContentTypeInTab: responses.length > 1,
               createDisplayType:
-                schema.type !== "object"
+                schema.type !== "object" && typeInfo
                   ? () => {
                       renderer.createFrontMatterDisplayType({
-                        typeInfo: getDisplayTypeInfo(schema, renderer, []),
+                        typeInfo,
                       });
                     }
                   : undefined,
