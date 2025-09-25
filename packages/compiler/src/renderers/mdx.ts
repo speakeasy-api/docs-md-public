@@ -61,8 +61,10 @@ import type {
   RendererCreateOperationArgs,
   RendererCreateParametersSectionArgs,
   RendererCreatePillArgs,
+  RendererCreateRequestExamplesSectionArgs,
   RendererCreateRequestSectionArgs,
   RendererCreateResponsesArgs,
+  RendererCreateResponsesExamplesSectionArgs,
   RendererCreateSectionArgs,
   RendererCreateSectionContentArgs,
   RendererCreateSectionTitleArgs,
@@ -548,11 +550,6 @@ class MdxRenderer extends MarkdownRenderer {
       },
       () => {
         this.createTabbedSection(() => {
-          this.createSectionTitle(() =>
-            this.createHeading(HEADINGS.SECTION_HEADING_LEVEL, "Code Samples", {
-              id: this.getCurrentId(),
-            })
-          );
           cb({
             createTryItNowEntry: ({
               externalDependencies,
@@ -638,6 +635,18 @@ class MdxRenderer extends MarkdownRenderer {
     );
   }
 
+  public override createRequestExamplesSection(
+    ...[cb]: RendererCreateRequestExamplesSectionArgs
+  ) {
+    this.#appendComponent<OperationRequestBodyExamplesSectionProps>(
+      {
+        symbol: "OperationRequestBodyExamplesSection",
+        props: { slot: "request-body-examples" },
+      },
+      () => super.createRequestExamplesSection(cb)
+    );
+  }
+
   public override createRequestSection(
     ...args: RendererCreateRequestSectionArgs
   ) {
@@ -647,6 +656,18 @@ class MdxRenderer extends MarkdownRenderer {
         props: { slot: "request-body" },
       },
       () => super.createRequestSection(...args)
+    );
+  }
+
+  public override createResponsesExamplesSection(
+    ...args: RendererCreateResponsesExamplesSectionArgs
+  ) {
+    this.#appendComponent<OperationResponseBodyExamplesSectionProps>(
+      {
+        symbol: "OperationResponseBodyExamplesSection",
+        props: { slot: "response-body-examples" },
+      },
+      () => super.createResponsesExamplesSection(...args)
     );
   }
 
@@ -680,16 +701,6 @@ class MdxRenderer extends MarkdownRenderer {
     );
   }
 
-  protected override handleCreateRequestExamples(cb: () => void) {
-    this.#appendComponent<OperationRequestBodyExamplesSectionProps>(
-      {
-        symbol: "OperationRequestBodyExamplesSection",
-        props: { slot: "request-body-examples" },
-      },
-      cb
-    );
-  }
-
   protected override handleCreateResponseDisplayType(cb: () => void) {
     this.#appendComponent<OperationResponseBodyDisplayTypeSectionProps>(
       {
@@ -705,16 +716,6 @@ class MdxRenderer extends MarkdownRenderer {
       {
         symbol: "OperationResponseBodyDescriptionSection",
         props: { slot: "response-body-description" },
-      },
-      cb
-    );
-  }
-
-  protected override handleCreateResponseExamples(cb: () => void) {
-    this.#appendComponent<OperationResponseBodyExamplesSectionProps>(
-      {
-        symbol: "OperationResponseBodyExamplesSection",
-        props: { slot: "response-body-examples" },
       },
       cb
     );

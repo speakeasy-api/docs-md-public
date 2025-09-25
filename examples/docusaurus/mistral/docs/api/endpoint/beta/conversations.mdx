@@ -87,12 +87,6 @@ Retrieve a list of conversation entities sorted by creation time.
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_list+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_list+code-samples+typescript"
@@ -260,6 +254,70 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_list+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_list+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_list+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_list+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -297,27 +355,6 @@ description: My awesome description
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -4323,12 +4360,6 @@ Create a new conversation, using a base model or an agent and append entries. Co
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_start+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_start+code-samples+typescript"
@@ -4354,6 +4385,7 @@ const mistral = new Mistral({
 async function run() {
   const result = await mistral.beta.conversations.start({
     inputs: "<value>",
+    model: "mistral",
   });
 
   // Handle the result
@@ -4386,7 +4418,7 @@ with Mistral(
     api_key="<YOUR_BEARER_TOKEN_HERE>",
 ) as mistral:
 
-    res = mistral.beta.conversations.start(inputs="<value>")
+    res = mistral.beta.conversations.start(inputs="<value>", model="mistral")
 
     # Handle response
     print(res)
@@ -4399,6 +4431,31 @@ with Mistral(
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-agents_api_v1_conversations_start+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "model": "mistral",
+  "messages": []
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -4427,27 +4484,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -10196,6 +10232,70 @@ _Default Value:_ `"document_library"`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_start+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_start+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_start+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_start+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -10225,27 +10325,6 @@ _Default Value:_ `"document_library"`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -15023,12 +15102,6 @@ Given a conversation_id retrieve a conversation entity with its attributes.
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_get+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_get+code-samples+typescript"
@@ -15160,6 +15233,70 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_get+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_get+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_get+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_get+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -15197,27 +15334,6 @@ description: My awesome description
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -19223,12 +19339,6 @@ Run completion on the history of the conversation and the user entries. Return t
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_append+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_append+code-samples+typescript"
@@ -19380,6 +19490,40 @@ ID of the conversation to which we append entries.
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_append+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -19407,27 +19551,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -23500,6 +23623,70 @@ _Default Value:_ `false`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_append+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_append+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_append+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_append+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -23529,27 +23716,6 @@ _Default Value:_ `false`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -28327,12 +28493,6 @@ Given a conversation_id retrieve all the entries belonging to that conversation.
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_history+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_history+code-samples+typescript"
@@ -28467,6 +28627,70 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_history+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_history+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_history+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_history+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -28496,27 +28720,6 @@ description: My awesome description
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -35145,12 +35348,6 @@ Given a conversation_id retrieve all the messages belonging to that conversation
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_messages+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_messages+code-samples+typescript"
@@ -35285,6 +35482,70 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_messages+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_messages+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_messages+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_messages+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -35314,27 +35575,6 @@ description: My awesome description
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -39655,12 +39895,6 @@ Given a conversation_id and an id, recreate a conversation from this point and r
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_restart+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_restart+code-samples+typescript"
@@ -39799,6 +40033,40 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_restart+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -39816,27 +40084,6 @@ description: My awesome description
 Request to restart a new conversation from a given entry in the conversation.
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -43976,6 +44223,70 @@ _Default Value:_ `false`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_restart+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_restart+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_restart+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_restart+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -44005,27 +44316,6 @@ _Default Value:_ `false`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -48803,12 +49093,6 @@ Create a new conversation, using a base model or an agent and append entries. Co
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_start_stream+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_start_stream+code-samples+typescript"
@@ -48925,6 +49209,40 @@ with Mistral(
 
 </OperationCodeSamplesSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_start_stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -48952,27 +49270,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -54721,6 +55018,70 @@ _Default Value:_ `"document_library"`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_start_stream+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_start_stream+responses+200+text-event-stream"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_start_stream+responses+200+text-event-stream"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_start_stream+responses+200+text-event-stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -54758,27 +55119,6 @@ _Default Value:_ `"document_library"`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -60851,12 +61191,6 @@ Run completion on the history of the conversation and the user entries. Return t
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_append_stream+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_append_stream+code-samples+typescript"
@@ -60988,6 +61322,40 @@ ID of the conversation to which we append entries.
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_append_stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -61015,27 +61383,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -65108,6 +65455,70 @@ _Default Value:_ `true`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_append_stream+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_append_stream+responses+200+text-event-stream"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_append_stream+responses+200+text-event-stream"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_append_stream+responses+200+text-event-stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -65145,27 +65556,6 @@ _Default Value:_ `true`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -71238,12 +71628,6 @@ Given a conversation_id and an id, recreate a conversation from this point and r
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-agents_api_v1_conversations_restart_stream+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_restart_stream+code-samples+typescript"
@@ -71412,6 +71796,40 @@ description: My awesome description
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_restart_stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -71429,27 +71847,6 @@ description: My awesome description
 Request to restart a new conversation from a given entry in the conversation.
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -75589,6 +75986,70 @@ _Default Value:_ `true`
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-agents_api_v1_conversations_restart_stream+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_conversations_restart_stream+responses+200+text-event-stream"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_conversations_restart_stream+responses+200+text-event-stream"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-agents_api_v1_conversations_restart_stream+responses+200+text-event-stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -75626,27 +76087,6 @@ _Default Value:_ `true`
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 

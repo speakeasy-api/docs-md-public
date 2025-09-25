@@ -25,44 +25,6 @@ type RenderOperationOptions = {
   docsCodeSnippets: DocsCodeSnippets;
 };
 
-function createTopLevelExamples(
-  examples: { name: string; value: string }[],
-  renderer: Renderer
-) {
-  const { showDebugPlaceholders } = getSettings().display;
-  if (examples.length > 0) {
-    return () => {
-      renderer.createText(`_${examples.length > 1 ? "Examples" : "Example"}:_`);
-      for (const example of examples) {
-        renderer.createCode(
-          // Unfortunately, the output of Go's YAML to JSON
-          // conversion doesn't give us options to control the
-          // indentation of the output, so we have to do it
-          // ourselves
-          JSON.stringify(JSON.parse(example.value), null, "  ")
-        );
-      }
-    };
-  } else if (showDebugPlaceholders) {
-    return () =>
-      renderer.createDebugPlaceholder({
-        createTitle() {
-          renderer.createText("No examples provided");
-        },
-        createExample() {
-          renderer.createCode(
-            "requestBody:\n  content:\n    application/json:\n      examples:\n        example1:\n          value: {}",
-            {
-              variant: "default",
-              style: "block",
-            }
-          );
-        },
-      });
-  }
-  return undefined;
-}
-
 function renderCodeSamples(
   renderer: Renderer,
   docsCodeSnippets: DocsCodeSnippets,
@@ -291,6 +253,49 @@ export function renderRequestBody(
     renderer,
     []
   );
+  if (requestBody.examples.length > 0) {
+    renderer.createRequestExamplesSection({
+      title:
+        requestBody.examples.length > 1
+          ? "Request Examples"
+          : "Request Example",
+      createExample: () => {
+        for (const example of requestBody.examples) {
+          renderer.createCode(
+            // Unfortunately, the output of Go's YAML to JSON
+            // conversion doesn't give us options to control the
+            // indentation of the output, so we have to do it
+            // ourselves
+            JSON.stringify(JSON.parse(example.value), null, "  "),
+            {
+              variant: "default",
+              style: "block",
+              language: "json",
+            }
+          );
+        }
+      },
+    });
+  } else if (showDebugPlaceholders) {
+    renderer.createRequestExamplesSection({
+      title: "Request Examples",
+      createExample: () =>
+        renderer.createDebugPlaceholder({
+          createTitle() {
+            renderer.createText("No examples provided");
+          },
+          createExample() {
+            renderer.createCode(
+              "content:\n  application/json:\n    examples:\n      example1:\n        value: { foo: 'bar'}",
+              {
+                variant: "default",
+                style: "block",
+              }
+            );
+          },
+        }),
+    });
+  }
   renderer.createRequestSection({
     isOptional: false,
     createDisplayType:
@@ -332,7 +337,6 @@ export function renderRequestBody(
             }
           }
         : undefined,
-    createExamples: createTopLevelExamples(requestBody.examples, renderer),
     createBreakouts() {
       renderBreakouts({
         renderer,
@@ -377,6 +381,69 @@ export function renderResponseBodies(
           )
         : true
     );
+    const hasExamples = filteredResponseList.some(([_, responses]) =>
+      responses.some((response) => response.examples.length > 0)
+    );
+    if (hasExamples || showDebugPlaceholders) {
+      renderer.createResponsesExamplesSection(
+        (createTab) => {
+          for (const [statusCode, responses] of filteredResponseList) {
+            for (const response of responses) {
+              if (response.examples.length > 0) {
+                createTab({
+                  statusCode,
+                  contentType: response.contentType,
+                  showContentTypeInTab: responses.length > 1,
+                  createExample() {
+                    for (const example of response.examples) {
+                      renderer.createCode(
+                        // Unfortunately, the output of Go's YAML to JSON
+                        // conversion doesn't give us options to control the
+                        // indentation of the output, so we have to do it
+                        // ourselves
+                        JSON.stringify(JSON.parse(example.value), null, "  "),
+                        {
+                          variant: "default",
+                          style: "block",
+                          language: "json",
+                        }
+                      );
+                    }
+                  },
+                });
+              } else if (showDebugPlaceholders) {
+                createTab({
+                  statusCode,
+                  contentType: response.contentType,
+                  showContentTypeInTab: responses.length > 1,
+                  createExample() {
+                    renderer.createRequestExamplesSection({
+                      title: "Request Examples",
+                      createExample: () =>
+                        renderer.createDebugPlaceholder({
+                          createTitle() {
+                            renderer.createText("No examples provided");
+                          },
+                          createExample() {
+                            renderer.createCode(
+                              "content:\n  application/json:\n    examples:\n      example1:\n        value: { foo: 'bar'}",
+                              {
+                                variant: "default",
+                                style: "block",
+                              }
+                            );
+                          },
+                        }),
+                    });
+                  },
+                });
+              }
+            }
+          }
+        },
+        { title: "Responses Examples" }
+      );
+    }
     renderer.createResponsesSection(
       (createTab) => {
         for (const [statusCode, responses] of filteredResponseList) {
@@ -427,6 +494,7 @@ export function renderResponseBodies(
                               {
                                 variant: "default",
                                 style: "block",
+                                language: "json",
                               }
                             );
                           },
@@ -434,10 +502,6 @@ export function renderResponseBodies(
                       }
                     }
                   : undefined,
-              createExamples: createTopLevelExamples(
-                response.examples,
-                renderer
-              ),
               createBreakouts() {
                 renderBreakouts({
                   renderer,

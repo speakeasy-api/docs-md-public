@@ -22,6 +22,7 @@ import {
   OperationDescriptionSection,
   OperationParametersSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
   OperationResponseBodyDisplayTypeSection,
@@ -79,12 +80,6 @@ Retrieve a list of conversation entities sorted by creation time.
 <OperationCodeSamplesSection slot="code-samples">
 
 <TabbedSection>
-
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_list_code-samples]
-
-</SectionTitle>
 
 <SectionTab
   slot="tab"
@@ -1579,12 +1574,6 @@ Create a new conversation, using a base model or an agent and append entries. Co
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_start_code-samples]
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_start_code-samples_typescript"
@@ -1610,6 +1599,7 @@ const mistral = new Mistral({
 async function run() {
   const result = await mistral.beta.conversations.start({
     inputs: "<value>",
+    model: "mistral",
   });
 
   // Handle the result
@@ -1642,7 +1632,7 @@ with Mistral(
     api_key="<YOUR_BEARER_TOKEN_HERE>",
 ) as mistral:
 
-    res = mistral.beta.conversations.start(inputs="<value>")
+    res = mistral.beta.conversations.start(inputs="<value>", model="mistral")
 
     # Handle response
     print(res)
@@ -1655,6 +1645,31 @@ with Mistral(
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-agents_api_v1_conversations_start_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "model": "mistral",
+  "messages": []
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -5118,12 +5133,6 @@ Given a conversation_id retrieve a conversation entity with its attributes.
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_get_code-samples]
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_get_code-samples_typescript"
@@ -6596,12 +6605,6 @@ Run completion on the history of the conversation and the user entries. Return t
 <OperationCodeSamplesSection slot="code-samples">
 
 <TabbedSection>
-
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_append_code-samples]
-
-</SectionTitle>
 
 <SectionTab
   slot="tab"
@@ -9701,12 +9704,6 @@ Given a conversation_id retrieve all the entries belonging to that conversation.
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_history_code-samples]
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_history_code-samples_typescript"
@@ -11998,12 +11995,6 @@ Given a conversation_id retrieve all the messages belonging to that conversation
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_messages_code-samples]
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_messages_code-samples_typescript"
@@ -13573,12 +13564,6 @@ Given a conversation_id and an id, recreate a conversation from this point and r
 <OperationCodeSamplesSection slot="code-samples">
 
 <TabbedSection>
-
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_restart_code-samples]
-
-</SectionTitle>
 
 <SectionTab
   slot="tab"
@@ -16672,12 +16657,6 @@ Create a new conversation, using a base model or an agent and append entries. Co
 <OperationCodeSamplesSection slot="code-samples">
 
 <TabbedSection>
-
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_start_stream_code-samples]
-
-</SectionTitle>
 
 <SectionTab
   slot="tab"
@@ -20708,12 +20687,6 @@ Run completion on the history of the conversation and the user entries. Return t
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_append_stream_code-samples]
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-agents_api_v1_conversations_append_stream_code-samples_typescript"
@@ -24242,12 +24215,6 @@ Given a conversation_id and an id, recreate a conversation from this point and r
 <OperationCodeSamplesSection slot="code-samples">
 
 <TabbedSection>
-
-<SectionTitle slot="title">
-
-### Code Samples [#operation-agents_api_v1_conversations_restart_stream_code-samples]
-
-</SectionTitle>
 
 <SectionTab
   slot="tab"

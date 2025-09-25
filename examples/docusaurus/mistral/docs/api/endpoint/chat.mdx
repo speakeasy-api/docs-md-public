@@ -96,12 +96,6 @@ description: My awesome description
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-chat_completion_v1_chat_completions_post+code-samples\}
-
-</SectionTitle>
-
 <SectionTab
   slot="tab"
   id="operation-chat_completion_v1_chat_completions_post+code-samples+typescript"
@@ -187,6 +181,40 @@ with Mistral(
 
 </OperationCodeSamplesSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-chat_completion_v1_chat_completions_post+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -214,27 +242,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -7913,6 +7920,70 @@ defaultValue: MyDefaultValue
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-chat_completion_v1_chat_completions_post+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-chat_completion_v1_chat_completions_post+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-chat_completion_v1_chat_completions_post+responses+200+application-json"
+>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-chat_completion_v1_chat_completions_post+responses+200+application-json+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -7942,27 +8013,6 @@ defaultValue: MyDefaultValue
 Successful Response
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -10803,12 +10853,6 @@ Mistral AI provides the ability to stream responses back to a client in order to
 
 <TabbedSection>
 
-<SectionTitle slot="title">
-
-### Code Samples \{#operation-stream_chat+code-samples\}
-
-</SectionTitle>
-
 <SectionTab slot="tab" id="operation-stream_chat+code-samples+typescript">
 
 TypeScript
@@ -10886,6 +10930,40 @@ with Mistral(
 
 </OperationCodeSamplesSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-stream_chat+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -10913,27 +10991,6 @@ description: My awesome description
 </DebugPlaceholder>
 
 </OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationRequestBodyExamplesSection>
 
 <ExpandableSection>
 
@@ -18622,6 +18679,64 @@ defaultValue: MyDefaultValue
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-stream_chat+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-stream_chat+responses+200+text-event-stream">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-stream_chat+responses+200+text-event-stream">
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Examples \{#operation-stream_chat+responses+200+text-event-stream+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<DebugPlaceholder>
+
+No examples provided
+
+_OpenAPI example:_
+
+```
+content:
+  application/json:
+    examples:
+      example1:
+        value: { foo: 'bar'}
+```
+
+</DebugPlaceholder>
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -18653,27 +18768,6 @@ defaultValue: MyDefaultValue
 A stream of chat completion events
 
 </OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
-```
-requestBody:
-  content:
-    application/json:
-      examples:
-        example1:
-          value: {}
-```
-
-</DebugPlaceholder>
-
-</OperationResponseBodyExamplesSection>
 
 <ExpandableSection>
 

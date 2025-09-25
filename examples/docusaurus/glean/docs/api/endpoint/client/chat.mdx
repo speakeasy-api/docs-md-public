@@ -130,29 +130,19 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 
 </OperationParametersSection>
 
-<OperationRequestBodySection slot="request-body">
+<OperationRequestBodyExamplesSection slot="request-body-examples">
 
 <Section>
 
 <SectionTitle slot="title">
 
-### Request Body \{#operation-chat+request\}
+### Request Examples \{#operation-chat+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<OperationRequestBodyDescriptionSection slot="request-body-description">
-
-Includes chat history for Glean AI to respond to.
-
-</OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-_Examples:_
-
-```
+```json
 {
   "messages": [
     {
@@ -168,7 +158,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "agentConfig": {
     "agent": "GPT"
@@ -187,7 +177,29 @@ _Examples:_
 }
 ```
 
+</SectionContent>
+
+</Section>
+
 </OperationRequestBodyExamplesSection>
+
+<OperationRequestBodySection slot="request-body">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Body \{#operation-chat+request\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<OperationRequestBodyDescriptionSection slot="request-body-description">
+
+Includes chat history for Glean AI to respond to.
+
+</OperationRequestBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -1166,13 +1178,13 @@ _Example:_
 
 </OperationRequestBodySection>
 
-<OperationResponseBodySection slot="response-body">
+<OperationResponseBodyExamplesSection slot="response-body-examples">
 
 <TabbedSection>
 
 <SectionTitle slot="title">
 
-### Responses \{#operation-chat+responses\}
+### Responses Examples \{#operation-chat+responses\}
 
 </SectionTitle>
 
@@ -1184,17 +1196,7 @@ _Example:_
 
 <SectionContent slot="content" id="operation-chat+responses+200+application-json">
 
-<OperationResponseBodyDescriptionSection slot="response-body-description">
-
-OK
-
-</OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-_Examples:_
-
-```
+```json
 {
   "messages": [
     {
@@ -1215,7 +1217,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -1284,7 +1286,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -1314,7 +1316,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -1346,7 +1348,35 @@ _Examples:_
 }
 ```
 
+</SectionContent>
+
+</TabbedSection>
+
 </OperationResponseBodyExamplesSection>
+
+<OperationResponseBodySection slot="response-body">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses \{#operation-chat+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-chat+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-chat+responses+200+application-json">
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
+OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -3600,29 +3630,19 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 
 </OperationParametersSection>
 
-<OperationRequestBodySection slot="request-body">
+<OperationRequestBodyExamplesSection slot="request-body-examples">
 
 <Section>
 
 <SectionTitle slot="title">
 
-### Request Body \{#operation-chat_stream+request\}
+### Request Examples \{#operation-chat_stream+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<OperationRequestBodyDescriptionSection slot="request-body-description">
-
-Includes chat history for Glean AI to respond to.
-
-</OperationRequestBodyDescriptionSection>
-
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-_Examples:_
-
-```
+```json
 {
   "messages": [
     {
@@ -3638,7 +3658,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "agentConfig": {
     "agent": "GPT"
@@ -3657,7 +3677,29 @@ _Examples:_
 }
 ```
 
+</SectionContent>
+
+</Section>
+
 </OperationRequestBodyExamplesSection>
+
+<OperationRequestBodySection slot="request-body">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Body \{#operation-chat_stream+request\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+<OperationRequestBodyDescriptionSection slot="request-body-description">
+
+Includes chat history for Glean AI to respond to.
+
+</OperationRequestBodyDescriptionSection>
 
 <ExpandableSection>
 
@@ -4636,13 +4678,13 @@ _Example:_
 
 </OperationRequestBodySection>
 
-<OperationResponseBodySection slot="response-body">
+<OperationResponseBodyExamplesSection slot="response-body-examples">
 
 <TabbedSection>
 
 <SectionTitle slot="title">
 
-### Responses \{#operation-chat_stream+responses\}
+### Responses Examples \{#operation-chat_stream+responses\}
 
 </SectionTitle>
 
@@ -4654,25 +4696,7 @@ _Example:_
 
 <SectionContent slot="content" id="operation-chat_stream+responses+200+text-plain">
 
-<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
-
-<FrontMatterDisplayType
-  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
-/>
-
-</OperationResponseBodyDisplayTypeSection>
-
-<OperationResponseBodyDescriptionSection slot="response-body-description">
-
-OK
-
-</OperationResponseBodyDescriptionSection>
-
-<OperationResponseBodyExamplesSection slot="response-body-examples">
-
-_Examples:_
-
-```
+```json
 {
   "messages": [
     {
@@ -4693,7 +4717,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -4762,7 +4786,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -4792,7 +4816,7 @@ _Examples:_
 }
 ```
 
-```
+```json
 {
   "messages": [
     {
@@ -4824,7 +4848,43 @@ _Examples:_
 }
 ```
 
+</SectionContent>
+
+</TabbedSection>
+
 </OperationResponseBodyExamplesSection>
+
+<OperationResponseBodySection slot="response-body">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses \{#operation-chat_stream+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-chat_stream+responses+200+text-plain">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-chat_stream+responses+200+text-plain">
+
+<OperationResponseBodyDisplayTypeSection slot="response-body-display-type">
+
+<FrontMatterDisplayType
+  typeInfo={{"label":"string","linkedLabel":"string","children":[],"breakoutSubTypes":{}}}
+/>
+
+</OperationResponseBodyDisplayTypeSection>
+
+<OperationResponseBodyDescriptionSection slot="response-body-description">
+
+OK
+
+</OperationResponseBodyDescriptionSection>
 
 <ExpandableSection>
 

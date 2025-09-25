@@ -33,8 +33,10 @@ import type {
   RendererCreateOperationArgs,
   RendererCreateParametersSectionArgs,
   RendererCreatePillArgs,
+  RendererCreateRequestExamplesSectionArgs,
   RendererCreateRequestSectionArgs,
   RendererCreateResponsesArgs,
+  RendererCreateResponsesExamplesSectionArgs,
   RendererCreateSectionArgs,
   RendererCreateSectionContentArgs,
   RendererCreateSectionTitleArgs,
@@ -322,15 +324,27 @@ export abstract class MarkdownRenderer extends Renderer {
     cb();
   }
 
+  public override createRequestExamplesSection(
+    ...[{ createExample, title }]: RendererCreateRequestExamplesSectionArgs
+  ): void {
+    this.enterContext({ id: "request-examples", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentSection = {
+        elementId: this.getCurrentId(),
+        properties: [],
+      };
+      this.#currentOperation.security = this.#currentSection;
+    }
+
+    this.createTopLevelSection({ title }, createExample);
+
+    this.#currentSection = undefined;
+    this.exitContext();
+  }
+
   public override createRequestSection(
     ...[
-      {
-        isOptional,
-        createDisplayType,
-        createDescription,
-        createExamples,
-        createBreakouts,
-      },
+      { isOptional, createDisplayType, createDescription, createBreakouts },
     ]: RendererCreateRequestSectionArgs
   ): void {
     this.enterContext({ id: "request", type: "section" });
@@ -360,13 +374,63 @@ export abstract class MarkdownRenderer extends Renderer {
         if (createDescription) {
           this.handleCreateRequestDescription(createDescription);
         }
-        if (createExamples) {
-          this.handleCreateRequestExamples(createExamples);
-        }
         this.handleCreateBreakouts(createBreakouts);
       }
     );
     this.#currentSection = undefined;
+    this.exitContext();
+  }
+
+  public override createResponsesExamplesSection(
+    ...[createExample, { title }]: RendererCreateResponsesExamplesSectionArgs
+  ): void {
+    this.enterContext({ id: "responses", type: "section" });
+    if (this.#currentOperation) {
+      this.#currentOperation.responses = {};
+    }
+    this.createTabbedSection(() => {
+      this.createSectionTitle(() =>
+        this.createHeading(HEADINGS.SECTION_HEADING_LEVEL, title, {
+          id: this.getCurrentId(),
+        })
+      );
+      createExample(
+        ({ statusCode, contentType, showContentTypeInTab, createExample }) => {
+          this.enterContext({ id: statusCode, type: "section" });
+          this.enterContext({
+            id: contentType.replace("/", "-"),
+            type: "section",
+          });
+          if (this.#currentOperation?.responses) {
+            this.#currentSection = {
+              elementId: this.getCurrentId(),
+              properties: [],
+            };
+            this.#currentOperation.responses[`${statusCode}-${contentType}`] =
+              this.#currentSection;
+          }
+
+          this.createTabbedSectionTab(
+            () =>
+              this.createText(
+                showContentTypeInTab
+                  ? `${statusCode} (${contentType})`
+                  : statusCode
+              ),
+            {
+              id: this.getCurrentId(),
+            }
+          );
+          this.createSectionContent(createExample, {
+            id: this.getCurrentId(),
+          });
+
+          this.#currentSection = undefined;
+          this.exitContext();
+          this.exitContext();
+        }
+      );
+    });
     this.exitContext();
   }
 
@@ -390,7 +454,6 @@ export abstract class MarkdownRenderer extends Renderer {
           showContentTypeInTab,
           createDisplayType,
           createDescription,
-          createExamples,
           createBreakouts,
         }) => {
           this.enterContext({ id: statusCode, type: "section" });
@@ -426,9 +489,6 @@ export abstract class MarkdownRenderer extends Renderer {
               if (createDescription) {
                 this.handleCreateResponseDescription(createDescription);
               }
-              if (createExamples) {
-                this.handleCreateResponseExamples(createExamples);
-              }
               this.handleCreateBreakouts(createBreakouts);
             },
             {
@@ -453,19 +513,11 @@ export abstract class MarkdownRenderer extends Renderer {
     cb();
   }
 
-  protected handleCreateRequestExamples(cb: () => void) {
-    cb();
-  }
-
   protected handleCreateResponseDisplayType(cb: () => void) {
     cb();
   }
 
   protected handleCreateResponseDescription(cb: () => void) {
-    cb();
-  }
-
-  protected handleCreateResponseExamples(cb: () => void) {
     cb();
   }
 
