@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import type { JSX, PropsWithChildren } from "react";
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 
 import {
@@ -22,15 +22,26 @@ import { useHashManager } from "../hasManager.ts";
 import styles from "../styles.module.css";
 import type { ExpandablePropertyProps } from "../types.ts";
 
-const TitleContainer = forwardRef<HTMLDivElement, PropsWithChildren>(
-  function TitleContainer({ children }, ref) {
-    return (
-      <div ref={ref} className={styles.propertyTitleContainer}>
-        {children}
-      </div>
-    );
-  }
-);
+// When enabled, a debug overlay will be shown when the property title is hovered
+const ENABLE_DEBUG_VIEW = false;
+
+const TitleContainer = forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<{
+    onMouseEnter?: () => void;
+  }>
+>(function TitleContainer({ children, onMouseEnter }, ref) {
+  return (
+    <div
+      ref={ref}
+      style={{ position: "relative" }}
+      className={styles.propertyTitleContainer}
+      onMouseEnter={onMouseEnter}
+    >
+      {children}
+    </div>
+  );
+});
 
 const TitlePrefixContainer = forwardRef<HTMLSpanElement, PropsWithChildren>(
   function TitlePrefixContainer({ children }, ref) {
@@ -88,6 +99,24 @@ export function PropertyContents({
   ConnectingCell = DefaultConnectingCell,
 }: ExpandablePropertyProps) {
   const [isOpen, setIsOpen] = useState(expandByDefault);
+  // Ref for the debug overlay element
+  const debugOverlayRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseEnter = ENABLE_DEBUG_VIEW
+    ? () => {
+        // Hide all other debug overlays
+        // This is handled via document queries to avoid doing any additional
+        // state management since this is only enabled when debug is enabled
+        document
+          .querySelectorAll('[data-debug-visible="true"]')
+          .forEach((el) => el.setAttribute("data-debug-visible", "false"));
+
+        // Show this component's debug overlay
+        if (debugOverlayRef.current) {
+          debugOverlayRef.current.setAttribute("data-debug-visible", "true");
+        }
+      }
+    : undefined;
 
   useHashManager(headingId, setIsOpen);
 
@@ -193,6 +222,36 @@ export function PropertyContents({
     </TitlePrefixContainer>
   );
 
+  const debugOverlay = (
+    <div
+      ref={debugOverlayRef}
+      className={styles.debugOverlay}
+      data-debug-visible="false"
+      style={{
+        position: "absolute",
+        top: "100%",
+        left: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.9)",
+        color: "#00ff00",
+        padding: "8px",
+        fontSize: "12px",
+        fontFamily: "monospace",
+        zIndex: 9999,
+        borderRadius: "4px",
+        marginTop: "4px",
+        whiteSpace: "pre",
+        pointerEvents: "none",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.5)",
+      }}
+    >
+      {`Title Container: ${titleContainerBounds.width}x${titleContainerBounds.height}
+Title Prefix: ${titlePrefixContainerBounds.width}x${titlePrefixContainerBounds.height}
+Type Measure: ${offscreenTypeMeasureContainerBounds.width}x${offscreenTypeMeasureContainerBounds.height}
+Text Size: ${offscreenTextSizeMeasureContainerBounds.width}x${offscreenTextSizeMeasureContainerBounds.height}
+Multiline: ${displayInfo?.multiline ?? "N/A"}`}
+    </div>
+  );
+
   const hasChildrenConnection =
     breakoutsChildren.length > 0 ? "connected" : "none";
   const frontmatter = (
@@ -234,12 +293,15 @@ export function PropertyContents({
   let measureContainer: JSX.Element | null = null;
   if (!displayInfo || !typeInfo) {
     titleContainer = (
-      <TitleContainer ref={titleContainerRef}>{titlePrefix}</TitleContainer>
+      <TitleContainer ref={titleContainerRef} onMouseEnter={handleMouseEnter}>
+        {titlePrefix}
+        {ENABLE_DEBUG_VIEW && debugOverlay}
+      </TitleContainer>
     );
     propertyCell = frontmatter;
   } else {
     titleContainer = (
-      <TitleContainer ref={titleContainerRef}>
+      <TitleContainer ref={titleContainerRef} onMouseEnter={handleMouseEnter}>
         {titlePrefix}
         {displayInfo.multiline ? (
           <div
@@ -256,6 +318,7 @@ export function PropertyContents({
             contents={displayInfo.contents}
           />
         )}
+        {ENABLE_DEBUG_VIEW && debugOverlay}
       </TitleContainer>
     );
     propertyCell = (
