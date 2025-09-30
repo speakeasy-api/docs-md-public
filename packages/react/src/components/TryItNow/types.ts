@@ -1,5 +1,31 @@
 import type { FC } from "react";
 
+type Results = {
+  output: string[];
+};
+
+type Errors = {
+  output: Error[] | string[];
+};
+
+export type Status =
+  | {
+      state: "idle";
+    }
+  | {
+      state: "running";
+      previousResults?: Results;
+      previousError?: Errors;
+    }
+  | {
+      state: "success";
+      results: Results;
+    }
+  | {
+      state: "error";
+      error: Errors;
+    };
+
 export type TryItNowProps = {
   /**
    * These are dependencies that are required by the code snippet,
@@ -38,9 +64,9 @@ export type TryItNowProps = {
 
 export type EditorProps = {
   /**
-   * The code sample for the editor to initially load
+   * The current code value in the editor
    */
-  defaultValue: string;
+  value: string;
   /**
    * Callback to invoke when the value changes
    */
@@ -59,8 +85,7 @@ export type RunButtonProps = {
 };
 
 export type ResultsProps = {
-  // TODO: depends on the runtime
-  output: unknown;
+  status: Status;
 };
 
 export type LayoutProps = {
