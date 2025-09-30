@@ -1,63 +1,48 @@
 "use client";
 
-import {
-  SandpackLayout,
-  SandpackPreview,
-  SandpackProvider,
-  useErrorMessage,
-} from "@codesandbox/sandpack-react";
+import { useState } from "react";
 
+import { useRuntime } from "../state.ts";
 import type { TryItNowProps } from "../types.ts";
-import { CodeEditor } from "./CodeEditor.tsx";
-import { ConsoleOutput } from "./ConsoleOutput.tsx";
-
-function InnerContents() {
-  const error = useErrorMessage();
-
-  return (
-    <SandpackLayout>
-      <CodeEditor />
-      {!error && <ConsoleOutput />}
-      <SandpackPreview
-        style={
-          error
-            ? undefined
-            : {
-                display: "none",
-              }
-        }
-      >
-        {error ? <pre>{error}</pre> : null}
-      </SandpackPreview>
-    </SandpackLayout>
-  );
-}
+import { Editor as DefaultEditor } from "./Editor.tsx";
+import { Layout as DefaultLayout } from "./Layout.tsx";
+import { Results as DefaultResults } from "./Results.tsx";
+import { RunButton as DefaultRunButton } from "./RunButton.tsx";
 
 export function TryItNowContents({
-  externalDependencies,
-  defaultValue = "",
+  externalDependencies = {},
+  defaultValue,
+  Layout = DefaultLayout,
+  Editor = DefaultEditor,
+  RunButton = DefaultRunButton,
+  Results = DefaultResults,
+  theme = "dark",
+  packageManagerUrl,
 }: TryItNowProps) {
+  const [value, setValue] = useState(defaultValue);
+  const { status, execute } = useRuntime({ packageManagerUrl });
+  console.log(status);
   return (
-    <SandpackProvider
-      options={{
-        autoReload: false,
-        autorun: false,
-        activeFile: "index.ts",
-      }}
-      theme="dark"
-      template="vanilla-ts"
-      files={{
-        "index.ts": {
-          code: defaultValue,
-          active: true,
-        },
-      }}
-      customSetup={{
-        dependencies: externalDependencies,
-        entry: "index.ts",
-      }}
-    >
-      <InnerContents />
-    </SandpackProvider>
+    <div>
+      <Layout>
+        <div slot="editor">
+          <Editor
+            theme={theme}
+            defaultValue={defaultValue}
+            onValueChange={setValue}
+          />
+        </div>
+        <div slot="runButton">
+          <RunButton
+            onClick={() => {
+              void execute(value, externalDependencies);
+            }}
+          />
+        </div>
+        <div slot="results">
+          <Results output={""} />
+        </div>
+      </Layout>
+    </div>
   );
 }
