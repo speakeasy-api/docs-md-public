@@ -1,70 +1,69 @@
-// Web Worker for safely executing bundled code
-// This runs in its own isolated context to prevent interference with the main thread
+// Web Worker for safely executing bundled code This runs in its own isolated
+// context to prevent interference with the main thread, and to prevent console
+// logs from the main thread from mixing with the logs from the worker.
 
-import type {
-  WorkerCompleteMessage,
-  WorkerErrorMessage,
-  WorkerExecuteMessage,
-  WorkerLogMessage,
-} from "./messages.ts";
+// In this case, we're actually not using the Node.js version of util.format,
+// and so using `node:util` here would be a mistake.
+// eslint-disable-next-line fast-import/require-node-prefix
+import { format } from "util";
+
+import type { LogLevel } from "./events.ts";
+import type { WorkerMessage } from "./messages.ts";
 
 // Helper to enforce strict typing
-function sendMessage(
-  message: WorkerCompleteMessage | WorkerErrorMessage | WorkerLogMessage
-) {
+function sendMessage(message: WorkerMessage) {
   self.postMessage(message);
 }
 
-// Listen for messages from the main thread
-self.onmessage = function (event: MessageEvent<WorkerExecuteMessage>) {
-  if (event.data.type === "execute") {
-    // Create console overrides that immediately post messages
-    const previousConsole = console.log;
+function createConsolePatch(level: LogLevel) {
+  // console itself is defined using `any`, so we need to disable the lint
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (message: any, ...optionalParams: any[]) => {
+    const hasSubstitutions =
+      typeof message === "string" && /%[sdifcoO]/.test(message);
 
-    // This function runs once the code has completed execution based on a few
-    // possible outcomes:
-    // 1. The code completed successfully
-    // 2. The code threw a synchronous error
-    // 3. The code threw an unhandled rejection (aka asynchronous error)
-    function finalize() {
-      // Restore console
-      console.log = previousConsole;
-
-      // Signal execution completion
-      sendMessage({
-        type: "complete",
-      });
-    }
-
-    // Patch console log
-    console.log = (message, ...optionalParams) => {
-      if (optionalParams.length > 0) {
-        throw new Error(
-          "console.log with more than one argument is not supported yet. Stay tuned!"
-        );
-      }
-      // TODO: we consider the sample complete once we have received a
-      // console.log message. This of course would be incorrect if the user
-      // changes the code  to either never call console.log, or call it more
-      // than once. We should try to come up with a more holistic mechanism
+    if (hasSubstitutions) {
       sendMessage({
         type: "log",
-        message: JSON.stringify(message),
+        level,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        message: format(message, ...optionalParams),
       });
-      finalize();
-    };
+      return;
+    }
 
-    // Listen for unhandled rejections, which includes the SDK returning an
-    // error
+    sendMessage({
+      type: "log",
+      level,
+      message: JSON.stringify(message),
+    });
+    for (const optionalParam of optionalParams) {
+      sendMessage({
+        type: "log",
+        level,
+        message: JSON.stringify(optionalParam),
+      });
+    }
+  };
+}
+
+// Listen for messages from the main thread
+self.onmessage = function (event: MessageEvent<WorkerMessage>) {
+  if (event.data.type === "execute") {
+    // Patch console
+    console.log = createConsolePatch("log");
+    console.info = createConsolePatch("info");
+    console.warn = createConsolePatch("warn");
+    console.error = createConsolePatch("error");
+    console.debug = createConsolePatch("debug");
+
+    // Listen for unhandled rejections, which includes the API returning an
+    // error status code
     globalThis.addEventListener("unhandledrejection", (event) => {
       sendMessage({
-        type: "error",
-        message:
-          event.reason instanceof Error
-            ? event.reason.message
-            : "Unknown error",
+        type: "uncaught-reject",
+        error: event.reason,
       });
-      finalize();
     });
 
     try {
@@ -75,12 +74,13 @@ self.onmessage = function (event: MessageEvent<WorkerExecuteMessage>) {
     } catch (error) {
       // Send back the error
       sendMessage({
-        type: "error",
-        message: error instanceof Error ? error.message : "Unknown error",
+        type: "uncaught-exception",
+        error,
       });
-      finalize();
     }
   }
 };
 
-export {}; // Make this a module
+// Make sure that the browser knows this is a module. The `import type` above
+// gets stripped out at compile time, so it's not sufficient
+export {};
