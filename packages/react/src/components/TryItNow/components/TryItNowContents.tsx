@@ -25,22 +25,26 @@ export function TryItNowContents({
     packageManagerUrl,
     dependencies: externalDependencies,
   });
+  const showResults = status.state !== "idle";
+
   return (
     <div>
       <Layout>
         <div slot="editor">
           <Editor theme={theme} value={value} onValueChange={setValue} />
         </div>
-        <div slot="runButton">
+        <div slot="runButton" className={styles.runButtonContainer}>
           <RunButton
             onClick={() => {
               execute(value);
             }}
           />
         </div>
-        <div slot="results" className={styles.resultsSlot}>
-          <Results status={status} />
-        </div>
+        {showResults && (
+          <div slot="results" className={styles.results}>
+            <Results status={status} />
+          </div>
+        )}
       </Layout>
     </div>
   );
