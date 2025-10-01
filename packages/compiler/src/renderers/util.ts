@@ -14,8 +14,8 @@ const languageToPrettyLanguage: Record<CodeSampleLanguage, string> = {
   postman: "Postman",
 };
 
-export function getPrettyCodeSampleLanguage(language: CodeSampleLanguage) {
-  return languageToPrettyLanguage[language];
+export function getPrettyCodeSampleLanguage(language: string) {
+  return languageToPrettyLanguage[language as CodeSampleLanguage] ?? language;
 }
 
 type Escape = "markdown" | "html" | "mdx" | "none";
