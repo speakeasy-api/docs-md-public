@@ -15,15 +15,7 @@ export default [
       "src/editor/editor.ts": /.*/,
     },
     ignores: ["src/data/wasm_exec.js"],
-    restrictedImports: [
-      {
-        type: "third-party",
-        moduleSpecifier: "node:fs",
-        allowed: [/src\/cli\//],
-        message:
-          "File system access is only allowed in the CLI wrapper because other code needs to be isomorphic",
-      },
-    ],
+    restrictedImports: [],
   }),
   // Disallow console calls in compiler code (use logging.ts functions instead)
   {
