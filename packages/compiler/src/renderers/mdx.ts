@@ -42,6 +42,7 @@ import type {
   TagDescriptionProps,
   TagProps,
   TagTitleProps,
+  TryItNowProps,
 } from "@speakeasy-api/docs-md-react";
 
 import { HEADINGS } from "../content/constants.ts";
@@ -234,7 +235,7 @@ class MdxRenderer extends MarkdownRenderer {
       return Object.entries(props)
         .map(([key, value]) => {
           if (typeof value === "string") {
-            if (value.includes("\n")) {
+            if (value.includes("\n") || value.includes('"')) {
               return `${separator}${key}={\`${value}\`}`;
             }
             return `${separator}${key}="${value}"`;
@@ -567,13 +568,16 @@ class MdxRenderer extends MarkdownRenderer {
               );
               this.createSectionContent(
                 () => {
-                  // Manually serialize TryItNow to use JSON.stringify for defaultValue (preserves spacing)
-                  this.#insertComponentImport("TryItNow");
-                  const props = [
-                    `dependencyBundleUrl="${dependencyBundleUrl}"`,
-                    `defaultValue={${JSON.stringify(defaultValue)}}`,
-                  ].join(" ");
-                  this.appendLine(`<TryItNow ${props} />`);
+                  this.#appendComponent<TryItNowProps>({
+                    symbol: "TryItNow",
+                    props: {
+                      dependencyBundleUrl,
+                      // Stringify the sample so we better preserve white space.
+                      // and then trim off the start and end quotes (otherwise
+                      // we end up with `""my code""`)
+                      defaultValue: JSON.stringify(defaultValue).slice(1, -1),
+                    },
+                  });
                 },
                 {
                   id: this.getCurrentId(),
