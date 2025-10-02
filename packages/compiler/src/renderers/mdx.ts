@@ -557,10 +557,9 @@ class MdxRenderer extends MarkdownRenderer {
         this.createTabbedSection(() => {
           cb({
             createTryItNowEntry: ({
-              externalDependencies,
+              dependencyBundleUrl,
               defaultValue,
               language,
-              packageManagerUrl,
             }) => {
               this.enterContext({ id: language, type: "section" });
               this.createTabbedSectionTab(
@@ -572,9 +571,8 @@ class MdxRenderer extends MarkdownRenderer {
                   this.#appendComponent<TryItNowProps>({
                     symbol: "TryItNow",
                     props: {
-                      externalDependencies,
+                      dependencyBundleUrl,
                       defaultValue,
-                      packageManagerUrl,
                     },
                   });
                 },

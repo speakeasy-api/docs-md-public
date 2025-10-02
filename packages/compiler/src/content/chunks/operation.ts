@@ -5,12 +5,13 @@ import type {
 } from "@speakeasy-api/docs-md-shared";
 import type { PropertyAnnotations } from "@speakeasy-api/docs-md-shared";
 
-import type { DocsCodeSamples } from "../../data/generateCodeSamples.ts";
+import type { CodeSamples } from "../../data/generateCodeSamples.ts";
 import { debug } from "../../logging.ts";
 import type { Renderer } from "../../renderers/base.ts";
 import type { CodeSampleLanguage } from "../../settings.ts";
 import { getSettings } from "../../settings.ts";
 import { assertNever } from "../../util/assertNever.ts";
+import { InternalError } from "../../util/internalError.ts";
 import { getSchemaFromId, getSecurityFromId } from "../util.ts";
 import {
   getDisplayTypeInfo,
@@ -22,16 +23,16 @@ type RenderOperationOptions = {
   renderer: Renderer;
   chunk: OperationChunk;
   tagChunk: TagChunk;
-  docsCodeSnippets: DocsCodeSamples;
+  docsCodeSamples: CodeSamples;
 };
 
 function renderCodeSamples(
   renderer: Renderer,
-  docsCodeSnippets: DocsCodeSamples,
+  docsCodeSamples: CodeSamples,
   operationChunkId: string
 ) {
   const { codeSamples } = getSettings();
-  const usageSnippet = docsCodeSnippets[operationChunkId];
+  const usageSnippet = docsCodeSamples[operationChunkId];
   if (usageSnippet && codeSamples) {
     renderer.createCodeSamplesSection(
       ({ createTryItNowEntry, createCodeSampleEntry }) => {
@@ -39,14 +40,15 @@ function renderCodeSamples(
           debug(`Rendering code sample for ${language}`);
           const codeSample = codeSamples.find((s) => s.language === language);
           if (language === "typescript" && codeSample?.enableTryItNow) {
+            if (!codeSample?.tryItNowBundleUrl) {
+              throw new InternalError(
+                `No try it now bundle URL found for language ${language}`
+              );
+            }
             createTryItNowEntry({
               language,
-              externalDependencies: {
-                zod: "^3.25.64",
-                [snippet.packageName]: "latest",
-              },
+              dependencyBundleUrl: codeSample.tryItNowBundleUrl,
               defaultValue: snippet.code,
-              packageManagerUrl: codeSample?.packageManagerUrl,
             });
           } else {
             createCodeSampleEntry({
@@ -529,7 +531,7 @@ export function renderOperation({
   renderer,
   tagChunk,
   chunk,
-  docsCodeSnippets,
+  docsCodeSamples,
 }: RenderOperationOptions) {
   debug(
     `Rendering operation chunk: method=${chunk.chunkData.method} path=${chunk.chunkData.path} operationId=${chunk.chunkData.operationId}`
@@ -544,7 +546,7 @@ export function renderOperation({
       description: chunk.chunkData.description,
     },
     () => {
-      renderCodeSamples(renderer, docsCodeSnippets, chunk.id);
+      renderCodeSamples(renderer, docsCodeSamples, chunk.id);
       renderSecurity(chunk.chunkData.security, renderer);
       renderParameters(chunk.chunkData.parameters, renderer);
       renderRequestBody(chunk.chunkData.requestBody, renderer);

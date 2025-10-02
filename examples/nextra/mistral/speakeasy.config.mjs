@@ -10,19 +10,16 @@ export default {
   codeSamples: [
     {
       language: "typescript",
-      sdkClassName: "Mistral",
       packageName: "@mistralai/mistralai",
       enableTryItNow: true,
-      packageManagerUrl: "/pkg",
-      sampleDownloadUrl:
-        "https://github.com/mistralai/client-ts/archive/refs/tags/v1.10.0.tar.gz",
+      sdkTarballPath: "../../sdks/mistral-typescript.tar.gz",
+      tryItNowBundlePath: "./public/try-it-now/deps.js",
+      tryItNowBundleUrl: "/try-it-now/deps.js",
     },
     {
       language: "python",
-      sdkClassName: "Mistral",
       packageName: "mistralai",
-      sampleDownloadUrl:
-        "https://github.com/mistralai/client-python/archive/refs/tags/v1.9.10.tar.gz",
+      sdkTarballPath: "../../sdks/mistral-python.tar.gz",
     },
   ],
 };

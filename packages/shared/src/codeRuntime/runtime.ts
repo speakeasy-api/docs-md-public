@@ -1,11 +1,11 @@
 import { InternalError } from "../util/internalError.ts";
-import { bundle } from "./build.ts";
+import { bundleCode } from "./build.ts";
 import type { RuntimeEvents } from "./events.ts";
 import type { WorkerMessage } from "./messages.ts";
 
 export class Runtime {
-  #dependencies: Record<string, string>;
-  #packageManagerUrl?: string;
+  #dependencyBundle?: string;
+  #dependencyBundleUrl: string;
   #listeners: Record<
     RuntimeEvents["type"],
     ((event: RuntimeEvents) => void)[]
@@ -20,15 +20,8 @@ export class Runtime {
   };
   #worker?: Worker;
 
-  constructor({
-    dependencies,
-    packageManagerUrl,
-  }: {
-    dependencies: Record<string, string>;
-    packageManagerUrl?: string;
-  }) {
-    this.#dependencies = dependencies;
-    this.#packageManagerUrl = packageManagerUrl;
+  constructor({ dependencyBundleUrl }: { dependencyBundleUrl: string }) {
+    this.#dependencyBundleUrl = dependencyBundleUrl;
   }
 
   public run(code: string) {
@@ -38,6 +31,10 @@ export class Runtime {
   }
 
   async #run(code: string) {
+    if (!this.#dependencyBundle) {
+      const results = await fetch(this.#dependencyBundleUrl);
+      this.#dependencyBundle = await results.text();
+    }
     if (this.#worker) {
       this.#worker.terminate();
       this.#worker = undefined;
@@ -49,9 +46,7 @@ export class Runtime {
       this.#emit({ type: "compilation:started" });
 
       // Bundle the code
-      const bundleResults = await bundle(code, this.#dependencies, {
-        packageManagerUrl: this.#packageManagerUrl,
-      });
+      const bundleResults = await bundleCode(code, this.#dependencyBundle);
 
       // Check the results of compilation
       if (bundleResults.errors.length > 0) {
@@ -59,6 +54,9 @@ export class Runtime {
           this.#emit({ type: "compilation:error", error });
         }
         return;
+      }
+      if (!bundleResults.outputFiles) {
+        throw new InternalError("bundleResults.outputFiles is undefined");
       }
       if (bundleResults.outputFiles.length !== 1) {
         throw new InternalError(
@@ -122,9 +120,10 @@ export class Runtime {
       this.#worker?.terminate();
     };
 
-    // Send the bundle to the worker
+    // Send the dependency bundle and user code bundle to the worker
     const message: WorkerMessage = {
       type: "execute",
+      dependencyBundle: this.#dependencyBundle,
       bundle: bundledCode,
     };
     this.#worker.postMessage(message);
