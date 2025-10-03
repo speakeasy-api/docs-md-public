@@ -46,7 +46,7 @@ import type {
 } from "@speakeasy-api/docs-md-react";
 
 import { HEADINGS } from "../content/constants.ts";
-import { getOnPageComplete, getSettings } from "../settings.ts";
+import { getInternalSetting, getSettings } from "../settings.ts";
 import { InternalError } from "../util/internalError.ts";
 import type {
   RendererConstructorArgs,
@@ -140,7 +140,7 @@ export default function() {
   );
 }
 `;
-    getOnPageComplete()(loaderPath, loaderContents);
+    getInternalSetting("onPageComplete")(loaderPath, loaderContents);
 
     // Create the embed contents
     const renderer = this.getRenderer({
@@ -166,7 +166,7 @@ export default function() {
     renderer.exitContext();
 
     const { contents } = renderer.render();
-    getOnPageComplete()(embedPath, contents);
+    getInternalSetting("onPageComplete")(embedPath, contents);
 
     this.#embedStack.pop();
     return loaderPath;
@@ -557,7 +557,7 @@ class MdxRenderer extends MarkdownRenderer {
         this.createTabbedSection(() => {
           cb({
             createTryItNowEntry: ({
-              dependencyBundleUrl,
+              dependencyUrlPrefix,
               defaultValue,
               language,
             }) => {
@@ -571,11 +571,12 @@ class MdxRenderer extends MarkdownRenderer {
                   this.#appendComponent<TryItNowProps>({
                     symbol: "TryItNow",
                     props: {
-                      dependencyBundleUrl,
+                      dependencyUrlPrefix,
                       // Stringify the sample so we better preserve white space.
                       // and then trim off the start and end quotes (otherwise
                       // we end up with `""my code""`)
                       defaultValue: JSON.stringify(defaultValue).slice(1, -1),
+                      packageName: getInternalSetting("typeScriptPackageName"),
                     },
                   });
                 },

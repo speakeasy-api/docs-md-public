@@ -25,10 +25,14 @@ export type TryItNowProps = {
    */
   defaultValue: string;
   /**
-   * URL to the prebuilt dependency bundle, as specified by
-   * `codeSample.tryItNowBundleUrl` in the Speakeasy docs config
+   * URL prefix to the prebuilt dependency bundle and types, as specified by
+   * `codeSample.tryItNow.urlPrefix` in the Speakeasy docs config
    */
-  dependencyBundleUrl: string;
+  dependencyUrlPrefix: string;
+  /**
+   * The name of the npm package that the bundle and types represent
+   */
+  packageName: string;
   /**
    * Editor component to use. Defaults to `Editor`.
    */
@@ -57,9 +61,19 @@ export type EditorProps = {
    */
   value: string;
   /**
+   * The name of the npm package that the bundle and types represent
+   */
+  packageName: string;
+  /**
    * Callback to invoke when the value changes
    */
   onValueChange: (value: string) => void;
+  /**
+   * Contents of a bundled TypeScript Definition File (`.d.ts`) that contains
+   * type information for the SDK. The value is `null` if they haven't loaded
+   * yet, or errored while loading
+   */
+  types: string | null;
   /**
    * The theme of the editor
    */

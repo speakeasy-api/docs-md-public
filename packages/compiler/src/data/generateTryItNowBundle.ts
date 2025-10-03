@@ -1,13 +1,28 @@
 import { execSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
-import { dirname, join } from "node:path";
+import { extname, join } from "node:path";
 
+import {
+  Extractor,
+  ExtractorConfig,
+  ExtractorLogLevel,
+} from "@microsoft/api-extractor";
 import { build } from "esbuild";
 
 import { debug, error, info } from "../logging.ts";
-import { getSettings } from "../settings.ts";
+import {
+  getInternalSetting,
+  getSettings,
+  setInternalSetting,
+} from "../settings.ts";
 import { InternalError } from "../util/internalError.ts";
 
 export async function generateTryItNowBundle(
@@ -29,30 +44,106 @@ export async function generateTryItNowBundle(
     throw new InternalError(`No SDK folder found for ${codeSample.language}`);
   }
 
+  if (!codeSample.tryItNow?.outDir) {
+    throw new InternalError("tryItNow.outDiris unexpectedly undefined");
+  }
+
+  // Read in the package.json file
+  const packageFolder = readFileSync(join(sdkFolder, "package.json"), "utf-8");
+  const packageJson = JSON.parse(packageFolder) as Record<string, string>;
+  if (typeof packageJson.name !== "string") {
+    error(`Could not find the "name" property in ${sdkFolder}/package.json`);
+    process.exit(1);
+  }
+  setInternalSetting("typeScriptPackageName", packageJson.name);
+
   info(`Prebuilding Try It Now dependencies for ${codeSample.language}`);
   const dependencyBundle = await bundleTryItNowDeps(sdkFolder);
-
-  if (!codeSample.tryItNow?.bundlePath) {
-    throw new InternalError("tryItNow.bundlePathis unexpectdly undefined");
-  }
-  mkdirSync(dirname(codeSample.tryItNow.bundlePath), {
+  mkdirSync(codeSample.tryItNow.outDir, {
     recursive: true,
   });
-  writeFileSync(codeSample.tryItNow.bundlePath, dependencyBundle, {
+  writeFileSync(join(codeSample.tryItNow.outDir, "deps.js"), dependencyBundle, {
     encoding: "utf-8",
   });
+
+  info(`Prebuilding Try It Now types for ${codeSample.language}`);
+  bundleTryItNowTypes(
+    packageJson,
+    sdkFolder,
+    join(codeSample.tryItNow.outDir, "types.d.ts")
+  );
+}
+
+function bundleTryItNowTypes(
+  packageJson: Record<string, string>,
+  sdkFolder: string,
+  outFile: string
+) {
+  // Find the path to the type declaration file
+  let typeDeclarationPath = packageJson.types;
+  if (!typeDeclarationPath) {
+    if (!packageJson.main) {
+      throw new InternalError(
+        "No 'main' or 'types' field found in package.json, cannot bundle types"
+      );
+    }
+    // Try to find types associated with the entry point
+    const entryPoint = join(sdkFolder, packageJson.main);
+    if (existsSync(entryPoint.replace(extname(entryPoint), ".d.ts"))) {
+      typeDeclarationPath = entryPoint.replace(extname(entryPoint), ".d.ts");
+    } else {
+      throw new InternalError(
+        "No types field found in package.json, cannot bundle types"
+      );
+    }
+  }
+
+  // Create the API Extractor config file
+  const apiExtractorJsonPath = join(sdkFolder, "api-extractor.json");
+  writeFileSync(
+    apiExtractorJsonPath,
+    JSON.stringify({
+      mainEntryPointFilePath: typeDeclarationPath,
+      apiReport: {
+        enabled: false,
+      },
+      docModel: {
+        enabled: false,
+      },
+      dtsRollup: {
+        enabled: true,
+        untrimmedFilePath: outFile,
+      },
+    }),
+    {
+      encoding: "utf-8",
+    }
+  );
+
+  // Run API Extractor
+  const extractorConfig =
+    ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
+  const extractorResult = Extractor.invoke(extractorConfig, {
+    localBuild: true,
+    messageCallback(message) {
+      if (message.logLevel === ExtractorLogLevel.Error) {
+        throw new Error(message.text);
+      }
+      message.handled = true;
+    },
+  });
+
+  if (!extractorResult.succeeded) {
+    throw new InternalError(
+      `API Extractor completed with ${extractorResult.errorCount} errors` +
+        ` and ${extractorResult.warningCount} warnings`
+    );
+  }
 }
 
 async function bundleTryItNowDeps(sdkFolder: string): Promise<string> {
   const packageInstallDir = join(tmpdir(), "speakeasy-" + randomUUID());
-
-  const packageFolder = readFileSync(join(sdkFolder, "package.json"), "utf-8");
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const packageName = JSON.parse(packageFolder).name;
-  if (typeof packageName !== "string") {
-    error(`Could not find the "name" property in ${sdkFolder}/package.json`);
-    process.exit(1);
-  }
+  const packageName = getInternalSetting("typeScriptPackageName");
 
   // Create a package.json file in the temporary directory, and install dependencies
   debug(
