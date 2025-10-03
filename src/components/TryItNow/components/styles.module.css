@@ -13,6 +13,7 @@
 
   div[slot="editor"] {
     flex: 1;
+    max-width: 100%;
   }
 }
 
@@ -41,19 +42,33 @@
 
 .results {
   flex: 1;
+  font-family: var(--speakeasy-code-font-family);
+  font-size: var(--speakeasy-code-font-size);
   display: flex;
-  background-color:#1e1e1e;
+  background-color: #1e1e1e;
   flex-direction: column;
   flex-grow: 1;
-  padding: 1rem;
   max-width: 50%;
   overflow-y: auto;
+  color: var(--speakeasy-try-it-now-results-text-color);
+  pre {
+    line-height: 1.5;
+    color: var(--speakeasy-try-it-now-results-text-color);
+    background-color: transparent;
+    white-space: break-spaces;
+  }
+}
+
+.resultsContent {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
 }
 
 /* Layout styles */
 .layout {
   overflow: hidden;
-  display: flex;  
+  display: flex;
   flex-direction: row;
   border: 0.1rem solid var(--speakeasy-border-color);
   border-radius: var(--speakeasy-code-border-radius);

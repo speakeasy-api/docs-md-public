@@ -1,57 +1,116 @@
 "use client";
 
-import type { RuntimeEvents } from "@speakeasy-api/docs-md-shared";
+import { JSONTree } from "react-json-tree";
 
-import type { ResultsProps } from "../types.ts";
+import type { ExtendedRuntimeEvent, ResultsProps } from "../types.ts";
 import styles from "./styles.module.css";
 
-function formatEvents(events: RuntimeEvents[]) {
+const jsonTreeTheme = {
+  scheme: "transparent",
+  base00: "transparent",
+  base01: "#383830",
+  base02: "#49483e",
+  base03: "#75715e",
+  base04: "#a59f85",
+  base05: "#f8f8f2",
+  base06: "#f5f4f1",
+  base07: "#f9f8f5",
+  base08: "#f92672",
+  base09: "#fd971f",
+  base0A: "#f4bf75",
+  base0B: "#a6e22e",
+  base0C: "#a1efe4",
+  base0D: "#66d9ef",
+  base0E: "#ae81ff",
+  base0F: "#cc6633",
+};
+
+type FormattedEvent = {
+  prefix?: string;
+  value: unknown;
+  id: string;
+};
+
+function formatEvents(events: ExtendedRuntimeEvent[]): FormattedEvent[] {
   return events
-    .map((event) => {
+    .map((event): FormattedEvent | undefined => {
       switch (event.type) {
         case "compilation:error": {
-          return String(event.error);
+          return { prefix: undefined, id: event.id, value: event.error };
         }
         case "execution:log": {
-          return event.level + ": " + event.message;
+          return {
+            prefix: event.level + ": ",
+            id: event.id,
+            value: event.message,
+          };
         }
         case "execution:uncaught-exception": {
-          return String(event.error);
+          return {
+            prefix: "Uncaught Exception: ",
+            id: event.id,
+            value: event.error,
+          };
         }
         case "execution:uncaught-rejection": {
-          return String(event.error);
+          return {
+            prefix: "Uncaught Rejection: ",
+            id: event.id,
+            value: event.error,
+          };
         }
-        default: {
+        case "compilation:started":
+        case "compilation:finished":
+        case "execution:started": {
           return undefined;
         }
       }
     })
-    .filter((event) => event !== undefined);
+    .filter((event): event is FormattedEvent => event !== undefined);
+}
+
+function formatResultsOutput(events: FormattedEvent[]) {
+  return events.map(function (event) {
+    const { prefix, value, id } = event;
+
+    if (typeof value === "object" || value === undefined) {
+      return (
+        <pre key={id}>
+          {prefix}
+          <JSONTree
+            data={value}
+            hideRoot
+            theme={jsonTreeTheme}
+            invertTheme={false}
+          />
+        </pre>
+      );
+    }
+
+    return (
+      <pre key={id}>
+        {prefix}
+        {JSON.stringify(value)}
+      </pre>
+    );
+  });
 }
 
 export function Results({ status }: ResultsProps) {
   // First, check if we don't have anything to show
-  if (
-    status.state === "idle" ||
-    (status.state === "compiling" && !status.previousEvents.length)
-  ) {
+  if (status.state === "idle") {
     return null;
   }
 
-  let displayOutput: string[] = [];
+  let displayOutput: FormattedEvent[] = [];
   switch (status.state) {
     case "compiling": {
-      displayOutput = [
-        "Compiling. Previous events:",
-        ...formatEvents(status.previousEvents),
-      ];
+      displayOutput = formatEvents(status.previousEvents);
       break;
     }
     case "compile-error": {
       displayOutput = [
-        "Compile Error: ",
         ...formatEvents(status.events),
-        "Previous events:",
         ...formatEvents(status.previousEvents),
       ];
       break;
@@ -63,12 +122,8 @@ export function Results({ status }: ResultsProps) {
   }
 
   return (
-    <div className={styles.results}>
-      <pre>
-        {displayOutput.length > 1
-          ? JSON.stringify(displayOutput, null, 2)
-          : displayOutput[0]}
-      </pre>
+    <div className={styles.resultsContent}>
+      {formatResultsOutput(displayOutput)}
     </div>
   );
 }
