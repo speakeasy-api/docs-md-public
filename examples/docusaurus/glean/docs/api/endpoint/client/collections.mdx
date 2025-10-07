@@ -6,6 +6,7 @@ sidebar_label: Client Collections
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -23,9 +24,11 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
   OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -115,9 +118,56 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-addcollectionitems+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-addcollectionitems+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/addcollectionitems \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "collectionId": 87
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-addcollectionitems+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "collectionId": 87
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -388,6 +438,34 @@ The ID of the Collection to add items to.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-addcollectionitems+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-addcollectionitems+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-addcollectionitems+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1221,9 +1299,56 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-createcollection+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-createcollection+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/createcollection \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "name": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-createcollection+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "name": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1964,6 +2089,60 @@ Thumbnail URL. This can be user provided image and/or from downloaded images hos
 
 </OperationRequestBodySection>
 
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-createcollection+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-createcollection+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-createcollection+responses+200+application-json">
+
+```json
+{
+  "collection": {
+    "description": "ipsum eiusmod",
+    "id": 87,
+    "name": "consequat do"
+  }
+}
+```
+
+</SectionContent>
+
+<SectionTab slot="tab" id="operation-createcollection+responses+422+application-json">
+
+422
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-createcollection+responses+422+application-json">
+
+```json
+{
+  "HttpMeta": {
+    "Request": null,
+    "Response": null
+  },
+  "errorCode": "NAME_EXISTS"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
+
 <OperationResponseBodySection slot="response-body">
 
 <TabbedSection>
@@ -2175,9 +2354,60 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-deletecollection+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deletecollection+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/deletecollection \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "ids": [
+    87
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-deletecollection+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "ids": [
+    87
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2254,6 +2484,40 @@ The IDs of the Collections to delete.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-deletecollection+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-deletecollection+responses+422+application-json">
+
+422
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deletecollection+responses+422+application-json">
+
+```json
+{
+  "HttpMeta": {
+    "Request": null,
+    "Response": null
+  },
+  "errorCode": "NAME_EXISTS"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2442,9 +2706,58 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-deletecollectionitem+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deletecollectionitem+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/deletecollectionitem \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "collectionId": 87,
+  "itemId": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-deletecollectionitem+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "collectionId": 87,
+  "itemId": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2545,6 +2858,37 @@ The item ID of the CollectionItem to remove from this Collection.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-deletecollectionitem+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-deletecollectionitem+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-deletecollectionitem+responses+200+application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -3319,9 +3663,58 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-editcollection+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editcollection+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/editcollection \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "id": 87,
+  "name": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-editcollection+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "id": 87,
+  "name": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -4061,6 +4454,59 @@ Thumbnail URL. This can be user provided image and/or from downloaded images hos
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-editcollection+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-editcollection+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editcollection+responses+200+application-json">
+
+```json
+{
+  "description": "ipsum eiusmod",
+  "errorCode": "NAME_EXISTS",
+  "id": 87,
+  "name": "consequat do"
+}
+```
+
+</SectionContent>
+
+<SectionTab slot="tab" id="operation-editcollection+responses+422+application-json">
+
+422
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editcollection+responses+422+application-json">
+
+```json
+{
+  "HttpMeta": {
+    "Request": null,
+    "Response": null
+  },
+  "errorCode": "NAME_EXISTS"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -7583,9 +8029,58 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-editcollectionitem+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editcollectionitem+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/editcollectionitem \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "collectionId": 87,
+  "itemId": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-editcollectionitem+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "collectionId": 87,
+  "itemId": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -7734,6 +8229,34 @@ The optional name of the Collection item.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-editcollectionitem+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-editcollectionitem+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editcollectionitem+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -8505,9 +9028,56 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getcollection+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getcollection+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getcollection \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "id": 87
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getcollection+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "id": 87
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -8632,6 +9202,34 @@ Whether or not to include the Collection Items in this Collection. Only request 
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getcollection+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getcollection+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getcollection+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -10183,9 +10781,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-listcollections+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listcollections+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/listcollections \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-listcollections+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -10287,6 +10928,42 @@ Whether to include the editor roles with the listed Collections.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-listcollections+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-listcollections+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listcollections+responses+200+application-json">
+
+```json
+{
+  "collections": [
+    {
+      "description": "ipsum eiusmod",
+      "id": 87,
+      "name": "consequat do"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

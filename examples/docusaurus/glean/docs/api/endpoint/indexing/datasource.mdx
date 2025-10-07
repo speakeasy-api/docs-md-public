@@ -6,6 +6,7 @@ sidebar_label: Indexing Datasource
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   ExpandableProperty,
   ExpandablePropertyBreakouts,
   ExpandablePropertyDescription,
@@ -17,6 +18,7 @@ import {
   OperationDescriptionSection,
   OperationParametersSection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -91,6 +93,32 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_debug_datasource_status+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_debug_datasource_status+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/debug/{datasource}/status \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -140,6 +168,40 @@ The datasource to get debug status for.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-post_api_index_v1_debug_datasource_status+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_debug_datasource_status+responses+200+application-json; charset=utf-8"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_debug_datasource_status+responses+200+application-json; charset=utf-8"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

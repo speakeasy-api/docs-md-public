@@ -19,8 +19,10 @@ import {
   ExpandableSection,
   Operation,
   OperationCodeSamplesSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -134,9 +136,72 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-agents_completion_v1_agents_completions_post_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_completion_v1_agents_completions_post_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents/completions \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "agent_id": "ipsum eiusmod",
+  "messages": [
+    {
+      "content": "consequat do"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-agents_completion_v1_agents_completions_post_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "agent_id": "ipsum eiusmod",
+  "messages": [
+    {
+      "content": "consequat do"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -3816,6 +3881,53 @@ _Default Value:_ `false`
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_completion_v1_agents_completions_post_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_completion_v1_agents_completions_post_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_completion_v1_agents_completions_post_responses_200_application-json"
+>
+
+```json
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": "0",
+      "message": {}
+    }
+  ],
+  "created": "1702256327",
+  "id": "cmpl-e5cc70bb28c444948073e77776eb30ef",
+  "model": "mistral-small-latest",
+  "object": "chat.completion",
+  "usage": {}
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

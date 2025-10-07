@@ -144,6 +144,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_get_batch_jobs+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_jobs+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -172,39 +198,11 @@ with Mistral(
   id="operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_batch_get_batch_jobs+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "total": 87
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -2018,6 +2016,38 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_create_batch_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_create_batch_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "endpoint": "/v1/chat/completions",
+  "input_files": [
+    "ipsum eiusmod"
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2028,27 +2058,20 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-jobs_api_routes_batch_create_batch_job+request-examples\}
+### Request Example \{#operation-jobs_api_routes_batch_create_batch_job+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "endpoint": "/v1/chat/completions",
+  "input_files": [
+    "ipsum eiusmod"
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -2510,39 +2533,26 @@ _Default Value:_ `24`
   id="operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_batch_create_batch_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -4071,6 +4081,29 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_job+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs/{job_id} \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -4155,39 +4188,26 @@ description: My awesome description
   id="operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_batch_get_batch_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -5716,6 +5736,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_cancel_batch_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_cancel_batch_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs/{job_id}/cancel \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -5800,39 +5846,26 @@ description: My awesome description
   id="operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_batch_cancel_batch_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 

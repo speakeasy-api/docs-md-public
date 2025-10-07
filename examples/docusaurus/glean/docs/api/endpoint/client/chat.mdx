@@ -6,6 +6,7 @@ sidebar_label: Client Chat
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -99,6 +100,31 @@ TypeScript
   defaultValue="import { Glean } from &quot;@gleanwork/api-client&quot;;&NewLine;&NewLine;const glean = new Glean({&NewLine;  apiToken: &quot;GLEAN_API_TOKEN&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await glean.client.chat.create({&NewLine;    messages: [&NewLine;      {&NewLine;        fragments: [&NewLine;          {&NewLine;            text: &quot;What are the company holidays this year?&quot;,&NewLine;          },&NewLine;        ],&NewLine;      },&NewLine;    ],&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
   packageName="@gleanwork/api-client"
 />
+
+</SectionContent>
+
+<SectionTab slot="tab" id="operation-chat+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-chat+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/chat \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "messages": [
+    {}
+  ]
+}'
+```
+
+</CodeSample>
 
 </SectionContent>
 
@@ -1899,6 +1925,26 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-deleteallchats+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deleteallchats+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/deleteallchats \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -1991,6 +2037,31 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-deletechats+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deletechats+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/deletechats \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "ids": [
+    "ipsum eiusmod"
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2040,6 +2111,32 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-deletechats+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "ids": [
+    "ipsum eiusmod"
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2129,6 +2226,29 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getchat+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchat+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getchat \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "id": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2179,6 +2299,30 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getchat+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "id": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -2224,6 +2368,34 @@ The id of the Chat to be retrieved.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getchat+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getchat+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchat+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2404,6 +2576,26 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-listchats+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listchats+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/listchats \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2453,6 +2645,34 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-listchats+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-listchats+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listchats+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2633,6 +2853,29 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getchatapplication+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchatapplication+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getchatapplication \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "id": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2683,6 +2926,30 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 
 </OperationParametersSection>
 
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getchatapplication+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "id": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
+
 <OperationRequestBodySection slot="request-body">
 
 <Section>
@@ -2728,6 +2995,34 @@ The id of the Chat application to be retrieved.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getchatapplication+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getchatapplication+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchatapplication+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2823,6 +3118,34 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-uploadchatfiles+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-uploadchatfiles+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/uploadchatfiles \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "files": [
+    {
+      "content": "ipsum eiusmod",
+      "fileName": "consequat do"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2872,6 +3195,35 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-uploadchatfiles+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "files": [
+    {
+      "content": "ipsum eiusmod",
+      "fileName": "consequat do"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2981,6 +3333,34 @@ Raw files to be uploaded for chat in binary format.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-uploadchatfiles+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-uploadchatfiles+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-uploadchatfiles+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -3253,6 +3633,31 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getchatfiles+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchatfiles+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getchatfiles \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "fileIds": [
+    "ipsum eiusmod"
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -3302,6 +3707,32 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getchatfiles+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "fileIds": [
+    "ipsum eiusmod"
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -3372,6 +3803,34 @@ IDs of files to fetch.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getchatfiles+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getchatfiles+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getchatfiles+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -3644,6 +4103,31 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-deletechatfiles+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-deletechatfiles+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/deletechatfiles \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "fileIds": [
+    "ipsum eiusmod"
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -3693,6 +4177,32 @@ The offset of the client's timezone in minutes from UTC. e.g. PDT is -420 becaus
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-deletechatfiles+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "fileIds": [
+    "ipsum eiusmod"
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -3779,6 +4289,31 @@ TypeScript
   defaultValue="import { Glean } from &quot;@gleanwork/api-client&quot;;&NewLine;&NewLine;const glean = new Glean({&NewLine;  apiToken: &quot;GLEAN_API_TOKEN&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await glean.client.chat.createStream({&NewLine;    messages: [&NewLine;      {&NewLine;        fragments: [&NewLine;          {&NewLine;            text: &quot;What are the company holidays this year?&quot;,&NewLine;          },&NewLine;        ],&NewLine;      },&NewLine;    ],&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
   packageName="@gleanwork/api-client"
 />
+
+</SectionContent>
+
+<SectionTab slot="tab" id="operation-chat_stream+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-chat_stream+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/chat#stream \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "messages": [
+    {}
+  ]
+}'
+```
+
+</CodeSample>
 
 </SectionContent>
 

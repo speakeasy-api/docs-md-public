@@ -1,6 +1,5 @@
-import type { CodeSampleLanguage } from "../settings.ts";
-
-const languageToPrettyLanguage: Record<CodeSampleLanguage, string> = {
+const languageToPrettyLanguage: Record<string, string> = {
+  curl: "cURL",
   typescript: "TypeScript",
   go: "Go",
   java: "Java",
@@ -15,7 +14,7 @@ const languageToPrettyLanguage: Record<CodeSampleLanguage, string> = {
 };
 
 export function getPrettyCodeSampleLanguage(language: string) {
-  return languageToPrettyLanguage[language as CodeSampleLanguage] ?? language;
+  return languageToPrettyLanguage[language] ?? language;
 }
 
 type Escape = "markdown" | "html" | "mdx" | "none";

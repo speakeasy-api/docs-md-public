@@ -6,6 +6,7 @@ sidebar_label: Client Documents
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -22,8 +23,10 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -96,9 +99,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getdocpermissions+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getdocpermissions+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getdocpermissions \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getdocpermissions+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -151,6 +197,34 @@ The Glean Document ID to retrieve permissions for.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getdocpermissions+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getdocpermissions+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getdocpermissions+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -252,9 +326,64 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getdocuments+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getdocuments+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getdocuments \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "documentSpecs": [
+    {
+      "url": "ipsum eiusmod"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getdocuments+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "documentSpecs": [
+    {
+      "url": "ipsum eiusmod"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -331,6 +460,34 @@ List of Document fields to return (that aren't returned by default)
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getdocuments+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getdocuments+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getdocuments+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -766,9 +923,60 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getdocumentsbyfacets+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getdocumentsbyfacets+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getdocumentsbyfacets \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "filterSets": [
+    {}
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getdocumentsbyfacets+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "filterSets": [
+    {}
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -935,6 +1143,37 @@ A list of filters for the query. An AND is assumed between different facetFilter
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getdocumentsbyfacets+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getdocumentsbyfacets+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-getdocumentsbyfacets+responses+200+application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1421,9 +1660,64 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-summarize+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-summarize+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/summarize \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "documentSpecs": [
+    {
+      "url": "ipsum eiusmod"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-summarize+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "documentSpecs": [
+    {
+      "url": "ipsum eiusmod"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1572,6 +1866,34 @@ An opaque token that represents this particular result. To be used for /feedback
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-summarize+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-summarize+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-summarize+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

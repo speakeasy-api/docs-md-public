@@ -6,6 +6,7 @@ sidebar_label: Client Pins
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -22,8 +23,10 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -96,9 +99,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-editpin+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editpin+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/editpin \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-editpin+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -323,6 +369,36 @@ The query strings for which the pinned result will show.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-editpin+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-editpin+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-editpin+responses+200+application-json">
+
+```json
+{
+  "documentId": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -978,9 +1054,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-getpin+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getpin+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/getpin \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-getpin+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1033,6 +1152,34 @@ The opaque id of the pin to be fetched.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-getpin+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-getpin+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-getpin+responses+200+application-json">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1363,9 +1510,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-listpins+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listpins+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/listpins \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-listpins+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1394,6 +1584,40 @@ List pins request
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-listpins+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-listpins+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-listpins+responses+200+application-json">
+
+```json
+{
+  "pins": [
+    {
+      "documentId": "ipsum eiusmod"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1730,9 +1954,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-pin+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-pin+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/pin \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-pin+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1957,6 +2224,36 @@ The query strings for which the pinned result will show.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-pin+responses\}
+
+</SectionTitle>
+
+<SectionTab slot="tab" id="operation-pin+responses+200+application-json">
+
+200
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-pin+responses+200+application-json">
+
+```json
+{
+  "documentId": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2612,9 +2909,52 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-unpin+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-unpin+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/unpin \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-unpin+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 

@@ -21,9 +21,11 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationParametersSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
   OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -126,6 +128,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-agents_api_v1_agents_list_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-agents_api_v1_agents_list_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -187,6 +209,49 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_api_v1_agents_list_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_agents_list_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_list_responses_200_application-json"
+>
+
+```json
+[
+  {
+    "created_at": "2025-10-07T20:56:01.974Z",
+    "id": "ipsum eiusmod",
+    "model": "consequat do",
+    "name": "reprehenderit ut dolore",
+    "updated_at": "2025-10-07T20:56:01.974Z",
+    "version": 87
+  }
+]
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1493,9 +1558,58 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-agents_api_v1_agents_create_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-agents_api_v1_agents_create_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "model": "ipsum eiusmod",
+  "name": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-agents_api_v1_agents_create_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "model": "ipsum eiusmod",
+  "name": "consequat do"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2571,6 +2685,47 @@ _Default Value:_ `"document_library"`
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_api_v1_agents_create_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_agents_create_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_create_responses_200_application-json"
+>
+
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "id": "ipsum eiusmod",
+  "model": "consequat do",
+  "name": "reprehenderit ut dolore",
+  "updated_at": "2025-10-07T20:56:01.974Z",
+  "version": 87
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -3834,6 +3989,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-agents_api_v1_agents_get_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-agents_api_v1_agents_get_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents/{agent_id} \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -3877,6 +4052,47 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_api_v1_agents_get_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_agents_get_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_get_responses_200_application-json"
+>
+
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "id": "ipsum eiusmod",
+  "model": "consequat do",
+  "name": "reprehenderit ut dolore",
+  "updated_at": "2025-10-07T20:56:01.974Z",
+  "version": 87
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -5143,6 +5359,27 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-agents_api_v1_agents_update_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-agents_api_v1_agents_update_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents/{agent_id} \
+ -X PATCH \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -5186,6 +5423,28 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-agents_api_v1_agents_update_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -6261,6 +6520,47 @@ _Default Value:_ `"document_library"`
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_api_v1_agents_update_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_agents_update_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_update_responses_200_application-json"
+>
+
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "id": "ipsum eiusmod",
+  "model": "consequat do",
+  "name": "reprehenderit ut dolore",
+  "updated_at": "2025-10-07T20:56:01.974Z",
+  "version": 87
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -7536,6 +7836,29 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-agents_api_v1_agents_update_version_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_update_version_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents/{agent_id}/version \
+ -X PATCH \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -7597,6 +7920,47 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-agents_api_v1_agents_update_version_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-agents_api_v1_agents_update_version_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_api_v1_agents_update_version_responses_200_application-json"
+>
+
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "id": "ipsum eiusmod",
+  "model": "consequat do",
+  "name": "reprehenderit ut dolore",
+  "updated_at": "2025-10-07T20:56:01.974Z",
+  "version": 87
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

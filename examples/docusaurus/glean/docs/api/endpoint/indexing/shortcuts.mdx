@@ -6,6 +6,7 @@ sidebar_label: Indexing Shortcuts
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   ExpandableBreakout,
   ExpandableBreakoutProperties,
   ExpandableBreakoutTitle,
@@ -18,6 +19,7 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -88,9 +90,78 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_bulkindexshortcuts+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_bulkindexshortcuts+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/bulkindexshortcuts \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "shortcuts": [
+    {
+      "createdBy": "ipsum eiusmod",
+      "destinationUrl": "consequat do",
+      "inputAlias": "reprehenderit ut dolore",
+      "intermediateUrl": "occaecat dolor sit"
+    }
+  ],
+  "uploadId": "nostrud"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_bulkindexshortcuts+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "shortcuts": [
+    {
+      "createdBy": "ipsum eiusmod",
+      "destinationUrl": "consequat do",
+      "inputAlias": "reprehenderit ut dolore",
+      "intermediateUrl": "occaecat dolor sit"
+    }
+  ],
+  "uploadId": "nostrud"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -588,9 +659,73 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_uploadshortcuts+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_uploadshortcuts+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/uploadshortcuts \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "shortcuts": [
+    {
+      "createdBy": "ipsum eiusmod",
+      "destinationUrl": "consequat do",
+      "inputAlias": "reprehenderit ut dolore"
+    }
+  ],
+  "uploadId": "occaecat dolor sit"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_uploadshortcuts+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "shortcuts": [
+    {
+      "createdBy": "ipsum eiusmod",
+      "destinationUrl": "consequat do",
+      "inputAlias": "reprehenderit ut dolore"
+    }
+  ],
+  "uploadId": "occaecat dolor sit"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 

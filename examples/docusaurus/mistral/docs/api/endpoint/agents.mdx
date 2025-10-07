@@ -158,6 +158,40 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-agents_completion_v1_agents_completions_post+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-agents_completion_v1_agents_completions_post+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/agents/completions \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "agent_id": "ipsum eiusmod",
+  "messages": [
+    {
+      "content": "consequat do"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -168,27 +202,22 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-agents_completion_v1_agents_completions_post+request-examples\}
+### Request Example \{#operation-agents_completion_v1_agents_completions_post+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "agent_id": "ipsum eiusmod",
+  "messages": [
+    {
+      "content": "consequat do"
+    }
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -10717,39 +10746,22 @@ defaultValue: MyDefaultValue
   id="operation-agents_completion_v1_agents_completions_post+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-agents_completion_v1_agents_completions_post+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": "0",
+      "message": {}
+    }
+  ],
+  "created": "1702256327",
+  "id": "cmpl-e5cc70bb28c444948073e77776eb30ef",
+  "model": "mistral-small-latest",
+  "object": "chat.completion",
+  "usage": {}
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 

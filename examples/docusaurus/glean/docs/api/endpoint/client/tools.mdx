@@ -6,6 +6,7 @@ sidebar_label: Client Tools
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -21,8 +22,10 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationParametersSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -95,6 +98,26 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-get_rest_api_v1_tools_list+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-get_rest_api_v1_tools_list+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/tools/list \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -144,6 +167,40 @@ Optional array of tool names to filter by
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-get_rest_api_v1_tools_list+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-get_rest_api_v1_tools_list+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-get_rest_api_v1_tools_list+responses+200+application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -408,9 +465,68 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_rest_api_v1_tools_call+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-post_rest_api_v1_tools_call+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/rest/api/v1/tools/call \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "name": "ipsum eiusmod",
+  "parameters": [
+    {
+      "name": "consequat do",
+      "value": "reprehenderit ut dolore"
+    }
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_rest_api_v1_tools_call+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "name": "ipsum eiusmod",
+  "parameters": [
+    {
+      "name": "consequat do",
+      "value": "reprehenderit ut dolore"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -626,6 +742,40 @@ The value of the parameter (for primitive types)
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-post_rest_api_v1_tools_call+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-post_rest_api_v1_tools_call+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_rest_api_v1_tools_call+responses+200+application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

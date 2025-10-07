@@ -5,6 +5,7 @@ sidebarTitle: Encounters
 import "@speakeasy-api/docs-md-react/nextra.css";
 
 import {
+  CodeSample,
   ExpandableBreakout,
   ExpandableBreakoutProperties,
   ExpandableBreakoutTitle,
@@ -16,9 +17,11 @@ import {
   ExpandableSection,
   FrontMatterDisplayType,
   Operation,
+  OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationParametersSection,
   OperationResponseBodyDisplayTypeSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSecuritySection,
   OperationSummarySection,
@@ -62,6 +65,33 @@ _List encounter methods_
 Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
 
 </OperationDescriptionSection>
+
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_list_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-api_v2_encounter_method_list_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-method/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
 
 <OperationSecuritySection slot="security">
 
@@ -213,6 +243,40 @@ Case-insensitive query applied on the `name` property.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_method_list_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_method_list_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_method_list_responses_200_application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -435,6 +499,36 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_method_retrieve_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_method_retrieve_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-method/{id}/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -536,6 +630,52 @@ This parameter can be a string or an integer.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_method_retrieve_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_method_retrieve_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_method_retrieve_responses_200_application-json"
+>
+
+```json
+{
+  "id": 87,
+  "name": "ipsum eiusmod",
+  "names": [
+    {
+      "language": {
+        "name": "consequat do",
+        "url": "reprehenderit ut dolore"
+      },
+      "name": "occaecat dolor sit"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -791,6 +931,33 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_condition_list_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-api_v2_encounter_condition_list_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-condition/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -941,6 +1108,40 @@ Case-insensitive query applied on the `name` property.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_condition_list_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_list_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_list_responses_200_application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1163,6 +1364,36 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab slot="tab" id="operation-api_v2_encounter_condition_retrieve_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_retrieve_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-condition/{id}/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -1264,6 +1495,58 @@ This parameter can be a string or an integer.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_condition_retrieve_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_retrieve_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_retrieve_responses_200_application-json"
+>
+
+```json
+{
+  "id": 87,
+  "name": "ipsum eiusmod",
+  "names": [
+    {
+      "language": {
+        "name": "consequat do",
+        "url": "reprehenderit ut dolore"
+      },
+      "name": "occaecat dolor sit"
+    }
+  ],
+  "values": [
+    {
+      "name": "nostrud",
+      "url": "aute aliqua aute commodo"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1582,6 +1865,39 @@ Encounter condition values are the various states that an encounter condition ca
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_value_list_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_value_list_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-condition-value/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -1732,6 +2048,40 @@ Case-insensitive query applied on the `name` property.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_condition_value_list_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_value_list_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_value_list_responses_200_application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1954,6 +2304,39 @@ Encounter condition values are the various states that an encounter condition ca
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_value_retrieve_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_value_retrieve_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/encounter-condition-value/{id}/ \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -2055,6 +2438,56 @@ This parameter can be a string or an integer.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_encounter_condition_value_retrieve_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_encounter_condition_value_retrieve_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_encounter_condition_value_retrieve_responses_200_application-json"
+>
+
+```json
+{
+  "condition": {
+    "name": "ipsum eiusmod",
+    "url": "consequat do"
+  },
+  "id": 87,
+  "name": "reprehenderit ut dolore",
+  "names": [
+    {
+      "language": {
+        "name": "occaecat dolor sit",
+        "url": "nostrud"
+      },
+      "name": "aute aliqua aute commodo"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -2373,6 +2806,36 @@ Handles Pokemon Encounters as a sub-resource.
 
 </OperationDescriptionSection>
 
+<OperationCodeSamplesSection slot="code-samples">
+
+<TabbedSection>
+
+<SectionTab slot="tab" id="operation-api_v2_pokemon_encounters_retrieve_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_pokemon_encounters_retrieve_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://pokeapi.co/api/v2/pokemon/{pokemon_id}/encounters \
+ -X GET
+```
+
+</CodeSample>
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationCodeSamplesSection>
+
 <OperationSecuritySection slot="security">
 
 <Section>
@@ -2468,6 +2931,73 @@ Handles Pokemon Encounters as a sub-resource.
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-api_v2_pokemon_encounters_retrieve_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-api_v2_pokemon_encounters_retrieve_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-api_v2_pokemon_encounters_retrieve_responses_200_application-json"
+>
+
+```json
+[
+  {
+    "location_area": {
+      "name": "cerulean-city-area",
+      "url": "https://pokeapi.co/api/v2/location-area/281/"
+    },
+    "version_details": [
+      {
+        "encounter_details": [
+          {
+            "chance": "100",
+            "condition_values": [
+              {
+                "name": "story-progress-beat-red",
+                "url": "https://pokeapi.co/api/v2/encounter-condition-value/55/"
+              }
+            ],
+            "max_level": "10",
+            "method": {
+              "name": "gift",
+              "url": "https://pokeapi.co/api/v2/encounter-method/18/"
+            },
+            "min_level": "10"
+          }
+        ],
+        "max_chance": "100",
+        "version": {
+          "name": "red",
+          "url": "https://pokeapi.co/api/v2/version/1/"
+        }
+      }
+    ]
+  }
+]
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

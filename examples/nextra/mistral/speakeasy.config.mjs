@@ -20,5 +20,8 @@ export default {
       language: "python",
       sdkTarballPath: "../../sdks/mistral-python.tar.gz",
     },
+    {
+      language: "curl",
+    },
   ],
 };

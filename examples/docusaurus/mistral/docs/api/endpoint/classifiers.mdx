@@ -153,6 +153,30 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-moderations_v1_moderations_post+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-moderations_v1_moderations_post+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/moderations \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "input": "ipsum eiusmod",
+  "model": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -163,27 +187,18 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-moderations_v1_moderations_post+request-examples\}
+### Request Example \{#operation-moderations_v1_moderations_post+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "input": "ipsum eiusmod",
+  "model": "consequat do"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -367,39 +382,15 @@ defaultValue: MyDefaultValue
   id="operation-moderations_v1_moderations_post+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-moderations_v1_moderations_post+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "id": "mod-e5cc70bb28c444948073e77776eb30ef",
+  "model": "consequat do",
+  "results": [
+    {}
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -931,6 +922,40 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-chat_moderations_v1_chat_moderations_post+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-chat_moderations_v1_chat_moderations_post+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/chat/moderations \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "input": [
+    {
+      "content": "ipsum eiusmod"
+    }
+  ],
+  "model": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -941,27 +966,22 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-chat_moderations_v1_chat_moderations_post+request-examples\}
+### Request Example \{#operation-chat_moderations_v1_chat_moderations_post+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "input": [
+    {
+      "content": "ipsum eiusmod"
+    }
+  ],
+  "model": "consequat do"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -9165,39 +9185,15 @@ defaultValue: MyDefaultValue
   id="operation-chat_moderations_v1_chat_moderations_post+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-chat_moderations_v1_chat_moderations_post+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "id": "mod-e5cc70bb28c444948073e77776eb30ef",
+  "model": "consequat do",
+  "results": [
+    {}
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -9726,6 +9722,36 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-classifications_v1_classifications_post+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-classifications_v1_classifications_post+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/classifications \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "input": "ipsum eiusmod",
+  "model": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -9736,27 +9762,18 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-classifications_v1_classifications_post+request-examples\}
+### Request Example \{#operation-classifications_v1_classifications_post+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "input": "ipsum eiusmod",
+  "model": "consequat do"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -9940,39 +9957,21 @@ defaultValue: MyDefaultValue
   id="operation-classifications_v1_classifications_post+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-classifications_v1_classifications_post+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "id": "mod-e5cc70bb28c444948073e77776eb30ef",
+  "model": "consequat do",
+  "results": [
+    [
+      {
+        "scores": [
+          87
+        ]
+      }
+    ]
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -10460,6 +10459,42 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-chat_classifications_v1_chat_classifications_post+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-chat_classifications_v1_chat_classifications_post+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/chat/classifications \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "input": {
+    "messages": [
+      {
+        "content": "ipsum eiusmod"
+      }
+    ]
+  },
+  "model": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -10470,27 +10505,24 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-chat_classifications_v1_chat_classifications_post+request-examples\}
+### Request Example \{#operation-chat_classifications_v1_chat_classifications_post+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "input": {
+    "messages": [
+      {
+        "content": "ipsum eiusmod"
+      }
+    ]
+  },
+  "model": "consequat do"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -18836,39 +18868,21 @@ defaultValue: MyDefaultValue
   id="operation-chat_classifications_v1_chat_classifications_post+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-chat_classifications_v1_chat_classifications_post+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "id": "mod-e5cc70bb28c444948073e77776eb30ef",
+  "model": "consequat do",
+  "results": [
+    [
+      {
+        "scores": [
+          87
+        ]
+      }
+    ]
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 

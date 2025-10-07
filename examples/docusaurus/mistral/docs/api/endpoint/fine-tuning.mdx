@@ -146,6 +146,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/fine_tuning/jobs \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -174,39 +200,11 @@ with Mistral(
   id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "total": 87
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -5962,6 +5960,36 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/fine_tuning/jobs \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "hyperparameters": {},
+  "model": "ministral-3b-latest"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -6022,27 +6050,18 @@ with Mistral(
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+request-examples\}
+### Request Example \{#operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "hyperparameters": {},
+  "model": "ministral-3b-latest"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -9069,39 +9088,20 @@ defaultValue: MyDefaultValue
   id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_create_fine_tuning_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "auto_start": false,
+  "created_at": 87,
+  "hyperparameters": {},
+  "id": "ipsum eiusmod",
+  "model": "ministral-3b-latest",
+  "modified_at": 14,
+  "status": "QUEUED",
+  "training_files": [
+    "consequat do"
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -15395,6 +15395,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id} \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -15469,39 +15495,20 @@ The ID of the job to analyse.
   id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "auto_start": false,
+  "created_at": 87,
+  "hyperparameters": {},
+  "id": "ipsum eiusmod",
+  "model": "ministral-3b-latest",
+  "modified_at": 14,
+  "status": "QUEUED",
+  "training_files": [
+    "consequat do"
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -23506,6 +23513,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/cancel \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -23580,39 +23613,20 @@ The ID of the job to cancel.
   id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "auto_start": false,
+  "created_at": 87,
+  "hyperparameters": {},
+  "id": "ipsum eiusmod",
+  "model": "ministral-3b-latest",
+  "modified_at": 14,
+  "status": "QUEUED",
+  "training_files": [
+    "consequat do"
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -31617,6 +31631,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/start \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -31701,39 +31741,20 @@ description: My awesome description
   id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-jobs_api_routes_fine_tuning_start_fine_tuning_job+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "auto_start": false,
+  "created_at": 87,
+  "hyperparameters": {},
+  "id": "ipsum eiusmod",
+  "model": "ministral-3b-latest",
+  "modified_at": 14,
+  "status": "QUEUED",
+  "training_files": [
+    "consequat do"
+  ]
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 

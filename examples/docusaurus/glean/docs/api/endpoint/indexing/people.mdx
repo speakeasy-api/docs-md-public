@@ -6,6 +6,7 @@ sidebar_label: Indexing People
 import "@speakeasy-api/docs-md-react/docusaurus.css";
 
 import {
+  CodeSample,
   Embed,
   EmbedProvider,
   EmbedTrigger,
@@ -25,8 +26,10 @@ import {
   OperationDescriptionSection,
   OperationParametersSection,
   OperationRequestBodyDescriptionSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -111,6 +114,35 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_debug_datasource_user+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_debug_datasource_user+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/debug/{datasource}/user \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "email": "u1@foo.com"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -160,6 +192,30 @@ The datasource to which the user belongs
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_debug_datasource_user+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "email": "u1@foo.com"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -222,6 +278,40 @@ u1@foo.com
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-post_api_index_v1_debug_datasource_user+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_debug_datasource_user+responses+200+application-json; charset=utf-8"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_debug_datasource_user+responses+200+application-json; charset=utf-8"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -554,9 +644,56 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_getusercount+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-post_api_index_v1_getusercount+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/getusercount \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "datasource": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_getusercount+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "datasource": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -609,6 +746,40 @@ Datasource name for which user count is needed.
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples \{#operation-post_api_index_v1_getusercount+responses\}
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_getusercount+responses+200+application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_getusercount+responses+200+application-json"
+>
+
+```json
+{}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -722,9 +893,62 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_indexemployee+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-post_api_index_v1_indexemployee+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/indexemployee \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "employee": {
+    "department": "ipsum eiusmod",
+    "email": "consequat do"
+  }
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_indexemployee+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "employee": {
+    "department": "ipsum eiusmod",
+    "email": "consequat do"
+  }
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -1652,9 +1876,74 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_bulkindexemployees+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_bulkindexemployees+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/bulkindexemployees \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "employees": [
+    {
+      "department": "ipsum eiusmod",
+      "email": "consequat do"
+    }
+  ],
+  "uploadId": "reprehenderit ut dolore"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_bulkindexemployees+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "employees": [
+    {
+      "department": "ipsum eiusmod",
+      "email": "consequat do"
+    }
+  ],
+  "uploadId": "reprehenderit ut dolore"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2679,6 +2968,32 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-post_api_index_v1_processallemployeesandteams+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_processallemployeesandteams+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/processallemployeesandteams \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2731,9 +3046,59 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_deleteemployee+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_deleteemployee+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/deleteemployee \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "employeeEmail": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_deleteemployee+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "employeeEmail": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -2856,9 +3221,72 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_indexteam+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-post_api_index_v1_indexteam+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/indexteam \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "team": {
+    "id": "ipsum eiusmod",
+    "members": [
+      {
+        "email": "consequat do"
+      }
+    ],
+    "name": "reprehenderit ut dolore"
+  }
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_indexteam+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "team": {
+    "id": "ipsum eiusmod",
+    "members": [
+      {
+        "email": "consequat do"
+      }
+    ],
+    "name": "reprehenderit ut dolore"
+  }
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -3336,9 +3764,56 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_deleteteam+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-post_api_index_v1_deleteteam+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/deleteteam \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "id": "ipsum eiusmod"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_deleteteam+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "id": "ipsum eiusmod"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -3440,9 +3915,81 @@ TypeScript
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-post_api_index_v1_bulkindexteams+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-post_api_index_v1_bulkindexteams+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://{instance}-be.glean.com/api/index/v1/bulkindexteams \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APITOKEN_HERE' \
+ -d '{
+  "teams": [
+    {
+      "id": "ipsum eiusmod",
+      "members": [
+        {
+          "email": "consequat do"
+        }
+      ],
+      "name": "reprehenderit ut dolore"
+    }
+  ],
+  "uploadId": "occaecat dolor sit"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example \{#operation-post_api_index_v1_bulkindexteams+request-examples\}
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "teams": [
+    {
+      "id": "ipsum eiusmod",
+      "members": [
+        {
+          "email": "consequat do"
+        }
+      ],
+      "name": "reprehenderit ut dolore"
+    }
+  ],
+  "uploadId": "occaecat dolor sit"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 

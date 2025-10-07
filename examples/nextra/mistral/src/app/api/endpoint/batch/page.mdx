@@ -18,8 +18,10 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationParametersSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -134,9 +136,71 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_get_batch_jobs_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_jobs_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-jobs_api_routes_batch_get_batch_jobs_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_jobs_responses_200_application-json"
+>
+
+```json
+{
+  "total": 87
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -767,9 +831,68 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_create_batch_job_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_create_batch_job_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "endpoint": "/v1/chat/completions",
+  "input_files": [
+    "ipsum eiusmod"
+  ]
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-jobs_api_routes_batch_create_batch_job_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "endpoint": "/v1/chat/completions",
+  "input_files": [
+    "ipsum eiusmod"
+  ]
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -906,6 +1029,57 @@ _Default Value:_ `24`
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-jobs_api_routes_batch_create_batch_job_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_create_batch_job_responses_200_application-json"
+>
+
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1431,6 +1605,29 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-jobs_api_routes_batch_get_batch_job_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_job_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs/{job_id} \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -1474,6 +1671,57 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-jobs_api_routes_batch_get_batch_job_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_get_batch_job_responses_200_application-json"
+>
+
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -1999,6 +2247,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_cancel_batch_job_code-samples_curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_cancel_batch_job_code-samples_curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/batch/jobs/{job_id}/cancel \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2042,6 +2316,57 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-jobs_api_routes_batch_cancel_batch_job_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-jobs_api_routes_batch_cancel_batch_job_responses_200_application-json"
+>
+
+```json
+{
+  "completed_requests": 87,
+  "created_at": 14,
+  "endpoint": "ipsum eiusmod",
+  "errors": [
+    {
+      "message": "consequat do"
+    }
+  ],
+  "failed_requests": 56,
+  "id": "reprehenderit ut dolore",
+  "input_files": [
+    "occaecat dolor sit"
+  ],
+  "status": "QUEUED",
+  "succeeded_requests": 91,
+  "total_requests": 32
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 

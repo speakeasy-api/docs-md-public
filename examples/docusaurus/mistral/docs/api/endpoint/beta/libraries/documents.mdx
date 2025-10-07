@@ -137,6 +137,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_list_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_documents_list_v1+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -165,39 +185,33 @@ with Mistral(
   id="operation-libraries_documents_list_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_list_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "data": [
+    {
+      "created_at": "2025-10-07T20:56:01.974Z",
+      "extension": "ipsum eiusmod",
+      "hash": "consequat do",
+      "id": "reprehenderit ut dolore",
+      "library_id": "occaecat dolor sit",
+      "mime_type": "nostrud",
+      "name": "aute aliqua aute commodo",
+      "processing_status": "irure",
+      "size": 87,
+      "tokens_processing_total": 14,
+      "uploaded_by_id": "dolor",
+      "uploaded_by_type": "sunt"
+    }
+  ],
+  "pagination": {
+    "current_page": 56,
+    "has_more": false,
+    "page_size": 91,
+    "total_items": 32,
+    "total_pages": 78
+  }
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -2102,6 +2116,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_upload_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_documents_upload_v1+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "file": {
+    "content": "ipsum eiusmod",
+    "fileName": "consequat do"
+  }
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -2168,27 +2208,20 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-libraries_documents_upload_v1+request-examples\}
+### Request Example \{#operation-libraries_documents_upload_v1+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "file": {
+    "content": "ipsum eiusmod",
+    "fileName": "consequat do"
+  }
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -2531,39 +2564,22 @@ defaultValue: MyDefaultValue
   id="operation-libraries_documents_upload_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_upload_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "extension": "ipsum eiusmod",
+  "hash": "consequat do",
+  "id": "reprehenderit ut dolore",
+  "library_id": "occaecat dolor sit",
+  "mime_type": "nostrud",
+  "name": "aute aliqua aute commodo",
+  "processing_status": "irure",
+  "size": 87,
+  "tokens_processing_total": 14,
+  "uploaded_by_id": "dolor",
+  "uploaded_by_type": "sunt"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -3826,6 +3842,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_get_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_documents_get_v1+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -3944,39 +3980,22 @@ description: My awesome description
   id="operation-libraries_documents_get_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_get_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "extension": "ipsum eiusmod",
+  "hash": "consequat do",
+  "id": "reprehenderit ut dolore",
+  "library_id": "occaecat dolor sit",
+  "mime_type": "nostrud",
+  "name": "aute aliqua aute commodo",
+  "processing_status": "irure",
+  "size": 87,
+  "tokens_processing_total": 14,
+  "uploaded_by_id": "dolor",
+  "uploaded_by_type": "sunt"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -5239,6 +5258,27 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_update_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_documents_update_v1+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
+ -X PUT \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -5339,27 +5379,15 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Request Examples \{#operation-libraries_documents_update_v1+request-examples\}
+### Request Example \{#operation-libraries_documents_update_v1+request-examples\}
 
 </SectionTitle>
 
 <SectionContent slot="content">
 
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
 
 </SectionContent>
 
@@ -5496,39 +5524,22 @@ defaultValue: MyDefaultValue
   id="operation-libraries_documents_update_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_update_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "created_at": "2025-10-07T20:56:01.974Z",
+  "extension": "ipsum eiusmod",
+  "hash": "consequat do",
+  "id": "reprehenderit ut dolore",
+  "library_id": "occaecat dolor sit",
+  "mime_type": "nostrud",
+  "name": "aute aliqua aute commodo",
+  "processing_status": "irure",
+  "size": 87,
+  "tokens_processing_total": 14,
+  "uploaded_by_id": "dolor",
+  "uploaded_by_type": "sunt"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -6790,6 +6801,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_delete_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_documents_delete_v1+code-samples+curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
+ -X DELETE \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -6969,6 +7000,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-libraries_documents_get_text_content_v1+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_documents_get_text_content_v1+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/text_content \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -7087,39 +7144,11 @@ description: My awesome description
   id="operation-libraries_documents_get_text_content_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_get_text_content_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "text": "ipsum eiusmod"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -7316,6 +7345,29 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_documents_get_status_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_documents_get_status_v1+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/status \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -7434,39 +7486,12 @@ description: My awesome description
   id="operation-libraries_documents_get_status_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_get_status_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+{
+  "document_id": "ipsum eiusmod",
+  "processing_status": "consequat do"
+}
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -7733,6 +7758,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-libraries_documents_get_signed_url_v1+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_documents_get_signed_url_v1+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/signed-url \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -7851,39 +7902,9 @@ description: My awesome description
   id="operation-libraries_documents_get_signed_url_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_get_signed_url_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+"ipsum eiusmod"
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -8020,6 +8041,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab
+  slot="tab"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+code-samples+curl"
+>
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/extracted-text-signed-url \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -8138,39 +8185,9 @@ description: My awesome description
   id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses+200+application-json"
 >
 
-<OperationRequestBodyExamplesSection slot="request-body-examples">
-
-<Section>
-
-<SectionTitle slot="title">
-
-### Request Examples \{#operation-libraries_documents_get_extracted_text_signed_url_v1+responses+200+application-json+request-examples\}
-
-</SectionTitle>
-
-<SectionContent slot="content">
-
-<DebugPlaceholder>
-
-No examples provided
-
-_OpenAPI example:_
-
+```json
+"ipsum eiusmod"
 ```
-content:
-  application/json:
-    examples:
-      example1:
-        value: { foo: 'bar'}
-```
-
-</DebugPlaceholder>
-
-</SectionContent>
-
-</Section>
-
-</OperationRequestBodyExamplesSection>
 
 </SectionContent>
 
@@ -8297,6 +8314,29 @@ with Mistral(
     # Use the SDK ...
 
 
+```
+
+</CodeSample>
+
+</SectionContent>
+
+<SectionTab slot="tab" id="operation-libraries_documents_reprocess_v1+code-samples+curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_documents_reprocess_v1+code-samples+curl"
+>
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/reprocess \
+ -X POST \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
 ```
 
 </CodeSample>

@@ -18,8 +18,10 @@ import {
   OperationCodeSamplesSection,
   OperationDescriptionSection,
   OperationParametersSection,
+  OperationRequestBodyExamplesSection,
   OperationRequestBodySection,
   OperationResponseBodyDescriptionSection,
+  OperationResponseBodyExamplesSection,
   OperationResponseBodySection,
   OperationSummarySection,
   OperationTitleSection,
@@ -122,6 +124,26 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_share_list_v1_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_share_list_v1_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/share \
+ -X GET \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -165,6 +187,50 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-libraries_share_list_v1_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-libraries_share_list_v1_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_share_list_v1_responses_200_application-json"
+>
+
+```json
+{
+  "data": [
+    {
+      "library_id": "ipsum eiusmod",
+      "org_id": "consequat do",
+      "role": "reprehenderit ut dolore",
+      "share_with_type": "occaecat dolor sit",
+      "share_with_uuid": "nostrud"
+    }
+  ]
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -436,6 +502,32 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_share_create_v1_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_share_create_v1_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/share \
+ -X PUT \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "level": "Viewer",
+  "org_id": "ipsum eiusmod",
+  "share_with_type": "User",
+  "share_with_uuid": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -479,6 +571,33 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-libraries_share_create_v1_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "level": "Viewer",
+  "org_id": "ipsum eiusmod",
+  "share_with_type": "User",
+  "share_with_uuid": "consequat do"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -585,6 +704,46 @@ The id of the entity (user, workspace or organization) to share with
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-libraries_share_create_v1_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-libraries_share_create_v1_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_share_create_v1_responses_200_application-json"
+>
+
+```json
+{
+  "library_id": "ipsum eiusmod",
+  "org_id": "consequat do",
+  "role": "reprehenderit ut dolore",
+  "share_with_type": "occaecat dolor sit",
+  "share_with_uuid": "nostrud"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
@@ -807,6 +966,31 @@ with Mistral(
 
 </SectionContent>
 
+<SectionTab slot="tab" id="operation-libraries_share_delete_v1_code-samples_curl">
+
+cURL
+
+</SectionTab>
+
+<SectionContent slot="content" id="operation-libraries_share_delete_v1_code-samples_curl">
+
+<CodeSample>
+
+```curl
+curl https://api.mistral.ai/v1/libraries/{library_id}/share \
+ -X DELETE \
+ -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
+ -d '{
+  "org_id": "ipsum eiusmod",
+  "share_with_type": "User",
+  "share_with_uuid": "consequat do"
+}'
+```
+
+</CodeSample>
+
+</SectionContent>
+
 </TabbedSection>
 
 </OperationCodeSamplesSection>
@@ -850,6 +1034,32 @@ with Mistral(
 </Section>
 
 </OperationParametersSection>
+
+<OperationRequestBodyExamplesSection slot="request-body-examples">
+
+<Section>
+
+<SectionTitle slot="title">
+
+### Request Example [#operation-libraries_share_delete_v1_request-examples]
+
+</SectionTitle>
+
+<SectionContent slot="content">
+
+```json
+{
+  "org_id": "ipsum eiusmod",
+  "share_with_type": "User",
+  "share_with_uuid": "consequat do"
+}
+```
+
+</SectionContent>
+
+</Section>
+
+</OperationRequestBodyExamplesSection>
 
 <OperationRequestBodySection slot="request-body">
 
@@ -938,6 +1148,46 @@ The id of the entity (user, workspace or organization) to share with
 </Section>
 
 </OperationRequestBodySection>
+
+<OperationResponseBodyExamplesSection slot="response-body-examples">
+
+<TabbedSection>
+
+<SectionTitle slot="title">
+
+### Responses Examples [#operation-libraries_share_delete_v1_responses]
+
+</SectionTitle>
+
+<SectionTab
+  slot="tab"
+  id="operation-libraries_share_delete_v1_responses_200_application-json"
+>
+
+200
+
+</SectionTab>
+
+<SectionContent
+  slot="content"
+  id="operation-libraries_share_delete_v1_responses_200_application-json"
+>
+
+```json
+{
+  "library_id": "ipsum eiusmod",
+  "org_id": "consequat do",
+  "role": "reprehenderit ut dolore",
+  "share_with_type": "occaecat dolor sit",
+  "share_with_uuid": "nostrud"
+}
+```
+
+</SectionContent>
+
+</TabbedSection>
+
+</OperationResponseBodyExamplesSection>
 
 <OperationResponseBodySection slot="response-body">
 
