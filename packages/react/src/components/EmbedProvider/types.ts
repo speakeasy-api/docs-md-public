@@ -1,3 +1,7 @@
-import type { PropsWithChildren } from "react";
+import type { FC } from "react";
 
-export type EmbedProps = PropsWithChildren<{ slot: "embed" }>;
+import type { CloseEmbedIconProps } from "../CloseEmbedIcon/types.ts";
+
+export type EmbedProviderProps = {
+  CloseEmbedIcon?: FC<CloseEmbedIconProps>;
+};
