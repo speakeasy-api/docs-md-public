@@ -1,5 +1,5 @@
 import type { RuntimeEvents } from "@speakeasy-api/docs-md-shared";
-import type { FC } from "react";
+import type { ComponentType, CSSProperties, FC } from "react";
 
 export type ExtendedRuntimeEvent = RuntimeEvents & { id: string };
 
@@ -40,9 +40,17 @@ export type TryItNowProps = {
    */
   Editor?: FC<EditorProps>;
   /**
+   * Copy button component to use. Defaults to `CopyButton`.
+   */
+  CopyButton?: FC<CopyButtonProps>;
+  /**
    * Run button component to use. Defaults to `RunButton`.
    */
-  RunButton?: FC<RunButtonProps>;
+  RunButton?: FC<ButtonProps>;
+  /**
+   * Reset button component to use. Defaults to `ResetButton`.
+   */
+  ResetButton?: FC<ResetButtonProps>;
   /**
    * Results component to use. Defaults to `Results`.
    */
@@ -55,6 +63,10 @@ export type TryItNowProps = {
    * The theme of the editor
    */
   theme?: "light" | "dark";
+  /**
+   * Editor props to pass to the editor component
+   */
+  editorProps?: Partial<EditorProps>;
 };
 
 export type EditorProps = {
@@ -80,13 +92,30 @@ export type EditorProps = {
    * The theme of the editor
    */
   theme?: "light" | "dark";
+  editorPadding?: {
+    top?: number;
+    bottom?: number;
+  };
 };
 
-export type RunButtonProps = {
+export type ButtonProps = {
   /**
    * Callback to invoke when the run button is clicked
    */
-  onClick: () => void;
+  onClick?: () => void;
+  ariaLabel?: string;
+  children?: React.ReactNode;
+  className?: string;
+};
+
+export type ResetButtonProps = Pick<ButtonProps, "onClick"> & {
+  ResetIcon?: ComponentType<ResetIconProps>;
+};
+
+export type CopyButtonProps = {
+  copyValue?: string;
+  CheckIcon?: ComponentType<CheckIconProps>;
+  CopyIcon?: ComponentType<CopyIconProps>;
 };
 
 export type ResultsProps = {
@@ -95,4 +124,25 @@ export type ResultsProps = {
 
 export type LayoutProps = {
   children: React.ReactNode;
+  status: Status;
+};
+
+export type ControlsProps = {
+  children: React.ReactNode;
+  status: Status;
+};
+
+export type ResetIconProps = {
+  className?: string;
+  style?: CSSProperties;
+};
+
+export type CheckIconProps = {
+  className?: string;
+  style?: CSSProperties;
+};
+
+export type CopyIconProps = {
+  className?: string;
+  style?: CSSProperties;
 };
