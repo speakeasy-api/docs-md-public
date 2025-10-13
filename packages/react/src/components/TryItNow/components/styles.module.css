@@ -17,16 +17,25 @@
   max-width: 100%;
 }
 
-/* Run button styles */
-.runButtonContainer {
+.controls {
   position: absolute;
   bottom: 0;
+  left: 0;
   right: 0;
   margin: 1rem;
   z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.runButton {
+.leftControls {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.button {
   cursor: pointer;
   color: var(--speakeasy-try-it-now-run-button-color);
   background-color: var(--speakeasy-try-it-now-run-button-background-color);
@@ -34,6 +43,34 @@
   padding: var(--speakeasy-button-padding);
   border: none;
   position: relative;
+}
+
+.button:hover {
+  background-color: var(--speakeasy-try-it-now-run-button-background-color-hover);
+}
+
+.iconButton {
+  width: 2rem;
+  height: 2rem;
+  padding: var(--speakeasy-try-it-now-icon-button-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.iconButton:hover {
+  background-color: var(--speakeasy-try-it-now-run-button-background-color-hover);
+}
+
+.copyButtonIcon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
 
 .runButton:active {
@@ -55,7 +92,7 @@
 
 .results pre {
   font-size: var(--speakeasy-code-font-size);
-  padding: 1rem;
+  padding: var(--speakeasy-try-it-now-results-button-padding);
   line-height: 1.5;
   color: var(--speakeasy-try-it-now-results-text-color);
   background-color: transparent;

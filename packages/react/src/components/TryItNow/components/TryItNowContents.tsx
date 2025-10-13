@@ -3,12 +3,23 @@
 import { atom, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 
+// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
+import { CheckIcon as DefaultCheckIcon } from "../../CheckIcon/CheckIcon.tsx";
+// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
+import { CopyIcon as DefaultCopyIcon } from "../../CopyIcon/CopyIcon.tsx";
+// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
+import { ResetIcon as DefaultResetIcon } from "../../ResetIcon/ResetIcon.tsx";
 import { useRuntime } from "../state.ts";
-import type { TryItNowProps } from "../types.ts";
+import type {
+  ButtonProps,
+  CopyButtonProps,
+  ResetButtonProps,
+  TryItNowProps,
+} from "../types.ts";
+import { Button } from "./Button.tsx";
 import { Editor as DefaultEditor } from "./Editor.tsx";
 import { Layout as DefaultLayout } from "./Layout.tsx";
 import { Results as DefaultResults } from "./Results.tsx";
-import { RunButton as DefaultRunButton } from "./RunButton.tsx";
 import styles from "./styles.module.css";
 
 const typesAtom = atom<string | null>(null);
@@ -43,6 +54,55 @@ const fetchTypesAtom = atom(
   }
 );
 
+function DefaultRunButton({ onClick }: Pick<ButtonProps, "onClick">) {
+  return (
+    <Button onClick={onClick} ariaLabel="Run code">
+      Run
+    </Button>
+  );
+}
+
+function DefaultResetButton({
+  onClick,
+  ResetIcon = DefaultResetIcon,
+}: ResetButtonProps) {
+  return (
+    <Button
+      className={styles.iconButton}
+      onClick={onClick}
+      ariaLabel="Reset code"
+    >
+      <ResetIcon />
+    </Button>
+  );
+}
+
+function DefaultCopyButton({
+  copyValue,
+  CheckIcon = DefaultCheckIcon,
+  CopyIcon = DefaultCopyIcon,
+}: CopyButtonProps) {
+  const [copied, setCopied] = useState(false);
+
+  function handleClick() {
+    if (copyValue) {
+      void navigator.clipboard.writeText(copyValue);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }
+
+  return (
+    <Button
+      className={styles.iconButton}
+      onClick={handleClick}
+      ariaLabel={copied ? "Copied!" : "Copy code"}
+    >
+      {copied ? <CheckIcon /> : <CopyIcon />}
+    </Button>
+  );
+}
+
 export function TryItNowContents({
   defaultValue,
   dependencyUrlPrefix,
@@ -50,15 +110,19 @@ export function TryItNowContents({
   Layout = DefaultLayout,
   Editor = DefaultEditor,
   RunButton = DefaultRunButton,
+  ResetButton = DefaultResetButton,
   Results = DefaultResults,
+  CopyButton = DefaultCopyButton,
+  editorProps = {},
   theme = "dark",
 }: TryItNowProps) {
   const [types] = useAtom(typesAtom);
   const [error] = useAtom(errorAtom);
   const [, fetchTypes] = useAtom(fetchTypesAtom);
   const [value, setValue] = useState(defaultValue);
-  const { status, execute } = useRuntime({
+  const { status, execute, reset } = useRuntime({
     dependencyUrlPrefix,
+    defaultValue,
   });
   const showResults = status.state !== "idle";
 
@@ -76,9 +140,13 @@ export function TryItNowContents({
     }
   }, [error]);
 
+  function handleReset() {
+    reset(setValue);
+  }
+
   return (
     <>
-      <Layout>
+      <Layout status={status}>
         <div slot="editor">
           <Editor
             theme={theme}
@@ -86,6 +154,7 @@ export function TryItNowContents({
             onValueChange={setValue}
             types={types}
             packageName={packageName}
+            {...editorProps}
           />
         </div>
         <div slot="runButton" className={styles.runButtonContainer}>
@@ -94,6 +163,12 @@ export function TryItNowContents({
               execute(value);
             }}
           />
+        </div>
+        <div slot="copyButton">
+          <CopyButton copyValue={value} />
+        </div>
+        <div slot="resetButton">
+          <ResetButton onClick={handleReset} />
         </div>
         {showResults && (
           <div slot="results" className={styles.results}>
