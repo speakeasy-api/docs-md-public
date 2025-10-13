@@ -1,12 +1,18 @@
 "use client";
 
+import * as Dialog from "@radix-ui/react-dialog";
 import { useAtom } from "jotai";
 import { useCallback, useEffect, useState } from "react";
 
+// eslint-disable-next-line fast-import/no-restricted-imports
+import { CloseEmbedIcon as DefaultCloseEmbedIcon } from "../CloseEmbedIcon/CloseEmbedIcon.tsx";
 import { embedContentAtom } from "./state.ts";
 import styles from "./styles.module.css";
+import type { EmbedProviderProps } from "./types.ts";
 
-export function EmbedProvider() {
+export function EmbedProvider({
+  CloseEmbedIcon = DefaultCloseEmbedIcon,
+}: EmbedProviderProps) {
   // We keep separate track of the open state vs content because we want to
   // start animating the closing of the sidebar before the content is cleared,
   // so that we see it slide off screen. This means we can't use content as an
@@ -14,36 +20,43 @@ export function EmbedProvider() {
   const [content, setContent] = useAtom(embedContentAtom);
   const [open, setOpen] = useState(false);
 
-  const onAnimationComplete = useCallback(() => {
+  const handleAnimationEnd = useCallback(() => {
     if (!open) {
       setContent(null);
     }
   }, [open, setContent]);
+
   useEffect(() => {
     if (content) {
       setOpen(true);
     }
   }, [content]);
 
-  const closeRequest = useCallback(() => {
+  const handleClose = useCallback(() => {
     setOpen(false);
   }, []);
 
   return (
-    <div
-      className={styles.embedContainer}
-      style={{
-        transform: open ? "translateX(0)" : "translateX(100%)",
-      }}
-      onTransitionEnd={onAnimationComplete}
-    >
-      <div className={styles.embedHeader}>
-        <h2>{content?.title ?? "Details"}</h2>
-        <button className={styles.embedButton} onClick={closeRequest}>
-          &gt;
-        </button>
-      </div>
-      {content && <div>{content.content}</div>}
-    </div>
+    <Dialog.Root open={open}>
+      <Dialog.Portal>
+        <Dialog.Overlay className={styles.dialogOverlay} />
+        <Dialog.Content
+          className={styles.dialogContent}
+          onAnimationEnd={handleAnimationEnd}
+        >
+          <Dialog.Title className={styles.title}>{content?.title}</Dialog.Title>
+          <div className={styles.embedContent}>{content?.content}</div>
+          <Dialog.Close asChild>
+            <button
+              aria-label="Close"
+              className={styles.closeButton}
+              onClick={handleClose}
+            >
+              <CloseEmbedIcon className={styles.closeIcon} />
+            </button>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }

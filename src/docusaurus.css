@@ -93,4 +93,8 @@
   --speakeasy-try-it-now-results-error-background-color: color-mix(in oklab, var(--ifm-color-danger) 20%, transparent);
   --speakeasy-try-it-now-results-warn-background-color: color-mix(in oklab, var(--ifm-color-warning) 20%, transparent);
   --speakeasy-try-it-now-results-log-border-color: #cecece5a;
+
+    /* Dialog specific variables */
+  --speakeasy-dialog-max-width: 660px;
+  --speakeasy-dialog-height: 480px;
 }
