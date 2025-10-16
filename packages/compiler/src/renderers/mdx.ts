@@ -879,7 +879,13 @@ class MdxRenderer extends MarkdownRenderer {
 
         // Embeds handle their own component imports
         if (createEmbed) {
-          createEmbed();
+          this.#appendComponent<ExpandableBreakoutPropertiesProps>(
+            {
+              symbol: "ExpandableBreakoutProperties",
+              props: { slot: "properties" },
+            },
+            createEmbed
+          );
         }
       }
     );
