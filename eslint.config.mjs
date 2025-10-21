@@ -1,14 +1,7 @@
-import { resolve } from "node:path";
-
-import { getDirname } from "cross-dirname";
-
 // Import workspace-specific configs
 import compilerConfig from "./packages/compiler/eslint.config.mjs";
 import reactConfig from "./packages/react/eslint.config.mjs";
 import sharedConfig from "./packages/shared/eslint.config.mjs";
-
-const rootDir = getDirname();
-const gitignorePath = resolve(rootDir, ".gitignore");
 
 export default [
   // Global ignores for the entire monorepo
@@ -22,22 +15,28 @@ export default [
       "examples/**",
     ],
   },
-  
+
   // Apply compiler config to compiler package
-  ...compilerConfig.map(config => ({
+  ...compilerConfig.map((config) => ({
     ...config,
-    files: config.files ? config.files.map(f => `packages/compiler/${f}`) : ["packages/compiler/**/*"],
+    files: config.files
+      ? config.files.map((f) => `packages/compiler/${f}`)
+      : ["packages/compiler/**/*"],
   })),
-  
+
   // Apply react config to react package
-  ...reactConfig.map(config => ({
+  ...reactConfig.map((config) => ({
     ...config,
-    files: config.files ? config.files.map(f => `packages/react/${f}`) : ["packages/react/**/*"],
+    files: config.files
+      ? config.files.map((f) => `packages/react/${f}`)
+      : ["packages/react/**/*"],
   })),
-  
+
   // Apply shared config to shared package
-  ...sharedConfig.map(config => ({
+  ...sharedConfig.map((config) => ({
     ...config,
-    files: config.files ? config.files.map(f => `packages/shared/${f}`) : ["packages/shared/**/*"],
+    files: config.files
+      ? config.files.map((f) => `packages/shared/${f}`)
+      : ["packages/shared/**/*"],
   })),
 ];

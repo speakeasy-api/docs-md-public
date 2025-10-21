@@ -17,6 +17,7 @@
     "packages/compiler",
     "packages/react",
     "packages/shared",
+    "tests/e2e",
     "examples/docusaurus",
     "examples/nextra",
     "examples/custom"

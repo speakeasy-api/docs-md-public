@@ -37,7 +37,7 @@ export function BreakoutContents({
 
   return (
     <div slot={slot} className={styles.entryContainer}>
-      <div className={styles.entryHeaderContainer}>
+      <div data-testid={headingId} className={styles.entryHeaderContainer}>
         {hasExpandableContent ? (
           <ExpandableCell
             isOpen={isOpen}
