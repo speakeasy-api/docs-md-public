@@ -20,5 +20,8 @@ export type {
   PageMetadata,
 } from "./types/index.ts";
 
-export { Runtime } from "./codeRuntime/runtime.ts";
-export type { RuntimeEvents } from "./codeRuntime/events.ts";
+export { CurlRuntime } from "./curlRuntime/runtime.ts";
+export type { CurlRuntimeEvent } from "./curlRuntime/events.ts";
+
+export { TypeScriptRuntime } from "./typescriptRuntime/runtime.ts";
+export type { TypeScriptRuntimeEvent } from "./typescriptRuntime/events.ts";

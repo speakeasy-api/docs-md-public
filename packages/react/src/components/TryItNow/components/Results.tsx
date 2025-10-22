@@ -36,6 +36,7 @@ function formatEvents(events: ExtendedRuntimeEvent[]): FormattedEvent[] {
   return events
     .map((event): FormattedEvent | undefined => {
       switch (event.type) {
+        // TypeScript events
         case "compilation:error": {
           return {
             prefix: undefined,
@@ -73,6 +74,41 @@ function formatEvents(events: ExtendedRuntimeEvent[]): FormattedEvent[] {
         case "execution:started": {
           return undefined;
         }
+
+        // Curl events
+        case "parse:started": {
+          return undefined;
+        }
+        case "parse:finished": {
+          return undefined;
+        }
+        case "parse:error": {
+          return {
+            prefix: "Parse failed: ",
+            id: event.id,
+            value: event.error,
+            level: "error",
+          };
+        }
+        case "fetch:started": {
+          return undefined;
+        }
+        case "fetch:finished": {
+          return {
+            prefix: undefined,
+            id: event.id,
+            value: event.body,
+            level: "log",
+          };
+        }
+        case "fetch:error": {
+          return {
+            prefix: "Fetch failed: ",
+            id: event.id,
+            value: event.error,
+            level: "error",
+          };
+        }
       }
     })
     .filter((event): event is FormattedEvent => event !== undefined);
@@ -92,7 +128,7 @@ function formatResultsOutput(events: FormattedEvent[]) {
       );
     }
 
-    if (typeof value === "object" || value === undefined) {
+    if (typeof value === "object") {
       return (
         <pre key={id} className={className}>
           {prefix}

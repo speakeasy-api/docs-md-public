@@ -116,8 +116,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.chat.complete({&NewLine;    model: &quot;mistral-small-latest&quot;,&NewLine;    messages: [&NewLine;      {&NewLine;        content: &quot;Who is the best French painter? Answer in one short sentence.&quot;,&NewLine;        role: &quot;user&quot;,&NewLine;      },&NewLine;    ],&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -181,23 +182,10 @@ cURL
   id="operation-chat_completion_v1_chat_completions_post+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/chat/completions \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "messages": [
-    {
-      "content": "ipsum eiusmod"
-    }
-  ],
-  "model": "mistral-small-latest"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/chat/completions \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{&NewLine;  &quot;messages&quot;: [&NewLine;    {&NewLine;      &quot;content&quot;: &quot;ipsum eiusmod&quot;&NewLine;    }&NewLine;  ],&NewLine;  &quot;model&quot;: &quot;mistral-small-latest&quot;&NewLine;}'"
+/>
 
 </SectionContent>
 
@@ -10881,13 +10869,13 @@ _Default Value:_ `1`
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-chat_completion_v1_chat_completions_post+responses\}
+### Responses Examples \{#operation-chat_completion_v1_chat_completions_post+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-chat_completion_v1_chat_completions_post+responses+200+application-json"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -10897,7 +10885,7 @@ _Default Value:_ `1`
 
 <SectionContent
   slot="content"
-  id="operation-chat_completion_v1_chat_completions_post+responses+200+application-json"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+200+application-json"
 >
 
 ```json
@@ -10921,7 +10909,7 @@ _Default Value:_ `1`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-chat_completion_v1_chat_completions_post+responses+200+text-event-stream"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+200+text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -10931,7 +10919,7 @@ _Default Value:_ `1`
 
 <SectionContent
   slot="content"
-  id="operation-chat_completion_v1_chat_completions_post+responses+200+text-event-stream"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+200+text-event-stream"
 >
 
 ```json
@@ -10942,7 +10930,7 @@ null
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-chat_completion_v1_chat_completions_post+responses+422+application-json"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -10952,7 +10940,7 @@ null
 
 <SectionContent
   slot="content"
-  id="operation-chat_completion_v1_chat_completions_post+responses+422+application-json"
+  id="operation-chat_completion_v1_chat_completions_post+responses-examples+422+application-json"
 >
 
 ```json

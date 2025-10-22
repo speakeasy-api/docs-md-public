@@ -97,8 +97,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.fineTuning.jobs.list({});\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -157,15 +158,10 @@ cURL
   id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/fine_tuning/jobs \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/fine_tuning/jobs \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -179,13 +175,13 @@ curl https://api.mistral.ai/v1/fine_tuning/jobs \
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses\}
+### Responses Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -195,7 +191,7 @@ curl https://api.mistral.ai/v1/fine_tuning/jobs \
 
 <SectionContent
   slot="content"
-  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_jobs_responses-examples_200_application-json"
 >
 
 ```json
@@ -2258,8 +2254,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.fineTuning.jobs.create({\n    model: \"Camaro\",\n    hyperparameters: {\n      learningRate: 0.0001,\n    },\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -2320,19 +2317,10 @@ cURL
   id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/fine_tuning/jobs \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "hyperparameters": {},
-  "model": "ministral-3b-latest"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/fine_tuning/jobs \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"hyperparameters\": {},\n  \"model\": \"ministral-3b-latest\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -3513,13 +3501,13 @@ A list containing the IDs of uploaded files that contain validation data. If you
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses\}
+### Responses Examples \{#operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -3529,7 +3517,7 @@ A list containing the IDs of uploaded files that contain validation data. If you
 
 <SectionContent
   slot="content"
-  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_create_fine_tuning_job_responses-examples_200_application-json"
 >
 
 ```json
@@ -5931,8 +5919,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.fineTuning.jobs.get({\n    jobId: \"c167a961-ffca-4bcf-93ac-6169468dd389\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -5991,15 +5980,10 @@ cURL
   id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id} \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id} \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -6059,13 +6043,13 @@ The ID of the job to analyse.
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses\}
+### Responses Examples \{#operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -6075,7 +6059,7 @@ The ID of the job to analyse.
 
 <SectionContent
   slot="content"
-  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_get_fine_tuning_job_responses-examples_200_application-json"
 >
 
 ```json
@@ -8737,8 +8721,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.fineTuning.jobs.cancel({\n    jobId: \"6188a2f6-7513-4e0f-89cc-3f8088523a49\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -8797,15 +8782,10 @@ cURL
   id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/cancel \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/cancel \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -8865,13 +8845,13 @@ The ID of the job to cancel.
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses\}
+### Responses Examples \{#operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -8881,7 +8861,7 @@ The ID of the job to cancel.
 
 <SectionContent
   slot="content"
-  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_cancel_fine_tuning_job_responses-examples_200_application-json"
 >
 
 ```json
@@ -11543,8 +11523,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.fineTuning.jobs.start({\n    jobId: \"56553e4d-0679-471e-b9ac-59a77d671103\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -11603,15 +11584,10 @@ cURL
   id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/start \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/start \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -11665,13 +11641,13 @@ curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/start \
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses\}
+### Responses Examples \{#operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -11681,7 +11657,7 @@ curl https://api.mistral.ai/v1/fine_tuning/jobs/{job_id}/start \
 
 <SectionContent
   slot="content"
-  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses_200_application-json"
+  id="operation-jobs_api_routes_fine_tuning_start_fine_tuning_job_responses-examples_200_application-json"
 >
 
 ```json

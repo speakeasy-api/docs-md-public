@@ -107,8 +107,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.list({&NewLine;    libraryId: &quot;5c3ca4cd-62bc-4c71-ad8a-1531ae80d078&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -161,15 +162,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_documents_list_v1+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -183,13 +179,13 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_list_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_list_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_list_v1+responses+200+application-json"
+  id="operation-libraries_documents_list_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -199,7 +195,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_list_v1+responses+200+application-json"
+  id="operation-libraries_documents_list_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -234,7 +230,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_list_v1+responses+422+application-json"
+  id="operation-libraries_documents_list_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -244,7 +240,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_list_v1+responses+422+application-json"
+  id="operation-libraries_documents_list_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -2752,8 +2748,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;import { openAsBlob } from &quot;node:fs&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.upload({&NewLine;    libraryId: &quot;a02150d9-5ee0-4877-b62c-28b1fcdf3b76&quot;,&NewLine;    requestBody: {&NewLine;      file: await openAsBlob(&quot;example.file&quot;),&NewLine;    },&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -2809,21 +2806,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_documents_upload_v1+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "file": {
-    "content": "ipsum eiusmod",
-    "fileName": "consequat do"
-  }
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{&NewLine;  &quot;file&quot;: {&NewLine;    &quot;content&quot;: &quot;ipsum eiusmod&quot;,&NewLine;    &quot;fileName&quot;: &quot;consequat do&quot;&NewLine;  }&NewLine;}'"
+/>
 
 </SectionContent>
 
@@ -3231,13 +3217,13 @@ defaultValue: MyDefaultValue
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_upload_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_upload_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_upload_v1+responses+200+application-json"
+  id="operation-libraries_documents_upload_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -3247,7 +3233,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_upload_v1+responses+200+application-json"
+  id="operation-libraries_documents_upload_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -3271,7 +3257,7 @@ defaultValue: MyDefaultValue
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_upload_v1+responses+422+application-json"
+  id="operation-libraries_documents_upload_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -3281,7 +3267,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_upload_v1+responses+422+application-json"
+  id="operation-libraries_documents_upload_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -5150,8 +5136,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.get({&NewLine;    libraryId: &quot;03d908c8-90a1-44fd-bf3a-8490fb7c9a03&quot;,&NewLine;    documentId: &quot;90973aec-0508-4375-8b00-91d732414745&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -5204,15 +5191,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_documents_get_v1+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -5316,13 +5298,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_get_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_get_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -5332,7 +5314,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -5356,7 +5338,7 @@ description: My awesome description
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -5366,7 +5348,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -7235,8 +7217,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.update({&NewLine;    libraryId: &quot;3ddd8d93-dca5-4a6d-980d-173226c35742&quot;,&NewLine;    documentId: &quot;2a25e44c-b160-40ca-b5c2-b65fb2fcae34&quot;,&NewLine;    documentUpdateIn: {},&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -7289,16 +7272,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_documents_update_v1+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
- -X PUT \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \&NewLine; -X PUT \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{}'"
+/>
 
 </SectionContent>
 
@@ -7529,13 +7506,13 @@ defaultValue: MyDefaultValue
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_update_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_update_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_update_v1+responses+200+application-json"
+  id="operation-libraries_documents_update_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -7545,7 +7522,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_update_v1+responses+200+application-json"
+  id="operation-libraries_documents_update_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -7569,7 +7546,7 @@ defaultValue: MyDefaultValue
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_update_v1+responses+422+application-json"
+  id="operation-libraries_documents_update_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -7579,7 +7556,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_update_v1+responses+422+application-json"
+  id="operation-libraries_documents_update_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -9448,8 +9425,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  await mistral.beta.libraries.documents.delete({&NewLine;    libraryId: &quot;005daae9-d42e-407d-82d7-2261c6a1496c&quot;,&NewLine;    documentId: &quot;edc236b0-baff-49a9-884b-4ca36a258da4&quot;,&NewLine;  });&NewLine;&NewLine;&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -9501,15 +9479,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_documents_delete_v1+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \
- -X DELETE \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id} \&NewLine; -X DELETE \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -9613,13 +9586,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_delete_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_delete_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_delete_v1+responses+422+application-json"
+  id="operation-libraries_documents_delete_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -9629,7 +9602,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_delete_v1+responses+422+application-json"
+  id="operation-libraries_documents_delete_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -10332,8 +10305,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.textContent({&NewLine;    libraryId: &quot;1d177215-3b6b-45ba-9fa9-baf773223bec&quot;,&NewLine;    documentId: &quot;60214c91-2aba-4692-a4e6-a53365de8caf&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -10392,15 +10366,10 @@ cURL
   id="operation-libraries_documents_get_text_content_v1+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/text_content \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/text_content \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -10504,13 +10473,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_get_text_content_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_get_text_content_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_text_content_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_text_content_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -10520,7 +10489,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_text_content_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_text_content_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -10533,7 +10502,7 @@ description: My awesome description
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_text_content_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_text_content_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -10543,7 +10512,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_text_content_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_text_content_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -11340,8 +11309,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.status({&NewLine;    libraryId: &quot;e6906f70-368f-4155-80da-c1718f01bc43&quot;,&NewLine;    documentId: &quot;2c904915-d831-4e9d-a345-8ce405bcef66&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -11400,15 +11370,10 @@ cURL
   id="operation-libraries_documents_get_status_v1+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/status \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/status \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -11512,13 +11477,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_get_status_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_get_status_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_status_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_status_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -11528,7 +11493,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_status_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_status_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -11542,7 +11507,7 @@ description: My awesome description
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_status_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_status_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -11552,7 +11517,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_status_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_status_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -12416,8 +12381,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.getSignedUrl({&NewLine;    libraryId: &quot;23cf6904-a602-4ee8-9f5b-8efc557c336d&quot;,&NewLine;    documentId: &quot;48598486-df71-4994-acbb-1133c72efa8c&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -12476,15 +12442,10 @@ cURL
   id="operation-libraries_documents_get_signed_url_v1+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/signed-url \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/signed-url \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -12588,13 +12549,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_get_signed_url_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_get_signed_url_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_signed_url_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_signed_url_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -12604,7 +12565,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_signed_url_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_signed_url_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -12615,7 +12576,7 @@ description: My awesome description
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_signed_url_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_signed_url_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -12625,7 +12586,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_signed_url_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_signed_url_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -13359,8 +13320,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.beta.libraries.documents.extractedTextSignedUrl({&NewLine;    libraryId: &quot;a6f15de3-1e82-4f95-af82-851499042ef8&quot;,&NewLine;    documentId: &quot;9749d4f9-24e5-4ca2-99a3-a406863f805d&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -13419,15 +13381,10 @@ cURL
   id="operation-libraries_documents_get_extracted_text_signed_url_v1+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/extracted-text-signed-url \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/extracted-text-signed-url \&NewLine; -X GET \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -13531,13 +13488,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_get_extracted_text_signed_url_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_get_extracted_text_signed_url_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -13547,7 +13504,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses+200+application-json"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses-examples+200+application-json"
 >
 
 ```json
@@ -13558,7 +13515,7 @@ description: My awesome description
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -13568,7 +13525,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses+422+application-json"
+  id="operation-libraries_documents_get_extracted_text_signed_url_v1+responses-examples+422+application-json"
 >
 
 ```json
@@ -14302,8 +14259,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  await mistral.beta.libraries.documents.reprocess({&NewLine;    libraryId: &quot;51b29371-de8f-4ba4-932b-a0bafb3a7f64&quot;,&NewLine;    documentId: &quot;3052422c-49ca-45ac-a918-cadb35d61fd8&quot;,&NewLine;  });&NewLine;&NewLine;&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -14361,15 +14319,10 @@ cURL
   id="operation-libraries_documents_reprocess_v1+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/reprocess \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/libraries/{library_id}/documents/{document_id}/reprocess \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE'"
+/>
 
 </SectionContent>
 
@@ -14473,13 +14426,13 @@ description: My awesome description
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-libraries_documents_reprocess_v1+responses\}
+### Responses Examples \{#operation-libraries_documents_reprocess_v1+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_documents_reprocess_v1+responses+422+application-json"
+  id="operation-libraries_documents_reprocess_v1+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -14489,7 +14442,7 @@ description: My awesome description
 
 <SectionContent
   slot="content"
-  id="operation-libraries_documents_reprocess_v1+responses+422+application-json"
+  id="operation-libraries_documents_reprocess_v1+responses-examples+422+application-json"
 >
 
 ```json

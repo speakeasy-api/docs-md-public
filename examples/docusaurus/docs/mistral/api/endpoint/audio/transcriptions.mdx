@@ -116,8 +116,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.audio.transcriptions.complete({&NewLine;    model: &quot;Model X&quot;,&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -176,18 +177,10 @@ cURL
   id="operation-audio_api_v1_transcriptions_post+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/audio/transcriptions \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "model": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/audio/transcriptions \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{&NewLine;  &quot;model&quot;: &quot;ipsum eiusmod&quot;&NewLine;}'"
+/>
 
 </SectionContent>
 
@@ -955,13 +948,13 @@ defaultValue: MyDefaultValue
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-audio_api_v1_transcriptions_post+responses\}
+### Responses Examples \{#operation-audio_api_v1_transcriptions_post+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-audio_api_v1_transcriptions_post+responses+200+application-json"
+  id="operation-audio_api_v1_transcriptions_post+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -971,7 +964,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-audio_api_v1_transcriptions_post+responses+200+application-json"
+  id="operation-audio_api_v1_transcriptions_post+responses-examples+200+application-json"
 >
 
 ```json
@@ -2069,8 +2062,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.audio.transcriptions.stream({&NewLine;    model: &quot;Camry&quot;,&NewLine;  });&NewLine;&NewLine;  for await (const event of result) {&NewLine;    // Handle the event&NewLine;    console.log(event);&NewLine;  }&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -2131,18 +2125,10 @@ cURL
   id="operation-audio_api_v1_transcriptions_post_stream+code-samples+curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/audio/transcriptions#stream \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "model": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/audio/transcriptions#stream \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{&NewLine;  &quot;model&quot;: &quot;ipsum eiusmod&quot;&NewLine;}'"
+/>
 
 </SectionContent>
 
@@ -2910,13 +2896,13 @@ defaultValue: MyDefaultValue
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-audio_api_v1_transcriptions_post_stream+responses\}
+### Responses Examples \{#operation-audio_api_v1_transcriptions_post_stream+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-audio_api_v1_transcriptions_post_stream+responses+200+text-event-stream"
+  id="operation-audio_api_v1_transcriptions_post_stream+responses-examples+200+text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -2926,7 +2912,7 @@ defaultValue: MyDefaultValue
 
 <SectionContent
   slot="content"
-  id="operation-audio_api_v1_transcriptions_post_stream+responses+200+text-event-stream"
+  id="operation-audio_api_v1_transcriptions_post_stream+responses-examples+200+text-event-stream"
 >
 
 ```json

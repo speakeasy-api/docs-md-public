@@ -1,6 +1,6 @@
 import { InternalError } from "../util/internalError.ts";
 import { bundleCode } from "./build.ts";
-import type { RuntimeEvents } from "./events.ts";
+import type { TypeScriptRuntimeEvent } from "./events.ts";
 import type { WorkerMessage } from "./messages.ts";
 
 // Store the shared dependency bundle globally, since it will never change
@@ -8,11 +8,11 @@ import type { WorkerMessage } from "./messages.ts";
 let dependencyBundle: string | undefined;
 let workerCode: string | undefined;
 
-export class Runtime {
+export class TypeScriptRuntime {
   #dependencyUrlPrefix: string;
   #listeners: Record<
-    RuntimeEvents["type"],
-    ((event: RuntimeEvents) => void)[]
+    TypeScriptRuntimeEvent["type"],
+    ((event: TypeScriptRuntimeEvent) => void)[]
   > = {
     "compilation:started": [],
     "compilation:finished": [],
@@ -109,25 +109,28 @@ export class Runtime {
     // Set up message handler
     this.#worker.onmessage = (event: MessageEvent<WorkerMessage>) => {
       switch (event.data.type) {
-        case "log":
+        case "log": {
           this.#emit({
             type: "execution:log",
             level: event.data.level,
             message: event.data.message,
           });
           break;
-        case "uncaught-exception":
+        }
+        case "uncaught-exception": {
           this.#emit({
             type: "execution:uncaught-exception",
             error: event.data.error,
           });
           break;
-        case "uncaught-reject":
+        }
+        case "uncaught-reject": {
           this.#emit({
             type: "execution:uncaught-rejection",
             error: event.data.error,
           });
           break;
+        }
       }
     };
 
@@ -163,13 +166,13 @@ export class Runtime {
   }
 
   public on(
-    event: RuntimeEvents["type"],
-    callback: (event: RuntimeEvents) => void
+    event: TypeScriptRuntimeEvent["type"],
+    callback: (event: TypeScriptRuntimeEvent) => void
   ) {
     this.#listeners[event].push(callback);
   }
 
-  #emit(event: RuntimeEvents) {
+  #emit(event: TypeScriptRuntimeEvent) {
     for (const callback of this.#listeners[event.type]) {
       callback(event);
     }

@@ -98,8 +98,9 @@ TypeScript
 <SectionContent slot="content" id="operation-agents_api_v1_agents_list_code-samples_typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.agents.list({});\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -152,15 +153,10 @@ cURL
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_list_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/agents \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/agents \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -232,13 +228,13 @@ curl https://api.mistral.ai/v1/agents \
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_agents_list_responses]
+### Responses Examples [#operation-agents_api_v1_agents_list_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_list_responses_200_application-json"
+  id="operation-agents_api_v1_agents_list_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -248,7 +244,7 @@ curl https://api.mistral.ai/v1/agents \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_list_responses_200_application-json"
+  id="operation-agents_api_v1_agents_list_responses-examples_200_application-json"
 >
 
 ```json
@@ -268,7 +264,7 @@ curl https://api.mistral.ai/v1/agents \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_list_responses_422_application-json"
+  id="operation-agents_api_v1_agents_list_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -278,7 +274,7 @@ curl https://api.mistral.ai/v1/agents \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_list_responses_422_application-json"
+  id="operation-agents_api_v1_agents_list_responses-examples_422_application-json"
 >
 
 ```json
@@ -1788,8 +1784,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.agents.create({\n    model: \"LeBaron\",\n    name: \"<value>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -1842,19 +1839,10 @@ cURL
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_create_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/agents \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "model": "ipsum eiusmod",
-  "name": "consequat do"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/agents \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"model\": \"ipsum eiusmod\",\n  \"name\": \"consequat do\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -2968,13 +2956,13 @@ _Default Value:_ `"document_library"`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_agents_create_responses]
+### Responses Examples [#operation-agents_api_v1_agents_create_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_create_responses_200_application-json"
+  id="operation-agents_api_v1_agents_create_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -2984,7 +2972,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_create_responses_200_application-json"
+  id="operation-agents_api_v1_agents_create_responses-examples_200_application-json"
 >
 
 ```json
@@ -3002,7 +2990,7 @@ _Default Value:_ `"document_library"`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_create_responses_422_application-json"
+  id="operation-agents_api_v1_agents_create_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -3012,7 +3000,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_create_responses_422_application-json"
+  id="operation-agents_api_v1_agents_create_responses-examples_422_application-json"
 >
 
 ```json
@@ -4479,8 +4467,9 @@ TypeScript
 <SectionContent slot="content" id="operation-agents_api_v1_agents_get_code-samples_typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.agents.get({\n    agentId: \"<id>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -4533,15 +4522,10 @@ cURL
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_get_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/agents/{agent_id} \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/agents/{agent_id} \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -4595,13 +4579,13 @@ curl https://api.mistral.ai/v1/agents/{agent_id} \
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_agents_get_responses]
+### Responses Examples [#operation-agents_api_v1_agents_get_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_get_responses_200_application-json"
+  id="operation-agents_api_v1_agents_get_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -4611,7 +4595,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id} \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_get_responses_200_application-json"
+  id="operation-agents_api_v1_agents_get_responses-examples_200_application-json"
 >
 
 ```json
@@ -4629,7 +4613,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id} \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_get_responses_422_application-json"
+  id="operation-agents_api_v1_agents_get_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -4639,7 +4623,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id} \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_get_responses_422_application-json"
+  id="operation-agents_api_v1_agents_get_responses-examples_422_application-json"
 >
 
 ```json
@@ -6109,8 +6093,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.agents.update({\n    agentId: \"<id>\",\n    agentUpdateRequest: {},\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -6163,16 +6148,10 @@ cURL
 
 <SectionContent slot="content" id="operation-agents_api_v1_agents_update_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/agents/{agent_id} \
- -X PATCH \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/agents/{agent_id} \\\n -X PATCH \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{}'`}
+/>
 
 </SectionContent>
 
@@ -7323,13 +7302,13 @@ _Default Value:_ `"document_library"`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_agents_update_responses]
+### Responses Examples [#operation-agents_api_v1_agents_update_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_update_responses_200_application-json"
+  id="operation-agents_api_v1_agents_update_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -7339,7 +7318,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_update_responses_200_application-json"
+  id="operation-agents_api_v1_agents_update_responses-examples_200_application-json"
 >
 
 ```json
@@ -7357,7 +7336,7 @@ _Default Value:_ `"document_library"`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_update_responses_422_application-json"
+  id="operation-agents_api_v1_agents_update_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -7367,7 +7346,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_update_responses_422_application-json"
+  id="operation-agents_api_v1_agents_update_responses-examples_422_application-json"
 >
 
 ```json
@@ -8837,8 +8816,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.agents.updateVersion({\n    agentId: \"<id>\",\n    version: 157995,\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -8897,15 +8877,10 @@ cURL
   id="operation-agents_api_v1_agents_update_version_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/agents/{agent_id}/version \
- -X PATCH \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/agents/{agent_id}/version \\\n -X PATCH \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -8977,13 +8952,13 @@ curl https://api.mistral.ai/v1/agents/{agent_id}/version \
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_agents_update_version_responses]
+### Responses Examples [#operation-agents_api_v1_agents_update_version_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_update_version_responses_200_application-json"
+  id="operation-agents_api_v1_agents_update_version_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -8993,7 +8968,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id}/version \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_update_version_responses_200_application-json"
+  id="operation-agents_api_v1_agents_update_version_responses-examples_200_application-json"
 >
 
 ```json
@@ -9011,7 +8986,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id}/version \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_agents_update_version_responses_422_application-json"
+  id="operation-agents_api_v1_agents_update_version_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -9021,7 +8996,7 @@ curl https://api.mistral.ai/v1/agents/{agent_id}/version \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_agents_update_version_responses_422_application-json"
+  id="operation-agents_api_v1_agents_update_version_responses-examples_422_application-json"
 >
 
 ```json

@@ -93,8 +93,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.embeddings.create({\n    model: \"mistral-embed\",\n    inputs: [\n      \"Embed this sentence.\",\n      \"As well as this one.\",\n    ],\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -150,19 +151,10 @@ cURL
 
 <SectionContent slot="content" id="operation-embeddings_v1_embeddings_post_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/embeddings \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "input": "ipsum eiusmod",
-  "model": "mistral-embed"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/embeddings \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"input\": \"ipsum eiusmod\",\n  \"model\": \"mistral-embed\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -323,13 +315,13 @@ The dimension of the output embeddings.
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-embeddings_v1_embeddings_post_responses\}
+### Responses Examples \{#operation-embeddings_v1_embeddings_post_responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-embeddings_v1_embeddings_post_responses_200_application-json"
+  id="operation-embeddings_v1_embeddings_post_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -339,7 +331,7 @@ The dimension of the output embeddings.
 
 <SectionContent
   slot="content"
-  id="operation-embeddings_v1_embeddings_post_responses_200_application-json"
+  id="operation-embeddings_v1_embeddings_post_responses-examples_200_application-json"
 >
 
 ```json
@@ -358,7 +350,7 @@ The dimension of the output embeddings.
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-embeddings_v1_embeddings_post_responses_422_application-json"
+  id="operation-embeddings_v1_embeddings_post_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -368,7 +360,7 @@ The dimension of the output embeddings.
 
 <SectionContent
   slot="content"
-  id="operation-embeddings_v1_embeddings_post_responses_422_application-json"
+  id="operation-embeddings_v1_embeddings_post_responses-examples_422_application-json"
 >
 
 ```json

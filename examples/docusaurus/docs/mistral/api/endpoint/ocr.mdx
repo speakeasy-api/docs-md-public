@@ -111,8 +111,9 @@ TypeScript
 <SectionContent slot="content" id="operation-ocr_v1_ocr_post+code-samples+typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue="import { Mistral } from &quot;@mistralai/mistralai&quot;;&NewLine;&NewLine;const mistral = new Mistral({&NewLine;  apiKey: &quot;MISTRAL_API_KEY&quot;,&NewLine;});&NewLine;&NewLine;async function run() {&NewLine;  const result = await mistral.ocr.process({&NewLine;    model: &quot;CX-9&quot;,&NewLine;    document: {&NewLine;      documentUrl: &quot;https://upset-labourer.net/&quot;,&NewLine;      type: &quot;document_url&quot;,&NewLine;    },&NewLine;  });&NewLine;&NewLine;  console.log(result);&NewLine;}&NewLine;&NewLine;run();&NewLine;"
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -170,21 +171,10 @@ cURL
 
 <SectionContent slot="content" id="operation-ocr_v1_ocr_post+code-samples+curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/ocr \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "document": {
-    "file_id": "ipsum eiusmod"
-  },
-  "model": null
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue="curl https://api.mistral.ai/v1/ocr \&NewLine; -X POST \&NewLine; -H 'Authorization: Bearer YOUR_APIKEY_HERE' \&NewLine; -d '{&NewLine;  &quot;document&quot;: {&NewLine;    &quot;file_id&quot;: &quot;ipsum eiusmod&quot;&NewLine;  },&NewLine;  &quot;model&quot;: null&NewLine;}'"
+/>
 
 </SectionContent>
 
@@ -2738,13 +2728,13 @@ defaultValue: MyDefaultValue
 
 <SectionTitle slot="title">
 
-### Responses Examples \{#operation-ocr_v1_ocr_post+responses\}
+### Responses Examples \{#operation-ocr_v1_ocr_post+responses-examples\}
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-ocr_v1_ocr_post+responses+200+application-json"
+  id="operation-ocr_v1_ocr_post+responses-examples+200+application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -2752,7 +2742,10 @@ defaultValue: MyDefaultValue
 
 </ResponseExamplesTab>
 
-<SectionContent slot="content" id="operation-ocr_v1_ocr_post+responses+200+application-json">
+<SectionContent
+  slot="content"
+  id="operation-ocr_v1_ocr_post+responses-examples+200+application-json"
+>
 
 ```json
 {
@@ -2783,7 +2776,7 @@ defaultValue: MyDefaultValue
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-ocr_v1_ocr_post+responses+422+application-json"
+  id="operation-ocr_v1_ocr_post+responses-examples+422+application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -2791,7 +2784,10 @@ defaultValue: MyDefaultValue
 
 </ResponseExamplesTab>
 
-<SectionContent slot="content" id="operation-ocr_v1_ocr_post+responses+422+application-json">
+<SectionContent
+  slot="content"
+  id="operation-ocr_v1_ocr_post+responses-examples+422+application-json"
+>
 
 ```json
 {

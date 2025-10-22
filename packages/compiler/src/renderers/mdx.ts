@@ -584,18 +584,17 @@ class MdxRenderer extends MarkdownRenderer {
       () => {
         this.createCodeSampleTabbedSection(() => {
           cb({
-            createTryItNowEntry: ({
-              dependencyUrlPrefix,
-              defaultValue,
-              language,
-            }) => {
-              this.enterContext({ id: language, type: "section" });
+            createTryItNowEntry: (options) => {
+              this.enterContext({ id: options.language, type: "section" });
               this.createCodeSampleTabbedSectionTab(
-                () => this.createText(getPrettyCodeSampleLanguage(language)),
+                () =>
+                  this.createText(
+                    getPrettyCodeSampleLanguage(options.language)
+                  ),
                 {
                   id: this.getCurrentId(),
                   tags: {
-                    codeSample: language,
+                    codeSample: options.language,
                   },
                 }
               );
@@ -603,11 +602,20 @@ class MdxRenderer extends MarkdownRenderer {
                 () => {
                   this.#appendComponent<TryItNowProps>({
                     symbol: "TryItNow",
-                    props: {
-                      dependencyUrlPrefix,
-                      defaultValue,
-                      packageName: getInternalSetting("typeScriptPackageName"),
-                    },
+                    props:
+                      options.language === "typescript"
+                        ? {
+                            language: "typescript",
+                            defaultValue: options.defaultValue,
+                            dependencyUrlPrefix: options.dependencyUrlPrefix,
+                            packageName: getInternalSetting(
+                              "typeScriptPackageName"
+                            ),
+                          }
+                        : {
+                            language: "curl",
+                            defaultValue: options.defaultValue,
+                          },
                   });
                 },
                 {

@@ -94,8 +94,9 @@ TypeScript
 <SectionContent slot="content" id="operation-libraries_share_list_v1_code-samples_typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.libraries.accesses.list({\n    libraryId: \"d2169833-d8e2-416e-a372-76518d3d99c2\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -148,15 +149,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_share_list_v1_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/share \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/libraries/{library_id}/share \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -210,13 +206,13 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/share \
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-libraries_share_list_v1_responses]
+### Responses Examples [#operation-libraries_share_list_v1_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_list_v1_responses_200_application-json"
+  id="operation-libraries_share_list_v1_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -226,7 +222,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/share \
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_list_v1_responses_200_application-json"
+  id="operation-libraries_share_list_v1_responses-examples_200_application-json"
 >
 
 ```json
@@ -247,7 +243,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/share \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_list_v1_responses_422_application-json"
+  id="operation-libraries_share_list_v1_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -257,7 +253,7 @@ curl https://api.mistral.ai/v1/libraries/{library_id}/share \
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_list_v1_responses_422_application-json"
+  id="operation-libraries_share_list_v1_responses-examples_422_application-json"
 >
 
 ```json
@@ -732,8 +728,9 @@ TypeScript
 <SectionContent slot="content" id="operation-libraries_share_create_v1_code-samples_typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.libraries.accesses.updateOrCreate({\n    libraryId: \"36de3a24-5b1c-4c8f-9d84-d5642205a976\",\n    sharingIn: {\n      orgId: \"aadd9ae1-f285-4437-884a-091c77efa6fd\",\n      level: \"Viewer\",\n      shareWithUuid: \"0ae92ecb-21ed-47c5-9f7e-0b2cbe325a20\",\n      shareWithType: \"User\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -786,21 +783,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_share_create_v1_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/share \
- -X PUT \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "level": "Viewer",
-  "org_id": "ipsum eiusmod",
-  "share_with_type": "User",
-  "share_with_uuid": "consequat do"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/libraries/{library_id}/share \\\n -X PUT \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"level\": \"Viewer\",\n  \"org_id\": \"ipsum eiusmod\",\n  \"share_with_type\": \"User\",\n  \"share_with_uuid\": \"consequat do\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -987,13 +973,13 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-libraries_share_create_v1_responses]
+### Responses Examples [#operation-libraries_share_create_v1_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_create_v1_responses_200_application-json"
+  id="operation-libraries_share_create_v1_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -1003,7 +989,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_create_v1_responses_200_application-json"
+  id="operation-libraries_share_create_v1_responses-examples_200_application-json"
 >
 
 ```json
@@ -1020,7 +1006,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_create_v1_responses_422_application-json"
+  id="operation-libraries_share_create_v1_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -1030,7 +1016,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_create_v1_responses_422_application-json"
+  id="operation-libraries_share_create_v1_responses-examples_422_application-json"
 >
 
 ```json
@@ -1456,8 +1442,9 @@ TypeScript
 <SectionContent slot="content" id="operation-libraries_share_delete_v1_code-samples_typescript">
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.libraries.accesses.delete({\n    libraryId: \"709e3cad-9fb2-4f4e-bf88-143cf1808107\",\n    sharingDelete: {\n      orgId: \"0814a235-c2d0-4814-875a-4b85f93d3dc7\",\n      shareWithUuid: \"b843cc47-ce8f-4354-8cfc-5fcd7fb2865b\",\n      shareWithType: \"User\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -1510,20 +1497,10 @@ cURL
 
 <SectionContent slot="content" id="operation-libraries_share_delete_v1_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/libraries/{library_id}/share \
- -X DELETE \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "org_id": "ipsum eiusmod",
-  "share_with_type": "User",
-  "share_with_uuid": "consequat do"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/libraries/{library_id}/share \\\n -X DELETE \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"org_id\": \"ipsum eiusmod\",\n  \"share_with_type\": \"User\",\n  \"share_with_uuid\": \"consequat do\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -1691,13 +1668,13 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-libraries_share_delete_v1_responses]
+### Responses Examples [#operation-libraries_share_delete_v1_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_delete_v1_responses_200_application-json"
+  id="operation-libraries_share_delete_v1_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -1707,7 +1684,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_delete_v1_responses_200_application-json"
+  id="operation-libraries_share_delete_v1_responses-examples_200_application-json"
 >
 
 ```json
@@ -1724,7 +1701,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-libraries_share_delete_v1_responses_422_application-json"
+  id="operation-libraries_share_delete_v1_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -1734,7 +1711,7 @@ The id of the entity (user, workspace or organization) to share with
 
 <SectionContent
   slot="content"
-  id="operation-libraries_share_delete_v1_responses_422_application-json"
+  id="operation-libraries_share_delete_v1_responses-examples_422_application-json"
 >
 
 ```json

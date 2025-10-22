@@ -93,8 +93,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.audio.transcriptions.complete({\n    model: \"Model X\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -153,18 +154,10 @@ cURL
   id="operation-audio_api_v1_transcriptions_post_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/audio/transcriptions \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "model": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/audio/transcriptions \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"model\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -489,13 +482,13 @@ Granularities of timestamps to include in the response.
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-audio_api_v1_transcriptions_post_responses]
+### Responses Examples [#operation-audio_api_v1_transcriptions_post_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-audio_api_v1_transcriptions_post_responses_200_application-json"
+  id="operation-audio_api_v1_transcriptions_post_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -505,7 +498,7 @@ Granularities of timestamps to include in the response.
 
 <SectionContent
   slot="content"
-  id="operation-audio_api_v1_transcriptions_post_responses_200_application-json"
+  id="operation-audio_api_v1_transcriptions_post_responses-examples_200_application-json"
 >
 
 ```json
@@ -916,8 +909,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.audio.transcriptions.stream({\n    model: \"Camry\",\n  });\n\n  for await (const event of result) {\n    // Handle the event\n    console.log(event);\n  }\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -978,18 +972,10 @@ cURL
   id="operation-audio_api_v1_transcriptions_post_stream_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/audio/transcriptions#stream \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "model": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/audio/transcriptions#stream \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"model\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -1314,13 +1300,13 @@ Granularities of timestamps to include in the response.
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-audio_api_v1_transcriptions_post_stream_responses]
+### Responses Examples [#operation-audio_api_v1_transcriptions_post_stream_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-audio_api_v1_transcriptions_post_stream_responses_200_text-event-stream"
+  id="operation-audio_api_v1_transcriptions_post_stream_responses-examples_200_text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -1330,7 +1316,7 @@ Granularities of timestamps to include in the response.
 
 <SectionContent
   slot="content"
-  id="operation-audio_api_v1_transcriptions_post_stream_responses_200_text-event-stream"
+  id="operation-audio_api_v1_transcriptions_post_stream_responses-examples_200_text-event-stream"
 >
 
 ```json

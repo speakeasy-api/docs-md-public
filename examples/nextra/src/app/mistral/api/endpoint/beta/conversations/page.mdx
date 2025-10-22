@@ -102,8 +102,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.list({});\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -162,15 +163,10 @@ cURL
   id="operation-agents_api_v1_conversations_list_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -242,13 +238,13 @@ curl https://api.mistral.ai/v1/conversations \
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_list_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_list_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_list_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_list_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -258,7 +254,7 @@ curl https://api.mistral.ai/v1/conversations \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_list_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_list_responses-examples_200_application-json"
 >
 
 ```json
@@ -276,7 +272,7 @@ curl https://api.mistral.ai/v1/conversations \
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_list_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_list_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -286,7 +282,7 @@ curl https://api.mistral.ai/v1/conversations \
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_list_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_list_responses-examples_422_application-json"
 >
 
 ```json
@@ -1941,8 +1937,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.start({\n    inputs: \"<value>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -2001,18 +1998,10 @@ cURL
   id="operation-agents_api_v1_conversations_start_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "inputs": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"inputs\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -5313,13 +5302,13 @@ _Default Value:_ `"document_library"`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_start_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_start_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_start_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_start_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -5329,7 +5318,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_start_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_start_responses-examples_200_application-json"
 >
 
 ```json
@@ -5348,7 +5337,7 @@ _Default Value:_ `"document_library"`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_start_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_start_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -5358,7 +5347,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_start_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_start_responses-examples_422_application-json"
 >
 
 ```json
@@ -7239,8 +7228,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.get({\n    conversationId: \"<id>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -7296,15 +7286,10 @@ cURL
 
 <SectionContent slot="content" id="operation-agents_api_v1_conversations_get_code-samples_curl">
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id} \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id} \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -7364,13 +7349,13 @@ ID of the conversation from which we are fetching metadata.
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_get_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_get_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_get_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_get_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -7380,7 +7365,7 @@ ID of the conversation from which we are fetching metadata.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_get_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_get_responses-examples_200_application-json"
 >
 
 ```json
@@ -7396,7 +7381,7 @@ ID of the conversation from which we are fetching metadata.
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_get_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_get_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -7406,7 +7391,7 @@ ID of the conversation from which we are fetching metadata.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_get_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_get_responses-examples_422_application-json"
 >
 
 ```json
@@ -9061,8 +9046,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.append({\n    conversationId: \"<id>\",\n    conversationAppendRequest: {\n      inputs: [],\n    },\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -9121,18 +9107,10 @@ cURL
   id="operation-agents_api_v1_conversations_append_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id} \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "inputs": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id} \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"inputs\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -11952,13 +11930,13 @@ _Default Value:_ `false`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_append_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_append_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_append_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_append_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -11968,7 +11946,7 @@ _Default Value:_ `false`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_append_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_append_responses-examples_200_application-json"
 >
 
 ```json
@@ -11987,7 +11965,7 @@ _Default Value:_ `false`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_append_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_append_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -11997,7 +11975,7 @@ _Default Value:_ `false`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_append_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_append_responses-examples_422_application-json"
 >
 
 ```json
@@ -13878,8 +13856,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.getHistory({\n    conversationId: \"<id>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -13938,15 +13917,10 @@ cURL
   id="operation-agents_api_v1_conversations_history_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id}/history \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id}/history \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -14006,13 +13980,13 @@ ID of the conversation from which we are fetching entries.
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_history_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_history_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_history_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_history_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -14022,7 +13996,7 @@ ID of the conversation from which we are fetching entries.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_history_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_history_responses-examples_200_application-json"
 >
 
 ```json
@@ -14041,7 +14015,7 @@ ID of the conversation from which we are fetching entries.
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_history_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_history_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -14051,7 +14025,7 @@ ID of the conversation from which we are fetching entries.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_history_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_history_responses-examples_422_application-json"
 >
 
 ```json
@@ -16554,8 +16528,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.getMessages({\n    conversationId: \"<id>\",\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -16614,15 +16589,10 @@ cURL
   id="operation-agents_api_v1_conversations_messages_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id}/messages \
- -X GET \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id}/messages \\\n -X GET \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE'`}
+/>
 
 </SectionContent>
 
@@ -16682,13 +16652,13 @@ ID of the conversation from which we are fetching messages.
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_messages_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_messages_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_messages_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_messages_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -16698,7 +16668,7 @@ ID of the conversation from which we are fetching messages.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_messages_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_messages_responses-examples_200_application-json"
 >
 
 ```json
@@ -16717,7 +16687,7 @@ ID of the conversation from which we are fetching messages.
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_messages_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_messages_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -16727,7 +16697,7 @@ ID of the conversation from which we are fetching messages.
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_messages_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_messages_responses-examples_422_application-json"
 >
 
 ```json
@@ -18490,8 +18460,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.restart({\n    conversationId: \"<id>\",\n    conversationRestartRequest: {\n      inputs: \"<value>\",\n      fromEntryId: \"<id>\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -18550,19 +18521,10 @@ cURL
   id="operation-agents_api_v1_conversations_restart_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id}/restart \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "from_entry_id": "ipsum eiusmod",
-  "inputs": "consequat do"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id}/restart \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"from_entry_id\": \"ipsum eiusmod\",\n  \"inputs\": \"consequat do\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -21407,13 +21369,13 @@ _Default Value:_ `false`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_restart_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_restart_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_restart_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_restart_responses-examples_200_application-json"
   tags={{"responseExample":"200:application/json"}}
 >
 
@@ -21423,7 +21385,7 @@ _Default Value:_ `false`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_restart_responses_200_application-json"
+  id="operation-agents_api_v1_conversations_restart_responses-examples_200_application-json"
 >
 
 ```json
@@ -21442,7 +21404,7 @@ _Default Value:_ `false`
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_restart_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_restart_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -21452,7 +21414,7 @@ _Default Value:_ `false`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_restart_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_restart_responses-examples_422_application-json"
 >
 
 ```json
@@ -23333,8 +23295,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.startStream({\n    inputs: [\n      {\n        object: \"entry\",\n        type: \"agent.handoff\",\n        previousAgentId: \"<id>\",\n        previousAgentName: \"<value>\",\n        nextAgentId: \"<id>\",\n        nextAgentName: \"<value>\",\n      },\n    ],\n  });\n\n  for await (const event of result) {\n    // Handle the event\n    console.log(event);\n  }\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -23402,18 +23365,10 @@ cURL
   id="operation-agents_api_v1_conversations_start_stream_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations#stream \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "inputs": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations#stream \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"inputs\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -26714,13 +26669,13 @@ _Default Value:_ `"document_library"`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_start_stream_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_start_stream_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_start_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_start_stream_responses-examples_200_text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -26730,7 +26685,7 @@ _Default Value:_ `"document_library"`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_start_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_start_stream_responses-examples_200_text-event-stream"
 >
 
 ```json
@@ -26741,7 +26696,7 @@ null
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_start_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_start_stream_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -26751,7 +26706,7 @@ null
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_start_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_start_stream_responses-examples_422_application-json"
 >
 
 ```json
@@ -29230,8 +29185,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.appendStream({\n    conversationId: \"<id>\",\n    conversationAppendStreamRequest: {\n      inputs: \"<value>\",\n    },\n  });\n\n  for await (const event of result) {\n    // Handle the event\n    console.log(event);\n  }\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -29292,18 +29248,10 @@ cURL
   id="operation-agents_api_v1_conversations_append_stream_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id}#stream \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "inputs": "ipsum eiusmod"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id}#stream \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"inputs\": \"ipsum eiusmod\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -32123,13 +32071,13 @@ _Default Value:_ `true`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_append_stream_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_append_stream_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_append_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_append_stream_responses-examples_200_text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -32139,7 +32087,7 @@ _Default Value:_ `true`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_append_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_append_stream_responses-examples_200_text-event-stream"
 >
 
 ```json
@@ -32150,7 +32098,7 @@ null
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_append_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_append_stream_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -32160,7 +32108,7 @@ null
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_append_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_append_stream_responses-examples_422_application-json"
 >
 
 ```json
@@ -34639,8 +34587,9 @@ TypeScript
 >
 
 <TryItNow
-  dependencyUrlPrefix="/mistral-try-it-now"
+  language="typescript"
   defaultValue={`import { Mistral } from \"@mistralai/mistralai\";\n\nconst mistral = new Mistral({\n  apiKey: \"MISTRAL_API_KEY\",\n});\n\nasync function run() {\n  const result = await mistral.beta.conversations.restartStream({\n    conversationId: \"<id>\",\n    conversationRestartStreamRequest: {\n      inputs: [\n        {\n          object: \"entry\",\n          type: \"message.input\",\n          role: \"assistant\",\n          content: \"<value>\",\n          prefix: false,\n        },\n      ],\n      fromEntryId: \"<id>\",\n    },\n  });\n\n  for await (const event of result) {\n    // Handle the event\n    console.log(event);\n  }\n}\n\nrun();\n`}
+  dependencyUrlPrefix="/mistral-try-it-now"
   packageName="@mistralai/mistralai"
 />
 
@@ -34709,19 +34658,10 @@ cURL
   id="operation-agents_api_v1_conversations_restart_stream_code-samples_curl"
 >
 
-<CodeSample>
-
-```curl
-curl https://api.mistral.ai/v1/conversations/{conversation_id}/restart#stream \
- -X POST \
- -H 'Authorization: Bearer YOUR_APIKEY_HERE' \
- -d '{
-  "from_entry_id": "ipsum eiusmod",
-  "inputs": "consequat do"
-}'
-```
-
-</CodeSample>
+<TryItNow
+  language="curl"
+  defaultValue={`curl https://api.mistral.ai/v1/conversations/{conversation_id}/restart#stream \\\n -X POST \\\n -H 'Authorization: Bearer YOUR_APIKEY_HERE' \\\n -d '{\n  \"from_entry_id\": \"ipsum eiusmod\",\n  \"inputs\": \"consequat do\"\n}'`}
+/>
 
 </SectionContent>
 
@@ -37566,13 +37506,13 @@ _Default Value:_ `true`
 
 <SectionTitle slot="title">
 
-### Responses Examples [#operation-agents_api_v1_conversations_restart_stream_responses]
+### Responses Examples [#operation-agents_api_v1_conversations_restart_stream_responses-examples]
 
 </SectionTitle>
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_restart_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_restart_stream_responses-examples_200_text-event-stream"
   tags={{"responseExample":"200:text/event-stream"}}
 >
 
@@ -37582,7 +37522,7 @@ _Default Value:_ `true`
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_restart_stream_responses_200_text-event-stream"
+  id="operation-agents_api_v1_conversations_restart_stream_responses-examples_200_text-event-stream"
 >
 
 ```json
@@ -37593,7 +37533,7 @@ null
 
 <ResponseExamplesTab
   slot="tab"
-  id="operation-agents_api_v1_conversations_restart_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_restart_stream_responses-examples_422_application-json"
   tags={{"responseExample":"422:application/json"}}
 >
 
@@ -37603,7 +37543,7 @@ null
 
 <SectionContent
   slot="content"
-  id="operation-agents_api_v1_conversations_restart_stream_responses_422_application-json"
+  id="operation-agents_api_v1_conversations_restart_stream_responses-examples_422_application-json"
 >
 
 ```json
