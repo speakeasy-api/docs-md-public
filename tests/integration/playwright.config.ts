@@ -11,11 +11,10 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  workers: process.env.CI ? 2 : undefined,
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -50,20 +49,24 @@ export default defineConfig({
   /* Run dev servers for both example sites before starting tests */
   webServer: [
     {
-      command: "npm run build && npm run start",
+      command: process.env.CI
+        ? "npm run start"
+        : "npm run build && npm run start",
       cwd: "../../examples/docusaurus/",
-      url: "http://localhost:3001",
       reuseExistingServer: !process.env.CI,
+      url: "http://localhost:3001",
       stdout: "pipe",
-      timeout: 5 * 60 * 1000, // 5 minutes
+      timeout: 30000 
     },
     {
-      command: "npm run build && npm run start",
+      command: process.env.CI
+        ? "npm run start"
+        : "npm run build && npm run start",
       cwd: "../../examples/nextra/",
-      url: "http://localhost:3002",
       reuseExistingServer: !process.env.CI,
+      url: "http://localhost:3002",
       stdout: "pipe",
-      timeout: 5 * 60 * 1000, // 5 minutes
+      timeout: 30000 
     },
   ],
 });
