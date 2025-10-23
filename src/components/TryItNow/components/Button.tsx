@@ -3,12 +3,9 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
-import { CheckIcon as DefaultCheckIcon } from "../../CheckIcon/CheckIcon.tsx";
-// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
-import { CopyIcon as DefaultCopyIcon } from "../../CopyIcon/CopyIcon.tsx";
-// eslint-disable-next-line fast-import/no-restricted-imports -- Confirmed we're using the component as a default only
-import { ResetIcon as DefaultResetIcon } from "../../ResetIcon/ResetIcon.tsx";
+import { CheckIcon } from "../../CheckIcon/CheckIcon.tsx";
+import { CopyIcon } from "../../CopyIcon/CopyIcon.tsx";
+import { ResetIcon } from "../../ResetIcon/ResetIcon.tsx";
 import type {
   ButtonProps,
   CopyButtonProps,
@@ -29,7 +26,7 @@ function Button({ onClick, ariaLabel, children, className }: ButtonProps) {
   );
 }
 
-export function DefaultRunButton({ onClick }: Pick<ButtonProps, "onClick">) {
+export function RunButton({ onClick }: Pick<ButtonProps, "onClick">) {
   return (
     <Button onClick={onClick} ariaLabel="Run code">
       Run
@@ -37,10 +34,7 @@ export function DefaultRunButton({ onClick }: Pick<ButtonProps, "onClick">) {
   );
 }
 
-export function DefaultResetButton({
-  onClick,
-  ResetIcon = DefaultResetIcon,
-}: ResetButtonProps) {
+export function ResetButton({ onClick }: ResetButtonProps) {
   return (
     <Button
       className={styles.iconButton}
@@ -52,11 +46,7 @@ export function DefaultResetButton({
   );
 }
 
-export function DefaultCopyButton({
-  copyValue,
-  CheckIcon = DefaultCheckIcon,
-  CopyIcon = DefaultCopyIcon,
-}: CopyButtonProps) {
+export function CopyButton({ copyValue }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   function handleClick() {
