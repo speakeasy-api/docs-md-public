@@ -1,4 +1,5 @@
-import { InternalError } from "../util/internalError.ts";
+import { InternalError } from "../../util/internalError.ts";
+import { Runtime } from "../runtime.ts";
 import { bundleCode } from "./build.ts";
 import type { TypeScriptRuntimeEvent } from "./events.ts";
 import type { WorkerMessage } from "./messages.ts";
@@ -8,24 +9,21 @@ import type { WorkerMessage } from "./messages.ts";
 let dependencyBundle: string | undefined;
 let workerCode: string | undefined;
 
-export class TypeScriptRuntime {
+export class TypeScriptRuntime extends Runtime<TypeScriptRuntimeEvent> {
   #dependencyUrlPrefix: string;
-  #listeners: Record<
-    TypeScriptRuntimeEvent["type"],
-    ((event: TypeScriptRuntimeEvent) => void)[]
-  > = {
-    "compilation:started": [],
-    "compilation:finished": [],
-    "compilation:error": [],
-    "execution:started": [],
-    "execution:log": [],
-    "execution:uncaught-exception": [],
-    "execution:uncaught-rejection": [],
-  };
   #worker?: Worker;
   #workerBlobUrl?: string;
 
   constructor({ dependencyUrlPrefix }: { dependencyUrlPrefix: string }) {
+    super({
+      "typescript:compilation:started": [],
+      "typescript:compilation:finished": [],
+      "typescript:compilation:error": [],
+      "typescript:execution:started": [],
+      "typescript:execution:log": [],
+      "typescript:execution:uncaught-exception": [],
+      "typescript:execution:uncaught-rejection": [],
+    });
     this.#dependencyUrlPrefix = dependencyUrlPrefix;
   }
 
@@ -43,7 +41,7 @@ export class TypeScriptRuntime {
           : fetch(this.#dependencyUrlPrefix + "/deps.js").then((r) => r.text()),
         workerCode
           ? Promise.resolve(workerCode)
-          : fetch(this.#dependencyUrlPrefix + "/worker.js").then((r) =>
+          : fetch(this.#dependencyUrlPrefix + "/tsworker.js").then((r) =>
               r.text()
             ),
       ]);
@@ -62,7 +60,7 @@ export class TypeScriptRuntime {
     // Bundle the results
     let bundledCode: string;
     try {
-      this.#emit({ type: "compilation:started" });
+      this.emit({ type: "typescript:compilation:started" });
 
       // Bundle the code
       const bundleResults = await bundleCode(code, dependencyBundle);
@@ -70,7 +68,7 @@ export class TypeScriptRuntime {
       // Check the results of compilation
       if (bundleResults.errors.length > 0) {
         for (const error of bundleResults.errors) {
-          this.#emit({ type: "compilation:error", error });
+          this.emit({ type: "typescript:compilation:error", error });
         }
         return;
       }
@@ -90,15 +88,15 @@ export class TypeScriptRuntime {
       );
 
       // Signal that compilation finished
-      this.#emit({ type: "compilation:finished" });
+      this.emit({ type: "typescript:compilation:finished" });
     } catch (error) {
       // Catch bundle errors, and stop running
-      this.#emit({ type: "compilation:error", error });
+      this.emit({ type: "typescript:compilation:error", error });
       return;
     }
 
     // Run the bundle
-    this.#emit({ type: "execution:started" });
+    this.emit({ type: "typescript:execution:started" });
     const blob = new Blob([workerCode], { type: "application/javascript" });
     const url = URL.createObjectURL(blob);
     this.#workerBlobUrl = url.toString();
@@ -110,23 +108,23 @@ export class TypeScriptRuntime {
     this.#worker.onmessage = (event: MessageEvent<WorkerMessage>) => {
       switch (event.data.type) {
         case "log": {
-          this.#emit({
-            type: "execution:log",
+          this.emit({
+            type: "typescript:execution:log",
             level: event.data.level,
             message: event.data.message,
           });
           break;
         }
         case "uncaught-exception": {
-          this.#emit({
-            type: "execution:uncaught-exception",
+          this.emit({
+            type: "typescript:execution:uncaught-exception",
             error: event.data.error,
           });
           break;
         }
         case "uncaught-reject": {
-          this.#emit({
-            type: "execution:uncaught-rejection",
+          this.emit({
+            type: "typescript:execution:uncaught-rejection",
             error: event.data.error,
           });
           break;
@@ -136,8 +134,8 @@ export class TypeScriptRuntime {
 
     // Handle worker errors
     this.#worker.onerror = (error) => {
-      this.#emit({
-        type: "execution:uncaught-exception",
+      this.emit({
+        type: "typescript:execution:uncaught-exception",
         error,
       });
       this.#worker?.terminate();
@@ -162,19 +160,6 @@ export class TypeScriptRuntime {
     if (this.#workerBlobUrl) {
       URL.revokeObjectURL(this.#workerBlobUrl);
       this.#workerBlobUrl = undefined;
-    }
-  }
-
-  public on(
-    event: TypeScriptRuntimeEvent["type"],
-    callback: (event: TypeScriptRuntimeEvent) => void
-  ) {
-    this.#listeners[event].push(callback);
-  }
-
-  #emit(event: TypeScriptRuntimeEvent) {
-    for (const callback of this.#listeners[event.type]) {
-      callback(event);
     }
   }
 }

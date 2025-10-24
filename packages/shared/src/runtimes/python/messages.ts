@@ -1,9 +1,18 @@
-import type { LogLevel } from "../types/logging.ts";
+import type { LogLevel } from "../../types/logging.ts";
 
 type WorkerExecuteMessage = {
   type: "execute";
-  dependencyBundle: string;
-  bundle: string;
+  dependencyUrl: string;
+  code: string;
+};
+
+type WorkerInitializationFinishedMessage = {
+  type: "initialization:finished";
+};
+
+type WorkerInitializationErrorMessage = {
+  type: "initialization:error";
+  error: unknown;
 };
 
 type WorkerLogMessage = {
@@ -24,6 +33,8 @@ type WorkerUncaughtRejectMessage = {
 
 export type WorkerMessage =
   | WorkerExecuteMessage
+  | WorkerInitializationFinishedMessage
+  | WorkerInitializationErrorMessage
   | WorkerLogMessage
   | WorkerUncaughtExceptionMessage
   | WorkerUncaughtRejectMessage;

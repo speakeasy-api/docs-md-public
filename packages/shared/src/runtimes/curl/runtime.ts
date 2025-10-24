@@ -1,17 +1,17 @@
+import { Runtime } from "../runtime.ts";
 import type { CurlRuntimeEvent } from "./events.ts";
 
-export class CurlRuntime {
-  #listeners: Record<
-    CurlRuntimeEvent["type"],
-    ((event: CurlRuntimeEvent) => void)[]
-  > = {
-    "parse:started": [],
-    "parse:finished": [],
-    "parse:error": [],
-    "fetch:started": [],
-    "fetch:finished": [],
-    "fetch:error": [],
-  };
+export class CurlRuntime extends Runtime<CurlRuntimeEvent> {
+  constructor() {
+    super({
+      "curl:parse:started": [],
+      "curl:parse:finished": [],
+      "curl:parse:error": [],
+      "curl:fetch:started": [],
+      "curl:fetch:finished": [],
+      "curl:fetch:error": [],
+    });
+  }
 
   public run(code: string) {
     void this.#run(code);
@@ -123,16 +123,16 @@ export class CurlRuntime {
           case "-H": {
             const header = tokens[i + 1];
             if (!header || header.startsWith("-")) {
-              this.#emit({
-                type: "parse:error",
+              this.emit({
+                type: "curl:parse:error",
                 error: { message: "Missing header value" },
               });
               return;
             }
             const [key, value] = header.split(":");
             if (!key || !value) {
-              this.#emit({
-                type: "parse:error",
+              this.emit({
+                type: "curl:parse:error",
                 error: { message: `Could not parse header value "${header}"` },
               });
               return;
@@ -152,8 +152,8 @@ export class CurlRuntime {
           // --form-string, --json, --oauth2-bearer, -u, --user
           // All other options aren't applicable to browser requests
           default: {
-            this.#emit({
-              type: "parse:error",
+            this.emit({
+              type: "curl:parse:error",
               error: { message: `Unsupported option "${token}"` },
             });
             return;
@@ -166,8 +166,8 @@ export class CurlRuntime {
     }
 
     if (!url) {
-      this.#emit({
-        type: "parse:error",
+      this.emit({
+        type: "curl:parse:error",
         error: { message: "No URL provided" },
       });
       return;
@@ -179,13 +179,13 @@ export class CurlRuntime {
   }
 
   async #run(code: string) {
-    this.#emit({ type: "parse:started" });
+    this.emit({ type: "curl:parse:started" });
     const tokens = this.#tokenize(code);
     const data = this.#parse(tokens);
     if (!data) {
       return;
     }
-    this.#emit({ type: "fetch:started" });
+    this.emit({ type: "curl:fetch:started" });
     try {
       const response = await fetch(data.url, {
         method: data.method,
@@ -203,8 +203,8 @@ export class CurlRuntime {
           : "";
         const bodyText = await response.text();
         const body = bodyText ? `. Body: ${bodyText}` : "";
-        this.#emit({
-          type: "fetch:error",
+        this.emit({
+          type: "curl:fetch:error",
           error: {
             message: `API error occurred: ${status}${statusText}${contentType}${body}`,
           },
@@ -213,32 +213,20 @@ export class CurlRuntime {
         if (response.headers.get("content-type") === "application/json") {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           const body = await response.json();
-          this.#emit({ type: "fetch:finished", response, body });
+          this.emit({ type: "curl:fetch:finished", response, body });
         } else {
           // TODO: handle binary responses, or maybe just don't show them?
           const body = await response.text();
-          this.#emit({ type: "fetch:finished", response, body });
+          this.emit({ type: "curl:fetch:finished", response, body });
         }
       }
     } catch (error) {
-      this.#emit({ type: "fetch:error", error });
+      this.emit({ type: "curl:fetch:error", error });
     }
   }
 
   public cancel() {
+    // TODO
     console.log("Canceling");
-  }
-
-  public on(
-    event: CurlRuntimeEvent["type"],
-    callback: (event: CurlRuntimeEvent) => void
-  ) {
-    this.#listeners[event].push(callback);
-  }
-
-  #emit(event: CurlRuntimeEvent) {
-    for (const callback of this.#listeners[event.type]) {
-      callback(event);
-    }
   }
 }

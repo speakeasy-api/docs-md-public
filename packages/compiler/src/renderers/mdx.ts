@@ -600,22 +600,41 @@ class MdxRenderer extends MarkdownRenderer {
               );
               this.createSectionContent(
                 () => {
+                  let props: TryItNowProps;
+                  switch (options.language) {
+                    case "typescript":
+                      props = {
+                        language: "typescript",
+                        defaultValue: options.defaultValue,
+                        dependencyUrlPrefix: options.dependencyUrlPrefix,
+                        packageName: getInternalSetting(
+                          "typeScriptPackageName"
+                        ),
+                      };
+                      break;
+                    case "curl": {
+                      props = {
+                        language: "curl",
+                        defaultValue: options.defaultValue,
+                      };
+                      break;
+                    }
+                    case "python": {
+                      props = {
+                        language: "python",
+                        defaultValue: options.defaultValue,
+                        dependencyUrlPrefix: options.dependencyUrlPrefix,
+                        dependencyUrl:
+                          options.dependencyUrlPrefix +
+                          "/" +
+                          getInternalSetting("pythonWheelName"),
+                      };
+                      break;
+                    }
+                  }
                   this.#appendComponent<TryItNowProps>({
                     symbol: "TryItNow",
-                    props:
-                      options.language === "typescript"
-                        ? {
-                            language: "typescript",
-                            defaultValue: options.defaultValue,
-                            dependencyUrlPrefix: options.dependencyUrlPrefix,
-                            packageName: getInternalSetting(
-                              "typeScriptPackageName"
-                            ),
-                          }
-                        : {
-                            language: "curl",
-                            defaultValue: options.defaultValue,
-                          },
+                    props,
                   });
                 },
                 {

@@ -27,28 +27,25 @@ import {
 import { InternalError } from "../util/internalError.ts";
 import type { SdkFolder } from "./types.ts";
 
-export async function generateTryItNowBundle(
+export async function generateTypeScriptTryItNow(
   sdkFolders: Map<string, SdkFolder>
 ): Promise<void> {
   const settings = getSettings();
   const codeSample = settings.codeSamples?.find(
     (codeSample) => codeSample.language === "typescript" && codeSample.tryItNow
   );
-
-  // Note: check if codeSample exists and has the correct language
   if (codeSample?.language !== "typescript") {
-    debug(
-      "No Try It Now enabled TypeScript code sample config found, skipping Try It Now bundle generation"
-    );
     return;
   }
+
+  // These should always be defined due to our Zod checks, and are here just to
+  // make TypeScript happy
   const sdkFolder = sdkFolders.get(codeSample.language);
   if (!sdkFolder) {
     throw new InternalError(`No SDK folder found for ${codeSample.language}`);
   }
-
   if (!codeSample.tryItNow?.outDir) {
-    throw new InternalError("tryItNow.outDiris unexpectedly undefined");
+    throw new InternalError("tryItNow.outDir is unexpectedly undefined");
   }
 
   // Read in the package.json file
@@ -74,8 +71,13 @@ export async function generateTryItNowBundle(
     encoding: "utf-8",
   });
 
-  const workerCode = bundleTryItNowWorker();
-  writeFileSync(join(codeSample.tryItNow.outDir, "worker.js"), workerCode, {
+  // "Bundle" the worker by moving it to a spot where the browser can fetch it
+  const workerUrl = import.meta.resolve(
+    "@speakeasy-api/docs-md-shared/tsworker"
+  );
+  const workerPath = fileURLToPath(workerUrl);
+  const workerCode = readFileSync(workerPath, "utf-8");
+  writeFileSync(join(codeSample.tryItNow.outDir, "tsworker.js"), workerCode, {
     encoding: "utf-8",
   });
 
@@ -226,11 +228,4 @@ async function bundleTryItNowDeps(sdkFolder: SdkFolder): Promise<string> {
       force: true,
     });
   }
-}
-
-function bundleTryItNowWorker(): string {
-  const workerUrl = import.meta.resolve("@speakeasy-api/docs-md-shared/worker");
-  const workerPath = fileURLToPath(workerUrl);
-  const workerCode = readFileSync(workerPath, "utf-8");
-  return workerCode;
 }
