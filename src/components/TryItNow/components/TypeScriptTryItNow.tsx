@@ -57,7 +57,7 @@ export function TypeScriptTryItNow({
     dependencyUrlPrefix,
     defaultValue,
   });
-  const showResults = status.state !== "idle";
+  const showResults = status.state !== "typescript:idle";
 
   useEffect(() => {
     void fetchTypes(dependencyUrlPrefix);
@@ -71,10 +71,6 @@ export function TypeScriptTryItNow({
       );
     }
   }, [error]);
-
-  function handleReset() {
-    reset(setValue);
-  }
 
   return (
     <>
@@ -90,17 +86,13 @@ export function TypeScriptTryItNow({
           />
         </div>
         <div slot="runButton" className={styles.runButtonContainer}>
-          <RunButton
-            onClick={() => {
-              execute(value);
-            }}
-          />
+          <RunButton onClick={() => execute(value)} />
         </div>
         <div slot="copyButton">
           <CopyButton copyValue={value} />
         </div>
         <div slot="resetButton">
-          <ResetButton onClick={handleReset} />
+          <ResetButton onClick={() => reset(setValue)} />
         </div>
         {showResults && (
           <div slot="results" className={styles.results}>

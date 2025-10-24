@@ -1,5 +1,6 @@
 import type {
   CurlRuntimeEvent,
+  PythonRuntimeEvent,
   TypeScriptRuntimeEvent,
 } from "@speakeasy-api/docs-md-shared";
 import type { PropsWithChildren } from "react";
@@ -12,64 +13,77 @@ export type ExtendedCurlRuntimeEvent = CurlRuntimeEvent & {
   id: string;
 };
 
+export type ExtendedPythonRuntimeEvent = PythonRuntimeEvent & {
+  id: string;
+};
+
 export type ExtendedRuntimeEvent =
   | ExtendedTypeScriptRuntimeEvent
-  | ExtendedCurlRuntimeEvent;
+  | ExtendedCurlRuntimeEvent
+  | ExtendedPythonRuntimeEvent;
 
 export type TypeScriptStatus =
   | {
-      state: "idle";
-      language: "typescript";
+      state: "typescript:idle";
     }
   | {
-      state: "compiling";
-      language: "typescript";
+      state: "typescript:compiling";
       previousEvents: ExtendedTypeScriptRuntimeEvent[];
     }
   | {
-      state: "compile-error";
-      language: "typescript";
+      state: "typescript:compile-error";
       previousEvents: ExtendedTypeScriptRuntimeEvent[];
       events: ExtendedTypeScriptRuntimeEvent[];
     }
   | {
-      state: "executing";
-      language: "typescript";
+      state: "typescript:executing";
       events: ExtendedTypeScriptRuntimeEvent[];
+    };
+
+export type PythonStatus =
+  | {
+      state: "python:idle";
+    }
+  | {
+      state: "python:initializing";
+      previousEvents: ExtendedPythonRuntimeEvent[];
+    }
+  | {
+      state: "python:initialization-error";
+      previousEvents: ExtendedPythonRuntimeEvent[];
+      events: ExtendedPythonRuntimeEvent[];
+    }
+  | {
+      state: "python:executing";
+      events: ExtendedPythonRuntimeEvent[];
     };
 
 export type CurlStatus =
   | {
-      state: "idle";
-      language: "curl";
+      state: "curl:idle";
     }
   | {
-      state: "parsing";
-      language: "curl";
+      state: "curl:parsing";
       events: ExtendedCurlRuntimeEvent[];
     }
   | {
-      state: "parse-error";
-      language: "curl";
+      state: "curl:parse-error";
       events: ExtendedCurlRuntimeEvent[];
     }
   | {
-      state: "fetching";
-      language: "curl";
+      state: "curl:fetching";
       events: ExtendedCurlRuntimeEvent[];
     }
   | {
-      state: "finished";
-      language: "curl";
+      state: "curl:finished";
       events: ExtendedCurlRuntimeEvent[];
     }
   | {
-      state: "error";
-      language: "curl";
+      state: "curl:error";
       events: ExtendedCurlRuntimeEvent[];
     };
 
-type Status = TypeScriptStatus | CurlStatus;
+type Status = TypeScriptStatus | PythonStatus | CurlStatus;
 
 type BaseTryItNowProps = {
   /**
@@ -98,6 +112,24 @@ export type TypeScriptTryItNowProps = BaseTryItNowProps & {
   packageName: string;
 };
 
+export type PythonTryItNowProps = BaseTryItNowProps & {
+  /**
+   * The language of the code sample.
+   */
+  language: "python";
+  /**
+   * URL prefix to the prebuilt dependency bundle and types, as specified by
+   * `codeSample.tryItNow.urlPrefix` in the Speakeasy docs config
+   */
+  dependencyUrlPrefix: string;
+  /**
+   * URL to the prebuilt Wheel bundle, as specified by
+   * `codeSample.tryItNow.urlPrefix` in the Speakeasy docs config combined with
+   * the name of the wheel file, e.g. /try-it-now/sdk-1.1.0-py3-none-any.whl
+   */
+  dependencyUrl: string;
+};
+
 export type CurlTryItNowProps = BaseTryItNowProps & {
   /**
    * The language of the code sample.
@@ -105,13 +137,16 @@ export type CurlTryItNowProps = BaseTryItNowProps & {
   language: "curl";
 };
 
-export type TryItNowProps = TypeScriptTryItNowProps | CurlTryItNowProps;
+export type TryItNowProps =
+  | TypeScriptTryItNowProps
+  | PythonTryItNowProps
+  | CurlTryItNowProps;
 
 export type EditorProps = {
   /**
    * The language of the code sample.
    */
-  language: "typescript" | "curl";
+  language: "typescript" | "curl" | "python";
   /**
    * The current code value in the editor
    */

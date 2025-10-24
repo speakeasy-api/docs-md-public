@@ -2,23 +2,27 @@
 
 import { useState } from "react";
 
-import { useCurlRuntime } from "../runtime/curl.ts";
-import type { CurlTryItNowProps } from "../types.ts";
+import { usePythonRuntime } from "../runtime/python.ts";
+import type { PythonTryItNowProps } from "../types.ts";
 import { CopyButton, ResetButton, RunButton } from "./Button.tsx";
 import { Editor } from "./Editor.tsx";
 import { Layout } from "./Layout.tsx";
 import { Results } from "./Results.tsx";
 import styles from "./styles.module.css";
 
-export function CurlTryItNow({
+export function PythonTryItNow({
   defaultValue,
   theme = "dark",
-}: CurlTryItNowProps) {
+  dependencyUrl,
+  dependencyUrlPrefix,
+}: PythonTryItNowProps) {
   const [value, setValue] = useState(defaultValue);
-  const { status, execute, reset } = useCurlRuntime({
+  const { status, execute, reset } = usePythonRuntime({
+    dependencyUrl,
+    dependencyUrlPrefix,
     defaultValue,
   });
-  const showResults = status.state !== "curl:idle";
+  const showResults = status.state !== "python:idle";
 
   return (
     <>
@@ -30,7 +34,7 @@ export function CurlTryItNow({
             onValueChange={setValue}
             packageName={null}
             types={null}
-            language="curl"
+            language="python"
           />
         </div>
         <div slot="runButton" className={styles.runButtonContainer}>
